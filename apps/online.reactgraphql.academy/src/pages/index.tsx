@@ -20,7 +20,7 @@ interface PageProps {
 interface CourseCardProps {
   course: any;
   isAvailable?: boolean;
-  fixedImage: string
+  fixedImage: string;
 }
 function CourseCard({
   course: {
@@ -29,19 +29,18 @@ function CourseCard({
     overview = 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
   },
   isAvailable = true,
-  fixedImage
+  fixedImage,
 }: CourseCardProps) {
   return (
     <Card sx={{ mb: 5 }}>
       <Link to={`/${slug}-course`} className="articles-summary">
-        <Image
-          fixed={fixedImage}
-          sx={{ mb: 0 }}
-        />
+        <Image fixed={fixedImage} sx={{ mb: 0, maxHeight: '200px' }} />
       </Link>
       <Box sx={{ p: 3, mt: 1 }}>
         <Link to={`/${slug}-course`} as={GatsbyLink} className="course-list">
-          <H3 sx={{ mt: 0 }}>{`${!isAvailable ? 'Comming soon: ' : ''} ${title}`}</H3>
+          <H3 sx={{ mt: 0 }}>{`${
+            !isAvailable ? 'Coming soon: ' : ''
+          } ${title}`}</H3>
         </Link>
         <P>{overview}</P>
         <P>
@@ -56,14 +55,14 @@ function CourseCard({
 
 export const getCourseThumbnails = (images) => {
   return images.nodes.reduce((map, image) => {
-    map.set(image.name.split('_')[1], { fixed: image.childImageSharp.fixed })
+    map.set(image.name.split('_')[1], { fixed: image.childImageSharp.fixed });
 
-    return map
-  }, new Map())
-}
+    return map;
+  }, new Map());
+};
 
 function Page({ data }: PageProps) {
-  const thumbnails = getCourseThumbnails(data.courseThumbnailImages)
+  const thumbnails = getCourseThumbnails(data.courseThumbnailImages);
 
   return (
     <Layout>
@@ -85,14 +84,18 @@ function Page({ data }: PageProps) {
               data.upmentoring.trainings.edges &&
               data.upmentoring.trainings.edges.map(({ node }: any) => {
                 return (
-                  <CourseCard fixedImage={thumbnails.get(node.slug).fixed} course={node} />
-                )
+                  <CourseCard
+                    fixedImage={thumbnails.get(node.slug).fixed}
+                    course={node}
+                  />
+                );
               })}
             <CourseCard
               isAvailable={false}
               fixedImage={thumbnails.get('graphql-foundation').fixed}
               course={{
-                title: 'Avanced React Patterns',
+                slug: 'graphql-foundation',
+                title: 'GraphQL Foundation',
                 overview:
                   'Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
               }}
@@ -101,7 +104,8 @@ function Page({ data }: PageProps) {
               fixedImage={thumbnails.get('advanced-react').fixed}
               isAvailable={false}
               course={{
-                title: 'Designs Systems in React',
+                title: 'Avanced React',
+                slug: 'advanced-react',
                 overview:
                   'Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
               }}
@@ -115,7 +119,12 @@ function Page({ data }: PageProps) {
 
 export const query = graphql`
   {
-    courseThumbnailImages: allFile(filter: {absolutePath: {regex: "/courses/thumbnail/"}, extension: {regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/"}}) {
+    courseThumbnailImages: allFile(
+      filter: {
+        absolutePath: { regex: "/courses/thumbnail/" }
+        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
+      }
+    ) {
       nodes {
         publicURL
         name

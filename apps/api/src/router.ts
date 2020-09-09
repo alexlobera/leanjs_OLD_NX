@@ -208,6 +208,33 @@ async function rsvpEvent(request, response) {
   response.status(200).send('it worked');
 }
 
+async function courseSubscribe(request, response) {
+  const data = request && request.body;
+  const { courseName, email, utm_source, autopilotListId, slackChannel } = data;
+
+  await postToAutopilot(`/contact`, {
+    contact: {
+      Email: email,
+      LeadSource: utm_source,
+      _autopilot_list: `contactlist_${autopilotListId}`,
+      custom: {
+        'string--Course-Name': courseName,
+      },
+    },
+  });
+
+  console.log('aaa');
+
+  await postMessageToSlack({
+    message: { courseName, email, utm_source },
+    title:
+      ':grapes: :baby: :grapes: :baby: :grapes: :baby: :grapes: :baby: :grapes: :baby: ',
+    channel: slackChannel,
+  });
+
+  response.status(200).send('it worked');
+}
+
 router.post('/contactLeanJS', contactLeanJS);
 router.post('/sendFeedback', sendFeedback);
 router.post('/requestQuote', requestQuote);
@@ -215,6 +242,7 @@ router.post('/unsubscribe', requireBodyEmail, unsubscribe);
 router.post('/sessionSubscribe', requireBodyEmail, sessionSubscribe);
 router.post('/subscribe', requireBodyEmail, subscribe);
 router.post('/rsvpEvent', requireBodyEmail, rsvpEvent);
+router.post('/courseSubscribe', requireBodyEmail, courseSubscribe);
 
 router.get('/status', status);
 

@@ -26,9 +26,8 @@ const HeaderSection = styled('header')<SectionProps>`
     const bgc =
       bgColors && bgColors.length ? bgColors : bgColor ? [bgColor] : [];
 
-    return (
-      bgc.length &&
-      `
+    return bgc.length
+      ? `
     &:before {
       content: '';
       position: absolute;
@@ -49,7 +48,7 @@ const HeaderSection = styled('header')<SectionProps>`
       
     }
     `
-    );
+      : '';
   }}
   
   ${({ bgImage, bgImageOpacity = '0.5' }: any) => `
@@ -102,6 +101,7 @@ interface HeaderProps {
   }[];
   height?: string;
   info?: JSX.Element;
+  callToAction?: JSX.Element;
 }
 
 const Header: FunctionComponent<HeaderProps> = ({
@@ -113,6 +113,7 @@ const Header: FunctionComponent<HeaderProps> = ({
   height,
   links,
   info,
+  callToAction = null,
 }) => {
   return (
     <HeaderSection
@@ -188,6 +189,18 @@ const Header: FunctionComponent<HeaderProps> = ({
                     </Li>
                   ))}
                 </Ul>
+              </Box>
+            )}
+            {callToAction && (
+              <Box
+                sx={{
+                  bg: 'rgba(0, 41, 56, 0.75)',
+                  mt: 5,
+                  p: 3,
+                  display: 'inline-block',
+                }}
+              >
+                {callToAction}
               </Box>
             )}
           </Box>

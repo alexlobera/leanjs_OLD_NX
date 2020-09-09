@@ -161,7 +161,6 @@ export function useMagic() {
     loading,
     login,
     logout,
-    // clearSignupsRequired,
-    // signupsRequired,
+    getMetadata: () => magic.user.getMetadata(),
   };
 }

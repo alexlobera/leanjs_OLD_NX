@@ -14,21 +14,10 @@ import Link from '../components/navigation/Link';
 import { useMagic } from '../components/auth/MagicProvider';
 import RGALogoDarkBg from '../components/logos/RGALogoDarkBg';
 import CheckboxField from '../components/form/CheckboxField';
-
-// const TEN_MINUTES = 600000;
+import { triggerSubscribe } from '../api';
 
 function LoginPage({ navigate }) {
   const { login, loggedIn } = useMagic();
-
-  //   React.useEffect(() => {
-  //     const intervalId = setInterval(clearSignupsRequired, TEN_MINUTES);
-
-  //     return () => {
-  //       clearInterval(intervalId);
-  //       clearSignupsRequired();
-  //     };
-  //   }, []);
-
   if (loggedIn) {
     navigate('/react-foundation-course/');
 
@@ -52,12 +41,12 @@ function LoginPage({ navigate }) {
         <Card sx={{ maxWidth: '500px', mt: 7 }}>
           <H1 sx={{ textAlign: 'center' }}>Login</H1>
           <Form
-            onSubmit={login}
-            // validate={({ email }: any) => {
-            //   if (signupsRequired[email]) {
-            //     return { email: "You haven't bought a course" };
-            //   }
-            // }}
+            onSubmit={async ({ email, signUpNewsletter }: any) => {
+              const token = await login({ email });
+              if (token && signUpNewsletter) {
+                triggerSubscribe({ email });
+              }
+            }}
           >
             {({ formSubmitted, submitting }) =>
               formSubmitted ? null : (
@@ -70,7 +59,7 @@ function LoginPage({ navigate }) {
                     placeholder="eg. steve@wozniak.com"
                   />
                   <CheckboxField
-                    name="sign-up-newsletter"
+                    name="signUpNewsletter"
                     label="Sign up to our newsletter (unsubscribe anytime)"
                     validate={required}
                   />

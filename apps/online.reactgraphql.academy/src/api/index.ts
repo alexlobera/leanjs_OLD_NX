@@ -1,5 +1,9 @@
-// const umApiBaseUrl = 'https://api2.upmentoring.com';
-const umApiBaseUrl = 'http://localhost:3334';
+import { getCookie } from '../utils';
+
+// const umApiBaseUrl = 'https://api2.upmentoring.com/';
+const umApiBaseUrl = 'http://localhost:3334/';
+const apiBaseUrl = 'https://api.leanjs.com/';
+// const apiBaseUrl = 'http://localhost:3335/';
 
 const defaultOptions = {
   method: 'POST',
@@ -8,33 +12,40 @@ const defaultOptions = {
   },
 };
 
-interface RequireSignupResponse {
-  signup: boolean;
-}
-
-// export const requireSignup = (email) =>
-//   fetch(`${umApiBaseUrl}/auth/require-signup`, {
-//     ...defaultOptions,
-//     body: JSON.stringify({
-//       email,
-//     }),
-//   }).then((response) => {
-//     if (!response.ok) {
-//       throw new Error(response.statusText);
-//     }
-//     return response.json() as Promise<RequireSignupResponse>;
-//   });
-
 export const login = (token) =>
-  fetch(`${umApiBaseUrl}/auth`, {
+  fetch(`${umApiBaseUrl}auth`, {
     credentials: 'include',
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-//   .then((response) => {
-//     if (!response.ok) {
-//       throw new Error(response.statusText);
-//     }
-//     return response.json() as Promise<RequireSignupResponse>;
-//   });
+
+export const courseSubscribe = (message) =>
+  fetch(`${apiBaseUrl}courseSubscribe`, {
+    ...defaultOptions,
+    body: JSON.stringify({
+      ...message,
+      utm_source: getCookie('utm_source'),
+      slackChannel: 'C016TLFL695',
+    }),
+  });
+
+export const triggerSubscribe = ({
+  email,
+  form = 'login',
+  resources = true,
+}) => {
+  const utm_source = getCookie('utm_source');
+  const path = typeof window !== 'undefined' ? window.location.pathname : '';
+  const payload = {
+    email,
+    form,
+    resources,
+    path,
+    utm_source,
+  };
+  return fetch(`${apiBaseUrl}subscribe`, {
+    ...defaultOptions,
+    body: JSON.stringify(payload),
+  });
+};

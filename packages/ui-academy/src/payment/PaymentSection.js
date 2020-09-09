@@ -59,7 +59,6 @@ class PaymentSection extends React.Component {
     const {
       statelessClient,
       item: { id: itemId, shoppingItemEnum },
-      //trackUserBehaviour,
     } = this.props;
     const { isVoucherValidationInProgress, quantity } = this.state;
 
@@ -68,11 +67,6 @@ class PaymentSection extends React.Component {
     }
 
     this.setVoucherInProgress(true);
-    // trackUserBehaviour({
-    //   event: VOUCHER_VALIDATE,
-    //   payload: { voucher },
-    // });
-
     return statelessClient
       .query({
         query: VALIDATE_VOUCHER_QUERY,
@@ -290,7 +284,6 @@ class PaymentSection extends React.Component {
 }
 
 PaymentSection.defaultProps = {
-  // trackUserBehaviour,
   navigate,
 };
 
@@ -316,27 +309,5 @@ query eventDiscountPrice($eventId: ID!) {
     }
 }
 `;
-
-// const memoizedTrainingOptions = memoize((item) => ({
-//   variables: { trainingInstanceId: item.id },
-// }));
-
-// const withUpcomingTrainingVouchers = graphql(QUERY_UPCOMING_TRAINING_VOUCHERS, {
-//   options: ({ item }) => memoizedTrainingOptions(item),
-//   skip: ({ item }) => !item || item.shoppingItemEnum !== 'training',
-// });
-
-// const memoizedEventOptions = memoize((item) => ({
-//   variables: { eventId: item.id },
-// }));
-
-// const withUpcomingEventVouchers = graphql(QUERY_UPCOMING_EVENT_VOUCHERS, {
-//   options: ({ item }) => memoizedEventOptions(item),
-//   skip: ({ item }) => !item || item.shoppingItemEnum !== 'event',
-// });
-
-// export default withUpcomingTrainingVouchers(
-//   withUpcomingEventVouchers(withStatelessClient(PaymentSection))
-// );
 
 export default PaymentSection;
