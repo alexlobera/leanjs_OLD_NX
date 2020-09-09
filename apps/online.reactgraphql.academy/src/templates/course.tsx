@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { createMetas } from '@leanjs/ui-page';
+import { useMagic } from '@leanjs/magic-link';
 import {
   PaymentSection,
   formatTraining,
@@ -11,7 +12,6 @@ import {
 import { PlayMedia } from '@leanjs/ui-icons';
 
 import Tick from '../components/icons/Tick';
-import { useMagic } from '../components/auth/MagicProvider';
 import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
 import Sheet from '../components/layout/Sheet';

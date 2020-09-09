@@ -120,7 +120,7 @@
     "@nrwl/cypress": "~10.1.0",
     "@nrwl/eslint-plugin-nx": "~10.1.0",
     "@nrwl/express": "~10.1.0",
-    "@nrwl/gatsby": "~0.951.0",
+    "@nrwl/gatsby": "~0.10.0",
     "@nrwl/jest": "~10.1.0",
     "@nrwl/node": "~10.1.0",
     "@nrwl/nx-plugin": "~10.1.0",

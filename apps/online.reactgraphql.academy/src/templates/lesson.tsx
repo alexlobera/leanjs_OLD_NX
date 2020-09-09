@@ -3,10 +3,10 @@ import { graphql } from 'gatsby';
 import StickyBox from 'react-sticky-box';
 import { PlayMedia } from '@leanjs/ui-icons';
 import { ThemeProvider } from '@leanjs/ui-core';
+import { useMagic } from '@leanjs/magic-link';
 // import { OkaidiaRGA } from '@leanjs/ui-academy';
 
 import Markdown from '../components/display/Markdown';
-import { useMagic } from '../components/auth/MagicProvider';
 import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container, Ul, Li } from '../components/layout';

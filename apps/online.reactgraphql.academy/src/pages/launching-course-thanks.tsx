@@ -5,7 +5,6 @@ import { createMetas } from '@leanjs/ui-page';
 
 import Layout from '../components/layout/Layout';
 import Header from '../components/layout/Header';
-import LaunchingCourseForm from '../components/form/LaunchingCourseForm';
 
 const metas = {
   title: 'Online Courses Coming Soon | React GraphQL Academy',

@@ -1,8 +1,8 @@
 import React from 'react';
 import Cookies from 'js-cookie';
+import { useMagic } from '@leanjs/magic-link';
 
 import Link from '../navigation/Link';
-import { useMagic } from './MagicProvider';
 import { useGraphQLCache } from '../../api/graphql/Provider';
 import { Spinner } from '../display';
 

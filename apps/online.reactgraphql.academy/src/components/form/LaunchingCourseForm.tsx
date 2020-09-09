@@ -1,5 +1,6 @@
 import React from 'react';
 import { navigate } from 'gatsby';
+import { useMagic } from '@leanjs/magic-link';
 import { Spinner } from '../display';
 import {
   Form,
@@ -10,7 +11,6 @@ import {
   mustBeEmail,
   required,
 } from '.';
-import { useMagic } from '../auth/MagicProvider';
 import { courseSubscribe } from '../../api';
 
 interface Props {
@@ -19,12 +19,12 @@ interface Props {
 }
 
 function LaunchingCourseForm(props: Props) {
-  const { getMetadata } = useMagic();
+  const { magic } = useMagic();
   const { courseName, autopilotListId } = props;
   const [email, setEmail] = React.useState('');
 
   React.useEffect(() => {
-    getMetadata().then((metaData) => {
+    magic.user.getMetadata().then((metaData) => {
       metaData?.email && setEmail(metaData.email);
     });
   }, []);

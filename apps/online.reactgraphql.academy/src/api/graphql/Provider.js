@@ -1,5 +1,5 @@
 import React, { useReducer, useContext, useEffect } from 'react';
-import { useMagic } from '../../components/auth/MagicProvider';
+import { useMagic } from '@leanjs/magic-link';
 import memoize from './memoize';
 const RECEIVE_DATA = 'RECEIVE_DATA';
 const SET_ERROR = 'SET_ERROR';

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useMagic } from '@leanjs/magic-link';
 import { Flex, Card } from '../components/layout';
 import { H1, P, Spinner } from '../components/display';
 import {
@@ -11,7 +12,6 @@ import {
   required,
 } from '../components/form';
 import Link from '../components/navigation/Link';
-import { useMagic } from '../components/auth/MagicProvider';
 import RGALogoDarkBg from '../components/logos/RGALogoDarkBg';
 import CheckboxField from '../components/form/CheckboxField';
 import { triggerSubscribe } from '../api';
