@@ -51,7 +51,7 @@ const Footer = () => (
           <Box sx={{ gridColumn: ['1/ -1', '1/ -1', '2/ -2'] }}>
             <Grid columns={10}>
               <Box sx={{ gridColumn: ['1/ -1', '1 / 6'] }}>
-                <H3>Free learning resources</H3>
+                <H3 sx={{ mt: 0 }}>Free learning resources</H3>
                 <Form
                   onSubmit={() => {
                     // TODO
@@ -100,7 +100,7 @@ const Footer = () => (
                 </P>
               </Box>
               <Box sx={{ gridColumn: ['1/ -1', '7 / -1'] }}>
-                <H3>Contact us</H3>
+                <H3 sx={{ mt: 0 }}>Contact us</H3>
                 <P>
                   {' '}
                   The best way to contact us is by emailing us at{' '}

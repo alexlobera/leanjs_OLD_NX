@@ -1,15 +1,10 @@
 import React from 'react';
 import { navigate } from 'gatsby';
 import { H2, H3, P, Card } from '@leanjs/ui-core';
+import { withMagic } from '@leanjs/magic-link';
 
-// import { graphql, withStatelessClient } from '../../api/graphql/client';
-// import memoize from '../../api/graphql/memoize';
-// import { H2, H3, P } from '../text';
 import Ribbon from '.';
-
 import Checkout from './checkout/';
-// import formatPrice from '../utils/currency';
-// import { getVoucherByPathname } from '../utils/store';
 import Countdown from './Countdown';
 import { DEFAULT_VAT_RATE, formatPrice } from './utils';
 
@@ -53,13 +48,16 @@ class PaymentSection extends React.Component {
       this.setState({ voucher });
       this.validateVoucher(voucher);
     }
+
+    this.props.magic.user.getMetadata().then((metaData) => {
+      metaData?.email && this.setState({ sessionEmail: metaData.email });
+    });
   }
 
   validateVoucher = (voucher) => {
     const {
       statelessClient,
       item: { id: itemId, shoppingItemEnum },
-      //trackUserBehaviour,
     } = this.props;
     const { isVoucherValidationInProgress, quantity } = this.state;
 
@@ -68,11 +66,6 @@ class PaymentSection extends React.Component {
     }
 
     this.setVoucherInProgress(true);
-    // trackUserBehaviour({
-    //   event: VOUCHER_VALIDATE,
-    //   payload: { voucher },
-    // });
-
     return statelessClient
       .query({
         query: VALIDATE_VOUCHER_QUERY,
@@ -203,6 +196,7 @@ class PaymentSection extends React.Component {
       voucher,
       isVoucherValid,
       isVoucherValidationInProgress,
+      sessionEmail,
     } = this.state;
     const priceQuantity = price * quantity;
     const currentPriceQuantity = discountCodePrice
@@ -212,17 +206,16 @@ class PaymentSection extends React.Component {
       : priceQuantity;
 
     const showSubscribeToNewsletter = trainingType === MEETUP;
-    // const isNominalFee = trainingType === MEETUP
     const isDonationTicket = trainingType === MEETUP;
 
     return (
       <React.Fragment>
-        <H2 sx={{ color: 'inverseText' }}>
+        <H2 sx={{ color: 'inverseText', mt: 0 }}>
           Price
           <a to="#pricing" id="pricing" />
         </H2>
         <Card>
-          <H3>
+          <H3 sx={{ mt: 2 }}>
             <strong>{notSoldOut ? title : 'Sold out!'}</strong>
           </H3>
           {notSoldOut && (
@@ -272,6 +265,7 @@ class PaymentSection extends React.Component {
                   isVoucherValidationInProgress={isVoucherValidationInProgress}
                   paymentApi={paymentApi}
                   showSubscribeToNewsletter={showSubscribeToNewsletter}
+                  sessionEmail={sessionEmail}
                 />
               )}
             </React.Fragment>
@@ -290,7 +284,6 @@ class PaymentSection extends React.Component {
 }
 
 PaymentSection.defaultProps = {
-  // trackUserBehaviour,
   navigate,
 };
 
@@ -317,26 +310,4 @@ query eventDiscountPrice($eventId: ID!) {
 }
 `;
 
-// const memoizedTrainingOptions = memoize((item) => ({
-//   variables: { trainingInstanceId: item.id },
-// }));
-
-// const withUpcomingTrainingVouchers = graphql(QUERY_UPCOMING_TRAINING_VOUCHERS, {
-//   options: ({ item }) => memoizedTrainingOptions(item),
-//   skip: ({ item }) => !item || item.shoppingItemEnum !== 'training',
-// });
-
-// const memoizedEventOptions = memoize((item) => ({
-//   variables: { eventId: item.id },
-// }));
-
-// const withUpcomingEventVouchers = graphql(QUERY_UPCOMING_EVENT_VOUCHERS, {
-//   options: ({ item }) => memoizedEventOptions(item),
-//   skip: ({ item }) => !item || item.shoppingItemEnum !== 'event',
-// });
-
-// export default withUpcomingTrainingVouchers(
-//   withUpcomingEventVouchers(withStatelessClient(PaymentSection))
-// );
-
-export default PaymentSection;
+export default withMagic(PaymentSection);

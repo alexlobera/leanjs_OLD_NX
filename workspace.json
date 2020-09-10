@@ -288,7 +288,8 @@
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json"
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/_REMOVE_WORKAROUND_ON_NX_10.1.1"]
           },
           "configurations": {
             "production": {
@@ -445,6 +446,17 @@
       "projectType": "application",
       "schematics": {},
       "architect": {
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "dist/online.reactgraphql.academy",
+            "parallel": false,
+            "commands": [
+              "cp ../../apps/online.reactgraphql.academy/firebase.json .",
+              "npx firebase deploy --project=online.reactgraphql.academy --only hosting --token=$FIREBASE_CI_TOKEN"
+            ]
+          }
+        },
         "serve": {
           "builder": "@nrwl/gatsby:server",
           "options": {
@@ -672,6 +684,33 @@
           "options": {
             "jestConfig": "packages/ui-academy/jest.config.js",
             "tsConfig": "packages/ui-academy/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "magic-link": {
+      "root": "packages/magic-link",
+      "sourceRoot": "packages/magic-link/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "packages/magic-link/tsconfig.lib.json",
+              "packages/magic-link/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!packages/magic-link/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/magic-link/jest.config.js",
+            "tsConfig": "packages/magic-link/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }

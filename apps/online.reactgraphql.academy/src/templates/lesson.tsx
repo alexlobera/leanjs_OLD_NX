@@ -1,102 +1,76 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 import StickyBox from 'react-sticky-box';
-import { GitHubIcon, PlayMedia } from '@leanjs/ui-icons';
-import BlockContent from '@sanity/block-content-to-react';
-import { OkaidiaRGA } from '@leanjs/ui-academy';
-import {
-  removeCarriageReturn,
-  getImagePublicURLs,
-  getVideoInfo,
-} from '@leanjs/ui-academy';
+import { PlayMedia } from '@leanjs/ui-icons';
+import { ThemeProvider } from '@leanjs/ui-core';
+import { useMagic } from '@leanjs/magic-link';
+// import { OkaidiaRGA } from '@leanjs/ui-academy';
 
+import Markdown from '../components/display/Markdown';
 import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container, Ul, Li } from '../components/layout';
-import Link from '../components/navigation/Link';
+import Link, { LinkButton } from '../components/navigation/Link';
 import { H1, H2, H3, H4, H5, H6, P, Span, Image } from '../components/display';
-import Code from '../components/display/Code';
+// import Code from '../components/display/Code';
+import { useQuery } from '../api/graphql/Provider';
+import { textBackgroundProps } from '../components/layout/Header';
+import { Spinner } from '../components/display';
 
 interface LessonPageProps {
   data: any;
   pageContext: any;
+  location: any;
 }
 
-const SOLUTION_FIELD_ID = '@RklFOjVmMTgzYzVmNThlZjE1MGVhOGQ4OGUwZQ==';
-const EXERCISE_FIELD_ID = '@RklFOjVmMTgzY2ViNThlZjE1MGVhOGQ4OGUwZg==';
+const RELATED_RESOURCES_FIELD_ID = '@RklFOjVmNTMyN2I2YTQzNWVlNjIyNjRiYzE1ZA==';
 const GITHUB_COLOR = '#1B1F23';
 
 const Icon = ({ comp: Comp }) => (
   <Comp sx={{ mb: '-7px', mr: 2 }} fill={GITHUB_COLOR} />
 );
 
-const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
-  const { trainingById: training, video, trainingUnit } = data.upmentoring;
-  const linkToSolution = trainingUnit.published.customFieldsValues.find(
-    ({ fieldId }) => fieldId === SOLUTION_FIELD_ID
-  ).values[0];
-  const linkToExercise = trainingUnit.published.customFieldsValues.find(
-    ({ fieldId }) => fieldId === EXERCISE_FIELD_ID
-  ).values[0];
-  const trainingPath = `/${training.slug}-course/`;
-  const { _rawTranscript } = video.sanityVideo;
-  const transcriptImagePublicURLs = getImagePublicURLs(data.transcriptImages);
-  const serializers = {
-    marks: {
-      link: ({ mark: { href }, children }) => (
-        <Link to={href} children={children} />
-      ),
-    },
-    list: ({ children }) => <Ul children={children} />,
-    listItem: ({ children = {} }) => <Li children={children} />,
-    hardBreak: null,
-    types: {
-      block: ({ children, node }) => {
-        const style = node.style || 'normal';
-        let formatedChildren;
-        switch (style) {
-          case 'h4':
-            return <H4 children={children} />;
-          case 'h5':
-            return <H5 children={children} />;
-          case 'h6':
-            return <H6 children={children} />;
-          default:
-            formatedChildren =
-              children &&
-              children.reduce &&
-              children.reduce((acc, curr) => {
-                const element = removeCarriageReturn(curr);
-                if (element) {
-                  acc.push(element);
-                }
+const LessonPage: FunctionComponent<LessonPageProps> = ({
+  data,
+  pageContext,
+  location,
+}) => {
+  const { unitId, videoId } = pageContext;
+  const { loggedIn, loading: logging } = useMagic();
 
-                return acc;
-              }, []);
+  // TODO useMemo variables inside useQuery
+  const options = React.useMemo(() => {
+    return { variables: { videoId, unitId }, skip: !loggedIn };
+  }, [unitId, videoId, loggedIn]);
 
-            return formatedChildren && formatedChildren.length ? (
-              <P children={formatedChildren} />
-            ) : null;
+  const { loading, data: privateData } = useQuery(
+    `
+  query videoLesson($videoId: ID!, $unitId: ID!) {
+    video(id:$videoId) {
+      transcript
+      asset {
+        url
+      }
+    }
+    trainingUnit(id: $unitId) {
+        published {
+          customFieldsValues {
+            values
+            fieldId
+          }
         }
-      },
-      code: ({ node }) => (
-        <Code language={node.language} className={node.language}>
-          {node.code}
-        </Code>
-      ),
-      span: Span,
-      image: (props) => (
-        <Image src={transcriptImagePublicURLs[props.node.asset.id]} />
-      ),
-    },
-  };
-
-  const transcript = (
-    <BlockContent blocks={_rawTranscript} serializers={serializers} />
+      }
+  }
+  `,
+    options
   );
 
-  const { url: videoUrl, posterUrl: videoPoserUrl } = getVideoInfo(video);
-
+  const { trainingById: training, video, trainingUnit } = data.upmentoring;
+  const relatedResources = privateData?.trainingUnit?.published?.customFieldsValues?.find(
+    ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
+  )?.values[0];
+  const trainingPath = `/${training.slug}-course/`;
+  // console.log('aaaaa', location);
   return (
     <Layout
       variant="stack"
@@ -112,49 +86,159 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
         { text: video.title },
       ]}
     >
-      <OkaidiaRGA />
+      {/* <OkaidiaRGA /> */}
       <Container>
-        <VideoPlayer posterUrl={videoPoserUrl} url={videoUrl} />
+        <Box sx={{ position: 'relative' }}>
+          <VideoPlayer
+            posterUrl={video.asset?.posterImageUrl}
+            url={privateData?.video?.asset?.url}
+          />
+
+          {!privateData?.video?.asset?.url ? (
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <ThemeProvider
+                theme={{
+                  colors: {
+                    text: '#fff',
+                  },
+                }}
+              >
+                <Box sx={{ maxWidth: '400px' }}>
+                  {loading || logging ? (
+                    <>
+                      <Spinner sx={{ mb: '-4px', mr: 2 }} />
+                      {loading ? 'loading data...' : 'logging in...'}
+                    </>
+                  ) : (
+                    <>
+                      <H3
+                        sx={{
+                          ...textBackgroundProps,
+                          padding: 2,
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        {pageContext.isPublicVideo && !loggedIn ? (
+                          <>
+                            You have to{' '}
+                            <Link
+                              to="/login"
+                              state={{ referrer: location.pathname }}
+                            >
+                              log in to
+                            </Link>{' '}
+                            to watch this video.
+                          </>
+                        ) : (
+                          <>
+                            You have to{' '}
+                            <Link to={trainingPath}>purchase this course</Link>{' '}
+                            to watch this video.
+                          </>
+                        )}
+                      </H3>
+                      <P sx={{ textAlign: 'center', mt: 6 }}>
+                        {pageContext.isPublicVideo && !loggedIn ? (
+                          <LinkButton
+                            variant="primary"
+                            to="/login"
+                            state={{ referrer: location.pathname }}
+                          >
+                            Log in now
+                          </LinkButton>
+                        ) : (
+                          <LinkButton
+                            variant="primary"
+                            to={`${trainingPath}#pricing`}
+                          >
+                            Buy now
+                          </LinkButton>
+                        )}
+                      </P>
+                    </>
+                  )}
+                </Box>
+              </ThemeProvider>
+            </Box>
+          ) : null}
+        </Box>
         <Grid columns={12} sx={{ mt: 7 }}>
           <Box sx={{ gridColumn: '1/ 8' }}>
-            <H1 as="h1" variant="h2">
+            <H1 as="h1" variant="h2" sx={{ mt: 2 }}>
               {video.title}
             </H1>
-            <H3>Code</H3>
-            <Ul variant="unstyled" sx={{ mb: 7 }}>
-              <Li>
-                <Icon comp={GitHubIcon} />
-                <Link to={linkToExercise}>Link to EXERCISE</Link>
-              </Li>
-              <Li>
-                <Icon comp={GitHubIcon} />
-                <Link to={linkToSolution}>Link to SOLUTION</Link>
-              </Li>
-            </Ul>
+            <H3>Related resources</H3>
+            {relatedResources ? (
+              <Markdown>{relatedResources}</Markdown>
+            ) : loading ? (
+              <P>Loading data...</P>
+            ) : (
+              <P>
+                You have to{' '}
+                <Link to={`${trainingPath}`}>purchase this course</Link> to see
+                its related resources.
+              </P>
+            )}
             <H3>Transcript</H3>
-            {transcript}
+            {privateData?.video?.transcript ? (
+              <Markdown>{privateData.video.transcript}</Markdown>
+            ) : (
+              <Box sx={{ position: 'relative' }}>
+                <Markdown>{pageContext.transcript}</Markdown>
+                {!pageContext.isPublicVideo && (
+                  <Box
+                    sx={{
+                      width: '100%',
+                      height: '75px',
+                      position: 'absolute',
+                      bottom: 0,
+                      backgroundImage:
+                        'linear-gradient(to bottom, transparent, white)',
+                    }}
+                  />
+                )}
+              </Box>
+            )}
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>
-              <H2 as="h1" variant="h3" sx={{ pt: 2 }}>
+              <H2 as="h1" variant="h3" sx={{ mt: 2 }}>
                 {trainingUnit.published.title} lessons
               </H2>
               <P>
                 Completed 0 out of {trainingUnit.published.videos.length}{' '}
                 lessons
               </P>
-              <P>
-                Where is the video <Link>autoplay?</Link>
-              </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
-                {trainingUnit.published.videos.map(({ title, slug }) => (
-                  <Li key={slug}>
-                    <Link to={`${trainingPath}${slug}/`}>
-                      <Icon comp={PlayMedia} />
-                      {title}
-                    </Link>
-                  </Li>
-                ))}
+                {trainingUnit.published.videos.map(({ title, slug }) => {
+                  const path = `${trainingPath}${slug}/`;
+                  return (
+                    <Li key={slug}>
+                      {location.pathname !== path ? (
+                        <Link to={path}>
+                          <Icon comp={PlayMedia} />
+                          {title}
+                        </Link>
+                      ) : (
+                        <>
+                          <Icon comp={PlayMedia} />
+                          {title}
+                        </>
+                      )}
+                    </Li>
+                  );
+                })}
               </Ul>
             </StickyBox>
           </Box>
@@ -165,48 +249,19 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
 };
 
 export const query = graphql`
-  query getVideo(
-    $videoId: ID!
-    $unitId: ID!
-    $trainingId: ID!
-    $sanityTranscriptImageAssetIds: [String] = []
-  ) {
-    transcriptImages: allSanityImageAsset(
-      filter: { id: { in: $sanityTranscriptImageAssetIds } }
-    ) {
-      nodes {
-        id
-        localFile(width: 650) {
-          publicURL
-        }
-      }
-    }
+  query getVideo($videoId: ID!, $unitId: ID!, $trainingId: ID!) {
     upmentoring {
       video(id: $videoId) {
         id
         title
         asset {
-          url
-        }
-        sanityVideo {
-          thumbnailImage {
-            asset {
-              localFile(width: 1150) {
-                publicURL
-              }
-            }
-          }
-          _rawTranscript(resolveReferences: { maxDepth: 10 })
+          posterImageUrl
         }
       }
       trainingUnit(id: $unitId) {
         published {
           title
           slug
-          customFieldsValues {
-            values
-            fieldId
-          }
           videos {
             title
             slug

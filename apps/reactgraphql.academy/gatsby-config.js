@@ -32,7 +32,7 @@ module.exports = {
         typeName: 'UpMentoring',
         fieldName: 'upmentoring',
         url:
-          process.env.GATSBY_UPMENTORING_API_URL ||
+          `${process.env.GATSBY_UPMENTORING_GRAPHQL_API_BASE_URL}/graphql` ||
           'https://api2.upmentoring.com/graphql',
         headers: {
           'x-um-orgid': '@VVNFOjVhYWE5YjA3ZjE0NmU1Y2ZhZmFkMTg5ZQ==',
@@ -89,7 +89,7 @@ module.exports = {
       options: {
         projectId: sanityProjectId,
         dataset: process.env.GATSBY_SANITY_DATASET || sanityDataset,
-        token: process.env.GATSBY_SANITY_TOKEN,
+        token: process.env.SANITY_TOKEN,
       },
     },
     {

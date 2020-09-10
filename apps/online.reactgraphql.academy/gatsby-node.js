@@ -35,8 +35,11 @@ exports.createPages = async ({ graphql, actions }) => {
                     videos {
                       slug
                       id
-                      sanityVideo {
-                        _rawTranscript(resolveReferences: { maxDepth: 10 })
+                      transcript
+                      asset {
+                        playback {
+                          policy
+                        }
                       }
                     }
                   }
@@ -62,24 +65,25 @@ exports.createPages = async ({ graphql, actions }) => {
       component: courseTemplate,
       context: {
         trainingId: training.id,
+        coverImageRegex: `/courses/cover_${training.slug}/`,
       },
     });
 
     training.units.forEach((unit) => {
       unit.published.videos.forEach((video) => {
         const lessonPath = `${coursePath}${video.slug}`;
-        const _rawTranscript = video.sanityVideo
-          ? video.sanityVideo._rawTranscript || []
-          : [];
-        const sanityTranscriptImageAssetIds = _rawTranscript.reduce(
-          (images, { _type, asset = {} }) => {
-            if (_type === 'image' && asset._id) {
-              return [...images, asset._id];
-            }
-            return images;
-          },
-          []
-        );
+        const transcriptBlock =
+          video.transcript && video.transcript.split('\n');
+        const transcriptPreview =
+          transcriptBlock && transcriptBlock.length > 0
+            ? transcriptBlock.slice(0, 2).join('\n')
+            : transcriptBlock.length === 1
+            ? transcriptBlock[0].slice(0, 200)
+            : '';
+        const isPublicVideo =
+          video.asset &&
+          video.asset.playback &&
+          video.asset.playback.policy === 'public';
 
         createPage({
           path: lessonPath,
@@ -88,7 +92,10 @@ exports.createPages = async ({ graphql, actions }) => {
             videoId: video.id,
             unitId: unit.id,
             trainingId: training.id,
-            sanityTranscriptImageAssetIds,
+            // transcript: isPublicVideo ? video.transcript : null,
+            // transcriptPreview: isPublicVideo ? null : transcriptPreview,
+            isPublicVideo,
+            transcript: isPublicVideo ? video.transcript : transcriptPreview,
           },
         });
       });

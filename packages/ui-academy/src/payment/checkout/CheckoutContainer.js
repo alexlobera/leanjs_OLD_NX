@@ -3,11 +3,7 @@
 
 import React from 'react';
 
-// import { withStatelessClient } from '../../../api/graphql/client';
 import { DEFAULT_VAT_RATE } from '../utils';
-
-// import createLogger from '../../utils/createLogger';
-// import { STRIPE_PUBLIC_KEY } from '../../../config/apps';
 import CheckoutForm from './CheckoutForm';
 import {
   getMonthFromCardDate,
@@ -17,10 +13,9 @@ import {
   formatCVC,
 } from '../utils';
 
-// import { triggerSubscribe } from '../../../api/rest';
 const triggerSubscribe = () => alert('implement me');
 
-const STRIPE_PUBLIC_KEY = '🔥🔥🔥🔥🔥🔥🔥🔥🔥';
+const STRIPE_PUBLIC_KEY = process.env.GATSBY_STRIPE_PUBLIC_KEY;
 
 export const VALIDATE_VIES_QUERY = `
   query isVatNumberValid(
@@ -128,7 +123,6 @@ export class CheckoutContainer extends React.Component {
   processPaymentError = (error) => {
     this.setState({ paymentErrorMessage: true, isPaymentInProgress: false });
     throw error;
-    // createLogger().error(error);
   };
 
   pay = (values) => {
@@ -137,7 +131,6 @@ export class CheckoutContainer extends React.Component {
     }
     const {
       quantity,
-      // trackUserBehaviour,
       statelessClient,
       trainingInstanceId,
       eventId,
@@ -168,11 +161,6 @@ export class CheckoutContainer extends React.Component {
     const formatedCCexpiry = formatExpirationDate(CCexpiry);
     const exp_month = getMonthFromCardDate(formatedCCexpiry);
     const exp_year = getYearFromCardDate(formatedCCexpiry);
-
-    // trackUserBehaviour({
-    //   event: CHECKOUT_PAYMENT_REQUEST,
-    //   payload: { email, trainingInstanceId, eventId },
-    // });
 
     paymentApi.setPublishableKey(STRIPE_PUBLIC_KEY);
     paymentApi.card.createToken(
@@ -208,6 +196,7 @@ export class CheckoutContainer extends React.Component {
             if (!errors) {
               navigate('/payment-confirmation', {
                 email,
+                referrer: location.pathname,
                 makePayment: data.makePayment,
                 itemId,
                 shoppingItemEnum,
@@ -238,6 +227,7 @@ export class CheckoutContainer extends React.Component {
       showSubscribeToNewsletter,
       trialTraingInstance,
       isDonationTicket,
+      sessionEmail,
     } = this.props;
     const {
       isViesValidationInProgress,
@@ -254,6 +244,7 @@ export class CheckoutContainer extends React.Component {
 
     return (
       <CheckoutForm
+        sessionEmail={sessionEmail}
         isDonationTicket={isDonationTicket}
         trialTraingInstance={trialTraingInstance}
         quantity={quantity}

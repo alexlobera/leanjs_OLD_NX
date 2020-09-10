@@ -2,22 +2,24 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { createMetas } from '@leanjs/ui-page';
+import { useMagic } from '@leanjs/magic-link';
 import {
   PaymentSection,
   formatTraining,
   TrainingItem,
   getTrainingTimings,
-  getVideoInfo,
 } from '@leanjs/ui-academy';
+import { PlayMedia } from '@leanjs/ui-icons';
 
+import Tick from '../components/icons/Tick';
 import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
 import Sheet from '../components/layout/Sheet';
 import Link from '../components/navigation/Link';
 import Header from '../components/layout/Header';
-import { P, H2, H3 } from '../components/display';
-import ReactHeaderBg from '../components/layout/Header/ReactBg';
+import { P, H2, H3, H4 } from '../components/display';
 import {
+  Card,
   Container,
   Grid,
   Box,
@@ -37,19 +39,15 @@ const metas = {
   title: 'Online React and GraphQL Courses | React GraphQL Academy',
   description:
     'Looking for React and GraphQL online courses? React GraphQL Academy Online offers online courses following our proven teaching method. Enrol now!',
-  // image: WHY_REACTJS_ACADEMY,
   type: 'website',
 };
 
-function CoursePage({ data }) {
+function CoursePage({ data, pageContext: { trainingId } }) {
+  const { loggedIn } = useMagic();
   const training = data.upmentoring.trainingById;
   const trainingPath = `/${training.slug}-course`;
   const units = training.units || [];
   const title = `Online ${training.title} Course`;
-  const {
-    url: trainingPreviewVideoUrl,
-    posterUrl: trainingPreviewVideoPoserUrl,
-  } = getVideoInfo(training.previewVideo);
 
   const trainingInstances =
     data.upmentoring.trainingInstances &&
@@ -59,20 +57,27 @@ function CoursePage({ data }) {
           .slice(0, 3)
       : [];
 
-  useQuery(`
-    {
-        viewer {
-            id
-            purchasedTrainings {
-                edges {
-                    node {
-                        title
-                    }
-                }
-            }
-        }
-    }
-  `);
+  // TODO useMemo variables inside useQuery
+  const options = React.useMemo(() => {
+    return { variables: { trainingId }, skip: !loggedIn };
+  }, [trainingId, loggedIn]);
+
+  const { data: privateData } = useQuery(
+    `
+      query purchasedTraining($trainingId: ID!) {
+          viewer {
+              purchasedTraining(trainingId: $trainingId ) { 
+                id
+              }
+          }
+      }
+    `,
+    options
+  );
+
+  const purchased = privateData?.viewer?.purchasedTraining?.id === trainingId;
+  const coverImage =
+    data.courseThumbnailImages.nodes[0].childImageSharp.fixed.src;
 
   return (
     <Layout
@@ -81,7 +86,7 @@ function CoursePage({ data }) {
           path: '/',
           text: 'Home',
         },
-        { text: title },
+        { text: training.title },
       ]}
     >
       <Helmet
@@ -95,134 +100,192 @@ function CoursePage({ data }) {
       >
         {createMetas(metas)}
       </Helmet>
-      <ReactHeaderBg bottom="-300px">
-        <Header
-          title={title}
-          subtitle={training.subtitle}
-          height="100vh"
-          bgColors={['rgba(196, 196, 196, 0.6)']}
-          bgImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-          links={[
-            {
-              text: 'Modules',
-              to: '#course-modules',
-            },
-            {
-              text: 'FAQs',
-              to: '#faqs',
-            },
-            {
-              text: 'Price',
-              to: '#pricing',
-            },
-          ]}
-          info={
-            trainingPreviewVideoUrl && (
-              <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
-                <VideoPlayer
-                  poster={trainingPreviewVideoPoserUrl}
-                  url={trainingPreviewVideoUrl}
-                />
-              </Box>
-            )
-          }
-        />
-      </ReactHeaderBg>
+
+      <Header
+        title={title}
+        subtitle={training.subtitle}
+        height="100vh"
+        bgColors={['rgba(196, 196, 196, 0.6)']}
+        bgImageOpacity={1}
+        bgImage={coverImage}
+        links={[
+          {
+            text: 'Course layout',
+            to: '#course-modules',
+          },
+          // {
+          //   text: 'Is it right for me?',
+          //   to: '#target-audience',
+          // },
+          {
+            text: 'FAQs',
+            to: '#faqs',
+          },
+          {
+            text: purchased ? 'Thanks' : 'Price',
+            to: '#pricing',
+          },
+        ]}
+        info={
+          training.previewVideo && (
+            <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
+              <VideoPlayer
+                poster={training.previewVideo.asset?.posterImageUrl}
+                url={training.previewVideo.asset?.url}
+              />
+            </Box>
+          )
+        }
+      />
+
       <Section variant="top">
         <Container>
           <Sheet>
-            <H2>
+            <H2 sx={{ mt: 0 }}>
               <a id="course-modules" />
-              {title} Modules
+              {training.title} Modules
             </H2>
 
-            {units.reduce((acc, unit, index) => {
-              const { published } = unit;
-              if (published) {
-                const lessonsCount =
-                  (published.videos && published.videos.length) || 0;
-                const { previewVideo } = published;
-                const { posterUrl, url: unitPreviewVideoUrl } = getVideoInfo(
-                  previewVideo
-                );
-
-                acc.push(
-                  <Grid columns={10}>
-                    <Box sx={{ gridColumn: ['2/ -2', '1/ 4'], mb: 5 }}>
-                      {unitPreviewVideoUrl && (
-                        <VideoPlayer
-                          posterUrl={posterUrl}
-                          url={unitPreviewVideoUrl}
-                        />
-                      )}
-                    </Box>
-                    <Box
-                      sx={{
-                        gridColumn: ['1/ -1', '5/ -1'],
-                        mb: index < units.length - 1 ? 8 : 0,
-                      }}
-                    >
-                      <H3>{published.title}</H3>
-                      <Ul variant="inline">
-                        <Li sx={{ pl: 0 }}>
-                          {lessonsCount} lessons
-                          {lessonsCount > 0 ? (
+            <Grid columns={10}>
+              {units.reduce((acc, unit, index) => {
+                const { published } = unit;
+                if (published) {
+                  const lessonsCount =
+                    (published.videos && published.videos.length) || 0;
+                  const { previewVideo } = published;
+                  acc.push(
+                    <>
+                      <Box sx={{ gridColumn: ['2/ -2', '1/ 4'], mb: 5 }}>
+                        {previewVideo && (
+                          <VideoPlayer
+                            posterUrl={previewVideo.asset?.posterImageUrl}
+                            url={previewVideo.asset?.url}
+                          />
+                        )}
+                      </Box>
+                      <Box
+                        sx={{
+                          gridColumn: ['1/ -1', '5/ -1'],
+                          mb: index < units.length - 1 ? 8 : 0,
+                        }}
+                      >
+                        <H3 sx={{ mt: 0 }}>{published.title}</H3>
+                        <Ul variant="inline" sx={{ mb: 4 }}>
+                          <Li sx={{ pl: 0 }}>{lessonsCount} lessons</Li>
+                          <Li>|</Li>
+                          <Li>
+                            {' '}
+                            {lessonsCount > 0 ? (
+                              <>
+                                <Link
+                                  to={`${trainingPath}/${published.videos[0].slug}`}
+                                >
+                                  <PlayMedia
+                                    fill="#1B1F23"
+                                    sx={{ mb: '-7px', mx: 1, width: '16px' }}
+                                  />{' '}
+                                  Start watching
+                                </Link>
+                              </>
+                            ) : null}
+                          </Li>
+                          {!purchased && (
                             <>
-                              {', '}
-                              <Link
-                                to={`${trainingPath}/${published.videos[0].slug}`}
-                              >
-                                watch
-                              </Link>
+                              <Li>|</Li>
+                              <Li>
+                                <Link to="#pricing" sx={{ mt: 3 }}>
+                                  Buy course
+                                </Link>
+                              </Li>
                             </>
-                          ) : null}
-                        </Li>
-                        <Li>/</Li>
-                        <Li>
-                          See{' '}
-                          <Link to="#pricing" sx={{ mt: 3 }}>
-                            pricing
-                          </Link>
-                        </Li>
-                      </Ul>
-                      <Markdown>{published.description}</Markdown>
-                      <Tabs defaultValue="learning">
-                        <TabList>
-                          <TabItem name="learning">Learning objectives</TabItem>
-                          <TabItem name="curriculum">Curriculum</TabItem>
-                        </TabList>
-                        <TabPanel name="learning">
-                          <Markdown>{published.objectives}</Markdown>
-                        </TabPanel>
-                        <TabPanel name="curriculum">
-                          <Markdown>{published.syllabus}</Markdown>
-                        </TabPanel>
-                      </Tabs>
-                    </Box>
-                  </Grid>
-                );
-                return acc;
-              }
-            }, [])}
+                          )}
+                        </Ul>
+                        <Markdown>{published.description}</Markdown>
+                        {published.objectives && published.syllabus ? (
+                          <Tabs defaultValue="learning" sx={{ mt: 6 }}>
+                            <TabList>
+                              <TabItem name="learning">
+                                Learning objectives
+                              </TabItem>
+                              <TabItem name="curriculum">Curriculum</TabItem>
+                            </TabList>
+                            <TabPanel name="learning"></TabPanel>
+                            <TabPanel name="curriculum">
+                              <Markdown>{published.syllabus}</Markdown>
+                            </TabPanel>
+                          </Tabs>
+                        ) : (
+                          <>
+                            <H4>Learning objectives</H4>
+                            <Markdown
+                              li={({ children = null }) => (
+                                <Li
+                                  sx={{
+                                    position: 'relative',
+                                    listStyle: 'none',
+                                  }}
+                                >
+                                  <Tick
+                                    width={20}
+                                    sx={{
+                                      position: 'absolute',
+                                      left: '-30px',
+                                      top: '8px',
+                                    }}
+                                  />
+                                  {children}
+                                </Li>
+                              )}
+                            >
+                              {published.objectives}
+                            </Markdown>
+                          </>
+                        )}
+                      </Box>
+                    </>
+                  );
+                  return acc;
+                }
+              }, [])}
+            </Grid>
+            <H2>{training.title} Curriculum</H2>
+            <Card variant="secondary">
+              <Markdown>{training?.description?.syllabus}</Markdown>
+            </Card>
+            {/* <H2>
+              <a id="target-audience" />
+              Is this {training.title} course right for me?
+            </H2> */}
           </Sheet>
         </Container>
       </Section>
       <FAQSection pageData={data.sanityTrainingPage} />
+
       <Section variant="secondary">
         <Container>
           <Sheet variant="transparent">
             <Grid columns={10}>
               <Box sx={{ gridColumn: ['1/ -1', '1/ 6'] }}>
-                <PaymentSection item={training} />
+                {!purchased ? (
+                  <PaymentSection item={training} />
+                ) : (
+                  <H2 sx={{ color: 'inverseText' }}>
+                    <a id="pricing" />
+                    Thank you for purchasing this course :)
+                  </H2>
+                )}
               </Box>
             </Grid>
           </Sheet>
         </Container>
       </Section>
+
       <Section>
         <Container>
           <Sheet variant="transparent">
-            <H2>You can also attend this course live</H2>
+            <H2 sx={{ mt: 0 }}>
+              You can also learn this curriculum in a live training
+            </H2>
             <P>
               Alternatively to this online course, you can also join a cohort
               and attend a React Redux Fundamentals live training. Discuss
@@ -257,7 +320,27 @@ function CoursePage({ data }) {
 }
 
 export const query = graphql`
-  query getTraining($trainingId: ID!, $path: String!) {
+  query getTraining(
+    $trainingId: ID!
+    $path: String!
+    $coverImageRegex: String!
+  ) {
+    courseThumbnailImages: allFile(
+      filter: {
+        absolutePath: { regex: $coverImageRegex }
+        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
+      }
+    ) {
+      nodes {
+        publicURL
+        name
+        childImageSharp {
+          fixed(width: 1200) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
     sanityTrainingPage(path: { eq: $path }) {
       ...sanityTrainingPageFragment
     }
@@ -270,12 +353,14 @@ export const query = graphql`
         slug
         id
         onDemand
+        description {
+          objectives
+          syllabus
+        }
         previewVideo {
           asset {
             url
-            playback {
-              id
-            }
+            posterImageUrl
           }
         }
         units {
@@ -287,9 +372,7 @@ export const query = graphql`
             previewVideo {
               asset {
                 url
-                playback {
-                  id
-                }
+                posterImageUrl
               }
             }
             videos {

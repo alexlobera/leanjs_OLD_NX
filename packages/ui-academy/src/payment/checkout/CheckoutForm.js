@@ -89,14 +89,6 @@ export const CCExpiryInput = aliasInput();
 export const CCCVCInput = aliasInput();
 export const SubmitPaymentFormButton = aliasButton();
 
-// const QuantityActions = styled(Flex)``
-// QuantityActions.defaultProps = {
-//   sx: {
-//     textAlign: 'center',
-//     mx: 0,
-//     my: 1,
-//   },
-// }
 const QuantityActions = ({ sx = {}, ...rest }) => (
   <Flex
     sx={{
@@ -144,16 +136,6 @@ const RowNumTickets = styled.div`
   padding-top: 8px;
 `;
 
-// const CheckoutH4 = styled(H4)``
-// CheckoutH4.defaultProps = {
-//   sx: {
-//     pb: '6px',
-//     m: '18px 0 9px',
-//     borderBottom: '1px solid',
-//     borderColor: GREY,
-//   },
-// }
-
 const CheckoutH4 = ({ sx = {}, ...rest }) => (
   <H4
     sx={{
@@ -190,6 +172,12 @@ class CheckoutForm extends React.Component {
       isCompanyDetailsDisplayed: false,
     };
   }
+
+  //   componentDidMount() {
+  //     this.props.magic.user.getMetadata().then((metaData) => {
+  //       metaData?.email && this.setState({ email: metaData.email });
+  //     });
+  //   }
 
   toggleDisplayVoucherSection = () => {
     this.setState({ isVoucherDisplayed: !this.state.isVoucherDisplayed });
@@ -230,12 +218,15 @@ class CheckoutForm extends React.Component {
       showSubscribeToNewsletter,
       trialTraingInstance,
       isDonationTicket,
+      sessionEmail,
     } = this.props;
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state;
     const discount = priceQuantity - currentPriceQuantity;
     const ticketVat = !vatRate
       ? 0
       : currentPriceQuantity - currentPriceQuantity * vatRate;
+
+    const initialValues = { email: sessionEmail };
 
     return (
       <Fragment>
@@ -323,6 +314,7 @@ class CheckoutForm extends React.Component {
         ) : null}
         <Form
           onSubmit={pay}
+          initialValues={initialValues}
           render={({ submitting, submitFailed, valid, values }) => {
             return (
               <>
