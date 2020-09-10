@@ -104,6 +104,7 @@ export function MagicProvider({ children, requirePreSignup, login: myLogin }) {
 
 export function useMagic() {
   const context = useContext(MagicContext);
+
   if (!context) {
     throw new Error(`A MagicProvider is required up in the component tree`);
   }
