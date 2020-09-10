@@ -23,7 +23,7 @@ interface LessonPageProps {
   location: any;
 }
 
-const RELATED_RESOURCES_FIELD_ID = '@RklFOjVmNTMyN2I2YTQzNWVlNjIyNjRiYzE1ZA==';
+const RELATED_RESOURCES_FIELD_ID = '@RklFOjVmMTgzYzVmNThlZjE1MGVhOGQ4OGUwZQ==';
 const GITHUB_COLOR = '#1B1F23';
 
 const Icon = ({ comp: Comp }) => (
