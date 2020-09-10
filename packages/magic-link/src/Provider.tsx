@@ -1,8 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import React, { createContext, useContext } from 'react';
-import { Magic } from 'magic-sdk';
 import { Sema } from 'async-sema';
-
-const magic = new Magic(process.env.GATSBY_MAGIC_LINK_PK_KEY);
 
 const MagicContext = createContext(null);
 
@@ -20,6 +18,7 @@ const initialState = {
 const ONE_MINUTE = 1000 * 60;
 
 let currentToken = null;
+let magic;
 const tokenSema = new Sema(1);
 
 function setToken(token, lifespan = ONE_MINUTE * 15) {
@@ -59,6 +58,9 @@ export function MagicProvider({ children, requirePreSignup, login: myLogin }) {
   const [user, dispatch] = React.useReducer(magicReducer, initialState);
 
   React.useEffect(() => {
+    // magic-sdk v2.5.1 breaks on SSR so we need to require it here
+    const { Magic } = require('magic-sdk');
+    magic = new Magic(process.env.GATSBY_MAGIC_LINK_PK_KEY);
     async function iniState() {
       const loggedIn = await magic.user.isLoggedIn();
       dispatch({ type: RECEIVE_LOGIN_RESPONSE, loggedIn });
