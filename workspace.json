@@ -470,10 +470,14 @@
           }
         },
         "build": {
-          "builder": "@nrwl/workspace:run-commands",
+          "builder": "@nrwl/gatsby:build",
           "options": {
-            "parallel": false,
-            "commands": ["echo DISABLED"]
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
           }
         },
         "lint": {
