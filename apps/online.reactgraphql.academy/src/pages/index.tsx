@@ -26,7 +26,7 @@ function CourseCard({
   course: {
     slug,
     title,
-    overview = 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+    overview = 'TODO REPLACE THIS Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
   },
   isAvailable = true,
   fixedImage,
