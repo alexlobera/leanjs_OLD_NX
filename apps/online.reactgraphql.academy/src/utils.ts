@@ -1,4 +1,4 @@
-// TODO MOVE THIS TO A MONOREPO AND REUSE IN THE OTHER PROJECTS
+// TODO MOVE THIS TO A PACKAGE AND REUSE IT IN THE OTHER PROJECTS
 
 export const getURLParameter = (name) => {
   if (typeof window === 'undefined') return;

@@ -206,7 +206,6 @@ class PaymentSection extends React.Component {
       : priceQuantity;
 
     const showSubscribeToNewsletter = trainingType === MEETUP;
-    // const isNominalFee = trainingType === MEETUP
     const isDonationTicket = trainingType === MEETUP;
 
     return (

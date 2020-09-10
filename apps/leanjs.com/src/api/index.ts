@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const apiBaseUrl = 'https://api.leanjs.com/';
-//'http://localhost:3335/';
+const apiBaseUrl =
+  process.env.GATSBY_LEANJS_API_BASE_URL || 'https://api.leanjs.com';
 
 export const sendMessage = async (message) => {
   await axios({
@@ -10,7 +10,7 @@ export const sendMessage = async (message) => {
     },
     responseType: 'text',
     method: 'POST',
-    url: `${apiBaseUrl}contactLeanJS`,
+    url: `${apiBaseUrl}/contactLeanJS`,
     data: message,
   });
 };
@@ -22,7 +22,7 @@ export const rsvpWebinar = async (message) => {
     },
     responseType: 'text',
     method: 'POST',
-    url: `${apiBaseUrl}rsvpEvent`,
+    url: `${apiBaseUrl}/rsvpEvent`,
     data: {
       ...message,
       slackChannel: 'C016TLFL695',

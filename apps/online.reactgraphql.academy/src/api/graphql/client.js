@@ -1,6 +1,5 @@
 import React from 'react';
 import { useClient, useQuery } from './Provider';
-// import { UPMENTORING_API_URL } from '../../config/apps';
 import memoize from './memoize';
 
 const computeProps = (config, props) => {
@@ -58,7 +57,8 @@ export const createClient = ({ getToken } = {}) => {
       }
 
       const response = await fetch(
-        process.env.GATSBY_UPMENTORING_API_URL,
+        `${process.env.GATSBY_UPMENTORING_GRAPHQL_API_BASE_URL}/graphql` ||
+          'https://api2.upmentoring.com/graphql',
         opts
       );
 

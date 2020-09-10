@@ -1,9 +1,10 @@
 import { getCookie } from '../utils';
 
-// const umApiBaseUrl = 'https://api2.upmentoring.com/';
-const umApiBaseUrl = 'http://localhost:3334/';
-const apiBaseUrl = 'https://api.leanjs.com/';
-// const apiBaseUrl = 'http://localhost:3335/';
+const umApiBaseUrl =
+  process.env.GATSBY_UPMENTORING_GRAPHQL_API_BASE_URL ||
+  'https://api2.upmentoring.com';
+const apiBaseUrl =
+  process.env.GATSBY_LEANJS_API_BASE_URL || 'https://api.leanjs.com';
 
 const defaultOptions = {
   method: 'POST',
@@ -13,7 +14,7 @@ const defaultOptions = {
 };
 
 export const login = (token) =>
-  fetch(`${umApiBaseUrl}auth`, {
+  fetch(`${umApiBaseUrl}/auth`, {
     credentials: 'include',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -21,7 +22,7 @@ export const login = (token) =>
   });
 
 export const courseSubscribe = (message) =>
-  fetch(`${apiBaseUrl}courseSubscribe`, {
+  fetch(`${apiBaseUrl}/courseSubscribe`, {
     ...defaultOptions,
     body: JSON.stringify({
       ...message,
@@ -44,7 +45,7 @@ export const triggerSubscribe = ({
     path,
     utm_source,
   };
-  return fetch(`${apiBaseUrl}subscribe`, {
+  return fetch(`${apiBaseUrl}/subscribe`, {
     ...defaultOptions,
     body: JSON.stringify(payload),
   });

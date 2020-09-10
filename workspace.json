@@ -288,7 +288,8 @@
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json"
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/_REMOVE_WORKAROUND_ON_NX_10.1.1"]
           },
           "configurations": {
             "production": {
