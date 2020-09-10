@@ -453,7 +453,7 @@
             "parallel": false,
             "commands": [
               "cp ../../apps/online.reactgraphql.academy/firebase.json .",
-              "npx firebase deploy --project=online.reactgraphql.academy --only hosting --token=$FIREBASE_CI_TOKEN"
+              "npx firebase deploy --project=online-reactgraphql-academy --only hosting --token=$FIREBASE_CI_TOKEN"
             ]
           }
         },
