@@ -2438,18 +2438,18 @@
     hoist-non-react-statics "^3.3.1"
     react-is "^16.12.0"
 
-"@magic-sdk/provider@^2.5.6":
-  version "2.5.6"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-2.5.6.tgz#d93c44b174cd5d3f7310ce8a40d300ab0b2c2730"
-  integrity sha512-AiKQqNqb312tDhu2NUN2HmcbbngUsqFgV/C99rpQNLkhF1dAOQ3ItFUQwSd4IfevgjERcqZFKaz5K7SQ7vvTdg==
+"@magic-sdk/provider@^2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-2.6.1.tgz#8f1ebbca5068a59bd3d38d2bbcc5ee461abd117d"
+  integrity sha512-ht4VMBLSYaNg5p4jYFlDg/Qfi5dYOBs/QaSMap6jOC6bh8U/dd895Gh1cSPsZ9RLBlXGzR8VhqNdm2dTB8zWWA==
   dependencies:
-    "@magic-sdk/types" "^1.4.6"
+    "@magic-sdk/types" "^1.4.9"
     eventemitter3 "^4.0.4"
 
-"@magic-sdk/types@^1.4.6":
-  version "1.4.6"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-1.4.6.tgz#1bc645160fa2fddf0ef5818a1aea57f7a348ab4b"
-  integrity sha512-7tIbQ+bkG+GLAUJi0eOQ8Iy6uronsolkSR3gsTwWmeUbnT2CrlgdVGWzABBBD0Il2hOnsDy1ToWdgS38v9AO+w==
+"@magic-sdk/types@^1.4.9":
+  version "1.4.9"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-1.4.9.tgz#b34dd1c0ebddf7144b7362be500e74860af00f9d"
+  integrity sha512-kP6SJwFjPBeFSd1BsVHrxUBud95NaI/UUfpgj5Gw3Ta57h1vpsV4insqE/yJMO0/zfQsxvDaZde6omOBd5a4uQ==
 
 "@mapbox/hast-util-table-cell-style@^0.1.3":
   version "0.1.3"
@@ -17707,15 +17707,15 @@ lru-queue@0.1:
   dependencies:
     es5-ext "~0.10.2"
 
-magic-sdk@~2.4.6:
-  version "2.4.7"
-  resolved "https://registry.yarnpkg.com/magic-sdk/-/magic-sdk-2.4.7.tgz#9bfd3d34acd03c89112610897576f7752e7ec4d7"
-  integrity sha512-zuJ4BZtk93UwXmOSiOYXOgGsT2sNmZFZX9Buq5SEbBfbYnOw73+oxMfDrSZ4mRD1zCFNWY0BYHLPUuOfuMDWZA==
+magic-sdk@~2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/magic-sdk/-/magic-sdk-2.5.1.tgz#c043ef79d5661e79fb8b5a2ee3e1da55fbf3a250"
+  integrity sha512-jpRGTAUwDDzrZdoWHROpWPeXoeTGVet9HlG50jsBZMWkCcihGNaUvGN/mpZNHDPfQqR2AWvVmmE/PQ1iKKts+w==
   dependencies:
     "@babel/core" "^7.9.6"
     "@babel/runtime" "^7.9.6"
-    "@magic-sdk/provider" "^2.5.6"
-    "@magic-sdk/types" "^1.4.6"
+    "@magic-sdk/provider" "^2.6.1"
+    "@magic-sdk/types" "^1.4.9"
     localforage "^1.7.4"
     localforage-driver-memory "^1.0.5"
     regenerator-runtime "0.13.5"
