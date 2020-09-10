@@ -123,7 +123,7 @@ interface TabsProps {
   defaultValue?: string;
   onChange?: (value: string) => void;
   children: JSX.Element[];
-  sx?: SxProp
+  sx?: SxProp;
 }
 export const Tabs = React.memo(function ({
   value: valueProp,
