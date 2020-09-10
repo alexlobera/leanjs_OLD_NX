@@ -223,8 +223,6 @@ async function courseSubscribe(request, response) {
     },
   });
 
-  console.log('aaa');
-
   await postMessageToSlack({
     message: { courseName, email, utm_source },
     title:

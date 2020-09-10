@@ -18,7 +18,7 @@ import { triggerSubscribe } from '../api';
 
 function LoginPage({ navigate, location }) {
   const { login, loggedIn } = useMagic();
-  console.log('aaa', location.state);
+
   if (loggedIn) {
     navigate(location.state?.referrer || '/react-foundation-course/');
 

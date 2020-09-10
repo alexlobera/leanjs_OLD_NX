@@ -15,7 +15,7 @@ import {
 
 const triggerSubscribe = () => alert('implement me');
 
-const STRIPE_PUBLIC_KEY = '🔥🔥🔥🔥🔥🔥🔥🔥🔥';
+const STRIPE_PUBLIC_KEY = process.env.GATSBY_STRIPE_PUBLIC_KEY;
 
 export const VALIDATE_VIES_QUERY = `
   query isVatNumberValid(
