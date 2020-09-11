@@ -1,11 +1,12 @@
 import { environment } from './environments/environment';
-//
+
 export const env = {
   port: environment.port,
 };
 
 export const allowedCorsOrigins = [
   'https://reactgraphql.academy',
+  'https://online.reactgraphql.academy',
   'https://leanjs.com',
   'http://localhost:3000',
   'http://localhost:3001',

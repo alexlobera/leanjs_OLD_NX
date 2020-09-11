@@ -104,7 +104,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
       <Header
         title={title}
         subtitle={training.subtitle}
-        height="100vh"
+        minHeight="650px"
         bgColors={['rgba(196, 196, 196, 0.6)']}
         bgImageOpacity={1}
         bgImage={coverImage}

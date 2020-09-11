@@ -12,7 +12,7 @@ export const TECH_REACT = 'react';
 export const TECH_GRAPHQL = 'graphql';
 
 interface SectionProps {
-  height?: string;
+  minHeight?: string;
   bgColor?: string;
   bgColors?: string[];
   bgImage?: string;
@@ -77,7 +77,7 @@ const HeaderSection = styled('header')<SectionProps>`
   `}
   
   @media (min-width: ${SCREEN_SM_MIN}) {
-    min-height: ${({ height }) => (height ? height : '100vh')};
+    min-height: ${({ minHeight }) => (minHeight ? minHeight : '100vh')};
   }
 `;
 
@@ -99,7 +99,7 @@ interface HeaderProps {
     text: string;
     to: string;
   }[];
-  height?: string;
+  minHeight?: string;
   info?: JSX.Element;
   callToAction?: JSX.Element;
 }
@@ -110,14 +110,14 @@ const Header: FunctionComponent<HeaderProps> = ({
   bgColors,
   bgImage,
   bgImageOpacity,
-  height,
+  minHeight,
   links,
   info,
   callToAction = null,
 }) => {
   return (
     <HeaderSection
-      height={height}
+      minHeight={minHeight}
       bgColors={bgColors}
       bgImageOpacity={bgImageOpacity}
       bgImage={bgImage}

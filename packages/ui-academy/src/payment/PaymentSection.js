@@ -49,7 +49,7 @@ class PaymentSection extends React.Component {
       this.validateVoucher(voucher);
     }
 
-    this.props.magic.user.getMetadata().then((metaData) => {
+    this.props.magic?.user?.getMetadata().then((metaData) => {
       metaData?.email && this.setState({ sessionEmail: metaData.email });
     });
   }
