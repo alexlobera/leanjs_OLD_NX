@@ -17,6 +17,8 @@ interface SectionProps {
   bgColors?: string[];
   bgImage?: string;
   bgImageOpacity?: number;
+  bgRepeat?: string;
+  bgSize?: string;
 }
 
 const HeaderSection = styled('header')<SectionProps>`
@@ -51,7 +53,12 @@ const HeaderSection = styled('header')<SectionProps>`
       : '';
   }}
   
-  ${({ bgImage, bgImageOpacity = '0.5' }: any) => `
+  ${({
+    bgImage,
+    bgImageOpacity = '0.5',
+    bgRepeat = 'no-repeat',
+    bgSize = 'cover',
+  }: any) => `
     @media (min-width: ${SCREEN_SM_MIN}) {
       &:after {
         content: '';
@@ -65,8 +72,8 @@ const HeaderSection = styled('header')<SectionProps>`
           bgImage
             ? `
           background-image: url(${bgImage}); 
-          background-repeat: no-repeat; 
-          background-size: cover;
+          background-repeat: ${bgRepeat}; 
+          background-size: ${bgSize};
           background-position: center;
           opacity: ${bgImageOpacity};
           `
@@ -95,6 +102,8 @@ interface HeaderProps {
   bgColors?: string[];
   bgImage?: string;
   bgImageOpacity?: number;
+  bgRepeat?: string;
+  bgSize?: string;
   links?: {
     text: string;
     to: string;
@@ -110,6 +119,8 @@ const Header: FunctionComponent<HeaderProps> = ({
   bgColors,
   bgImage,
   bgImageOpacity,
+  bgRepeat,
+  bgSize,
   minHeight,
   links,
   info,
@@ -121,6 +132,8 @@ const Header: FunctionComponent<HeaderProps> = ({
       bgColors={bgColors}
       bgImageOpacity={bgImageOpacity}
       bgImage={bgImage}
+      bgSize={bgSize}
+      bgRepeat={bgRepeat}
     >
       <Container
         sx={{
