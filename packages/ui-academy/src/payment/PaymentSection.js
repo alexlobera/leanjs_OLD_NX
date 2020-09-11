@@ -50,7 +50,9 @@ class PaymentSection extends React.Component {
     }
 
     this.props.magic?.user?.getMetadata().then((metaData) => {
-      metaData?.email && this.setState({ sessionEmail: metaData.email });
+      if (metaData?.email) {
+        this.setState({ sessionEmail: metaData.email });
+      }
     });
   }
 

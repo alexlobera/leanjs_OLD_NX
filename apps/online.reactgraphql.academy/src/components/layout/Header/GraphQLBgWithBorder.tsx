@@ -1,3 +1,6 @@
+/* eslint-disable no-debugger, no-console */
+/* eslint-disable no-irregular-whitespace */
+
 import React from 'react';
 import HeaderBgImage, { BackgroundImageProps } from './HeaderBgImage';
 
