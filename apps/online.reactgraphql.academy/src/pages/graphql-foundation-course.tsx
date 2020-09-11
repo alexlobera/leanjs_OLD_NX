@@ -6,6 +6,7 @@ import { createMetas } from '@leanjs/ui-page';
 import Layout from '../components/layout/Layout';
 import Header from '../components/layout/Header';
 import LaunchingCourseForm from '../components/form/LaunchingCourseForm';
+import GraphQLBgWithBorder from '../components/layout/Header/GraphQLBgWithBorder';
 
 const metas = {
   title: 'GraphQL Foundation Online Courses | React GraphQL Academy',
@@ -40,20 +41,23 @@ function CoursePage({ data }) {
       >
         {createMetas(metas)}
       </Helmet>
-      <Header
-        title={title}
-        subtitle={'Get started building GraphQL APIs'}
-        height="100vh"
-        bgImageOpacity={1}
-        bgImage={coverImage}
-        bgColors={['#DF0098']}
-        callToAction={
-          <LaunchingCourseForm
-            courseName={'graphql-foundation'}
-            autopilotListId="271daadc-a2a9-4a1b-9a53-b1eba490f5ee"
-          />
-        }
-      />
+      <GraphQLBgWithBorder right={-175}>
+        <Header
+          title={title}
+          subtitle={'Get started building GraphQL APIs'}
+          bgImageOpacity={1}
+          bgImage={coverImage}
+          bgColors={['#DF0098']}
+          bgRepeat="repeat"
+          bgSize="auto"
+          callToAction={
+            <LaunchingCourseForm
+              courseName={'graphql-foundation'}
+              autopilotListId="271daadc-a2a9-4a1b-9a53-b1eba490f5ee"
+            />
+          }
+        />
+      </GraphQLBgWithBorder>
     </Layout>
   );
 }

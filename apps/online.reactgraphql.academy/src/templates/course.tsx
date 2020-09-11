@@ -108,7 +108,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           title={title}
           subtitle={training.subtitle}
           minHeight="650px"
-          bgColors={['rgba(196, 196, 196, 0.6)']}
+          bgColors={['#44B0C5']}
           bgImageOpacity={1}
           bgImage={coverImage}
           bgRepeat="repeat"

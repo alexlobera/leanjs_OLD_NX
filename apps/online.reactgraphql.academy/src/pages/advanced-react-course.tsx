@@ -6,6 +6,7 @@ import { createMetas } from '@leanjs/ui-page';
 import LaunchingCourseForm from '../components/form/LaunchingCourseForm';
 import Layout from '../components/layout/Layout';
 import Header from '../components/layout/Header';
+import ReactBgWithBorder from '../components/layout/Header/ReactBgWithBorder';
 
 const metas = {
   title: 'Advanced React Online Courses | React GraphQL Academy',
@@ -40,22 +41,25 @@ function CoursePage({ data }) {
       >
         {createMetas(metas)}
       </Helmet>
-      <Header
-        title={title}
-        subtitle={
-          'Learn pragmatic functional programing and master advanced React patterns'
-        }
-        height="100vh"
-        bgImageOpacity={1}
-        bgImage={coverImage}
-        bgColors={['#525AAB']}
-        callToAction={
-          <LaunchingCourseForm
-            courseName={'advanced-react'}
-            autopilotListId="3d3d9468-e3d2-41b8-9e16-e2f514ce950a"
-          />
-        }
-      />
+      <ReactBgWithBorder bgColor="#525AAB" right={-50}>
+        <Header
+          title={title}
+          subtitle={
+            'Learn pragmatic functional programing and master advanced React patterns'
+          }
+          bgImageOpacity={1}
+          bgImage={coverImage}
+          bgColors={['#525AAB']}
+          bgRepeat="repeat"
+          bgSize="auto"
+          callToAction={
+            <LaunchingCourseForm
+              courseName={'advanced-react'}
+              autopilotListId="3d3d9468-e3d2-41b8-9e16-e2f514ce950a"
+            />
+          }
+        />
+      </ReactBgWithBorder>
     </Layout>
   );
 }
