@@ -41,20 +41,29 @@ export const withStatelessClient = (Component) => (props) => {
   return <Component {...props} statelessClient={client} />;
 };
 
-export const createClient = ({ getToken } = {}) => {
+export const createClient = ({ headers = {} } = {}) => {
   return {
     query: async function postQuery({ query, variables }) {
       let opts = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify({ query, variables }),
-      };
+        headers: {
+          'Content-Type': 'application/json',
+          ...(await Object.keys(headers).reduce(async (acc, key) => {
+            let resolvedHeader;
 
-      const token = getToken && (await getToken());
-      if (token) {
-        opts.headers.Authorization = `Bearer ${token}`;
-      }
+            if (typeof headers[key] === 'function') {
+              resolvedHeader = await headers[key]();
+            }
+
+            const accHeader = await acc;
+            accHeader[key] = resolvedHeader || headers[key];
+
+            return acc;
+          }, Promise.resolve({}))),
+        },
+      };
 
       const response = await fetch(
         `${process.env.GATSBY_UPMENTORING_GRAPHQL_API_BASE_URL}/graphql` ||

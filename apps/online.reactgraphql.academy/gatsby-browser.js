@@ -12,7 +12,14 @@ import './src/config/site.css';
 export const wrapRootElement = ({ element }) => (
   <MagicProvider login={login}>
     {({ getToken }) => (
-      <GraphQLProvider client={createClient({ getToken })}>
+      <GraphQLProvider
+        client={createClient({
+          headers: {
+            'x-um-orgid': '@VVNFOjVhYWE5YjA3ZjE0NmU1Y2ZhZmFkMTg5ZQ==',
+            Authorization: async () => `Bearer ${await getToken()}`,
+          },
+        })}
+      >
         <ThemeProvider theme={theme}>{element}</ThemeProvider>
       </GraphQLProvider>
     )}
