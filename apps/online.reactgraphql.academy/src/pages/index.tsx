@@ -10,7 +10,7 @@ import GraphQLHeaderBg from '../components/layout/Header/GraphQLBg';
 
 import Link from '../components/navigation/Link';
 import { H3, P } from '../components/display';
-import Image from '../components/display/Image';
+import { Image } from '../components/display/Image';
 
 interface PageProps {
   data: any;

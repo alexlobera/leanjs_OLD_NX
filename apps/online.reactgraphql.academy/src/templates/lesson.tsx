@@ -23,7 +23,7 @@ interface LessonPageProps {
   location: any;
 }
 
-const RELATED_RESOURCES_FIELD_ID = '@RklFOjVmMTgzYzVmNThlZjE1MGVhOGQ4OGUwZQ==';
+const RELATED_RESOURCES_FIELD_ID = '@RklFOjVmNTMyN2I2YTQzNWVlNjIyNjRiYzE1ZA==';
 const GITHUB_COLOR = '#1B1F23';
 
 const Icon = ({ comp: Comp }) => (
@@ -126,7 +126,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         sx={{
                           ...textBackgroundProps,
                           padding: 2,
-                          lineHeight: 1.5,
+                          lineHeight: 1.85,
                         }}
                       >
                         {pageContext.isPublicVideo && !loggedIn ? (

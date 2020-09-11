@@ -24,7 +24,7 @@ function LaunchingCourseForm(props: Props) {
   const [email, setEmail] = React.useState('');
 
   React.useEffect(() => {
-    magic.user.getMetadata().then((metaData) => {
+    magic?.user?.getMetadata().then((metaData) => {
       metaData?.email && setEmail(metaData.email);
     });
   }, []);

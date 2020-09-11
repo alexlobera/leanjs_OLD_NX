@@ -11,6 +11,7 @@ import {
 } from '@leanjs/ui-academy';
 import { PlayMedia } from '@leanjs/ui-icons';
 
+import ReactBgWithBorder from '../components/layout/Header/ReactBgWithBorder';
 import Tick from '../components/icons/Tick';
 import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
@@ -79,6 +80,8 @@ function CoursePage({ data, pageContext: { trainingId } }) {
   const coverImage =
     data.courseThumbnailImages.nodes[0].childImageSharp.fixed.src;
 
+  const BgLogo = ReactBgWithBorder;
+
   return (
     <Layout
       breadcrumbPaths={[
@@ -100,44 +103,46 @@ function CoursePage({ data, pageContext: { trainingId } }) {
       >
         {createMetas(metas)}
       </Helmet>
-
-      <Header
-        title={title}
-        subtitle={training.subtitle}
-        height="100vh"
-        bgColors={['rgba(196, 196, 196, 0.6)']}
-        bgImageOpacity={1}
-        bgImage={coverImage}
-        links={[
-          {
-            text: 'Course layout',
-            to: '#course-modules',
-          },
-          // {
-          //   text: 'Is it right for me?',
-          //   to: '#target-audience',
-          // },
-          {
-            text: 'FAQs',
-            to: '#faqs',
-          },
-          {
-            text: purchased ? 'Thanks' : 'Price',
-            to: '#pricing',
-          },
-        ]}
-        info={
-          training.previewVideo && (
-            <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
-              <VideoPlayer
-                poster={training.previewVideo.asset?.posterImageUrl}
-                url={training.previewVideo.asset?.url}
-              />
-            </Box>
-          )
-        }
-      />
-
+      <BgLogo bgColor="#44B0C5" right={-50}>
+        <Header
+          title={title}
+          subtitle={training.subtitle}
+          minHeight="650px"
+          bgColors={['#44B0C5']}
+          bgImageOpacity={1}
+          bgImage={coverImage}
+          bgRepeat="repeat"
+          bgSize="auto"
+          links={[
+            {
+              text: 'Course layout',
+              to: '#course-modules',
+            },
+            // {
+            //   text: 'Is it right for me?',
+            //   to: '#target-audience',
+            // },
+            {
+              text: 'FAQs',
+              to: '#faqs',
+            },
+            {
+              text: purchased ? 'Thanks' : 'Price',
+              to: '#pricing',
+            },
+          ]}
+          info={
+            training.previewVideo && (
+              <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
+                <VideoPlayer
+                  poster={training.previewVideo.asset?.posterImageUrl}
+                  url={training.previewVideo.asset?.url}
+                />
+              </Box>
+            )
+          }
+        />
+      </BgLogo>
       <Section variant="top">
         <Container>
           <Sheet>

@@ -5,7 +5,7 @@ export const TECH_REACT = 'react';
 export const TECH_GRAPHQL = 'graphql';
 
 export interface BackgroundImageProps {
-  src?: string;
+  srcImg?: string;
   top?: string;
   bottom?: string;
   left?: string;
@@ -15,8 +15,8 @@ export interface BackgroundImageProps {
 }
 
 export const HeaderBgImage = styled('div')<BackgroundImageProps>`
-  ${({ src, top, bottom, left = null, opacity = 0.6 }: any) =>
-    src &&
+  ${({ srcImg, top, bottom, left = null, opacity = 0.6 }: any) =>
+    srcImg &&
     `
   &:after {
     content: '';
@@ -25,7 +25,7 @@ export const HeaderBgImage = styled('div')<BackgroundImageProps>`
     ${bottom ? `bottom:${bottom};` : ''}
     ${left ? `left:${left};` : ''}
     z-index: ${Z_INDEX_BG};
-    background-image: ${src};
+    background-image: ${srcImg};
     opacity:${opacity};
     background-repeat: no-repeat;
     background-position: right;

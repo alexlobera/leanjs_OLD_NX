@@ -12,11 +12,13 @@ export const TECH_REACT = 'react';
 export const TECH_GRAPHQL = 'graphql';
 
 interface SectionProps {
-  height?: string;
+  minHeight?: string;
   bgColor?: string;
   bgColors?: string[];
   bgImage?: string;
   bgImageOpacity?: number;
+  bgRepeat?: string;
+  bgSize?: string;
 }
 
 const HeaderSection = styled('header')<SectionProps>`
@@ -51,7 +53,12 @@ const HeaderSection = styled('header')<SectionProps>`
       : '';
   }}
   
-  ${({ bgImage, bgImageOpacity = '0.5' }: any) => `
+  ${({
+    bgImage,
+    bgImageOpacity = '0.5',
+    bgRepeat = 'no-repeat',
+    bgSize = 'cover',
+  }: any) => `
     @media (min-width: ${SCREEN_SM_MIN}) {
       &:after {
         content: '';
@@ -65,8 +72,8 @@ const HeaderSection = styled('header')<SectionProps>`
           bgImage
             ? `
           background-image: url(${bgImage}); 
-          background-repeat: no-repeat; 
-          background-size: cover;
+          background-repeat: ${bgRepeat}; 
+          background-size: ${bgSize};
           background-position: center;
           opacity: ${bgImageOpacity};
           `
@@ -77,7 +84,7 @@ const HeaderSection = styled('header')<SectionProps>`
   `}
   
   @media (min-width: ${SCREEN_SM_MIN}) {
-    min-height: ${({ height }) => (height ? height : '100vh')};
+    min-height: ${({ minHeight }) => (minHeight ? minHeight : '100vh')};
   }
 `;
 
@@ -95,11 +102,13 @@ interface HeaderProps {
   bgColors?: string[];
   bgImage?: string;
   bgImageOpacity?: number;
+  bgRepeat?: string;
+  bgSize?: string;
   links?: {
     text: string;
     to: string;
   }[];
-  height?: string;
+  minHeight?: string;
   info?: JSX.Element;
   callToAction?: JSX.Element;
 }
@@ -110,17 +119,21 @@ const Header: FunctionComponent<HeaderProps> = ({
   bgColors,
   bgImage,
   bgImageOpacity,
-  height,
+  bgRepeat,
+  bgSize,
+  minHeight,
   links,
   info,
   callToAction = null,
 }) => {
   return (
     <HeaderSection
-      height={height}
+      minHeight={minHeight}
       bgColors={bgColors}
       bgImageOpacity={bgImageOpacity}
       bgImage={bgImage}
+      bgSize={bgSize}
+      bgRepeat={bgRepeat}
     >
       <Container
         sx={{
