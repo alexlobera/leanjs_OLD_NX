@@ -82,7 +82,7 @@
     "lodash.isequal": "~4.5.0",
     "magic-sdk": "~2.5.1",
     "markdown-to-jsx": "~6.11.4",
-    "node-fetch": "~2.6.0",
+    "node-fetch": "~2.6.1",
     "normalize.css": "~8.0.1",
     "payment": "~2.3.0",
     "plyr": "~3.6.2",
