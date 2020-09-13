@@ -23,6 +23,7 @@ export const wrapRootElement = ({ element }) => (
           uri:
             `${process.env.GATSBY_UPMENTORING_GRAPHQL_API_BASE_URL}/graphql` ||
             'https://api2.upmentoring.com/graphql',
+          fetcher: fetch,
         })}
       >
         <ThemeProvider theme={theme}>{element}</ThemeProvider>

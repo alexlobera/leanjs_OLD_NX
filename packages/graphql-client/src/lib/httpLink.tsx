@@ -1,15 +1,18 @@
-import { RequestInit } from 'whatwg-fetch';
+interface Variables {
+  [name: string]: any;
+}
 
 interface CreateHttpLink {
-  headers?: any;
   uri: string;
+  fetcher: <T>(uri: string, options: Variables) => Promise<Response>;
+  headers?: any;
 }
 export const createHttpLink = (options: CreateHttpLink) => {
-  const { headers = {}, uri } = options || {};
+  const { headers = {}, uri, fetcher } = options || {};
 
   return {
     fetch: async function ({ query, variables }) {
-      let opts: RequestInit = {
+      let opts = {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify({ query, variables }),
@@ -28,7 +31,7 @@ export const createHttpLink = (options: CreateHttpLink) => {
         },
       };
 
-      const response = await fetch(uri, opts);
+      const response = await fetcher(uri, opts);
 
       return response.json();
     },
