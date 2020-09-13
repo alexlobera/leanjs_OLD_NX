@@ -174,5 +174,5 @@ export const useGraphQLStore = () => {
     dispatch(CLEAR_CACHE, initialState);
   }
 
-  return { cache, clearStore }; // TODO RENAME IT TO clearStore LIKE APOLLO
+  return { cache, clearStore };
 };
