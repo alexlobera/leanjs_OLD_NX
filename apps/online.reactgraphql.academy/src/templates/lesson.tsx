@@ -70,14 +70,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   )?.values[0];
   const trainingPath = `/${training.slug}-course/`;
-  // console.log('aaaaa', location);
 
-  console.log(
-    'aaaa loggedIn',
-    privateData?.video?.asset?.url,
-    loggedIn,
-    pageContext.isPublicVideo
-  );
   return (
     <Layout
       variant="stack"

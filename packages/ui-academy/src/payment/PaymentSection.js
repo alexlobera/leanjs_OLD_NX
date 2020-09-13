@@ -77,7 +77,6 @@ class PaymentSection extends React.Component {
         },
       })
       .then(({ data = {} }) => {
-        console.log('aaa', data);
         const { discountPrice } = data.redeemVoucher || {};
         const { currentPrice } = discountPrice || {};
         this.setVoucherInProgress(false);

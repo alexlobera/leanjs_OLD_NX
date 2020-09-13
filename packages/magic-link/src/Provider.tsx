@@ -42,7 +42,6 @@ function magicReducer(state, action) {
     case LOGGED_OUT:
       return { ...initialState, loading: false };
     case RECEIVE_LOGIN_RESPONSE:
-      console.log('cccc 3');
       return {
         ...state,
         loading: false,
@@ -57,7 +56,6 @@ function magicReducer(state, action) {
 
 export function MagicProvider({ children, requirePreSignup, login: myLogin }) {
   const [user, dispatch] = React.useReducer(magicReducer, initialState);
-  console.log('cccc 1');
   React.useEffect(() => {
     // magic-sdk v2.5.1 breaks on SSR so we need to require it here
     const { Magic } = require('magic-sdk');
@@ -65,14 +63,12 @@ export function MagicProvider({ children, requirePreSignup, login: myLogin }) {
     async function iniState() {
       const loggedIn = await magic.user.isLoggedIn();
       dispatch({ type: RECEIVE_LOGIN_RESPONSE, loggedIn });
-      console.log('cccc 2');
     }
 
     iniState();
   }, []);
 
   async function getToken() {
-    console.log('cccc 4', user);
     if (!user.loggedIn) return;
     // if (!(await magic.user.isLoggedIn())) return;
 
