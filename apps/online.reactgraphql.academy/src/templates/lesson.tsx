@@ -224,7 +224,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
                 {trainingUnit.published.videos.map(({ title, slug }) => {
-                  const path = `${trainingPath}${slug}/`;
+                  const path = `${trainingPath}${slug}`;
                   return (
                     <Li key={slug}>
                       {location.pathname !== path ? (

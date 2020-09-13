@@ -131,8 +131,7 @@ export class CheckoutContainer extends React.Component {
     const {
       quantity,
       client,
-      trainingInstanceId,
-      eventId,
+      itemId,
       paymentApi = Stripe,
       voucher,
       navigate,
@@ -171,7 +170,7 @@ export class CheckoutContainer extends React.Component {
           vatNumber = companyVat.substring(2, companyVat.length);
           vatCountry = companyVat.substring(0, 2);
         }
-        const itemId = trainingInstanceId || eventId;
+
         const variables = {
           voucherCode: voucher,
           quantity,

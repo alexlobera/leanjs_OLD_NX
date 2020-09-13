@@ -1,4 +1,4 @@
-function memoize(fn) {
+export function memoize(fn) {
   const cache = new Map();
   return (...args) => {
     const hit = args.reduce((acc, arg) => acc && acc.get(arg), cache);
@@ -18,5 +18,3 @@ function memoize(fn) {
     }
   };
 }
-
-export default memoize;

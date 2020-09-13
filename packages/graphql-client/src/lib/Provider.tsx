@@ -1,5 +1,5 @@
 import React, { useReducer, useContext, useEffect } from 'react';
-import memoize from './memoize';
+import { memoize } from './memoize';
 const RECEIVE_DATA = 'RECEIVE_DATA';
 const SET_ERROR = 'SET_ERROR';
 const CLEAR_CACHE = 'CLEAR_CACHE';

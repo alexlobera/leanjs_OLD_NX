@@ -3,6 +3,7 @@ import { navigate } from 'gatsby';
 import { H2, H3, P, Card } from '@leanjs/ui-core';
 import { Link } from '@leanjs/ui-link';
 import { withMagic } from '@leanjs/magic-link';
+// import { withGraphQLClient, memoize, graphql } from '@leanjs/graphql-client';
 import { withGraphQLClient } from '@leanjs/graphql-client';
 
 import Ribbon from '.';
@@ -155,12 +156,6 @@ class PaymentSection extends React.Component {
       title =
         trainingType === MEETUP ? 'Donation ticket' : 'Standard price ticket';
       let ticketsLeft;
-      //   if (item.shoppingItemEnum === 'event') {
-      //     eventId = item.id;
-      //     ticketsLeft = item.ticketsLeft;
-      //   } else {
-      //     trainingInstanceId = item.id;
-      //   }
 
       notSoldOut = !(
         ticketsLeft !== undefined &&
@@ -245,8 +240,6 @@ class PaymentSection extends React.Component {
                   isDonationTicket={isDonationTicket}
                   city={city}
                   navigate={navigate}
-                  //   trainingInstanceId={trainingInstanceId}
-                  //   eventId={eventId}
                   itemId={item.id}
                   vatRate={vatRate}
                   updateVatRate={this.updateVatRate}
@@ -310,5 +303,28 @@ query eventDiscountPrice($eventId: ID!) {
     }
 }
 `;
+
+// const memoizedTrainingOptions = memoize((item) => ({
+//   variables: { trainingInstanceId: item.id },
+// }));
+
+// const withUpcomingTrainingVouchers = graphql(QUERY_UPCOMING_TRAINING_VOUCHERS, {
+//   options: ({ item }) => memoizedTrainingOptions(item),
+//   skip: ({ item }) =>
+//     !item || item.__typename !== 'UpMentoring_TrainingInstance',
+// });
+
+// const memoizedEventOptions = memoize((item) => ({
+//   variables: { eventId: item.id },
+// }));
+
+// const withUpcomingEventVouchers = graphql(QUERY_UPCOMING_EVENT_VOUCHERS, {
+//   options: ({ item }) => memoizedEventOptions(item),
+//   skip: ({ item }) => !item || item.__typename !== 'UpMentoring_Event',
+// });
+
+// export default withUpcomingEventVouchers(
+//   withUpcomingTrainingVouchers(withGraphQLClient(withMagic(PaymentSection)))
+// );
 
 export default withGraphQLClient(withMagic(PaymentSection));
