@@ -7,10 +7,6 @@ interface UlProps {
   variants?: string[];
 }
 
-// interface UlContext {
-//     variant?: string;
-//     variants?: string[];
-//   }
 const UlContext = React.createContext({ variant: '', variants: [] });
 
 function Ul<T extends As = 'ul'>(props: LeanProps<T, UlProps>) {
@@ -32,6 +28,7 @@ function Ul<T extends As = 'ul'>(props: LeanProps<T, UlProps>) {
 
 const Ol = (props) => <Ul as="ol" {...props} />;
 
+// TODO MOVE ALL THE STYLE TO THE THEME
 const ulVariantSxProp = {
   inline: {
     m: 0,
@@ -49,17 +46,11 @@ const liVariantSxProp = {
     p: '8px',
     m: 0,
     display: 'inline-block',
-    // TODO the following doesn't work, should we create a styled system function?
-    // should we instead create a function for
-    // firstChildML : 0
-    // should we instead create a function for
-    // firstChild : { // concern this make composability more difficult
-    //     mt: 0
-    // }
   },
   unstyled: {
     // TODO the following doesn't work, should we create a styled system function?
     // listStyleType: 'none',
+    //lineHeight: '1.5rem',
     mb: '7px',
   },
 };
@@ -73,6 +64,7 @@ function Li<T extends As = 'li'>(props: LeanProps<T>) {
       {...props}
       sx={{
         py: 1,
+        lineHeight: '1.5rem',
         ...getVariantProps(variant || variants, liVariantSxProp),
         ...props.sx,
       }}
