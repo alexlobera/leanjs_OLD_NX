@@ -120,7 +120,13 @@ export class CheckoutContainer extends React.Component {
   };
 
   processPaymentError = (error) => {
-    this.setState({ paymentErrorMessage: true, isPaymentInProgress: false });
+    const paymentErrorMessage = error?.length
+      ? error[0]?.message
+      : error?.message;
+    this.setState({
+      paymentErrorMessage: paymentErrorMessage ? paymentErrorMessage : true,
+      isPaymentInProgress: false,
+    });
     throw error;
   };
 
@@ -138,7 +144,7 @@ export class CheckoutContainer extends React.Component {
       city,
     } = this.props;
 
-    this.setState({ paymentErrorMessage: false, isPaymentInProgress: true });
+    this.setState({ paymentErrorMessage: null, isPaymentInProgress: true });
     const {
       CCnumber,
       CCexpiry,
