@@ -1,5 +1,7 @@
 import React from 'react';
 import { useMagic } from '@leanjs/magic-link';
+import { useGraphQLStore } from '@leanjs/graphql-client';
+
 import { Flex, Card } from '../components/layout';
 import { H1, P, Spinner } from '../components/display';
 import {
@@ -18,6 +20,7 @@ import { triggerSubscribe } from '../api';
 
 function LoginPage({ navigate, location }) {
   const { login, loggedIn } = useMagic();
+  const { clearStore } = useGraphQLStore();
 
   if (loggedIn) {
     navigate(location.state?.referrer || '/react-foundation-course/');
@@ -44,8 +47,10 @@ function LoginPage({ navigate, location }) {
           <Form
             onSubmit={async ({ email, signUpNewsletter }: any) => {
               const token = await login({ email });
-              if (token && signUpNewsletter) {
-                triggerSubscribe({ email });
+
+              if (token) {
+                clearStore();
+                if (signUpNewsletter) triggerSubscribe({ email });
               }
             }}
           >

@@ -4,6 +4,7 @@ import StickyBox from 'react-sticky-box';
 import { PlayMedia } from '@leanjs/ui-icons';
 import { ThemeProvider } from '@leanjs/ui-core';
 import { useMagic } from '@leanjs/magic-link';
+import { useQuery } from '@leanjs/graphql-client';
 // import { OkaidiaRGA } from '@leanjs/ui-academy';
 
 import Markdown from '../components/display/Markdown';
@@ -13,7 +14,6 @@ import { Box, Grid, Container, Ul, Li } from '../components/layout';
 import Link, { LinkButton } from '../components/navigation/Link';
 import { H1, H2, H3, H4, H5, H6, P, Span, Image } from '../components/display';
 // import Code from '../components/display/Code';
-import { useQuery } from '../api/graphql/Provider';
 import { textBackgroundProps } from '../components/layout/Header';
 import { Spinner } from '../components/display';
 
@@ -71,6 +71,13 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   )?.values[0];
   const trainingPath = `/${training.slug}-course/`;
   // console.log('aaaaa', location);
+
+  console.log(
+    'aaaa loggedIn',
+    privateData?.video?.asset?.url,
+    loggedIn,
+    pageContext.isPublicVideo
+  );
   return (
     <Layout
       variant="stack"
@@ -142,7 +149,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                           </>
                         ) : (
                           <>
-                            You have to{' '}
+                            111 You have to{' '}
                             <Link to={trainingPath}>purchase this course</Link>{' '}
                             to watch this video.
                           </>

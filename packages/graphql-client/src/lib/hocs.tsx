@@ -1,5 +1,5 @@
 import React from 'react';
-import { useClient, useQuery } from './Provider';
+import { useQuery, useClient } from './Provider';
 import memoize from './memoize';
 
 const computeProps = (config, props) => {
@@ -8,7 +8,11 @@ const computeProps = (config, props) => {
 };
 const memoizedComputeProps = memoize(computeProps);
 
-export function graphql(query, config = {}) {
+interface Config {
+  skip?: (props: { [name: string]: any }) => boolean | boolean;
+}
+
+export function graphql(query: string, config: Config = {}) {
   return (Component) => (props) => {
     if (config.skip && config.skip(props)) {
       return <Component {...props} />;
@@ -36,42 +40,7 @@ export function graphql(query, config = {}) {
   };
 }
 
-export const withStatelessClient = (Component) => (props) => {
+export const withGraphQLClient = (Component) => (props) => {
   const { client } = useClient();
-  return <Component {...props} statelessClient={client} />;
-};
-
-export const createClient = ({ headers = {} } = {}) => {
-  return {
-    query: async function postQuery({ query, variables }) {
-      let opts = {
-        method: 'POST',
-        credentials: 'include',
-        body: JSON.stringify({ query, variables }),
-        headers: {
-          'Content-Type': 'application/json',
-          ...(await Object.keys(headers).reduce(async (acc, key) => {
-            let resolvedHeader;
-
-            if (typeof headers[key] === 'function') {
-              resolvedHeader = await headers[key]();
-            }
-
-            const accHeader = await acc;
-            accHeader[key] = resolvedHeader || headers[key];
-
-            return acc;
-          }, Promise.resolve({}))),
-        },
-      };
-
-      const response = await fetch(
-        `${process.env.GATSBY_UPMENTORING_GRAPHQL_API_BASE_URL}/graphql` ||
-          'https://api2.upmentoring.com/graphql',
-        opts
-      );
-
-      return response.json();
-    },
-  };
+  return <Component {...props} client={client} />;
 };

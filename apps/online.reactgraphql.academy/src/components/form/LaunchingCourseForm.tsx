@@ -1,6 +1,7 @@
 import React from 'react';
 import { navigate } from 'gatsby';
 import { useMagic } from '@leanjs/magic-link';
+
 import { Spinner } from '../display';
 import {
   Form,
@@ -29,7 +30,7 @@ function LaunchingCourseForm(props: Props) {
         setEmail(metaData.email);
       }
     });
-  }, []);
+  }, [magic]);
 
   return (
     <Form
