@@ -142,7 +142,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                           </>
                         ) : (
                           <>
-                            111 You have to{' '}
+                            You have to{' '}
                             <Link to={trainingPath}>purchase this course</Link>{' '}
                             to watch this video.
                           </>
