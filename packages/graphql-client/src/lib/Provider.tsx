@@ -25,12 +25,13 @@ const reducer = (state, action) => {
         ...state,
         ...action.payload,
       };
-    case SET_LOADING:
+    case SET_LOADING: {
       const { cacheKey, loading } = action.payload;
       return {
         ...state,
         ...{ [cacheKey]: { ...(state[cacheKey] || {}), loading } },
       };
+    }
     case CLEAR_CACHE:
       return {};
     default:
@@ -114,7 +115,8 @@ export const useQuery = (query, options: UseQueryOptions) => {
 
   useEffect(() => {
     if (skip) {
-      dispatch(SET_LOADING, { cacheKey, loading: false });
+      // should we dispatch this?
+      // dispatch(SET_LOADING, { cacheKey, loading: false });
     } else {
       client.query({ query, variables });
     }
