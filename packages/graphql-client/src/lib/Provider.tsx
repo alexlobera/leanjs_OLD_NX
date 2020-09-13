@@ -91,7 +91,7 @@ export const GraphQLProvider = ({
   }
 
   async function mutate({ query, variables }) {
-    // mutation assumes the UI state doesn't change after the mutation
+    // mutation assumes the state of the client doesn't change after the mutation
     dispatch(SET_LOADING, true);
 
     try {
