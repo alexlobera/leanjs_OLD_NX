@@ -188,7 +188,10 @@ export class CheckoutContainer extends React.Component {
             query: PAY_MUTATION,
             variables,
           })
-          .then(({ data, errors }) => {
+          .then((res) => {
+            console.log('aaa', res);
+            const { data, errors } = res;
+            console.log('aaa 1', this.props.location.pathname);
             if (!errors) {
               navigate('/payment-confirmation', {
                 email,
@@ -197,10 +200,12 @@ export class CheckoutContainer extends React.Component {
                 itemId,
               });
             } else {
-              this.processPaymentError(error);
+              console.log('aaa  2', res);
+              this.processPaymentError(errors);
             }
           })
           .catch((error) => {
+            console.log('aaa  3', error);
             this.processPaymentError(error);
           });
       }
