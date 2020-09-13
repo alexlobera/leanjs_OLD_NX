@@ -26,9 +26,9 @@ export const createHttpLink = (options: CreateHttpLink) => {
           }, Promise.resolve({}))),
         },
       };
-
+      console.log('fetching...', fetcher);
       const response = await fetcher(uri, opts);
-
+      console.log('fetched!');
       return response.json();
     },
   };
