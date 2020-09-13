@@ -1,20 +1,16 @@
-interface Variables {
-  [name: string]: any;
-}
-
 interface CreateHttpLink {
   uri: string;
-  fetcher: <T>(uri: string, options: Variables) => Promise<Response>;
+  fetcher: (uri: string, options: RequestInit) => Promise<Response>;
   headers?: any;
 }
 export const createHttpLink = (options: CreateHttpLink) => {
-  const { headers = {}, uri, fetcher } = options || {};
+  const { headers = {}, uri, fetcher = fetch } = options || {};
 
   return {
     fetch: async function ({ query, variables }) {
       let opts = {
         method: 'POST',
-        credentials: 'include',
+        credentials: 'include' as RequestCredentials,
         body: JSON.stringify({ query, variables }),
         headers: {
           'Content-Type': 'application/json',
