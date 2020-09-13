@@ -3,10 +3,9 @@ import { navigate } from 'gatsby';
 import { H2, H3, P, Card } from '@leanjs/ui-core';
 import { Link } from '@leanjs/ui-link';
 import { withMagic } from '@leanjs/magic-link';
-// import { withGraphQLClient, memoize, graphql } from '@leanjs/graphql-client';
 import { withGraphQLClient } from '@leanjs/graphql-client';
 
-import Ribbon from '.';
+import Ribbon from './Ribbon';
 import Checkout from './checkout/';
 import Countdown from './Countdown';
 import { DEFAULT_VAT_RATE, formatPrice } from './utils';
@@ -50,7 +49,7 @@ class PaymentSection extends React.Component {
       this.validateVoucher(voucher);
     }
 
-    this.props.magic?.user?.getMetadata().then((metaData) => {
+    this.props.magic?.magic?.user?.getMetadata().then((metaData) => {
       if (metaData?.email) {
         this.setState({ sessionEmail: metaData.email });
       }
@@ -58,10 +57,7 @@ class PaymentSection extends React.Component {
   }
 
   validateVoucher = (voucher) => {
-    const {
-      client,
-      item: { id: itemId },
-    } = this.props;
+    const { client, itemId } = this.props;
     const { isVoucherValidationInProgress, quantity } = this.state;
 
     if (!voucher || isVoucherValidationInProgress) {
@@ -125,36 +121,39 @@ class PaymentSection extends React.Component {
   render() {
     const {
       paymentApi,
-      item = {},
       navigate,
-      data,
+      // data,
       errors,
       loading,
       city,
       triggerSubscribe,
       trialTraingInstance,
+      discountPrice,
+      standardPrice,
+      endDate,
+      itemId,
+      type,
+      currency,
+      onDemand,
     } = this.props;
 
     let price = 0,
-      currency,
       title,
       priceGoesUpOn,
       currentDiscountPrice,
-      trainingType,
+      //trainingType,
       notSoldOut = true;
-
+    console.log('aaa lo', loading);
     if (errors) {
       title = 'There was an error';
     } else if (loading) {
       title = 'Loading ...';
-    } else if (!item || !item.id) {
+    } else if (!itemId) {
       title = 'There is no event scheduled';
-    } else if (new Date(item.endDate) < new Date()) {
+    } else if (new Date(endDate) < new Date()) {
       title = 'The event has ended';
     } else {
-      trainingType = item.type;
-      title =
-        trainingType === MEETUP ? 'Donation ticket' : 'Standard price ticket';
+      title = type === MEETUP ? 'Donation ticket' : 'Standard price ticket';
       let ticketsLeft;
 
       notSoldOut = !(
@@ -162,18 +161,39 @@ class PaymentSection extends React.Component {
         ticketsLeft !== null &&
         parseInt(ticketsLeft) <= 0
       );
-      price = item.standardPrice;
+      price = standardPrice;
+      // if (errors) {
+      //   title = 'There was an error';
+      // } else if (loading) {
+      //   title = 'Loading ...';
+      // } else if (!item || !item.id) {
+      //   title = 'There is no event scheduled';
+      // } else if (new Date(item.endDate) < new Date()) {
+      //   title = 'The event has ended';
+      // } else {
+      //   trainingType = item.type;
+      //   title =
+      //     trainingType === MEETUP ? 'Donation ticket' : 'Standard price ticket';
+      //   let ticketsLeft;
 
-      const dataItem = data?.trainingInstance
-        ? data.trainingInstance
-        : data?.event
-        ? data.event
-        : data?.training
-        ? data.training
-        : {};
+      //   notSoldOut = !(
+      //     ticketsLeft !== undefined &&
+      //     ticketsLeft !== null &&
+      //     parseInt(ticketsLeft) <= 0
+      //   );
+      //   price = item.standardPrice;
 
-      const { discountPrice } = dataItem;
-      currency = item.currency || 'gbp';
+      // TODO MOVE THIS LOGIC TO THE PARENT COMPONENT (THE ONE THAT USES THE PAYMENTSECTION)
+      //   const dataItem = data?.trainingInstance
+      //     ? data.trainingInstance
+      //     : data?.event
+      //     ? data.event
+      //     : data?.training
+      //     ? data.training
+      //     : {};
+
+      // const { discountPrice } = dataItem;
+      // currency = item.currency || 'gbp';
 
       if (discountPrice) {
         title = 'Discount Ticket';
@@ -200,8 +220,8 @@ class PaymentSection extends React.Component {
       ? currentDiscountPrice * quantity
       : priceQuantity;
 
-    const showSubscribeToNewsletter = trainingType === MEETUP;
-    const isDonationTicket = trainingType === MEETUP;
+    const showSubscribeToNewsletter = type === MEETUP;
+    const isDonationTicket = type === MEETUP;
 
     return (
       <React.Fragment>
@@ -240,7 +260,7 @@ class PaymentSection extends React.Component {
                   isDonationTicket={isDonationTicket}
                   city={city}
                   navigate={navigate}
-                  itemId={item.id}
+                  itemId={itemId}
                   vatRate={vatRate}
                   updateVatRate={this.updateVatRate}
                   price={price}
@@ -265,10 +285,10 @@ class PaymentSection extends React.Component {
             </React.Fragment>
           )}
         </Card>
-        {!item.onDemand && (
+        {!onDemand && (
           <P sx={{ pt: 4 }}>
             Please be aware that the ticket only covers the cost of the
-            {trainingInstanceId ? 'training' : 'event'}, it does not include
+            {type === 'training' ? 'training' : 'event'}, it does not include
             travel expenses.
           </P>
         )}
@@ -280,51 +300,5 @@ class PaymentSection extends React.Component {
 PaymentSection.defaultProps = {
   navigate,
 };
-
-export const QUERY_UPCOMING_TRAINING_VOUCHERS = `
-query instanceDiscountPrice($trainingInstanceId: ID!) {
-    trainingInstance(id: $trainingInstanceId) {
-        discountPrice {
-            currentPrice
-            endsOn
-        }
-    }
-}
-`;
-
-export const QUERY_UPCOMING_EVENT_VOUCHERS = `
-query eventDiscountPrice($eventId: ID!) {
-    event(id: $eventId) {
-        ticketsLeft
-        discountPrice {
-            currentPrice
-            endsOn
-        }
-    }
-}
-`;
-
-// const memoizedTrainingOptions = memoize((item) => ({
-//   variables: { trainingInstanceId: item.id },
-// }));
-
-// const withUpcomingTrainingVouchers = graphql(QUERY_UPCOMING_TRAINING_VOUCHERS, {
-//   options: ({ item }) => memoizedTrainingOptions(item),
-//   skip: ({ item }) =>
-//     !item || item.__typename !== 'UpMentoring_TrainingInstance',
-// });
-
-// const memoizedEventOptions = memoize((item) => ({
-//   variables: { eventId: item.id },
-// }));
-
-// const withUpcomingEventVouchers = graphql(QUERY_UPCOMING_EVENT_VOUCHERS, {
-//   options: ({ item }) => memoizedEventOptions(item),
-//   skip: ({ item }) => !item || item.__typename !== 'UpMentoring_Event',
-// });
-
-// export default withUpcomingEventVouchers(
-//   withUpcomingTrainingVouchers(withGraphQLClient(withMagic(PaymentSection)))
-// );
 
 export default withGraphQLClient(withMagic(PaymentSection));

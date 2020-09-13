@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
-import { Span, Box } from '@leanjs/ui-core';
-//import { Col, Row } from '../layout/Grid.js';
-// import Span from '../text/Span.js';
+import { Span, Box, Flex } from '@leanjs/ui-core';
 
 const CountdownNumbers = ({ sx = {}, ...rest }) => (
-  <Span s={{ textAlign: 'center', fontSize: 4 }} {...rest} />
+  <Span sx={{ fontSize: 5, mr: 7 }} {...rest} />
 );
-// `
-//   font-size: 1.55rem;
-//   text-align: center;
-// `;
-
-// const CountdownWrapper = styled.div`
-//   margin-bottom: 1.5rem;
-// `;
 
 class Countdown extends Component {
   constructor(props) {
@@ -93,34 +83,35 @@ class Countdown extends Component {
 
   render() {
     const countDown = this.state;
+    const numberSxProp = { flexDirection: 'column' };
 
     return (
-      <Box sx={{ mb: 5 }}>
-        <Box>
+      <Flex sx={{ mb: 5 }}>
+        <Flex sx={numberSxProp}>
           <CountdownNumbers>
             {this.addLeadingZeros(countDown.days)}
-          </CountdownNumbers>{' '}
+          </CountdownNumbers>
           <Span>{countDown.days === 1 ? 'Day' : 'Days'} </Span>
-        </Box>
-        <Box>
+        </Flex>
+        <Flex sx={numberSxProp}>
           <CountdownNumbers>
             {this.addLeadingZeros(countDown.hours)}
-          </CountdownNumbers>{' '}
-          <Span>Hours</Span>{' '}
-        </Box>
-        <Box>
+          </CountdownNumbers>
+          <Span>Hours</Span>
+        </Flex>
+        <Flex sx={numberSxProp}>
           <CountdownNumbers>
             {this.addLeadingZeros(countDown.min)}
-          </CountdownNumbers>{' '}
-          <Span>Min</Span>{' '}
-        </Box>
-        <Box>
+          </CountdownNumbers>
+          <Span>Min</Span>
+        </Flex>
+        <Flex sx={numberSxProp}>
           <CountdownNumbers>
             {this.addLeadingZeros(countDown.sec)}
-          </CountdownNumbers>{' '}
+          </CountdownNumbers>
           <Span>Sec</Span>
-        </Box>
-      </Box>
+        </Flex>
+      </Flex>
     );
   }
 }

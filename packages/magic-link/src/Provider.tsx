@@ -158,5 +158,5 @@ export function useMagic() {
 export const withMagic = (Component) => (props) => {
   const magicProps = useMagic();
 
-  return <Component {...props} {...magicProps} />;
+  return <Component {...props} magic={magicProps} />;
 };
