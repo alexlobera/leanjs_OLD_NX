@@ -21,7 +21,7 @@ export function Link(props) {
         });
       }, 100);
     }
-  });
+  }, []);
 
   const { to = '', ...rest } = props;
   const toHref = to || rest.href || '';
