@@ -13,9 +13,7 @@ export function Link(props) {
     const key = props.name || props.id;
 
     if (hash && hash === key) {
-      // adds smooth scrolling to anchor links
       setTimeout(() => {
-        // window && window.scrollTo && window.scrollTo(0, 0);
         scroller.scrollTo(hash, {
           smooth: true,
           duration,

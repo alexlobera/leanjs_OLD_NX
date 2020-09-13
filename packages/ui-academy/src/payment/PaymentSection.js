@@ -1,6 +1,7 @@
 import React from 'react';
 import { navigate } from 'gatsby';
 import { H2, H3, P, Card } from '@leanjs/ui-core';
+import { Link } from '@leanjs/ui-link';
 import { withMagic } from '@leanjs/magic-link';
 import { withGraphQLClient } from '@leanjs/graphql-client';
 
@@ -211,7 +212,7 @@ class PaymentSection extends React.Component {
       <React.Fragment>
         <H2 sx={{ color: 'inverseText', mt: 0 }}>
           Price
-          <a to="#pricing" id="pricing" />
+          <Link to="#pricing" id="pricing" />
         </H2>
         <Card>
           <H3 sx={{ mt: 2 }}>

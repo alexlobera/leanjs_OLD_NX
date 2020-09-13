@@ -147,7 +147,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
         <Container>
           <Sheet>
             <H2 sx={{ mt: 0 }}>
-              <a id="course-modules" />
+              <Link id="course-modules" />
               {training.title} Modules
             </H2>
 
@@ -275,7 +275,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                   <PaymentSection item={training} />
                 ) : (
                   <H2 sx={{ color: 'inverseText' }}>
-                    <a id="pricing" />
+                    <Link id="pricing" />
                     Thank you for purchasing this course :)
                   </H2>
                 )}

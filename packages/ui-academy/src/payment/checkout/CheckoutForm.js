@@ -19,14 +19,16 @@ import {
   CheckboxField,
   Field,
   composeValidators,
-  mustBeEuVat,
   required,
-  mustBeCvc,
   mustBeEmail,
-  mustBeCardNumber,
-  mustBeCardDate,
 } from '@leanjs/ui-final-form';
 import { Link } from '@leanjs/ui-link';
+import {
+  mustBeEuVat,
+  mustBeCvc,
+  mustBeCardNumber,
+  mustBeCardDate,
+} from '../../form/validators';
 
 // import { Span, P, H4, H5 } from '../../text';
 // import { Button, LinkButton } from '../../buttons';
