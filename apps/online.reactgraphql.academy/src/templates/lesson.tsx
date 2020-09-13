@@ -143,7 +143,9 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         ) : (
                           <>
                             You have to{' '}
-                            <Link to={trainingPath}>purchase this course</Link>{' '}
+                            <Link to={`${trainingPath}#pricing`}>
+                              purchase this course
+                            </Link>{' '}
                             to watch this video.
                           </>
                         )}
@@ -186,8 +188,8 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             ) : (
               <P>
                 You have to{' '}
-                <Link to={`${trainingPath}`}>purchase this course</Link> to see
-                its related resources.
+                <Link to={`${trainingPath}#pricing`}>purchase this course</Link>{' '}
+                to see its related resources.
               </P>
             )}
             <H3>Transcript</H3>
