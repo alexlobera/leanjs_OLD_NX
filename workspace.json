@@ -719,6 +719,52 @@
           }
         }
       }
+    },
+    "graphql-client": {
+      "root": "packages/graphql-client",
+      "sourceRoot": "packages/graphql-client/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "packages/graphql-client/tsconfig.lib.json",
+              "packages/graphql-client/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!packages/graphql-client/**/*"]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/web:package",
+          "options": {
+            "outputPath": "dist/packages/graphql-client",
+            "tsConfig": "packages/graphql-client/tsconfig.lib.json",
+            "project": "packages/graphql-client/package.json",
+            "entryFile": "packages/graphql-client/src/index.ts",
+            "external": ["react", "react-dom", "react-is", "styled-components"],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/graphql-client/jest.config.js",
+            "tsConfig": "packages/graphql-client/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

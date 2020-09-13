@@ -1,10 +1,12 @@
 import React from 'react';
 import isEqual from 'lodash.isequal';
-import GraphQLProvider from './Provider';
-import { createClient } from './client';
+import { GraphQLProvider } from './Provider';
 
-const MockedProvider = ({ children, mocks = [] }) => {
-  const post = ({ query, variables }) => {
+// 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+// TODO REFACTOR THIS FILE TO USE createHttpLink
+
+export const MockedProvider = ({ children, mocks = [] }) => {
+  const fetch = ({ query, variables }) => {
     const { result } =
       mocks.find(({ request }) => {
         return request.query === query &&
@@ -22,9 +24,6 @@ It couldn't find a mock for query: ${query} and variables ${JSON.stringify(
 
     return Promise.resolve(result);
   };
-  const client = createClient({ post });
 
-  return <GraphQLProvider client={client}>{children}</GraphQLProvider>;
+  return <GraphQLProvider link={{ fetch }}>{children}</GraphQLProvider>;
 };
-
-export default MockedProvider;

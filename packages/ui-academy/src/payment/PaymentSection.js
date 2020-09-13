@@ -2,6 +2,7 @@ import React from 'react';
 import { navigate } from 'gatsby';
 import { H2, H3, P, Card } from '@leanjs/ui-core';
 import { withMagic } from '@leanjs/magic-link';
+import { withGraphQLClient } from '@leanjs/graphql-client';
 
 import Ribbon from '.';
 import Checkout from './checkout/';
@@ -15,13 +16,11 @@ const MEETUP = 'Meetup';
 export const VALIDATE_VOUCHER_QUERY = `
   query validateVoucher(
     $itemId: ID!
-    $shoppingItemEnum: ShoppingItemEnum!
     $voucherCode: String!
     $quantity: Int!
   ) {
     redeemVoucher(
       itemId: $itemId
-      shoppingItemEnum: $shoppingItemEnum
       quantity: $quantity
       voucherCode: $voucherCode
     ) {
@@ -58,8 +57,8 @@ class PaymentSection extends React.Component {
 
   validateVoucher = (voucher) => {
     const {
-      statelessClient,
-      item: { id: itemId, shoppingItemEnum },
+      client,
+      item: { id: itemId },
     } = this.props;
     const { isVoucherValidationInProgress, quantity } = this.state;
 
@@ -68,13 +67,12 @@ class PaymentSection extends React.Component {
     }
 
     this.setVoucherInProgress(true);
-    return statelessClient
+    return client
       .query({
         query: VALIDATE_VOUCHER_QUERY,
         variables: {
           voucherCode: voucher,
           itemId,
-          shoppingItemEnum,
           quantity,
         },
       })
@@ -135,16 +133,14 @@ class PaymentSection extends React.Component {
       trialTraingInstance,
     } = this.props;
 
-    let trainingInstanceId,
-      eventId,
-      price = 0,
+    let price = 0,
       currency,
       title,
       priceGoesUpOn,
       currentDiscountPrice,
       trainingType,
       notSoldOut = true;
-    //debugger;
+
     if (errors) {
       title = 'There was an error';
     } else if (loading) {
@@ -158,12 +154,12 @@ class PaymentSection extends React.Component {
       title =
         trainingType === MEETUP ? 'Donation ticket' : 'Standard price ticket';
       let ticketsLeft;
-      if (item.shoppingItemEnum === 'event') {
-        eventId = item.id;
-        ticketsLeft = item.ticketsLeft;
-      } else {
-        trainingInstanceId = item.id;
-      }
+      //   if (item.shoppingItemEnum === 'event') {
+      //     eventId = item.id;
+      //     ticketsLeft = item.ticketsLeft;
+      //   } else {
+      //     trainingInstanceId = item.id;
+      //   }
 
       notSoldOut = !(
         ticketsLeft !== undefined &&
@@ -172,12 +168,13 @@ class PaymentSection extends React.Component {
       );
       price = item.standardPrice;
 
-      const dataItem =
-        data && data.trainingInstance
-          ? data.trainingInstance
-          : data && data.event
-          ? data.event
-          : {};
+      const dataItem = data?.trainingInstance
+        ? data.trainingInstance
+        : data?.event
+        ? data.event
+        : data?.training
+        ? data.training
+        : {};
 
       const { discountPrice } = dataItem;
       currency = item.currency || 'gbp';
@@ -247,8 +244,9 @@ class PaymentSection extends React.Component {
                   isDonationTicket={isDonationTicket}
                   city={city}
                   navigate={navigate}
-                  trainingInstanceId={trainingInstanceId}
-                  eventId={eventId}
+                  //   trainingInstanceId={trainingInstanceId}
+                  //   eventId={eventId}
+                  itemId={item.id}
                   vatRate={vatRate}
                   updateVatRate={this.updateVatRate}
                   price={price}
@@ -312,4 +310,4 @@ query eventDiscountPrice($eventId: ID!) {
 }
 `;
 
-export default withMagic(PaymentSection);
+export default withGraphQLClient(withMagic(PaymentSection));

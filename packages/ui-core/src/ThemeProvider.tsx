@@ -20,8 +20,6 @@ export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({
   const mergedTheme = deepmerge(outerTheme, theme, {
     arrayMerge: overwriteMerge,
   });
-  //   console.log('aaaaa 333', theme);
-  //   console.log('aaaaa 222', outerTheme);
-  //   console.log('aaaaa 111', mergedTheme);
+
   return <SCThemeProvider theme={mergedTheme} children={children} />;
 };

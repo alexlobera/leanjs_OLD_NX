@@ -25,7 +25,8 @@
       "@leanjs/ui-icons": ["packages/ui-icons/src/index.ts"],
       "@leanjs/ui-link": ["packages/ui-link/src/index.ts"],
       "@leanjs/ui-academy": ["packages/ui-academy/src/index.ts"],
-      "@leanjs/magic-link": ["packages/magic-link/src/index.ts"]
+      "@leanjs/magic-link": ["packages/magic-link/src/index.ts"],
+      "@leanjs/graphql-client": ["packages/graphql-client/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

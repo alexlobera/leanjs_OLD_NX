@@ -10,6 +10,7 @@ import {
   getTrainingTimings,
 } from '@leanjs/ui-academy';
 import { PlayMedia } from '@leanjs/ui-icons';
+import { useQuery } from '@leanjs/graphql-client';
 
 import ReactBgWithBorder from '../components/layout/Header/ReactBgWithBorder';
 import Tick from '../components/icons/Tick';
@@ -34,7 +35,6 @@ import {
 } from '../components/layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import Markdown from '../components/display/Markdown';
-import { useQuery } from '../api/graphql/Provider';
 
 const metas = {
   title: 'Online React and GraphQL Courses | React GraphQL Academy',

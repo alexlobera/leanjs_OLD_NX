@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 
 import React from 'react';
+import { withGraphQLClient } from '@leanjs/graphql-client';
 
 import { DEFAULT_VAT_RATE } from '../utils';
 import CheckoutForm from './CheckoutForm';
@@ -100,7 +101,7 @@ export class CheckoutContainer extends React.Component {
     }
 
     this.setState({ isViesValidationInProgress: true });
-    this.props.statelessClient
+    this.props.client
       .query({
         query: VALIDATE_VIES_QUERY,
         variables: { countryCode, vatNumber },
@@ -131,7 +132,7 @@ export class CheckoutContainer extends React.Component {
     }
     const {
       quantity,
-      statelessClient,
+      client,
       trainingInstanceId,
       eventId,
       paymentApi = Stripe,
@@ -187,8 +188,8 @@ export class CheckoutContainer extends React.Component {
           vatCountry,
         };
 
-        return statelessClient
-          .query({
+        return client
+          .mutate({
             query: PAY_MUTATION,
             variables,
           })
@@ -276,5 +277,4 @@ CheckoutContainer.defaultProps = {
 
 CheckoutContainer.displayName = 'CheckoutContainer';
 
-// export default withStatelessClient(CheckoutContainer);
-export default CheckoutContainer;
+export default withGraphQLClient(CheckoutContainer);
