@@ -44,7 +44,7 @@ const metas = {
 };
 
 function CoursePage({ data, pageContext: { trainingId } }) {
-  const { loggedIn } = useMagic();
+  const { loading: loggingInUser } = useMagic();
   const training = data.upmentoring.trainingById;
   const trainingPath = `/${training.slug}-course`;
   const units = training.units || [];
@@ -60,10 +60,10 @@ function CoursePage({ data, pageContext: { trainingId } }) {
 
   // TODO useMemo variables inside useQuery
   const options = React.useMemo(() => {
-    return { variables: { trainingId }, skip: !loggedIn };
-  }, [trainingId, loggedIn]);
+    return { variables: { trainingId }, skip: loggingInUser };
+  }, [trainingId, loggingInUser]);
 
-  const { data: privateData } = useQuery(
+  const { data: runTimeData, loading } = useQuery(
     `
       query purchasedTraining($trainingId: ID!) {
           viewer {
@@ -71,15 +71,25 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                 id
               }
           }
+          trainingById(id: $trainingId) {
+            standardPrice
+            currency
+            discountPrice {
+              currentPrice
+              endsOn
+            }
+          }
       }
     `,
     options
   );
 
-  const purchased = privateData?.viewer?.purchasedTraining?.id === trainingId;
+  const purchased = runTimeData?.viewer?.purchasedTraining?.id === trainingId;
   const coverImage =
     data.courseThumbnailImages.nodes[0].childImageSharp.fixed.src;
-
+  const discountPrice = runTimeData?.trainingById?.discountPrice;
+  const standardPrice = runTimeData?.trainingById?.standardPrice;
+  const currency = runTimeData?.trainingById?.currency;
   const BgLogo = ReactBgWithBorder;
 
   return (
@@ -272,7 +282,16 @@ function CoursePage({ data, pageContext: { trainingId } }) {
             <Grid columns={10}>
               <Box sx={{ gridColumn: ['1/ -1', '1/ 6'] }}>
                 {!purchased ? (
-                  <PaymentSection item={training} />
+                  <PaymentSection
+                    standardPrice={standardPrice}
+                    currency={currency}
+                    itemId={training.id}
+                    type={'Training'}
+                    endDate={undefined}
+                    onDemand={training.onDemand}
+                    loading={loading}
+                    discountPrice={discountPrice}
+                  />
                 ) : (
                   <H2 sx={{ color: 'inverseText' }}>
                     <Link id="pricing" />
@@ -353,8 +372,6 @@ export const query = graphql`
       trainingById(id: $trainingId) {
         title
         subtitle
-        standardPrice
-        currency
         slug
         id
         onDemand
