@@ -61,7 +61,10 @@ export default function PaymentConfirmation({ data, location }) {
             <P>
               If you've made a mistake and you don't want to recieve our emails
               (#sadface), just visit our{' '}
-              <Link to="/unsubscribe/">unsubscribe</Link> page.
+              <Link to="https://reactgraphql.academy/unsubscribe/">
+                unsubscribe
+              </Link>{' '}
+              page.
             </P>
             <P>
               If you have any questions, please don’t hesitate in contacting us.
