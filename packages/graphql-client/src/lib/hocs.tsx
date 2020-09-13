@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery, useClient } from './Provider';
-import memoize from './memoize';
+import { memoize } from './memoize';
 
 const computeProps = (config, props) => {
   const { options = {} } = config;
