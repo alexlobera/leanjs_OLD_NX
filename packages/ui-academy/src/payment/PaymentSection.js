@@ -122,7 +122,6 @@ class PaymentSection extends React.Component {
     const {
       paymentApi,
       navigate,
-      // data,
       errors,
       loading,
       city,
@@ -141,9 +140,8 @@ class PaymentSection extends React.Component {
       title,
       priceGoesUpOn,
       currentDiscountPrice,
-      //trainingType,
       notSoldOut = true;
-    console.log('aaa lo', loading);
+
     if (errors) {
       title = 'There was an error';
     } else if (loading) {
@@ -162,38 +160,6 @@ class PaymentSection extends React.Component {
         parseInt(ticketsLeft) <= 0
       );
       price = standardPrice;
-      // if (errors) {
-      //   title = 'There was an error';
-      // } else if (loading) {
-      //   title = 'Loading ...';
-      // } else if (!item || !item.id) {
-      //   title = 'There is no event scheduled';
-      // } else if (new Date(item.endDate) < new Date()) {
-      //   title = 'The event has ended';
-      // } else {
-      //   trainingType = item.type;
-      //   title =
-      //     trainingType === MEETUP ? 'Donation ticket' : 'Standard price ticket';
-      //   let ticketsLeft;
-
-      //   notSoldOut = !(
-      //     ticketsLeft !== undefined &&
-      //     ticketsLeft !== null &&
-      //     parseInt(ticketsLeft) <= 0
-      //   );
-      //   price = item.standardPrice;
-
-      // TODO MOVE THIS LOGIC TO THE PARENT COMPONENT (THE ONE THAT USES THE PAYMENTSECTION)
-      //   const dataItem = data?.trainingInstance
-      //     ? data.trainingInstance
-      //     : data?.event
-      //     ? data.event
-      //     : data?.training
-      //     ? data.training
-      //     : {};
-
-      // const { discountPrice } = dataItem;
-      // currency = item.currency || 'gbp';
 
       if (discountPrice) {
         title = 'Discount Ticket';
