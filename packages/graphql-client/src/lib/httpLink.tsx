@@ -4,7 +4,7 @@ interface CreateHttpLink {
   headers?: any;
 }
 export const createHttpLink = (options: CreateHttpLink) => {
-  const { headers = {}, uri, fetcher = fetch } = options || {};
+  const { headers = {}, uri, fetcher } = options || {};
 
   return {
     fetch: async function ({ query, variables }) {

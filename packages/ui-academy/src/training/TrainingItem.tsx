@@ -61,7 +61,15 @@ export const TrainingItem = ({
       {title}
       <br />
       {isOnline ? (
-        <Tag as={Link} to={path}>
+        <Tag
+          as={Link}
+          to={path}
+          sx={{
+            '&:link, &:visited, &:active, &:hover': {
+              color: 'inverseText',
+            },
+          }}
+        >
           Remote
         </Tag>
       ) : (
