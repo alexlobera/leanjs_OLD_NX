@@ -70,7 +70,6 @@ export function MagicProvider({ children, requirePreSignup, login: myLogin }) {
 
   async function getToken() {
     if (!user.loggedIn) return;
-    // if (!(await magic.user.isLoggedIn())) return;
 
     await tokenSema.acquire();
     try {
