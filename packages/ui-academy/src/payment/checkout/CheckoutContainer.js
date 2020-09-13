@@ -189,23 +189,19 @@ export class CheckoutContainer extends React.Component {
             variables,
           })
           .then((res) => {
-            console.log('aaa', res);
             const { data, errors } = res;
-            console.log('aaa 1', this.props.location.pathname);
             if (!errors) {
               navigate('/payment-confirmation', {
                 email,
-                referrer: this.props.location.pathname,
+                referrer: window.location.pathname,
                 makePayment: data.makePayment,
                 itemId,
               });
             } else {
-              console.log('aaa  2', res);
               this.processPaymentError(errors);
             }
           })
           .catch((error) => {
-            console.log('aaa  3', error);
             this.processPaymentError(error);
           });
       }
