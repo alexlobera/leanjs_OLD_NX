@@ -33,7 +33,6 @@ export const VALIDATE_VIES_QUERY = `
 export const PAY_MUTATION = `
 mutation pay(
   $itemId: ID!
-  $shoppingItemEnum: ShoppingItemEnum!
   $quantity: Int!
   $voucherCode: String
   $email: String!
@@ -44,7 +43,6 @@ mutation pay(
 ) {
   makePayment(
     payment: {
-      shoppingItemEnum: $shoppingItemEnum
       itemId: $itemId
       quantity: $quantity
       voucherCode: $voucherCode
@@ -173,13 +171,11 @@ export class CheckoutContainer extends React.Component {
           vatNumber = companyVat.substring(2, companyVat.length);
           vatCountry = companyVat.substring(0, 2);
         }
-        const shoppingItemEnum = trainingInstanceId ? 'training' : 'event';
         const itemId = trainingInstanceId || eventId;
         const variables = {
           voucherCode: voucher,
           quantity,
           itemId,
-          shoppingItemEnum,
           email,
           name,
           token: response.id,
@@ -200,7 +196,6 @@ export class CheckoutContainer extends React.Component {
                 referrer: this.props.location.pathname,
                 makePayment: data.makePayment,
                 itemId,
-                shoppingItemEnum,
               });
             } else {
               this.processPaymentError(error);

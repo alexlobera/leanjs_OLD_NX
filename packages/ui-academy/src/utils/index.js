@@ -303,7 +303,6 @@ export const formatTraining = ({
     return {
       ...node,
       trainingInstanceTypeName,
-      shoppingItemEnum: 'training',
       title,
       trainingType,
       tech,
