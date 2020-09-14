@@ -27,7 +27,7 @@ export const courseSubscribe = (message) =>
     body: JSON.stringify({
       ...message,
       utm_source: getCookie('utm_source'),
-      slackChannel: 'C016TLFL695',
+      slackChannel: 'C01BCNFRNTS',
     }),
   });
 
