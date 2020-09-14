@@ -115,7 +115,7 @@ export const useQuery = (query, options: UseQueryOptions) => {
 
   useEffect(() => {
     if (skip) {
-      // should we dispatch this?
+      // TODO does apollo client set the loading to false if the use skips the quey?
       // dispatch(SET_LOADING, { cacheKey, loading: false });
     } else {
       client.query({ query, variables });
