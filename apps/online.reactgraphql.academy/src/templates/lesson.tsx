@@ -37,10 +37,11 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
 }) => {
   const { unitId, videoId } = pageContext;
   const { loggedIn, loading: logging } = useMagic();
+  const skipQuery = !loggedIn;
 
   // TODO useMemo variables inside useQuery
   const options = React.useMemo(() => {
-    return { variables: { videoId, unitId }, skip: !loggedIn };
+    return { variables: { videoId, unitId }, skip: skipQuery };
   }, [unitId, videoId, loggedIn]);
 
   const { loading, data: privateData } = useQuery(
@@ -115,7 +116,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 }}
               >
                 <Box sx={{ maxWidth: '400px' }}>
-                  {loading || logging ? (
+                  {(!skipQuery && loading) || logging ? (
                     <>
                       <Spinner sx={{ mb: '-4px', mr: 2 }} />
                       {loading ? 'loading data...' : 'logging in...'}
