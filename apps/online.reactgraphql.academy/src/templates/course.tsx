@@ -84,8 +84,6 @@ function CoursePage({ data, pageContext: { trainingId } }) {
     options
   );
 
-  console.log('aa loggingInUser', loggingInUser, loading, runTimeData);
-
   const loadingData = loggingInUser || loading;
   const purchased = runTimeData?.viewer?.purchasedTraining?.id === trainingId;
   const coverImage =

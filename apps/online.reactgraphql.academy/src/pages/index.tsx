@@ -104,7 +104,7 @@ function Page({ data }: PageProps) {
               fixedImage={thumbnails.get('advanced-react')?.fixed}
               isAvailable={false}
               course={{
-                title: 'Avanced React',
+                title: 'Advanced React',
                 slug: 'advanced-react',
                 overview:
                   'Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',

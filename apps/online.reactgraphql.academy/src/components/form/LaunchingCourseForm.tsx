@@ -47,7 +47,7 @@ function LaunchingCourseForm(props: Props) {
               component={Input}
               color="#fff"
               validate={composeValidators(mustBeEmail, required)}
-              label="Enter your email address and we'll notify you we launch this course"
+              label="Enter your email address and we'll notify you when we launch this course"
               name="email"
               placeholder="eg. steve@wozniak.com"
             />
