@@ -12,7 +12,9 @@ import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container, Ul, Li } from '../components/layout';
 import Link, { LinkButton } from '../components/navigation/Link';
-import { H1, H2, H3, H4, H5, H6, P, Span, Image } from '../components/display';
+import { H1, H2, H3, P } from '../components/display';
+import Img from '../components/display/Image';
+
 // import Code from '../components/display/Code';
 import { textBackgroundProps } from '../components/layout/Header';
 import { Spinner } from '../components/display';
@@ -35,6 +37,9 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   pageContext,
   location,
 }) => {
+  const { trainingById: training, video, trainingUnit } = data.upmentoring;
+  const trainingPath = `/${training.slug}-course/`;
+  const fuildPoster = video?.asset?.posterImageFile?.childImageSharp?.fluid;
   const { unitId, videoId } = pageContext;
   const { loggedIn, loading: loggingInUser } = useMagic();
   const skip = !loggedIn;
@@ -67,14 +72,10 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   );
 
   const loadingData = !skip && loading;
-
-  console.log('aa loggingInUser', loading, privateData);
-
-  const { trainingById: training, video, trainingUnit } = data.upmentoring;
   const relatedResources = privateData?.trainingUnit?.published?.customFieldsValues?.find(
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   )?.values[0];
-  const trainingPath = `/${training.slug}-course/`;
+  const zIndexVideoPlayer = 9998;
 
   return (
     <Layout
@@ -94,10 +95,25 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
       {/* <OkaidiaRGA /> */}
       <Container>
         <Box sx={{ position: 'relative' }}>
-          <VideoPlayer
-            posterUrl={video.asset?.posterImageUrl}
-            url={privateData?.video?.asset?.url}
-          />
+          {loggedIn && (
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: zIndexVideoPlayer,
+              }}
+            >
+              <VideoPlayer
+                posterUrl={fuildPoster.src}
+                url={privateData?.video?.asset?.url}
+                autoload={true}
+              />
+            </Box>
+          )}
+          <Img fluid={fuildPoster} />
 
           {!privateData?.video?.asset?.url ? (
             <Box
@@ -110,6 +126,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                zIndex: zIndexVideoPlayer + 1,
               }}
             >
               <ThemeProvider
@@ -263,6 +280,13 @@ export const query = graphql`
         title
         asset {
           posterImageUrl
+          posterImageFile {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
       trainingUnit(id: $unitId) {

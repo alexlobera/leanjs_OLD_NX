@@ -3,7 +3,7 @@ import { useMagic } from '@leanjs/magic-link';
 import { useClient } from '@leanjs/graphql-client';
 
 import { Flex, Card } from '../components/layout';
-import { H1, P, Spinner } from '../components/display';
+import { H1, H2, P, Spinner } from '../components/display';
 import {
   Form,
   Field,
@@ -31,7 +31,7 @@ function LoginPage({ navigate, location }) {
   return (
     <Flex
       sx={{
-        height: '100vh',
+        minHeight: '100vh',
         bg: 'secondary',
         alignItems: 'center',
         justifyContent: 'center',
@@ -44,6 +44,7 @@ function LoginPage({ navigate, location }) {
 
         <Card sx={{ maxWidth: '500px', mt: 7 }}>
           <H1 sx={{ textAlign: 'center' }}>Login</H1>
+          <H2 sx={{ textAlign: 'center' }}>No sign up requied!</H2>
           <Form
             onSubmit={async ({ email, signUpNewsletter }: any) => {
               const token = await login({ email });

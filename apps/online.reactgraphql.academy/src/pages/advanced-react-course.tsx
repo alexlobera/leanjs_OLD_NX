@@ -11,7 +11,7 @@ import ReactBgWithBorder from '../components/layout/Header/ReactBgWithBorder';
 const metas = {
   title: 'Advanced React Online Courses | React GraphQL Academy',
   description:
-    'Learn pragmatic functional programing and master advanced React patterns with this course',
+    'Learn pragmatic functional programming and master advanced React patterns with this course',
   type: 'website',
 };
 

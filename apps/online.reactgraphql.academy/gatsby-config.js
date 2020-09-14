@@ -67,7 +67,7 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
       },
     },
-    'um-sanity-video',
+    'um-video',
     'gatsby-source-sanity-transform-images',
   ],
 };
