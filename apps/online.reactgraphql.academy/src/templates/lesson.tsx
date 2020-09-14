@@ -40,12 +40,6 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   const { trainingById: training, video, trainingUnit } = data.upmentoring;
   const trainingPath = `/${training.slug}-course/`;
   const fuildPoster = video?.asset?.posterImageFile?.childImageSharp?.fluid;
-
-  React.useEffect(() => {
-    const img = new Image();
-    img.src = fuildPoster.src;
-  }, []);
-
   const { unitId, videoId } = pageContext;
   const { loggedIn, loading: loggingInUser } = useMagic();
   const skip = !loggedIn;
