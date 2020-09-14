@@ -551,9 +551,8 @@ class CheckoutForm extends React.Component {
 
                 {paymentErrorMessage ? (
                   <Alert data-testid="danger-alert" variant="danger">
-                    Error processing your payment: {paymentErrorMessage}
-                    <br />
-                    If the problem persists contact{' '}
+                    Error processing your payment: {paymentErrorMessage} If the
+                    problem persists contact{' '}
                     <Link to="mailto:hello@reactgraphql.academy">
                       hello@reactgraphql.academy
                     </Link>
