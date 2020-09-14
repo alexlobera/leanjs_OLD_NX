@@ -36,12 +36,12 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   location,
 }) => {
   const { unitId, videoId } = pageContext;
-  const { loggedIn, loading: logging } = useMagic();
-  const skipQuery = !loggedIn;
+  const { loggedIn, loading: loggingInUser } = useMagic();
+  const skip = !loggedIn;
 
   // TODO useMemo variables inside useQuery
   const options = React.useMemo(() => {
-    return { variables: { videoId, unitId }, skip: skipQuery };
+    return { variables: { videoId, unitId }, skip };
   }, [unitId, videoId, loggedIn]);
 
   const { loading, data: privateData } = useQuery(
@@ -65,6 +65,10 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   `,
     options
   );
+
+  const loadingData = !skip && loading;
+
+  console.log('aa loggingInUser', loading, privateData);
 
   const { trainingById: training, video, trainingUnit } = data.upmentoring;
   const relatedResources = privateData?.trainingUnit?.published?.customFieldsValues?.find(
@@ -116,10 +120,10 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 }}
               >
                 <Box sx={{ maxWidth: '400px' }}>
-                  {(!skipQuery && loading) || logging ? (
+                  {loadingData || loggingInUser ? (
                     <>
                       <Spinner sx={{ mb: '-4px', mr: 2 }} />
-                      {loading ? 'loading data...' : 'logging in...'}
+                      {loggingInUser ? 'logging in...' : 'loading data...'}
                     </>
                   ) : (
                     <>
@@ -137,7 +141,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                               to="/login"
                               state={{ referrer: location.pathname }}
                             >
-                              log in to
+                              log in
                             </Link>{' '}
                             to watch this video.
                           </>
@@ -184,7 +188,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             <H3>Related resources</H3>
             {relatedResources ? (
               <Markdown>{relatedResources}</Markdown>
-            ) : loading ? (
+            ) : loadingData ? (
               <P>Loading data...</P>
             ) : (
               <P>

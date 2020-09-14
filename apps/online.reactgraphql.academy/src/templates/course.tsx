@@ -84,6 +84,9 @@ function CoursePage({ data, pageContext: { trainingId } }) {
     options
   );
 
+  console.log('aa loggingInUser', loggingInUser, loading, runTimeData);
+
+  const loadingData = loggingInUser || loading;
   const purchased = runTimeData?.viewer?.purchasedTraining?.id === trainingId;
   const coverImage =
     data.courseThumbnailImages.nodes[0].childImageSharp.fixed.src;
@@ -209,7 +212,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                               <Li>|</Li>
                               <Li>
                                 <Link to="#pricing" sx={{ mt: 3 }}>
-                                  Buy course
+                                  Buy full course
                                 </Link>
                               </Li>
                             </>
@@ -289,7 +292,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                     type={'Training'}
                     endDate={undefined}
                     onDemand={training.onDemand}
-                    loading={loading}
+                    loading={loadingData}
                     discountPrice={discountPrice}
                   />
                 ) : (
