@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { createRemoteFileNode } = require('gatsby-source-filesystem');
 
 exports.createResolvers = ({
