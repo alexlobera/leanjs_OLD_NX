@@ -1,14 +1,14 @@
 import React from 'react';
 import Cookies from 'js-cookie';
 import { useMagic } from '@leanjs/magic-link';
-import { useGraphQLStore } from '@leanjs/graphql-client';
+import { useClient } from '@leanjs/graphql-client';
 
 import Link from '../navigation/Link';
 import { Spinner } from '../display';
 
 export default function AuthLink({ to = '/login' }) {
   const { loggedIn, loading, logout } = useMagic();
-  const { clearStore } = useGraphQLStore();
+  const { clearStore } = useClient();
 
   return loading ? (
     <Spinner color="#4a4a4a" sx={{ mt: '8px' }} />
