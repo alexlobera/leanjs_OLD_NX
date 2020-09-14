@@ -237,9 +237,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>
-              <H2 as="h1" variant="h3" sx={{ mt: 2 }}>
-                {trainingUnit.published.title} lessons
-              </H2>
+              <H3 sx={{ mt: 2 }}>{trainingUnit.published.title} lessons</H3>
               <P>
                 Completed 0 out of {trainingUnit.published.videos.length}{' '}
                 lessons
