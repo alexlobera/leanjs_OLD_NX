@@ -101,17 +101,14 @@ export const useQuery = (query: string, options: UseQueryOptions) => {
   const { loading, errors, data } = (state && state[cacheKey]) || {};
 
   useEffect(() => {
-    if (skip) {
-      // TODO does Apollo Client set loading to false if the user skips the query?
-      // dispatch(SET_LOADING, { cacheKey, loading: false });
-    } else {
+    if (!skip) {
       client.query({ query, variables });
     }
   }, [query, variables, skip]);
 
   return {
     data,
-    loading: loading === undefined ? !data : loading,
+    loading: !!loading,
     errors: errors?.length ? errors : null,
   };
 };

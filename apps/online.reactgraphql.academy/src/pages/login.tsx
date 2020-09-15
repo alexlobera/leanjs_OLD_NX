@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMagic } from '@leanjs/magic-link';
-import { useClient } from '@leanjs/graphql-client';
+import { useApolloClient } from '@apollo/client';
 
 import { Flex, Card } from '../components/layout';
 import { H1, H2, P, Spinner } from '../components/display';
@@ -20,7 +20,7 @@ import { triggerSubscribe } from '../api';
 
 function LoginPage({ navigate, location }) {
   const { login, loggedIn } = useMagic();
-  const { clearStore } = useClient();
+  const { clearStore } = useApolloClient();
 
   if (loggedIn) {
     navigate(location.state?.referrer || '/react-foundation-course/');
