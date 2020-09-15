@@ -41,6 +41,6 @@ export function graphql(query: string, config: Config = {}) {
 }
 
 export const withGraphQLClient = (Component) => (props) => {
-  const { client } = useClient();
+  const client = useClient();
   return <Component {...props} client={client} />;
 };
