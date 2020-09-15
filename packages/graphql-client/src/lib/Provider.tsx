@@ -1,9 +1,6 @@
-import React, { useReducer, useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { memoize } from './memoize';
 
-const RECEIVE_DATA = 'RECEIVE_DATA';
-const CLEAR_STORE = 'CLEAR_STORE';
-const SET_LOADING = 'SET_LOADING';
 const ClientContext = React.createContext(null);
 
 function hashGql(query, variables) {
@@ -20,51 +17,19 @@ function hashGql(query, variables) {
 
 const memoizedHashGql = memoize(hashGql);
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case RECEIVE_DATA:
-      return {
-        ...state,
-        ...action.payload,
-      };
-    case SET_LOADING: {
-      const { cacheKey, loading } = action.payload;
-      return {
-        ...state,
-        ...{ [cacheKey]: { ...(state[cacheKey] || {}), loading } },
-      };
-    }
-    case CLEAR_STORE:
-      return {};
-    default:
-      return state;
-  }
-};
-
 export const GraphQLProvider = ({ children, link }) => {
-  const [state, rawDispatch] = useReducer(reducer, {});
-  const dispatch = React.useCallback(
-    (type, payload) =>
-      rawDispatch({
-        type,
-        payload,
-      }),
-    []
-  );
+  const [state, setState] = useState({});
 
   async function runQuery({ query, variables }) {
     const cacheKey = memoizedHashGql(query, variables);
-
-    dispatch(SET_LOADING, { cacheKey, loading: true });
-
     let result;
     try {
       const { data, errors } = await link.fetch({ query, variables });
-      result = { data, errors, loading: false };
+      result = { data, errors };
     } catch (error) {
-      result = { errors: [error.message], loading: false };
+      result = { errors: [error.message] };
     }
-    dispatch(RECEIVE_DATA, { [cacheKey]: result });
+    setState({ ...state, [cacheKey]: result })
 
     return result;
   }
@@ -82,7 +47,7 @@ export const GraphQLProvider = ({ children, link }) => {
 
   return (
     <ClientContext.Provider
-      value={{ state, dispatch, query, mutate: runQuery }}
+      value={{ state, setState, query, mutate: runQuery }}
     >
       {children}
     </ClientContext.Provider>
@@ -98,20 +63,17 @@ export const useQuery = (query: string, options: UseQueryOptions) => {
   const client = useClient();
   const { state } = useContext(ClientContext);
   const cacheKey = memoizedHashGql(query, variables);
-  const { loading, errors, data } = (state && state[cacheKey]) || {};
+  const { errors, data } = (state && state[cacheKey]) || {};
 
   useEffect(() => {
-    if (skip) {
-      // TODO does Apollo Client set loading to false if the user skips the query?
-      // dispatch(SET_LOADING, { cacheKey, loading: false });
-    } else {
+    if (!skip) {
       client.query({ query, variables });
     }
   }, [query, variables, skip]);
 
   return {
     data,
-    loading: loading === undefined ? !data : loading,
+    loading: skip || data || errors?.length ? false : true,
     errors: errors?.length ? errors : null,
   };
 };
@@ -125,7 +87,7 @@ export const useClient = () => {
   }
 
   function clearStore() {
-    client.dispatch(CLEAR_STORE);
+    client.setState({});
   }
 
   return { ...client, clearStore };

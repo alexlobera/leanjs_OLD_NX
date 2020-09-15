@@ -71,7 +71,6 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     options
   );
 
-  const loadingData = !skip && loading;
   const relatedResources = privateData?.trainingUnit?.published?.customFieldsValues?.find(
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   )?.values[0];
@@ -137,61 +136,61 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 }}
               >
                 <Box sx={{ maxWidth: '400px' }}>
-                  {loadingData || loggingInUser ? (
+                  {loading || loggingInUser ? (
                     <>
                       <Spinner sx={{ mb: '-4px', mr: 2 }} />
                       {loggingInUser ? 'logging in...' : 'loading data...'}
                     </>
                   ) : (
-                    <>
-                      <H3
-                        sx={{
-                          ...textBackgroundProps,
-                          padding: 2,
-                          lineHeight: 1.85,
-                        }}
-                      >
-                        {pageContext.isPublicVideo && !loggedIn ? (
-                          <>
-                            You have to{' '}
-                            <Link
+                      <>
+                        <H3
+                          sx={{
+                            ...textBackgroundProps,
+                            padding: 2,
+                            lineHeight: 1.85,
+                          }}
+                        >
+                          {pageContext.isPublicVideo && !loggedIn ? (
+                            <>
+                              You have to{' '}
+                              <Link
+                                to="/login"
+                                state={{ referrer: location.pathname }}
+                              >
+                                log in
+                            </Link>{' '}
+                            to watch this video.
+                          </>
+                          ) : (
+                              <>
+                                You have to{' '}
+                                <Link to={`${trainingPath}#pricing`}>
+                                  purchase this course
+                            </Link>{' '}
+                            to watch this video.
+                          </>
+                            )}
+                        </H3>
+                        <P sx={{ textAlign: 'center', mt: 6 }}>
+                          {pageContext.isPublicVideo && !loggedIn ? (
+                            <LinkButton
+                              variant="primary"
                               to="/login"
                               state={{ referrer: location.pathname }}
                             >
-                              log in
-                            </Link>{' '}
-                            to watch this video.
-                          </>
-                        ) : (
-                          <>
-                            You have to{' '}
-                            <Link to={`${trainingPath}#pricing`}>
-                              purchase this course
-                            </Link>{' '}
-                            to watch this video.
-                          </>
-                        )}
-                      </H3>
-                      <P sx={{ textAlign: 'center', mt: 6 }}>
-                        {pageContext.isPublicVideo && !loggedIn ? (
-                          <LinkButton
-                            variant="primary"
-                            to="/login"
-                            state={{ referrer: location.pathname }}
-                          >
-                            Log in now
-                          </LinkButton>
-                        ) : (
-                          <LinkButton
-                            variant="primary"
-                            to={`${trainingPath}#pricing`}
-                          >
-                            Buy now
-                          </LinkButton>
-                        )}
-                      </P>
-                    </>
-                  )}
+                              Log in now
+                            </LinkButton>
+                          ) : (
+                              <LinkButton
+                                variant="primary"
+                                to={`${trainingPath}#pricing`}
+                              >
+                                Buy now
+                              </LinkButton>
+                            )}
+                        </P>
+                      </>
+                    )}
                 </Box>
               </ThemeProvider>
             </Box>
@@ -205,35 +204,35 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             <H3>Related resources</H3>
             {relatedResources ? (
               <Markdown>{relatedResources}</Markdown>
-            ) : loadingData ? (
+            ) : loading ? (
               <P>Loading data...</P>
             ) : (
-              <P>
-                You have to{' '}
-                <Link to={`${trainingPath}#pricing`}>purchase this course</Link>{' '}
+                  <P>
+                    You have to{' '}
+                    <Link to={`${trainingPath}#pricing`}>purchase this course</Link>{' '}
                 to see its related resources.
-              </P>
-            )}
+                  </P>
+                )}
             <H3>Transcript</H3>
             {privateData?.video?.transcript ? (
               <Markdown>{privateData.video.transcript}</Markdown>
             ) : (
-              <Box sx={{ position: 'relative' }}>
-                <Markdown>{pageContext.transcript}</Markdown>
-                {!pageContext.isPublicVideo && (
-                  <Box
-                    sx={{
-                      width: '100%',
-                      height: '75px',
-                      position: 'absolute',
-                      bottom: 0,
-                      backgroundImage:
-                        'linear-gradient(to bottom, transparent, white)',
-                    }}
-                  />
-                )}
-              </Box>
-            )}
+                <Box sx={{ position: 'relative' }}>
+                  <Markdown>{pageContext.transcript}</Markdown>
+                  {!pageContext.isPublicVideo && (
+                    <Box
+                      sx={{
+                        width: '100%',
+                        height: '75px',
+                        position: 'absolute',
+                        bottom: 0,
+                        backgroundImage:
+                          'linear-gradient(to bottom, transparent, white)',
+                      }}
+                    />
+                  )}
+                </Box>
+              )}
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>
@@ -253,11 +252,11 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                           {title}
                         </Link>
                       ) : (
-                        <>
-                          <Icon comp={PlayMedia} />
-                          {title}
-                        </>
-                      )}
+                          <>
+                            <Icon comp={PlayMedia} />
+                            {title}
+                          </>
+                        )}
                     </Li>
                   );
                 })}
