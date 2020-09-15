@@ -12,7 +12,7 @@ import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container, Ul, Li } from '../components/layout';
 import Link, { LinkButton } from '../components/navigation/Link';
-import { H1, H2, H3, P } from '../components/display';
+import { H1, H3, P } from '../components/display';
 import Img from '../components/display/Image';
 
 // import Code from '../components/display/Code';
@@ -60,6 +60,10 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     }
     trainingUnit(id: $unitId) {
         published {
+          videos {
+            id
+            viewerCompletedAt
+          }
           customFieldsValues {
             values
             fieldId
@@ -292,6 +296,7 @@ export const query = graphql`
           title
           slug
           videos {
+            id
             title
             slug
           }
