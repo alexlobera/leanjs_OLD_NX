@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 
 import { Container, Box, LeanComponent, Flex } from '../layout';
 import Link from '../navigation/Link';
-import RGALogo from '../logos/RGALogo';
+import RGALogo from '../logos/RGAOLogo';
 // TODO show in teaching material indirection layer if we use this interface here because breadcrum is a prop rather than children (see below)
 // import { BreadcrumbProps } from './Breadcrumb';
 

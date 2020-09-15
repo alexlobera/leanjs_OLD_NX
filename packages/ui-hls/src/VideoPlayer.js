@@ -165,11 +165,8 @@ export const VideoPlayer = (
 ) => {
   // TODO implement startSecond in useHls
 
-  //   const poster = posterUrl
-  //     ? posterUrl
-  //     : playbackId
-  //     ? `https://image.mux.com/${playbackId}/thumbnail.png?width=${thumbnailWidth}&amp;fit_mode=preserve&amp;time=${thumbnailSecond}`
-  //     : null;
+  // TODO ADD onVideoEnded prop https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended_event
+
   const { videoRef, error, handleVideoClick, loadingStarted } = useHls({
     url,
     autoplay,

@@ -14,7 +14,7 @@ import {
   required,
 } from '../components/form';
 import Link from '../components/navigation/Link';
-import RGALogoDarkBg from '../components/logos/RGALogoDarkBg';
+import RGAOLogo from '../components/logos/RGAOLogo';
 import CheckboxField from '../components/form/CheckboxField';
 import { triggerSubscribe } from '../api';
 
@@ -32,14 +32,14 @@ function LoginPage({ navigate, location }) {
     <Flex
       sx={{
         minHeight: '100vh',
-        bg: 'secondary',
+        bg: 'react',
         alignItems: 'center',
         justifyContent: 'center',
       }}
     >
       <Flex sx={{ flexDirection: 'column', my: 6 }}>
         <Link to="/" sx={{ mx: 'auto' }}>
-          <RGALogoDarkBg width={'200px'} />
+          <RGAOLogo width={'200px'} />
         </Link>
 
         <Card sx={{ maxWidth: '500px', mt: 7 }}>
