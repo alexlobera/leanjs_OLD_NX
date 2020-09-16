@@ -44,11 +44,11 @@ const metas = {
 };
 
 const COURSE_QUERY = gql`
-query purchasedTraining($trainingId: ID!) {
+  query purchasedTraining($trainingId: ID!) {
     viewer {
-        purchasedTraining(trainingId: $trainingId ) { 
-          id
-        }
+      purchasedTraining(trainingId: $trainingId) {
+        id
+      }
     }
     trainingById(id: $trainingId) {
       standardPrice
@@ -58,8 +58,8 @@ query purchasedTraining($trainingId: ID!) {
         endsOn
       }
     }
-}
-`
+  }
+`;
 
 function CoursePage({ data, pageContext: { trainingId } }) {
   const { loading: loggingInUser } = useMagic();
@@ -70,10 +70,10 @@ function CoursePage({ data, pageContext: { trainingId } }) {
 
   const trainingInstances =
     data.upmentoring.trainingInstances &&
-      data.upmentoring.trainingInstances.edges
+    data.upmentoring.trainingInstances.edges
       ? data.upmentoring.trainingInstances.edges
-        .map(formatTraining())
-        .slice(0, 3)
+          .map(formatTraining())
+          .slice(0, 3)
       : [];
 
   // TODO useMemo variables inside useQuery
@@ -81,10 +81,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
     return { variables: { trainingId }, skip: loggingInUser };
   }, [trainingId, loggingInUser]);
 
-  const { data: runTimeData, loading } = useQuery(
-    COURSE_QUERY,
-    options
-  );
+  const { data: runTimeData, loading } = useQuery(COURSE_QUERY, options);
 
   const loadingData = loggingInUser || loading;
   const purchased = runTimeData?.viewer?.purchasedTraining?.id === trainingId;
@@ -233,32 +230,32 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                             </TabPanel>
                           </Tabs>
                         ) : (
-                            <>
-                              <H4>Learning objectives</H4>
-                              <Markdown
-                                li={({ children = null }) => (
-                                  <Li
+                          <>
+                            <H4>Learning objectives</H4>
+                            <Markdown
+                              li={({ children = null }) => (
+                                <Li
+                                  sx={{
+                                    position: 'relative',
+                                    listStyle: 'none',
+                                  }}
+                                >
+                                  <Tick
+                                    width={20}
                                     sx={{
-                                      position: 'relative',
-                                      listStyle: 'none',
+                                      position: 'absolute',
+                                      left: '-30px',
+                                      top: '8px',
                                     }}
-                                  >
-                                    <Tick
-                                      width={20}
-                                      sx={{
-                                        position: 'absolute',
-                                        left: '-30px',
-                                        top: '8px',
-                                      }}
-                                    />
-                                    {children}
-                                  </Li>
-                                )}
-                              >
-                                {published.objectives}
-                              </Markdown>
-                            </>
-                          )}
+                                  />
+                                  {children}
+                                </Li>
+                              )}
+                            >
+                              {published.objectives}
+                            </Markdown>
+                          </>
+                        )}
                       </Box>
                     </>
                   );
@@ -296,11 +293,11 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                     discountPrice={discountPrice}
                   />
                 ) : (
-                    <H2 sx={{ color: 'inverseText' }}>
-                      <Link id="pricing" />
+                  <H2 sx={{ color: 'inverseText' }}>
+                    <Link id="pricing" />
                     Thank you for purchasing this course :)
-                    </H2>
-                  )}
+                  </H2>
+                )}
               </Box>
             </Grid>
           </Sheet>
