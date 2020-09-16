@@ -3,7 +3,7 @@ import { ThemeProvider } from '@leanjs/ui-core';
 import 'normalize.css';
 import { MagicProvider } from '@leanjs/magic-link';
 // import { GraphQLProvider, createHttpLink } from '@leanjs/graphql-client';
-// import { fetch } from 'whatwg-fetch';
+import { fetch } from 'whatwg-fetch';
 import {
   ApolloProvider,
   ApolloClient,
@@ -19,9 +19,11 @@ import './src/config/site.css';
 
 const cache = new InMemoryCache();
 const httpLink = new HttpLink({
-  uri: `${process.env.GATSBY_UPMENTORING_GRAPHQL_API_BASE_URL}/graphql` ||
+  uri:
+    `${process.env.GATSBY_UPMENTORING_GRAPHQL_API_BASE_URL}/graphql` ||
     'https://api2.upmentoring.com/graphql',
   credentials: 'include',
+  fetch,
 });
 
 export const wrapRootElement = ({ element }) => (
@@ -38,7 +40,6 @@ export const wrapRootElement = ({ element }) => (
           ...context,
         };
       });
-
 
       const client = new ApolloClient({
         link: from([authLink, httpLink]),
@@ -61,12 +62,10 @@ export const wrapRootElement = ({ element }) => (
         //     fetcher: fetch,
         //   })}
         // >
-        <ApolloProvider
-          client={client}
-        >
+        <ApolloProvider client={client}>
           <ThemeProvider theme={theme}>{element}</ThemeProvider>
         </ApolloProvider>
-      )
+      );
     }}
   </MagicProvider>
 );
