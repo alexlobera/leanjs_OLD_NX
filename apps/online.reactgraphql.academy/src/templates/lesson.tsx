@@ -83,8 +83,6 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     COMPLETE_VIDEO_MUTATION
   );
 
-  console.log('aaa', completeVideoData);
-
   // @leans/graphql-client
   // const options = React.useMemo(() => {
   //   return { variables: { videoId, unitId }, skip };
@@ -94,8 +92,6 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     skip,
   });
 
-  // const loadingData = !skip && loading;
-  const loadingData = loading;
   const relatedResources = privateData?.trainingUnit?.published?.customFieldsValues?.find(
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   )?.values[0];
@@ -166,7 +162,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 }}
               >
                 <Box sx={{ maxWidth: '400px' }}>
-                  {loadingData || loggingInUser ? (
+                  {loading || loggingInUser ? (
                     <>
                       <Spinner sx={{ mb: '-4px', mr: 2 }} />
                       {loggingInUser ? 'logging in...' : 'loading data...'}
@@ -234,7 +230,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             <H3>Related resources</H3>
             {relatedResources ? (
               <Markdown>{relatedResources}</Markdown>
-            ) : loadingData ? (
+            ) : loading ? (
               <P>Loading data...</P>
             ) : (
               <P>
