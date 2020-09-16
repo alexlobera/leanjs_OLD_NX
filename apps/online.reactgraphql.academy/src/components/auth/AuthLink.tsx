@@ -1,14 +1,14 @@
 import React from 'react';
 import Cookies from 'js-cookie';
 import { useMagic } from '@leanjs/magic-link';
-import { useClient } from '@leanjs/graphql-client';
+import { useApolloClient } from '@apollo/client';
 
 import Link from '../navigation/Link';
 import { Spinner } from '../display';
 
 export default function AuthLink({ to = '/login' }) {
   const { loggedIn, loading, logout } = useMagic();
-  const { clearStore } = useClient();
+  const { clearStore } = useApolloClient();
 
   return loading ? (
     <Spinner color="#4a4a4a" sx={{ mt: '8px' }} />
@@ -23,6 +23,6 @@ export default function AuthLink({ to = '/login' }) {
       logout
     </Link>
   ) : (
-    <Link to={to}>login</Link>
-  );
+        <Link to={to}>login</Link>
+      );
 }

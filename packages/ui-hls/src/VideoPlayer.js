@@ -41,6 +41,7 @@ function useHls({ url = '', autoplay = false, autoload = true, onClick, ref }) {
         if (!url) {
           return;
         }
+
         let { plyr } = controllerRef.current;
         if (plyr) {
           plyr.destroy();
@@ -176,11 +177,11 @@ export const VideoPlayer = (
 
   const urlProps = url
     ? {
-        onClick: handleVideoClick,
-        controls: loadingStarted,
-        muted: autoplay || muted,
-        autoPlay: autoplay,
-      }
+      onClick: handleVideoClick,
+      controls: loadingStarted,
+      muted: autoplay || muted,
+      autoPlay: autoplay,
+    }
     : {};
 
   return (

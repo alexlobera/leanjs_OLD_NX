@@ -4,7 +4,7 @@ import StickyBox from 'react-sticky-box';
 import { PlayMedia } from '@leanjs/ui-icons';
 import { ThemeProvider } from '@leanjs/ui-core';
 import { useMagic } from '@leanjs/magic-link';
-import { useQuery } from '@leanjs/graphql-client';
+import { useQuery, useMutation, gql } from '@apollo/client';
 // import { OkaidiaRGA } from '@leanjs/ui-academy';
 
 import Markdown from '../components/display/Markdown';
@@ -12,7 +12,7 @@ import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container, Ul, Li } from '../components/layout';
 import Link, { LinkButton } from '../components/navigation/Link';
-import { H1, H2, H3, P } from '../components/display';
+import { H1, H3, P } from '../components/display';
 import Img from '../components/display/Image';
 
 // import Code from '../components/display/Code';
@@ -32,6 +32,41 @@ const Icon = ({ comp: Comp }) => (
   <Comp sx={{ mb: '-7px', mr: 2 }} fill={GITHUB_COLOR} />
 );
 
+const LESSON_QUERY = gql`
+  query videoLesson($videoId: ID!, $unitId: ID!) {
+    video(id: $videoId) {
+      transcript
+      asset {
+        url
+      }
+    }
+    trainingUnit(id: $unitId) {
+      published {
+        videos {
+          id
+          viewerCompletedAt
+        }
+        customFieldsValues {
+          values
+          fieldId
+        }
+      }
+    }
+  }
+`;
+
+const COMPLETE_VIDEO_MUTATION = gql`
+  mutation completeVideo($completed: Boolean!, $videoId: ID!) {
+    completeVideo(completed: $completed, videoId: $videoId) {
+      videoUser {
+        completedAt
+        videoId
+        userId
+      }
+    }
+  }
+`;
+
 const LessonPage: FunctionComponent<LessonPageProps> = ({
   data,
   pageContext,
@@ -44,32 +79,18 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   const { loggedIn, loading: loggingInUser } = useMagic();
   const skip = !loggedIn;
 
-  // TODO useMemo variables inside useQuery
-  const options = React.useMemo(() => {
-    return { variables: { videoId, unitId }, skip };
-  }, [unitId, videoId, loggedIn]);
-
-  const { loading, data: privateData } = useQuery(
-    `
-  query videoLesson($videoId: ID!, $unitId: ID!) {
-    video(id:$videoId) {
-      transcript
-      asset {
-        url
-      }
-    }
-    trainingUnit(id: $unitId) {
-        published {
-          customFieldsValues {
-            values
-            fieldId
-          }
-        }
-      }
-  }
-  `,
-    options
+  const [completeVideo, { data: completeVideoData }] = useMutation(
+    COMPLETE_VIDEO_MUTATION
   );
+
+  // @leans/graphql-client
+  // const options = React.useMemo(() => {
+  //   return { variables: { videoId, unitId }, skip };
+  // }, [unitId, videoId, loggedIn]);
+  const { loading, data: privateData } = useQuery(LESSON_QUERY, {
+    variables: { videoId, unitId },
+    skip,
+  });
 
   const relatedResources = privateData?.trainingUnit?.published?.customFieldsValues?.find(
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
@@ -107,6 +128,11 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             >
               <VideoPlayer
                 posterUrl={fuildPoster.src}
+                onEnded={() => {
+                  completeVideo({
+                    variables: { videoId: video.id, completed: true },
+                  });
+                }}
                 url={privateData?.video?.asset?.url}
                 autoload={true}
               />
@@ -142,55 +168,55 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                       {loggingInUser ? 'logging in...' : 'loading data...'}
                     </>
                   ) : (
-                      <>
-                        <H3
-                          sx={{
-                            ...textBackgroundProps,
-                            padding: 2,
-                            lineHeight: 1.85,
-                          }}
-                        >
-                          {pageContext.isPublicVideo && !loggedIn ? (
-                            <>
-                              You have to{' '}
-                              <Link
-                                to="/login"
-                                state={{ referrer: location.pathname }}
-                              >
-                                log in
-                            </Link>{' '}
-                            to watch this video.
-                          </>
-                          ) : (
-                              <>
-                                You have to{' '}
-                                <Link to={`${trainingPath}#pricing`}>
-                                  purchase this course
-                            </Link>{' '}
-                            to watch this video.
-                          </>
-                            )}
-                        </H3>
-                        <P sx={{ textAlign: 'center', mt: 6 }}>
-                          {pageContext.isPublicVideo && !loggedIn ? (
-                            <LinkButton
-                              variant="primary"
+                    <>
+                      <H3
+                        sx={{
+                          ...textBackgroundProps,
+                          padding: 2,
+                          lineHeight: 1.85,
+                        }}
+                      >
+                        {pageContext.isPublicVideo && !loggedIn ? (
+                          <>
+                            You have to{' '}
+                            <Link
                               to="/login"
                               state={{ referrer: location.pathname }}
                             >
-                              Log in now
-                            </LinkButton>
-                          ) : (
-                              <LinkButton
-                                variant="primary"
-                                to={`${trainingPath}#pricing`}
-                              >
-                                Buy now
-                              </LinkButton>
-                            )}
-                        </P>
-                      </>
-                    )}
+                              log in
+                            </Link>{' '}
+                            to watch this video.
+                          </>
+                        ) : (
+                          <>
+                            You have to{' '}
+                            <Link to={`${trainingPath}#pricing`}>
+                              purchase this course
+                            </Link>{' '}
+                            to watch this video.
+                          </>
+                        )}
+                      </H3>
+                      <P sx={{ textAlign: 'center', mt: 6 }}>
+                        {pageContext.isPublicVideo && !loggedIn ? (
+                          <LinkButton
+                            variant="primary"
+                            to="/login"
+                            state={{ referrer: location.pathname }}
+                          >
+                            Log in now
+                          </LinkButton>
+                        ) : (
+                          <LinkButton
+                            variant="primary"
+                            to={`${trainingPath}#pricing`}
+                          >
+                            Buy now
+                          </LinkButton>
+                        )}
+                      </P>
+                    </>
+                  )}
                 </Box>
               </ThemeProvider>
             </Box>
@@ -207,32 +233,32 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             ) : loading ? (
               <P>Loading data...</P>
             ) : (
-                  <P>
-                    You have to{' '}
-                    <Link to={`${trainingPath}#pricing`}>purchase this course</Link>{' '}
+              <P>
+                You have to{' '}
+                <Link to={`${trainingPath}#pricing`}>purchase this course</Link>{' '}
                 to see its related resources.
-                  </P>
-                )}
+              </P>
+            )}
             <H3>Transcript</H3>
             {privateData?.video?.transcript ? (
               <Markdown>{privateData.video.transcript}</Markdown>
             ) : (
-                <Box sx={{ position: 'relative' }}>
-                  <Markdown>{pageContext.transcript}</Markdown>
-                  {!pageContext.isPublicVideo && (
-                    <Box
-                      sx={{
-                        width: '100%',
-                        height: '75px',
-                        position: 'absolute',
-                        bottom: 0,
-                        backgroundImage:
-                          'linear-gradient(to bottom, transparent, white)',
-                      }}
-                    />
-                  )}
-                </Box>
-              )}
+              <Box sx={{ position: 'relative' }}>
+                <Markdown>{pageContext.transcript}</Markdown>
+                {!pageContext.isPublicVideo && (
+                  <Box
+                    sx={{
+                      width: '100%',
+                      height: '75px',
+                      position: 'absolute',
+                      bottom: 0,
+                      backgroundImage:
+                        'linear-gradient(to bottom, transparent, white)',
+                    }}
+                  />
+                )}
+              </Box>
+            )}
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>
@@ -252,11 +278,11 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                           {title}
                         </Link>
                       ) : (
-                          <>
-                            <Icon comp={PlayMedia} />
-                            {title}
-                          </>
-                        )}
+                        <>
+                          <Icon comp={PlayMedia} />
+                          {title}
+                        </>
+                      )}
                     </Li>
                   );
                 })}
@@ -291,6 +317,7 @@ export const query = graphql`
           title
           slug
           videos {
+            id
             title
             slug
           }

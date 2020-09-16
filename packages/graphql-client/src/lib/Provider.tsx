@@ -29,7 +29,7 @@ export const GraphQLProvider = ({ children, link }) => {
     } catch (error) {
       result = { errors: [error.message] };
     }
-    setState({ ...state, [cacheKey]: result })
+    setState({ ...state, [cacheKey]: result });
 
     return result;
   }
