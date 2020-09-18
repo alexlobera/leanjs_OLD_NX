@@ -11,8 +11,8 @@ const sheetVariantProps = {
   default: {
     boxShadow: 'box',
     bg: 'background',
-    pb: 8,
-    pt: 8,
+    pb: [4, 8],
+    pt: [4, 8],
     px: [2, 0],
   },
 };

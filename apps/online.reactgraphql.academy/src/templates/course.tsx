@@ -33,7 +33,7 @@ import {
   Li,
   Section,
 } from '../components/layout';
-import { VideoPlayer } from '../components/display/VideoPlayer';
+import { GatsbyVideoPlayer } from '../components/display/VideoPlayer';
 import Markdown from '../components/display/Markdown';
 
 const metas = {
@@ -144,8 +144,15 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           info={
             training.previewVideo && (
               <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
-                <VideoPlayer
+                {/* <VideoPlayer
                   poster={training.previewVideo.asset?.posterImageUrl}
+                  url={training.previewVideo.asset?.url}
+                /> */}
+                <GatsbyVideoPlayer
+                  fluidPoster={
+                    training.previewVideo.asset?.posterImageFile
+                      ?.childImageSharp?.fluid
+                  }
                   url={training.previewVideo.asset?.url}
                 />
               </Box>
@@ -170,10 +177,13 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                   const { previewVideo } = published;
                   acc.push(
                     <>
-                      <Box sx={{ gridColumn: ['2/ -2', '1/ 4'], mb: 5 }}>
+                      <Box sx={{ gridColumn: ['1/ -1', '1/ 4'], mb: 5 }}>
                         {previewVideo && (
-                          <VideoPlayer
-                            posterUrl={previewVideo.asset?.posterImageUrl}
+                          <GatsbyVideoPlayer
+                            fluidPoster={
+                              training.previewVideo.asset?.posterImageFile
+                                ?.childImageSharp?.fluid
+                            }
                             url={previewVideo.asset?.url}
                           />
                         )}
@@ -383,6 +393,13 @@ export const query = graphql`
           asset {
             url
             posterImageUrl
+            posterImageFile {
+              childImageSharp {
+                fluid(maxWidth: 1200) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
         units {
@@ -395,6 +412,13 @@ export const query = graphql`
               asset {
                 url
                 posterImageUrl
+                posterImageFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1200) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
               }
             }
             videos {
