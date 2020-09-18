@@ -54,8 +54,10 @@ export default function PaymentConfirmation({ data, location }) {
           <Sheet>
             <H2 sx={{ mt: 0 }}>What happens now?</H2>
             <P>
-              We've given {email || 'you'} access to the{' '}
-              {referrer ? <Link to={referrer}>course</Link> : 'course'} 🎉
+              Congratulations! Your email address {email} has now access to the{' '}
+              {referrer ? <Link to={referrer}>course</Link> : 'course'}. You
+              just need to{' '}
+              <strong>log in using your email address {email}</strong>.
             </P>
             <P>
               You should shortly receive an order confirmation and receipt in
