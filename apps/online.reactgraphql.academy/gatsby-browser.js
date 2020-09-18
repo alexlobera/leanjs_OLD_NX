@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from '@leanjs/ui-core';
 import 'normalize.css';
 import { MagicProvider } from '@leanjs/magic-link';
-// import { GraphQLProvider, createHttpLink } from '@leanjs/graphql-client';
+import { GraphQLProvider, createHttpLink } from '@leanjs/graphql-client';
 import { fetch } from 'whatwg-fetch';
 // import {
 //   ApolloProvider,

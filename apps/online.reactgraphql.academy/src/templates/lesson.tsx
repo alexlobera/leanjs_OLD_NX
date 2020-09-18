@@ -5,7 +5,7 @@ import { PlayMedia } from '@leanjs/ui-icons';
 import { ThemeProvider } from '@leanjs/ui-core';
 import { useMagic } from '@leanjs/magic-link';
 // import { useQuery, useMutation, gql } from '@apollo/client';
-import { useQuery, useClient } from '@leanjs/graphql-client'
+import { useQuery, useClient } from '@leanjs/graphql-client';
 // import { OkaidiaRGA } from '@leanjs/ui-academy';
 
 import Markdown from '../components/display/Markdown';
@@ -29,8 +29,8 @@ interface LessonPageProps {
 const RELATED_RESOURCES_FIELD_ID = '@RklFOjVmNTMyN2I2YTQzNWVlNjIyNjRiYzE1ZA==';
 const GITHUB_COLOR = '#1B1F23';
 
-const Icon = ({ comp: Comp }) => (
-  <Comp sx={{ mb: '-7px', mr: 2 }} fill={GITHUB_COLOR} />
+const Icon = ({ comp: Comp, sx = {} }) => (
+  <Comp sx={{ mb: '-7px', mr: 2, ...sx }} fill={GITHUB_COLOR} />
 );
 
 const LESSON_QUERY = `
@@ -63,6 +63,7 @@ const COMPLETE_VIDEO_MUTATION = `
         completedAt
         videoId
         userId
+        id
       }
     }
   }
@@ -79,43 +80,75 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   const { unitId, videoId } = pageContext;
   const { loggedIn, loading: loggingInUser } = useMagic();
   const skip = !loggedIn;
+  const client = useClient();
 
-  // const [completeVideo, { data: completeVideoData }] = useMutation(
-  //   COMPLETE_VIDEO_MUTATION
-  // );
-  const client = useClient()
-  async function completeVideo() {
-    const { data: completedData, errors } = await client.mutate({
-      query: COMPLETE_VIDEO_MUTATION,
-      variables: { videoId: video.id, completed: true }
-    })
-
-    if (true) {
-      const variables = { videoId, unitId }
-      const data = client.readQuery(LESSON_QUERY, {
-        variables
-      })
-
-      client.writeQuery(LESSON_QUERY, {
-        variables,
-        data: 
-      })
-
-    }
-  }
-  // @leans/graphql-client
-  // const options = React.useMemo(() => {
-  //   return { variables: { videoId, unitId }, skip };
-  // }, [unitId, videoId, loggedIn]);
-  const { loading, data: privateData } = useQuery(LESSON_QUERY, {
+  const { loading, data: privateData, errors } = useQuery(LESSON_QUERY, {
     variables: { videoId, unitId },
     skip,
   });
 
-  const relatedResources = privateData?.trainingUnit?.published?.customFieldsValues?.find(
+  const published = privateData?.trainingUnit?.published;
+  const relatedResources = published?.customFieldsValues?.find(
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   )?.values[0];
   const zIndexVideoPlayer = 9998;
+
+  const completedVideoSet = React.useMemo(
+    () =>
+      published?.videos?.reduce((set, { viewerCompletedAt, id }) => {
+        if (viewerCompletedAt) set.add(id);
+
+        return set;
+      }, new Set()),
+    [published]
+  );
+
+  async function completeVideo() {
+    const { data: completedVideoData } = await client.mutate({
+      query: COMPLETE_VIDEO_MUTATION,
+      variables: { videoId: video.id, completed: true },
+    });
+
+    const completedAt =
+      completedVideoData?.completeVideo?.videoUser?.completedAt;
+
+    if (completedAt) {
+      const queryOptions = {
+        query: LESSON_QUERY,
+        variables: { videoId, unitId },
+      };
+
+      const data = client.readQuery(queryOptions);
+
+      //   const videos = [
+      //     ...data?.trainingUnit?.published?.videos?.filter(
+      //       (v) => v.id !== videoId
+      //     ),
+      //     { id: videoId, viewerCompletedAt: completedAt },
+      //   ];
+
+      client.writeQuery({
+        ...queryOptions,
+        data: {
+          ...data,
+          trainingUnit: {
+            ...data.trainingUnit,
+            published: {
+              ...data?.trainingUnit?.published,
+              videos: [
+                ...data?.trainingUnit?.published?.videos,
+                { id: videoId, viewerCompletedAt: completedAt },
+              ],
+            },
+          },
+        },
+      });
+    }
+  }
+
+  //   const [completedVideo, { data: completeVideoData }] = useMutation(
+  //     COMPLETE_VIDEO_MUTATION
+  //   );
 
   return (
     <Layout
@@ -148,7 +181,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             >
               <VideoPlayer
                 posterUrl={fuildPoster.src}
-                onEnded={() => completeVideo}
+                onEnded={completeVideo}
                 url={privateData?.video?.asset?.url}
                 autoload={true}
               />
@@ -184,55 +217,55 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                       {loggingInUser ? 'logging in...' : 'loading data...'}
                     </>
                   ) : (
-                      <>
-                        <H3
-                          sx={{
-                            ...textBackgroundProps,
-                            padding: 2,
-                            lineHeight: 1.85,
-                          }}
-                        >
-                          {pageContext.isPublicVideo && !loggedIn ? (
-                            <>
-                              You have to{' '}
-                              <Link
-                                to="/login"
-                                state={{ referrer: location.pathname }}
-                              >
-                                log in
-                            </Link>{' '}
-                            to watch this video.
-                          </>
-                          ) : (
-                              <>
-                                You have to{' '}
-                                <Link to={`${trainingPath}#pricing`}>
-                                  purchase this course
-                            </Link>{' '}
-                            to watch this video.
-                          </>
-                            )}
-                        </H3>
-                        <P sx={{ textAlign: 'center', mt: 6 }}>
-                          {pageContext.isPublicVideo && !loggedIn ? (
-                            <LinkButton
-                              variant="primary"
+                    <>
+                      <H3
+                        sx={{
+                          ...textBackgroundProps,
+                          padding: 2,
+                          lineHeight: 1.85,
+                        }}
+                      >
+                        {pageContext.isPublicVideo && !loggedIn ? (
+                          <>
+                            You have to{' '}
+                            <Link
                               to="/login"
                               state={{ referrer: location.pathname }}
                             >
-                              Log in now
-                            </LinkButton>
-                          ) : (
-                              <LinkButton
-                                variant="primary"
-                                to={`${trainingPath}#pricing`}
-                              >
-                                Buy now
-                              </LinkButton>
-                            )}
-                        </P>
-                      </>
-                    )}
+                              log in
+                            </Link>{' '}
+                            to watch this video.
+                          </>
+                        ) : (
+                          <>
+                            You have to{' '}
+                            <Link to={`${trainingPath}#pricing`}>
+                              purchase this course
+                            </Link>{' '}
+                            to watch this video.
+                          </>
+                        )}
+                      </H3>
+                      <P sx={{ textAlign: 'center', mt: 6 }}>
+                        {pageContext.isPublicVideo && !loggedIn ? (
+                          <LinkButton
+                            variant="primary"
+                            to="/login"
+                            state={{ referrer: location.pathname }}
+                          >
+                            Log in now
+                          </LinkButton>
+                        ) : (
+                          <LinkButton
+                            variant="primary"
+                            to={`${trainingPath}#pricing`}
+                          >
+                            Buy now
+                          </LinkButton>
+                        )}
+                      </P>
+                    </>
+                  )}
                 </Box>
               </ThemeProvider>
             </Box>
@@ -249,32 +282,32 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             ) : loading ? (
               <P>Loading data...</P>
             ) : (
-                  <P>
-                    You have to{' '}
-                    <Link to={`${trainingPath}#pricing`}>purchase this course</Link>{' '}
+              <P>
+                You have to{' '}
+                <Link to={`${trainingPath}#pricing`}>purchase this course</Link>{' '}
                 to see its related resources.
-                  </P>
-                )}
+              </P>
+            )}
             <H3>Transcript</H3>
             {privateData?.video?.transcript ? (
               <Markdown>{privateData.video.transcript}</Markdown>
             ) : (
-                <Box sx={{ position: 'relative' }}>
-                  <Markdown>{pageContext.transcript}</Markdown>
-                  {!pageContext.isPublicVideo && (
-                    <Box
-                      sx={{
-                        width: '100%',
-                        height: '75px',
-                        position: 'absolute',
-                        bottom: 0,
-                        backgroundImage:
-                          'linear-gradient(to bottom, transparent, white)',
-                      }}
-                    />
-                  )}
-                </Box>
-              )}
+              <Box sx={{ position: 'relative' }}>
+                <Markdown>{pageContext.transcript}</Markdown>
+                {!pageContext.isPublicVideo && (
+                  <Box
+                    sx={{
+                      width: '100%',
+                      height: '75px',
+                      position: 'absolute',
+                      bottom: 0,
+                      backgroundImage:
+                        'linear-gradient(to bottom, transparent, white)',
+                    }}
+                  />
+                )}
+              </Box>
+            )}
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>
@@ -284,21 +317,29 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 lessons
               </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
-                {trainingUnit.published.videos.map(({ title, slug }) => {
+                {trainingUnit.published.videos.map(({ title, slug, id }) => {
                   const path = `${trainingPath}${slug}`;
                   return (
                     <Li key={slug}>
                       {location.pathname !== path ? (
                         <Link to={path}>
                           <Icon comp={PlayMedia} />
-                          {title}
+                          <P
+                            sx={{
+                              color: completedVideoSet?.has(id)
+                                ? 'red'
+                                : undefined,
+                            }}
+                          >
+                            {title}
+                          </P>
                         </Link>
                       ) : (
-                          <>
-                            <Icon comp={PlayMedia} />
-                            {title}
-                          </>
-                        )}
+                        <>
+                          <Icon comp={PlayMedia} />
+                          {title}
+                        </>
+                      )}
                     </Li>
                   );
                 })}

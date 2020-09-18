@@ -23,6 +23,7 @@ export const GraphQLProvider = ({ children, link }) => {
   async function runQuery({ query, variables }) {
     const cacheKey = memoizedHashGql(query, variables);
     let result;
+
     try {
       const { data, errors } = await link.fetch({ query, variables });
       result = { data, errors };
@@ -48,21 +49,24 @@ export const GraphQLProvider = ({ children, link }) => {
   function readQuery({ query, variables }) {
     const cacheKey = memoizedHashGql(query, variables);
 
-    return state[cacheKey];
+    return state[cacheKey]?.data;
   }
 
   function writeQuery({ query, variables, data }) {
     const cacheKey = memoizedHashGql(query, variables);
-    if (state[cacheKey]) {
-      return state[cacheKey] = data
-    }
-
-    return state[cacheKey];
+    setState({ ...state, [cacheKey]: { data } });
   }
 
   return (
     <ClientContext.Provider
-      value={{ state, setState, query, mutate: runQuery, readQuery, writeQuery }}
+      value={{
+        state,
+        setState,
+        query,
+        mutate: runQuery,
+        readQuery,
+        writeQuery,
+      }}
     >
       {children}
     </ClientContext.Provider>
@@ -84,16 +88,14 @@ export function useQuery(query: string, options: UseQueryOptions) {
     if (!skip) {
       client.query({ query, variables });
     }
-  }, [query, variables, skip]);
+  }, [cacheKey, skip]);
 
   return {
     data,
     loading: skip || data || errors?.length ? false : true,
     errors: errors?.length ? errors : null,
   };
-};
-
-
+}
 
 export const useClient = () => {
   const client = useContext(ClientContext) || {};
