@@ -28,8 +28,8 @@ interface LessonPageProps {
 const RELATED_RESOURCES_FIELD_ID = '@RklFOjVmNTMyN2I2YTQzNWVlNjIyNjRiYzE1ZA==';
 const GITHUB_COLOR = '#1B1F23';
 
-const Icon = ({ comp: Comp }) => (
-  <Comp sx={{ mb: '-7px', mr: 2 }} fill={GITHUB_COLOR} />
+const Icon = ({ comp: Comp, sx = {} }) => (
+  <Comp sx={{ mb: '-7px', mr: 2, ...sx }} fill={GITHUB_COLOR} />
 );
 
 const LESSON_QUERY = gql`
@@ -62,6 +62,7 @@ const COMPLETE_VIDEO_MUTATION = gql`
         completedAt
         videoId
         userId
+        id
       }
     }
   }
@@ -79,10 +80,6 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   const { loggedIn, loading: loggingInUser } = useMagic();
   const skip = !loggedIn;
 
-  const [completeVideo, { data: completeVideoData }] = useMutation(
-    COMPLETE_VIDEO_MUTATION
-  );
-
   // @leans/graphql-client
   // const options = React.useMemo(() => {
   //   return { variables: { videoId, unitId }, skip };
@@ -91,11 +88,30 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     variables: { videoId, unitId },
     skip,
   });
-
-  const relatedResources = privateData?.trainingUnit?.published?.customFieldsValues?.find(
+  const published = privateData?.trainingUnit?.published;
+  const relatedResources = published?.customFieldsValues?.find(
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   )?.values[0];
   const zIndexVideoPlayer = 9998;
+
+  const completedVideoSet = React.useMemo(
+    () =>
+      published?.videos?.reduce((set, { viewerCompletedAt, id }) => {
+        if (viewerCompletedAt) set.add(id);
+
+        return set;
+      }, new Set()),
+    [published]
+  );
+
+  const [completeVideo, { data: completeVideoData }] = useMutation(
+    COMPLETE_VIDEO_MUTATION
+  );
+  const mutatedVideoUser = completeVideoData?.completeVideo?.videoUser;
+  if (mutatedVideoUser?.completedAt) {
+    // todo update cache
+    completedVideoSet.add(mutatedVideoUser.videoId);
+  }
 
   return (
     <Layout
@@ -268,14 +284,22 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 lessons
               </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
-                {trainingUnit.published.videos.map(({ title, slug }) => {
+                {trainingUnit.published.videos.map(({ title, slug, id }) => {
                   const path = `${trainingPath}${slug}`;
                   return (
                     <Li key={slug}>
                       {location.pathname !== path ? (
                         <Link to={path}>
                           <Icon comp={PlayMedia} />
-                          {title}
+                          <P
+                            sx={{
+                              color: completedVideoSet?.has(id)
+                                ? 'red'
+                                : undefined,
+                            }}
+                          >
+                            {title}
+                          </P>
                         </Link>
                       ) : (
                         <>
