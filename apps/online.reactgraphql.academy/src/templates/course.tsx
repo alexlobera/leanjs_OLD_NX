@@ -10,7 +10,8 @@ import {
   getTrainingTimings,
 } from '@leanjs/ui-academy';
 import { PlayMedia } from '@leanjs/ui-icons';
-import { useQuery, gql } from '@apollo/client';
+// import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@leanjs/graphql-client'
 
 import ReactBgWithBorder from '../components/layout/Header/ReactBgWithBorder';
 import Tick from '../components/icons/Tick';
@@ -43,7 +44,7 @@ const metas = {
   type: 'website',
 };
 
-const COURSE_QUERY = gql`
+const COURSE_QUERY = `
   query purchasedTraining($trainingId: ID!) {
     viewer {
       purchasedTraining(trainingId: $trainingId) {
@@ -70,10 +71,10 @@ function CoursePage({ data, pageContext: { trainingId } }) {
 
   const trainingInstances =
     data.upmentoring.trainingInstances &&
-    data.upmentoring.trainingInstances.edges
+      data.upmentoring.trainingInstances.edges
       ? data.upmentoring.trainingInstances.edges
-          .map(formatTraining())
-          .slice(0, 3)
+        .map(formatTraining())
+        .slice(0, 3)
       : [];
 
   // TODO useMemo variables inside useQuery
@@ -230,32 +231,32 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                             </TabPanel>
                           </Tabs>
                         ) : (
-                          <>
-                            <H4>Learning objectives</H4>
-                            <Markdown
-                              li={({ children = null }) => (
-                                <Li
-                                  sx={{
-                                    position: 'relative',
-                                    listStyle: 'none',
-                                  }}
-                                >
-                                  <Tick
-                                    width={20}
+                            <>
+                              <H4>Learning objectives</H4>
+                              <Markdown
+                                li={({ children = null }) => (
+                                  <Li
                                     sx={{
-                                      position: 'absolute',
-                                      left: '-30px',
-                                      top: '8px',
+                                      position: 'relative',
+                                      listStyle: 'none',
                                     }}
-                                  />
-                                  {children}
-                                </Li>
-                              )}
-                            >
-                              {published.objectives}
-                            </Markdown>
-                          </>
-                        )}
+                                  >
+                                    <Tick
+                                      width={20}
+                                      sx={{
+                                        position: 'absolute',
+                                        left: '-30px',
+                                        top: '8px',
+                                      }}
+                                    />
+                                    {children}
+                                  </Li>
+                                )}
+                              >
+                                {published.objectives}
+                              </Markdown>
+                            </>
+                          )}
                       </Box>
                     </>
                   );
@@ -293,11 +294,11 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                     discountPrice={discountPrice}
                   />
                 ) : (
-                  <H2 sx={{ color: 'inverseText' }}>
-                    <Link id="pricing" />
+                    <H2 sx={{ color: 'inverseText' }}>
+                      <Link id="pricing" />
                     Thank you for purchasing this course :)
-                  </H2>
-                )}
+                    </H2>
+                  )}
               </Box>
             </Grid>
           </Sheet>

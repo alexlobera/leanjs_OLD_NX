@@ -45,9 +45,24 @@ export const GraphQLProvider = ({ children, link }) => {
     return await runQuery({ query, variables });
   }
 
+  function readQuery({ query, variables }) {
+    const cacheKey = memoizedHashGql(query, variables);
+
+    return state[cacheKey];
+  }
+
+  function writeQuery({ query, variables, data }) {
+    const cacheKey = memoizedHashGql(query, variables);
+    if (state[cacheKey]) {
+      return state[cacheKey] = data
+    }
+
+    return state[cacheKey];
+  }
+
   return (
     <ClientContext.Provider
-      value={{ state, setState, query, mutate: runQuery }}
+      value={{ state, setState, query, mutate: runQuery, readQuery, writeQuery }}
     >
       {children}
     </ClientContext.Provider>
@@ -58,7 +73,7 @@ interface UseQueryOptions {
   variables: { [name: string]: any };
   skip?: boolean;
 }
-export const useQuery = (query: string, options: UseQueryOptions) => {
+export function useQuery(query: string, options: UseQueryOptions) {
   const { variables, skip = false } = options || {};
   const client = useClient();
   const { state } = useContext(ClientContext);
@@ -77,6 +92,8 @@ export const useQuery = (query: string, options: UseQueryOptions) => {
     errors: errors?.length ? errors : null,
   };
 };
+
+
 
 export const useClient = () => {
   const client = useContext(ClientContext) || {};
