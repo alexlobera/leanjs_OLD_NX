@@ -13,7 +13,7 @@ import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container, Ul, Li } from '../components/layout';
 import Link, { LinkButton } from '../components/navigation/Link';
-import { H1, H3, P } from '../components/display';
+import { H1, H3, H4, P } from '../components/display';
 import Img from '../components/display/Image';
 
 // import Code from '../components/display/Code';
@@ -298,7 +298,8 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>
-              <H3 sx={{ mt: 2 }}>Lessons</H3>
+              <H3 sx={{ mt: 2 }}>Module: {trainingUnit.published.title}</H3>
+              <H4>Lessons in this module:</H4>
               <P>
                 Completed {completedVideoSet?.size || 0} out of{' '}
                 {trainingUnit.published.videos.length} lessons
