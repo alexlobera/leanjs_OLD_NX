@@ -22,11 +22,18 @@ interface CourseCardProps {
   isAvailable?: boolean;
   fixedImage: string;
 }
+
+function excerpt({ text, limit }) {
+  return text.length > limit
+    ? text.substr(0, text.lastIndexOf(' ', limit)) + '...'
+    : text;
+}
+
 function CourseCard({
   course: {
     slug,
     title,
-    overview = 'TODO REPLACE THIS Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+    description: { description },
   },
   isAvailable = true,
   fixedImage,
@@ -42,7 +49,7 @@ function CourseCard({
             !isAvailable ? 'Coming soon: ' : ''
           } ${title}`}</H3>
         </Link>
-        <P>{overview}</P>
+        <P>{excerpt({ text: description, limit: 200 })}</P>
         <P>
           <Link to={`/${slug}-course`} className="course-list">
             {isAvailable ? 'Learn more' : 'Join waiting list'}
@@ -96,8 +103,10 @@ function Page({ data }: PageProps) {
               course={{
                 slug: 'graphql-foundation',
                 title: 'GraphQL Foundation',
-                overview:
-                  'Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
+                description: {
+                  description:
+                    'Get started building GraphQL APIs wrapping existent REST APIs with GraphQL and start thinking in Graphs',
+                },
               }}
             />
             <CourseCard
@@ -106,8 +115,10 @@ function Page({ data }: PageProps) {
               course={{
                 title: 'Advanced React',
                 slug: 'advanced-react',
-                overview:
-                  'Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
+                description: {
+                  description:
+                    'Learn pragmatic functional programming and use effectively advanced React patterns to build performant and maintainable apps',
+                },
               }}
             />
           </Grid>
@@ -142,6 +153,9 @@ export const query = graphql`
             slug
             title
             id
+            description {
+              description
+            }
             units {
               id
               published {
