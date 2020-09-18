@@ -152,16 +152,7 @@ export const theme = {
       },
       textShadow: '0px 0px 1px',
       color: 'text',
-      '&:link': {
-        color: 'text',
-      },
-      '&:visited': {
-        color: 'text',
-      },
-      '&:active': {
-        color: 'text',
-      },
-      '&:hover': {
+      '&:link,&:hover,&:visited,&:active': {
         color: 'text',
       },
     },
@@ -197,11 +188,14 @@ export const theme = {
     top: {
       mt: '-50px',
     },
-    secondary: { bg: 'secondary', py: 9 },
+    secondary: { bg: 'secondary', py: [4, 9] },
   },
   buttons: {
     primary: {
       color: 'inverseText',
+      '&:link,&:hover,&:visited,&:active': {
+        color: 'inverseText',
+      },
       bg: 'primary',
       fontWeight: 'bold',
     },
