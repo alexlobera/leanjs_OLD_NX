@@ -357,7 +357,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
                 {trainingUnit.published.videos.map(({ title, slug, id }) => {
-                  const path = getVideoPath({ slug, trainingPath }); //`${trainingPath}${slug}`;
+                  const path = getVideoPath({ slug, trainingPath });
 
                   return (
                     <Li

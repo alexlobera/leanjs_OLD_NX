@@ -144,10 +144,6 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           info={
             training.previewVideo && (
               <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
-                {/* <VideoPlayer
-                  poster={training.previewVideo.asset?.posterImageUrl}
-                  url={training.previewVideo.asset?.url}
-                /> */}
                 <GatsbyVideoPlayer
                   fluidPoster={
                     training.previewVideo.asset?.posterImageFile
