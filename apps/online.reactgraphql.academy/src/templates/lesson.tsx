@@ -32,6 +32,10 @@ const Icon = ({ comp: Comp, sx = {}, color }) => (
   <Comp sx={{ mb: '-7px', mr: 2, ...sx }} fill={color} />
 );
 
+function removeTrailingSlashes(url) {
+  return url.replace(/\/+$/, '');
+}
+
 const LESSON_QUERY = `
   query videoLesson($videoId: ID!, $unitId: ID!) {
     video(id: $videoId) {
@@ -307,6 +311,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               <Ul variant="unstyled" sx={{ pl: 0 }}>
                 {trainingUnit.published.videos.map(({ title, slug, id }) => {
                   const path = `${trainingPath}${slug}`;
+
                   return (
                     <Li
                       sx={{
@@ -323,10 +328,12 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         )}
                       </Box>
                       <Box>
-                        {location.pathname !== path ? (
-                          <Link to={path}>{title}</Link>
-                        ) : (
+                        {removeTrailingSlashes(location.pathname).indexOf(
+                          removeTrailingSlashes(path)
+                        ) > -1 ? (
                           title
+                        ) : (
+                          <Link to={path}>{title}</Link>
                         )}
                       </Box>
                     </Li>
