@@ -115,6 +115,14 @@ const Footer = () => {
                       unsubscribe
                     </Link>
                   </P>
+                  <P>
+                    <Link
+                      to="/terms-of-service/"
+                      className="footer-terms-of-service"
+                    >
+                      Terms of service
+                    </Link>
+                  </P>
                 </Box>
                 <Box sx={{ gridColumn: ['1/ -1', '7 / -1'] }}>
                   <H3 sx={{ mt: 0 }}>Contact us</H3>
