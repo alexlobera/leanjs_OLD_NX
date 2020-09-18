@@ -315,7 +315,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         display: 'flex',
                       }}
                     >
-                      <Box sx={{ width: '35px', display: 'inline-block' }}>
+                      <Box sx={{ minWidth: '35px', display: 'inline-block' }}>
                         {completedVideoSet?.has(id) ? (
                           <Tick width={25} sx={{ mb: '-5px' }} />
                         ) : (
