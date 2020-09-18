@@ -4,9 +4,10 @@ import StickyBox from 'react-sticky-box';
 import { PlayMedia } from '@leanjs/ui-icons';
 import { ThemeProvider } from '@leanjs/ui-core';
 import { useMagic } from '@leanjs/magic-link';
-import { useQuery, useMutation, gql } from '@apollo/client';
+import { useQuery, useClient } from '@leanjs/graphql-client';
 // import { OkaidiaRGA } from '@leanjs/ui-academy';
 
+import Tick from '../components/icons/Tick';
 import Markdown from '../components/display/Markdown';
 import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
@@ -26,13 +27,12 @@ interface LessonPageProps {
 }
 
 const RELATED_RESOURCES_FIELD_ID = '@RklFOjVmNTMyN2I2YTQzNWVlNjIyNjRiYzE1ZA==';
-const GITHUB_COLOR = '#1B1F23';
 
-const Icon = ({ comp: Comp }) => (
-  <Comp sx={{ mb: '-7px', mr: 2 }} fill={GITHUB_COLOR} />
+const Icon = ({ comp: Comp, sx = {}, color }) => (
+  <Comp sx={{ mb: '-7px', mr: 2, ...sx }} fill={color} />
 );
 
-const LESSON_QUERY = gql`
+const LESSON_QUERY = `
   query videoLesson($videoId: ID!, $unitId: ID!) {
     video(id: $videoId) {
       transcript
@@ -44,7 +44,9 @@ const LESSON_QUERY = gql`
       published {
         videos {
           id
-          viewerCompletedAt
+          viewer {
+              completedAt
+          }
         }
         customFieldsValues {
           values
@@ -55,13 +57,11 @@ const LESSON_QUERY = gql`
   }
 `;
 
-const COMPLETE_VIDEO_MUTATION = gql`
+const COMPLETE_VIDEO_MUTATION = `
   mutation completeVideo($completed: Boolean!, $videoId: ID!) {
     completeVideo(completed: $completed, videoId: $videoId) {
       videoUser {
         completedAt
-        videoId
-        userId
       }
     }
   }
@@ -78,24 +78,64 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   const { unitId, videoId } = pageContext;
   const { loggedIn, loading: loggingInUser } = useMagic();
   const skip = !loggedIn;
+  const client = useClient();
 
-  const [completeVideo, { data: completeVideoData }] = useMutation(
-    COMPLETE_VIDEO_MUTATION
-  );
-
-  // @leans/graphql-client
-  // const options = React.useMemo(() => {
-  //   return { variables: { videoId, unitId }, skip };
-  // }, [unitId, videoId, loggedIn]);
-  const { loading, data: privateData } = useQuery(LESSON_QUERY, {
+  const { loading, data: privateData, errors } = useQuery(LESSON_QUERY, {
     variables: { videoId, unitId },
     skip,
   });
 
-  const relatedResources = privateData?.trainingUnit?.published?.customFieldsValues?.find(
+  const published = privateData?.trainingUnit?.published;
+  const relatedResources = published?.customFieldsValues?.find(
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   )?.values[0];
   const zIndexVideoPlayer = 9998;
+
+  const completedVideoSet = React.useMemo(
+    () =>
+      published?.videos?.reduce((set, { viewer, id }) => {
+        if (viewer?.completedAt) set.add(id);
+
+        return set;
+      }, new Set()),
+    [published]
+  );
+
+  async function completeVideo() {
+    const { data: completedVideoData } = await client.mutate({
+      query: COMPLETE_VIDEO_MUTATION,
+      variables: { videoId: video.id, completed: true },
+    });
+
+    const completedAt =
+      completedVideoData?.completeVideo?.videoUser?.completedAt;
+
+    if (completedAt) {
+      const queryOptions = {
+        query: LESSON_QUERY,
+        variables: { videoId, unitId },
+      };
+
+      const data = client.readQuery(queryOptions);
+
+      client.writeQuery({
+        ...queryOptions,
+        data: {
+          ...data,
+          trainingUnit: {
+            ...data.trainingUnit,
+            published: {
+              ...data?.trainingUnit?.published,
+              videos: [
+                ...data?.trainingUnit?.published?.videos,
+                { id: videoId, viewer: { completedAt } },
+              ],
+            },
+          },
+        },
+      });
+    }
+  }
 
   return (
     <Layout
@@ -128,11 +168,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             >
               <VideoPlayer
                 posterUrl={fuildPoster.src}
-                onEnded={() => {
-                  completeVideo({
-                    variables: { videoId: video.id, completed: true },
-                  });
-                }}
+                onEnded={completeVideo}
                 url={privateData?.video?.asset?.url}
                 autoload={true}
               />
@@ -262,27 +298,36 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>
-              <H3 sx={{ mt: 2 }}>{trainingUnit.published.title} lessons</H3>
+              <H3 sx={{ mt: 2 }}>Lessons</H3>
               <P>
-                Completed 0 out of {trainingUnit.published.videos.length}{' '}
-                lessons
+                Completed {completedVideoSet?.size || 0} out of{' '}
+                {trainingUnit.published.videos.length} lessons
               </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
-                {trainingUnit.published.videos.map(({ title, slug }) => {
+                {trainingUnit.published.videos.map(({ title, slug, id }) => {
                   const path = `${trainingPath}${slug}`;
                   return (
-                    <Li key={slug}>
-                      {location.pathname !== path ? (
-                        <Link to={path}>
-                          <Icon comp={PlayMedia} />
-                          {title}
-                        </Link>
-                      ) : (
-                        <>
-                          <Icon comp={PlayMedia} />
-                          {title}
-                        </>
-                      )}
+                    <Li
+                      sx={{
+                        position: 'relative',
+                        listStyle: 'none',
+                        display: 'flex',
+                      }}
+                    >
+                      <Box sx={{ width: '35px', display: 'inline-block' }}>
+                        {completedVideoSet?.has(id) ? (
+                          <Tick width={25} sx={{ mb: '-5px' }} />
+                        ) : (
+                          <Icon comp={PlayMedia} color="#d8d8d8" />
+                        )}
+                      </Box>
+                      <Box>
+                        {location.pathname !== path ? (
+                          <Link to={path}>{title}</Link>
+                        ) : (
+                          title
+                        )}
+                      </Box>
                     </Li>
                   );
                 })}

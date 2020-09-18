@@ -10,7 +10,7 @@ import {
   getTrainingTimings,
 } from '@leanjs/ui-academy';
 import { PlayMedia } from '@leanjs/ui-icons';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@leanjs/graphql-client';
 
 import ReactBgWithBorder from '../components/layout/Header/ReactBgWithBorder';
 import Tick from '../components/icons/Tick';
@@ -43,7 +43,7 @@ const metas = {
   type: 'website',
 };
 
-const COURSE_QUERY = gql`
+const COURSE_QUERY = `
   query purchasedTraining($trainingId: ID!) {
     viewer {
       purchasedTraining(trainingId: $trainingId) {

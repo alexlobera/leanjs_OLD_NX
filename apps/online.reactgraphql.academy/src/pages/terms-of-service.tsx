@@ -42,65 +42,44 @@ export default function TermsOfService() {
       <Header
         title="Terms of service"
         bgColors={['#DF0098', '#267280', 'rgba(256,256,256, 0.9)']}
-        // bgImage={coverImage}
+      // bgImage={coverImage}
       />
 
       <Section variant="top">
         <Container>
           <Sheet>
-            <H2>Transferring your place</H2>
+            <H2>By accessing React GraphQL Academy Online, you agree to the following Terms and Conditions.</H2>
             <P>
-              We’ll happily transfer your place to a lucky colleague if you need
-              to. Please let us know as soon as possible – email{' '}
-              <Link to="mailto:hello@reactgraphql.academy">
-                hello@reactgraphql.academy
-              </Link>
-              .
+              If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained on this website are protected by applicable copyright and trademark law .
             </P>
+            <H2>Re-sale</H2>
             <P>
-              If for any reason you can’t attend at all, you’ll need to let us
-              know no later than 15 days before the date of the event or
-              workshop. Refunds will not be made after this date.
+              Re-sale of the course is not permitted.
             </P>
-            <H2>Payment terms & re-sale</H2>
-            <P>
-              All tickets must be paid for within 14 days of an order being
-              placed or by the date of the event, whichever is sooner.
-            </P>
-            <P>Re-sale of tickets is not permitted.</P>
             <H2>Cancelation and refund policy</H2>
             <P>
-              You need to let us know no later than 15 days before the date of
-              the event or workshop that you want to cancel your ticket in order
-              to get a full refund.
+              We hope you’re going to love these courses, as we worked hard to create them. But in case you don’t like some parts of it, please tell us why pithing the first 7 days after your purchase and we will give you a full refund
             </P>
+            <H2>Use license</H2>
             <P>
-              We can cancel any event or workshop 15 days before the date of the
-              event or workshop. We will notify you by email to the address that
-              you have provided us during the registration process.
-            </P>
-            <P>
-              In the event of a cancelation, we’ll refund you the value of your
-              tickets minus the Stripe fees:
+              Permission is granted to temporarily use of materials on React GraphQL Academy Online's web site for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
             </P>
             <Ul>
-              <Li>European cards: 1.4% + 20p</Li>
-              <Li>non-European cards: 2.9% + 20p</Li>
+              <Li>modify or copy the materials;</Li>
+              <Li>use the materials for any commercial purpose, or for any public display (commercial or non-commercial)</Li>
+              <Li>remove any copyright or other proprietary notations from the materials; o</Li>
+              <Li>transfer the materials or account to another person or 'mirror' the materials on any other server.</Li>
             </Ul>
-            <H2>Photos & footage</H2>
             <P>
-              We occasionally photograph our training workshops, and by
-              registering you give us permission to use any images or footage
-              taken of you on the day. We also reserve the right to reproduce
-              quotes and feedback which will be fully credited.
+              This license shall automatically terminate if you violate any of these restrictions and may be terminated by React GraphQL Academy Online at any time
             </P>
-            <H2>Accessibility</H2>
+            <H2>Limitations</H2>
             <P>
-              We aim to choose venues that are fully accessible. If you have any
-              accessibility requirements you think we should be aware of, please
-              let us know at the point of registering so that we can ensure we
-              meet your needs and have someone on hand to assist you if
-              required.
+              In no event shall React GraphQL Academy Online be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on this website, even if React GraphQL Academy Online has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.
+            </P>
+            <H2>Links</H2>
+            <P>
+              React GraphQL Academy Online is not responsible for the contents of any linked site to this website. Use of any such linked website is at the user's own risk.
             </P>
             <H2>Company information</H2>
             <P>
