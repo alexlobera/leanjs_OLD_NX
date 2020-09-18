@@ -159,7 +159,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             published: {
               ...data?.trainingUnit?.published,
               videos: [
-                ...data?.trainingUnit?.published?.videos,
+                ...(data?.trainingUnit?.published?.videos || []),
                 { id: videoId, viewer: { completedAt } },
               ],
             },
@@ -200,6 +200,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
           fluidPoster={fluidPoster}
           onEnded={completeVideo}
           url={privateData?.video?.asset?.url}
+          autoload={true}
           overlay={
             !privateData?.video?.asset?.url ? (
               <Box

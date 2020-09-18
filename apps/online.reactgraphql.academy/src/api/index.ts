@@ -21,6 +21,16 @@ export const login = (token) =>
     },
   });
 
+export function requireSignup(email) {
+  return fetch(`${umApiBaseUrl}/auth/require-signup`, {
+    headers: {
+      'x-um-orgid': process.env.GATSBY_UPMENTORING_ORG_ID,
+    },
+    ...defaultOptions,
+    body: JSON.stringify({ email }),
+  }).then((response) => response.json());
+}
+
 export const courseSubscribe = (message) =>
   fetch(`${apiBaseUrl}/courseSubscribe`, {
     ...defaultOptions,

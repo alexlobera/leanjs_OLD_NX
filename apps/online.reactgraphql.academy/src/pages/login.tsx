@@ -12,11 +12,12 @@ import {
   composeValidators,
   mustBeEmail,
   required,
+  ErrorMessage,
 } from '../components/form';
 import Link from '../components/navigation/Link';
 import RGAOLogo from '../components/logos/RGAOLogo';
 import CheckboxField from '../components/form/CheckboxField';
-import { triggerSubscribe } from '../api';
+import { triggerSubscribe, requireSignup } from '../api';
 
 function LoginPage({ navigate, location }) {
   const { login, loggedIn } = useMagic();
@@ -47,6 +48,13 @@ function LoginPage({ navigate, location }) {
           <H2 sx={{ textAlign: 'center' }}>No sign up requied!</H2>
           <Form
             onSubmit={async ({ email, signUpNewsletter }: any) => {
+              const requiredSignup = await requireSignup(email);
+              if (requiredSignup) {
+                return {
+                  signUpNewsletter: 'Sign up to our newsletter is required',
+                };
+              }
+
               const token = await login({ email });
 
               if (token) {
@@ -55,7 +63,12 @@ function LoginPage({ navigate, location }) {
               }
             }}
           >
-            {({ formSubmitted, submitting }) =>
+            {({
+              formSubmitted,
+              submitting,
+              submitErrors,
+              dirtySinceLastSubmit,
+            }) =>
               formSubmitted ? null : (
                 <>
                   <Field
@@ -68,8 +81,14 @@ function LoginPage({ navigate, location }) {
                   <CheckboxField
                     name="signUpNewsletter"
                     label="Sign up to our newsletter (unsubscribe anytime)"
-                    validate={required}
                   />
+                  {!dirtySinceLastSubmit &&
+                    !submitting &&
+                    submitErrors?.signUpNewsletter && (
+                      <ErrorMessage>
+                        {submitErrors?.signUpNewsletter}
+                      </ErrorMessage>
+                    )}
                   <Button
                     variant="primary"
                     type="submit"

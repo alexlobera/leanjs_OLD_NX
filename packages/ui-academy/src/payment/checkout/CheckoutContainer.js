@@ -198,10 +198,12 @@ export class CheckoutContainer extends React.Component {
             const { data, errors } = res;
             if (!errors) {
               navigate('/payment-confirmation', {
-                email,
-                referrer: window.location.pathname,
-                makePayment: data.makePayment,
-                itemId,
+                state: {
+                  email,
+                  referrer: window.location.pathname,
+                  makePayment: data.makePayment,
+                  itemId,
+                },
               });
             } else {
               this.processPaymentError(errors);

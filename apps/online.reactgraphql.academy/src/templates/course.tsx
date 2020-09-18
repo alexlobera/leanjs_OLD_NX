@@ -150,6 +150,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                       ?.childImageSharp?.fluid
                   }
                   url={training.previewVideo.asset?.url}
+                  autoload={true}
                 />
               </Box>
             )
