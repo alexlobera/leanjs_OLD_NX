@@ -307,6 +307,8 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               <Ul variant="unstyled" sx={{ pl: 0 }}>
                 {trainingUnit.published.videos.map(({ title, slug, id }) => {
                   const path = `${trainingPath}${slug}`;
+
+                  console.log('aaa', path, location.pathname);
                   return (
                     <Li
                       sx={{
@@ -323,10 +325,10 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         )}
                       </Box>
                       <Box>
-                        {location.pathname !== path ? (
-                          <Link to={path}>{title}</Link>
-                        ) : (
+                        {location.pathname.indexOf(path) > -1 ? (
                           title
+                        ) : (
+                          <Link to={path}>{title}</Link>
                         )}
                       </Box>
                     </Li>
