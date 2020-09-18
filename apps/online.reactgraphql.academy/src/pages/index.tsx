@@ -25,17 +25,15 @@ interface CourseCardProps {
 
 function excerpt({ text, limit }) {
   return text.length > limit
-    ? text.substr(0, text.lastIndexOf(" ", limit)) + "..."
-    : text
+    ? text.substr(0, text.lastIndexOf(' ', limit)) + '...'
+    : text;
 }
 
 function CourseCard({
   course: {
     slug,
     title,
-    description: {
-      description
-    }
+    description: { description },
   },
   isAvailable = true,
   fixedImage,
@@ -49,7 +47,7 @@ function CourseCard({
         <Link to={`/${slug}-course`} as={GatsbyLink} className="course-list">
           <H3 sx={{ mt: 0 }}>{`${
             !isAvailable ? 'Coming soon: ' : ''
-            } ${title}`}</H3>
+          } ${title}`}</H3>
         </Link>
         <P>{excerpt({ text: description, limit: 200 })}</P>
         <P>
@@ -105,7 +103,10 @@ function Page({ data }: PageProps) {
               course={{
                 slug: 'graphql-foundation',
                 title: 'GraphQL Foundation',
-                description: { description: 'Get started building GraphQL APIs wrapping existent REST APIs with GraphQL and start thinking in Graphs', }
+                description: {
+                  description:
+                    'Get started building GraphQL APIs wrapping existent REST APIs with GraphQL and start thinking in Graphs',
+                },
               }}
             />
             <CourseCard
@@ -115,8 +116,9 @@ function Page({ data }: PageProps) {
                 title: 'Advanced React',
                 slug: 'advanced-react',
                 description: {
-                  description: 'Learn pragmatic functional programming and use effectively advanced React patterns to build performant and maintainable apps'
-                }
+                  description:
+                    'Learn pragmatic functional programming and use effectively advanced React patterns to build performant and maintainable apps',
+                },
               }}
             />
           </Grid>
