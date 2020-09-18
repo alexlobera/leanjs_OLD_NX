@@ -1,7 +1,6 @@
 import React from 'react';
 import Cookies from 'js-cookie';
 import { useMagic } from '@leanjs/magic-link';
-// import { useApolloClient } from '@apollo/client';
 import { useClient } from '@leanjs/graphql-client';
 
 import Link from '../navigation/Link';
@@ -24,6 +23,6 @@ export default function AuthLink({ to = '/login' }) {
       logout
     </Link>
   ) : (
-        <Link to={to}>login</Link>
-      );
+    <Link to={to}>login</Link>
+  );
 }

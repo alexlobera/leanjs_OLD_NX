@@ -1,7 +1,6 @@
 import React from 'react';
 import { useMagic } from '@leanjs/magic-link';
-// import { useApolloClient } from '@apollo/client';
-import { useClient } from '@leanjs/graphql-client'
+import { useClient } from '@leanjs/graphql-client';
 
 import { Flex, Card } from '../components/layout';
 import { H1, H2, P, Spinner } from '../components/display';

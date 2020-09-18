@@ -4,10 +4,10 @@ import StickyBox from 'react-sticky-box';
 import { PlayMedia } from '@leanjs/ui-icons';
 import { ThemeProvider } from '@leanjs/ui-core';
 import { useMagic } from '@leanjs/magic-link';
-// import { useQuery, useMutation, gql } from '@apollo/client';
 import { useQuery, useClient } from '@leanjs/graphql-client';
 // import { OkaidiaRGA } from '@leanjs/ui-academy';
 
+import Tick from '../components/icons/Tick';
 import Markdown from '../components/display/Markdown';
 import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
@@ -27,10 +27,9 @@ interface LessonPageProps {
 }
 
 const RELATED_RESOURCES_FIELD_ID = '@RklFOjVmNTMyN2I2YTQzNWVlNjIyNjRiYzE1ZA==';
-const GITHUB_COLOR = '#1B1F23';
 
-const Icon = ({ comp: Comp, sx = {} }) => (
-  <Comp sx={{ mb: '-7px', mr: 2, ...sx }} fill={GITHUB_COLOR} />
+const Icon = ({ comp: Comp, sx = {}, color }) => (
+  <Comp sx={{ mb: '-7px', mr: 2, ...sx }} fill={color} />
 );
 
 const LESSON_QUERY = `
@@ -45,7 +44,9 @@ const LESSON_QUERY = `
       published {
         videos {
           id
-          viewerCompletedAt
+          viewer {
+              completedAt
+          }
         }
         customFieldsValues {
           values
@@ -61,9 +62,6 @@ const COMPLETE_VIDEO_MUTATION = `
     completeVideo(completed: $completed, videoId: $videoId) {
       videoUser {
         completedAt
-        videoId
-        userId
-        id
       }
     }
   }
@@ -95,8 +93,8 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
 
   const completedVideoSet = React.useMemo(
     () =>
-      published?.videos?.reduce((set, { viewerCompletedAt, id }) => {
-        if (viewerCompletedAt) set.add(id);
+      published?.videos?.reduce((set, { viewer, id }) => {
+        if (viewer?.completedAt) set.add(id);
 
         return set;
       }, new Set()),
@@ -120,13 +118,6 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
 
       const data = client.readQuery(queryOptions);
 
-      //   const videos = [
-      //     ...data?.trainingUnit?.published?.videos?.filter(
-      //       (v) => v.id !== videoId
-      //     ),
-      //     { id: videoId, viewerCompletedAt: completedAt },
-      //   ];
-
       client.writeQuery({
         ...queryOptions,
         data: {
@@ -137,7 +128,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               ...data?.trainingUnit?.published,
               videos: [
                 ...data?.trainingUnit?.published?.videos,
-                { id: videoId, viewerCompletedAt: completedAt },
+                { id: videoId, viewer: { completedAt } },
               ],
             },
           },
@@ -145,10 +136,6 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
       });
     }
   }
-
-  //   const [completedVideo, { data: completeVideoData }] = useMutation(
-  //     COMPLETE_VIDEO_MUTATION
-  //   );
 
   return (
     <Layout
@@ -311,35 +298,36 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>
-              <H3 sx={{ mt: 2 }}>{trainingUnit.published.title} lessons</H3>
+              <H3 sx={{ mt: 2 }}>Lessons</H3>
               <P>
-                Completed 0 out of {trainingUnit.published.videos.length}{' '}
-                lessons
+                Completed {completedVideoSet?.size || 0} out of{' '}
+                {trainingUnit.published.videos.length} lessons
               </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
                 {trainingUnit.published.videos.map(({ title, slug, id }) => {
                   const path = `${trainingPath}${slug}`;
                   return (
-                    <Li key={slug}>
-                      {location.pathname !== path ? (
-                        <Link to={path}>
-                          <Icon comp={PlayMedia} />
-                          <P
-                            sx={{
-                              color: completedVideoSet?.has(id)
-                                ? 'red'
-                                : undefined,
-                            }}
-                          >
-                            {title}
-                          </P>
-                        </Link>
-                      ) : (
-                        <>
-                          <Icon comp={PlayMedia} />
-                          {title}
-                        </>
-                      )}
+                    <Li
+                      sx={{
+                        position: 'relative',
+                        listStyle: 'none',
+                        display: 'flex',
+                      }}
+                    >
+                      <Box sx={{ width: '35px', display: 'inline-block' }}>
+                        {completedVideoSet?.has(id) ? (
+                          <Tick width={25} sx={{ mb: '-5px' }} />
+                        ) : (
+                          <Icon comp={PlayMedia} color="#d8d8d8" />
+                        )}
+                      </Box>
+                      <Box>
+                        {location.pathname !== path ? (
+                          <Link to={path}>{title}</Link>
+                        ) : (
+                          title
+                        )}
+                      </Box>
                     </Li>
                   );
                 })}
