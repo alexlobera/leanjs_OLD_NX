@@ -45,6 +45,11 @@ const LESSON_QUERY = gql`
         videos {
           id
           viewerCompletedAt
+          viewer {
+            id
+            videoId
+            completedAt
+          }
         }
         customFieldsValues {
           values
@@ -61,7 +66,7 @@ const COMPLETE_VIDEO_MUTATION = gql`
       videoUser {
         completedAt
         videoId
-        userId
+        id
       }
     }
   }
@@ -83,14 +88,25 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     COMPLETE_VIDEO_MUTATION
   );
 
-  // @leans/graphql-client
-  // const options = React.useMemo(() => {
-  //   return { variables: { videoId, unitId }, skip };
-  // }, [unitId, videoId, loggedIn]);
   const { loading, data: privateData } = useQuery(LESSON_QUERY, {
     variables: { videoId, unitId },
     skip,
   });
+
+  const published = privateData?.trainingUnit?.published;
+  const completedVideoSet = React.useMemo(
+    () =>
+      published?.videos?.reduce((set, video) => {
+        console.log('aaaa v', video);
+        const { viewer, id } = video;
+        if (viewer?.completedAt) set.add(id);
+
+        return set;
+      }, new Set()),
+    [published]
+  );
+
+  console.log('aaaa b', completedVideoSet);
 
   const relatedResources = privateData?.trainingUnit?.published?.customFieldsValues?.find(
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
@@ -268,14 +284,22 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 lessons
               </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
-                {trainingUnit.published.videos.map(({ title, slug }) => {
+                {trainingUnit.published.videos.map(({ title, slug, id }) => {
                   const path = `${trainingPath}${slug}`;
                   return (
                     <Li key={slug}>
                       {location.pathname !== path ? (
                         <Link to={path}>
                           <Icon comp={PlayMedia} />
-                          {title}
+                          <P
+                            sx={{
+                              color: completedVideoSet?.has(id)
+                                ? 'red'
+                                : undefined,
+                            }}
+                          >
+                            {title}
+                          </P>
                         </Link>
                       ) : (
                         <>
