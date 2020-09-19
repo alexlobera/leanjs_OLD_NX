@@ -90,7 +90,7 @@ If we use a cookie to store the JWT, then the getSession function implementation
 import Cookies from 'js-cookie'
 
 export const getSession = () => {
-  const jwt = Cookies.get('__session')
+  const jwt = Cookies.get('__user')
   let session
   try {
     if (jwt) {
@@ -108,7 +108,7 @@ export const getSession = () => {
 }
 
 export const logOut = () => {
-  Cookies.remove('__session')
+  Cookies.remove('__user')
 }
 ```
 
