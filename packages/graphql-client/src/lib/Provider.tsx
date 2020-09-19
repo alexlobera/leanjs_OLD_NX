@@ -28,7 +28,6 @@ export const GraphQLProvider = ({ children, link }) => {
       const { data, errors } = await link.fetch({ query, variables });
       result = { data, errors };
     } catch (error) {
-      console.log('aaaa er', error)
       result = { errors: [error.message] };
     }
     setState({ ...state, [cacheKey]: result });

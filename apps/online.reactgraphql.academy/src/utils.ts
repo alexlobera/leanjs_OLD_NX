@@ -36,4 +36,3 @@ export function getCookie(name) {
   );
   return found ? found.pop() : '';
 }
-

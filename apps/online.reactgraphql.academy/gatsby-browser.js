@@ -1,5 +1,5 @@
 import React from 'react';
-import { navigate } from "gatsby"
+import { navigate } from 'gatsby';
 import { ThemeProvider } from '@leanjs/ui-core';
 import 'normalize.css';
 import { MagicProvider } from '@leanjs/magic-link';
@@ -10,7 +10,6 @@ import Cookies from 'js-cookie';
 import { login } from './src/api';
 import theme from './src/config/theme';
 import './src/config/site.css';
-
 
 export const wrapRootElement = ({ element }) => (
   <MagicProvider login={login}>
@@ -29,13 +28,13 @@ export const wrapRootElement = ({ element }) => (
               `${process.env.GATSBY_UPMENTORING_GRAPHQL_API_BASE_URL}/graphql` ||
               'https://api2.upmentoring.com/graphql',
             fetcher: fetch,
-            onError: (({ networkError }) => {
+            onError: ({ networkError }) => {
               if (networkError.statusCode === 401) {
                 Cookies.remove('__user');
                 logout();
-                navigate('/login')
+                navigate('/login');
               }
-            })
+            },
           })}
         >
           <ThemeProvider theme={theme}>{element}</ThemeProvider>

@@ -29,6 +29,6 @@ export default function AuthLink({ to = '/login' }) {
       logout
     </Link>
   ) : (
-        <Link to={to}>Login</Link>
-      );
+    <Link to={to}>Login</Link>
+  );
 }
