@@ -37,7 +37,7 @@ function InputForm<T extends As = 'input'>(
 }
 
 export const ErrorMessage = (props) => {
-  return (
+  return props.children ? (
     <Box
       variant="error"
       {...props}
@@ -51,7 +51,7 @@ export const ErrorMessage = (props) => {
       }}
       __themeKey="forms"
     />
-  );
+  ) : null;
 };
 
 export const FormGroup = (props) => (
@@ -131,7 +131,7 @@ export function Input<T extends As>({
           type={type}
         />
       )}
-      {(invalid && !pristine) || (submitFailed && error) ? (
+      {(invalid && !pristine && error) || (submitFailed && error) ? (
         <ErrorMessage>{error}</ErrorMessage>
       ) : null}
     </FormGroup>

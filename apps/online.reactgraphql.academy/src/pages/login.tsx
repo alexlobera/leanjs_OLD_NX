@@ -48,8 +48,7 @@ function LoginPage({ navigate, location }) {
           <H2 sx={{ textAlign: 'center' }}>No sign up requied!</H2>
           <Form
             onSubmit={async ({ email, signUpNewsletter }: any) => {
-              const requiredSignup = await requireSignup(email);
-              if (requiredSignup) {
+              if (!signUpNewsletter && (await requireSignup(email))) {
                 return {
                   signUpNewsletter: 'Sign up to our newsletter is required',
                 };
@@ -68,8 +67,9 @@ function LoginPage({ navigate, location }) {
               submitting,
               submitErrors,
               dirtySinceLastSubmit,
-            }) =>
-              formSubmitted ? null : (
+              values,
+            }) => {
+              return formSubmitted ? null : (
                 <>
                   <Field
                     component={Input}
@@ -84,7 +84,8 @@ function LoginPage({ navigate, location }) {
                   />
                   {!dirtySinceLastSubmit &&
                     !submitting &&
-                    submitErrors?.signUpNewsletter && (
+                    submitErrors?.signUpNewsletter &&
+                    !values.signUpNewsletter && (
                       <ErrorMessage>
                         {submitErrors?.signUpNewsletter}
                       </ErrorMessage>
@@ -109,8 +110,8 @@ function LoginPage({ navigate, location }) {
                     .
                   </P>
                 </>
-              )
-            }
+              );
+            }}
           </Form>
 
           <P>
