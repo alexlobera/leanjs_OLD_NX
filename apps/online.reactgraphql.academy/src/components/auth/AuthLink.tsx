@@ -15,7 +15,13 @@ export default function AuthLink({ to = '/login' }) {
   ) : loggedIn === true ? (
     <Link
       onClick={() => {
-        Cookies.remove('__session');
+        Cookies.remove('__session', {
+          path: '/',
+          domain:
+            process.env.NODE_ENV === 'development'
+              ? 'localhost'
+              : '.upmentoring.com',
+        });
         clearStore();
         logout();
       }}
