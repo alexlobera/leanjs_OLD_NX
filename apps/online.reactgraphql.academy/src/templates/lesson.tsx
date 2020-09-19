@@ -200,7 +200,6 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
           fluidPoster={fluidPoster}
           onEnded={completeVideo}
           url={privateData?.video?.asset?.url}
-          autoload={true}
           overlay={
             !privateData?.video?.asset?.url ? (
               <Box

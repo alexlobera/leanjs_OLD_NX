@@ -14,9 +14,12 @@ export function GatsbyVideoPlayer({
   ...rest
 }) {
   const [imageLoaded, setImageLoaded] = React.useState(false);
-
+  const [derivedAutoload, setDerivedAutoload] = React.useState(autoload);
   return (
-    <Box sx={{ position: 'relative' }}>
+    <Box
+      onMouseOver={() => setDerivedAutoload(true)}
+      sx={{ position: 'relative' }}
+    >
       <Box
         sx={{
           position: 'absolute',
@@ -31,7 +34,7 @@ export function GatsbyVideoPlayer({
           <VideoPlayer
             posterUrl={fluidPoster?.src}
             url={url}
-            autoload={autoload}
+            autoload={derivedAutoload}
             {...rest}
           />
         )}

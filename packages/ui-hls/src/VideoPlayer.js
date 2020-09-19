@@ -21,6 +21,8 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
+let Plyr;
+
 function useHls({ url = '', autoplay = false, autoload = true, onClick, ref }) {
   const videoRef = useRef();
   const controllerRef = useRef({});
@@ -42,29 +44,32 @@ function useHls({ url = '', autoplay = false, autoload = true, onClick, ref }) {
           return;
         }
 
-        let { plyr } = controllerRef.current;
-        if (plyr) {
-          plyr.destroy();
+        if (!Plyr) {
+          // import Plyr from 'plyr' breaks on SSR, to we require it on the client
+          Plyr = require('plyr');
         }
+        let { plyr } = controllerRef.current;
+        // if (plyr) {
+        //   plyr.destroy();
+        // }
+        if (!plyr) {
+          plyr = new Plyr(videoRef.current, {
+            autoplay,
+            controls: [
+              'play-large',
+              'play',
+              'progress',
+              'current-time',
+              'mute',
+              'volume',
+              'settings',
+              'airplay',
+              'fullscreen',
+            ],
+          });
 
-        // import Plyr from 'plyr' breaks on SSR, to we require it on the client
-        const Plyr = require('plyr');
-        plyr = new Plyr(videoRef.current, {
-          autoplay,
-          controls: [
-            'play-large',
-            'play',
-            'progress',
-            'current-time',
-            'mute',
-            'volume',
-            'settings',
-            'airplay',
-            'fullscreen',
-          ],
-        });
-
-        plyr.on('play', startLoad);
+          plyr.on('play', startLoad);
+        }
 
         const { player } = controllerRef.current;
         if (player) {
@@ -109,9 +114,11 @@ function useHls({ url = '', autoplay = false, autoload = true, onClick, ref }) {
 
     return () => {
       const { player, plyr } = controllerRef.current;
-      if (plyr) {
-        plyr.destroy();
-      }
+      // 🐛 Plyr breaks if any of the props in the dep array changes. For some reason it doesn't create properly again
+      // 🔥 There is a memory leak here
+      //   if (plyr) {
+      //     plyr.destroy();
+      //   }
       if (player) {
         player.destroy();
       }
