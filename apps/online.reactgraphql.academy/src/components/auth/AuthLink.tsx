@@ -15,7 +15,7 @@ export default function AuthLink({ to = '/login' }) {
   ) : loggedIn === true ? (
     <Link
       onClick={() => {
-        Cookies.remove('__session', {
+        Cookies.remove('__user', {
           path: '/',
           domain:
             process.env.NODE_ENV === 'development'
