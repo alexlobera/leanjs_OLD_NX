@@ -201,7 +201,7 @@ export const VideoPlayer = (
         ref={videoRef}
         poster={posterUrl}
         className={className}
-        style={{ maxWidth: '100%' }}
+        style={{ width: '100%' }}
         {...rest}
       />
       {error && <p>There was an error loading this video ({error}).</p>}
