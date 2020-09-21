@@ -25,7 +25,7 @@ interface LessonPageProps {
   location: any;
 }
 
-const RELATED_RESOURCES_FIELD_ID = '@RklFOjVmNTMyN2I2YTQzNWVlNjIyNjRiYzE1ZA==';
+const RELATED_RESOURCES_FIELD_ID = '@RklFOjVmMTgzYzVmNThlZjE1MGVhOGQ4OGUwZQ==';
 
 const Icon = ({ comp: Comp, sx = {}, color }) => (
   <Comp sx={{ mb: '-7px', mr: 2, ...sx }} fill={color} />
