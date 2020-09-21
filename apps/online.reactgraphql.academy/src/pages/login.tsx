@@ -85,7 +85,7 @@ function LoginPage({ navigate, location }) {
                   />
                   <CheckboxField
                     name="signUpNewsletter"
-                    label="Sign up to our newsletter (unsubscribe anytime)"
+                    label="To access free videos, please sign up to our newsletter"
                   />
                   {!dirtySinceLastSubmit &&
                     !submitting &&
