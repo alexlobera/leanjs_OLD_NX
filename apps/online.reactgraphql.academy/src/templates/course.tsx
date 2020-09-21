@@ -87,8 +87,12 @@ function CoursePage({ data, pageContext: { trainingId } }) {
 
   const loadingData = loggingInUser || loading;
   const purchased = runTimeData?.viewer?.purchasedTraining?.id === trainingId;
+  const coverImageNode = data.courseThumbnailImages.nodes[0];
   const coverImage =
-    data.courseThumbnailImages.nodes[0].childImageSharp.fixed.src;
+    coverImageNode.extension === 'svg'
+      ? coverImageNode.publicURL
+      : coverImageNode.childImageSharp.fluid.src;
+
   const discountPrice = runTimeData?.trainingById?.discountPrice;
   const standardPrice = runTimeData?.trainingById?.standardPrice;
   const currency = runTimeData?.trainingById?.currency;
@@ -375,15 +379,16 @@ export const query = graphql`
     courseThumbnailImages: allFile(
       filter: {
         absolutePath: { regex: $coverImageRegex }
-        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
+        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)|(svg)/" }
       }
     ) {
       nodes {
         publicURL
+        extension
         name
         childImageSharp {
-          fixed(width: 1200) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 1200) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
