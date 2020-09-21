@@ -198,7 +198,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                       >
                         <H3 sx={{ mt: 0 }}>{published.title}</H3>
                         {lessonsCount > 0 && (
-                          <P>
+                          <P sx={{ mb: 6 }}>
                             <Link
                               to={`${trainingPath}/${published.videos[0].slug}`}
                             >
