@@ -244,7 +244,7 @@ async function isContact(request, response) {
   );
   const json = await res.json();
 
-  response.status(200).send(json?.contact_id ? '1' : '0');
+  response.status(200).send(json?.contact_id ? true : false);
 }
 
 router.post('/contactLeanJS', contactLeanJS);

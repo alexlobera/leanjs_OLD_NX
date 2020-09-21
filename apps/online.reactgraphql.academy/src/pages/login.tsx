@@ -52,7 +52,7 @@ function LoginPage({ navigate, location }) {
                 isContact(email),
                 requireSignup(email),
               ]);
-              console.log('aaaaaa', islreadyContact, hasNotBoughtCourse);
+
               if (!signUpNewsletter && !islreadyContact && hasNotBoughtCourse) {
                 return {
                   signUpNewsletter: 'Sign up to our newsletter is required',
