@@ -310,7 +310,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               <Markdown>{relatedResources}</Markdown>
             ) : loading || loggingInUser ? (
               <P>Loading data...</P>
-            ) : (
+            ) : !relatedResources && !loggedIn ? (
               <>
                 <P>
                   You have to{' '}
@@ -325,6 +325,8 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                   </LinkButton>
                 </P>
               </>
+            ) : (
+              <P>There are no related resources</P>
             )}
             <H3>Transcript</H3>
             {privateData?.video?.transcript ? (
