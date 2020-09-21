@@ -61,6 +61,8 @@ const COURSE_QUERY = `
   }
 `;
 
+const PlayIcon = () => <PlayMedia sx={{ mb: '-7px', mr: 2 }} fill="#d8d8d8" />;
+
 function CoursePage({ data, pageContext: { trainingId } }) {
   const { loading: loggingInUser } = useMagic();
   const training = data.upmentoring.trainingById;
@@ -191,53 +193,32 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                         }}
                       >
                         <H3 sx={{ mt: 0 }}>{published.title}</H3>
-                        <Ul variant="inline" sx={{ mb: 4 }}>
-                          <Li sx={{ pl: 0 }}>{lessonsCount} lessons</Li>
-                          <Li>|</Li>
-                          <Li>
-                            {' '}
-                            {lessonsCount > 0 ? (
-                              <>
-                                <Link
-                                  to={`${trainingPath}/${published.videos[0].slug}`}
-                                >
-                                  <PlayMedia
-                                    fill="#1B1F23"
-                                    sx={{ mb: '-7px', mx: 1, width: '16px' }}
-                                  />{' '}
-                                  Start watching
-                                </Link>
-                              </>
-                            ) : null}
-                          </Li>
-                          {!purchased && (
-                            <>
-                              <Li>|</Li>
-                              <Li>
-                                <Link to="#pricing" sx={{ mt: 3 }}>
-                                  Buy full course
-                                </Link>
-                              </Li>
-                            </>
-                          )}
-                        </Ul>
+                        {lessonsCount > 0 && (
+                          <P>
+                            <Link
+                              to={`${trainingPath}/${published.videos[0].slug}`}
+                            >
+                              <PlayIcon />
+                              Start watching
+                            </Link>
+                          </P>
+                        )}
                         <Markdown>{published.description}</Markdown>
-                        {published.objectives && published.syllabus ? (
-                          <Tabs defaultValue="learning" sx={{ mt: 6 }}>
-                            <TabList>
-                              <TabItem name="learning">
-                                Learning objectives
+                        <Tabs defaultValue="learning" sx={{ mt: 6 }}>
+                          <TabList>
+                            <TabItem name="learning">
+                              Learning objectives
+                            </TabItem>
+                            {lessonsCount > 0 && (
+                              <TabItem name="lessons">
+                                {lessonsCount} lessons
                               </TabItem>
+                            )}
+                            {published.syllabus && (
                               <TabItem name="curriculum">Curriculum</TabItem>
-                            </TabList>
-                            <TabPanel name="learning"></TabPanel>
-                            <TabPanel name="curriculum">
-                              <Markdown>{published.syllabus}</Markdown>
-                            </TabPanel>
-                          </Tabs>
-                        ) : (
-                          <>
-                            <H4>Learning objectives</H4>
+                            )}
+                          </TabList>
+                          <TabPanel name="learning">
                             <Markdown
                               li={({ children = null }) => (
                                 <Li
@@ -260,8 +241,44 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                             >
                               {published.objectives}
                             </Markdown>
-                          </>
-                        )}
+                          </TabPanel>
+                          {published.syllabus && (
+                            <TabPanel name="curriculum">
+                              <Markdown>{published.syllabus}</Markdown>
+                            </TabPanel>
+                          )}
+                          {lessonsCount > 0 && (
+                            <TabPanel name="lessons">
+                              <Ul variant="unstyled" sx={{ pl: 0 }}>
+                                {published.videos.map(({ title, slug, id }) => {
+                                  const path = `${trainingPath}/${slug}`;
+
+                                  return (
+                                    <Li
+                                      sx={{
+                                        position: 'relative',
+                                        listStyle: 'none',
+                                        display: 'flex',
+                                      }}
+                                    >
+                                      <Box
+                                        sx={{
+                                          minWidth: '35px',
+                                          display: 'inline-block',
+                                        }}
+                                      >
+                                        <PlayIcon />
+                                      </Box>
+                                      <Box>
+                                        <Link to={path}>{title}</Link>
+                                      </Box>
+                                    </Li>
+                                  );
+                                })}
+                              </Ul>
+                            </TabPanel>
+                          )}
+                        </Tabs>
                       </Box>
                     </>
                   );

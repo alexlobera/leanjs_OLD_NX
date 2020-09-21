@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { createMetas } from '@leanjs/ui-page';
+import { useClient } from '@leanjs/graphql-client';
 
 import Layout from '../components/layout/Layout';
 import { Container, Section } from '../components/layout';
@@ -20,6 +21,11 @@ export default function PaymentConfirmation({ data, location }) {
   const title = 'Coming soon';
   const coverImage = data.coverImage.nodes[0].childImageSharp.fixed.src;
   const { email, referrer } = location.state || {};
+  const { clearStore } = useClient();
+
+  useEffect(() => {
+    clearStore();
+  }, []);
 
   return (
     <Layout

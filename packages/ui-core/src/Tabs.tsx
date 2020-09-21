@@ -146,8 +146,9 @@ export const Tabs = React.memo(function ({
         onChange,
         value: valueProp || value,
       }}
-      children={React.Children.map(children, (child) =>
-        React.cloneElement(child, rest)
+      children={React.Children.map(
+        children,
+        (child) => child && React.cloneElement(child, rest)
       )}
     />
   );
