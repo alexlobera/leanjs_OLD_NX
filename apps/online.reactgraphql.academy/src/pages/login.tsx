@@ -17,7 +17,7 @@ import {
 import Link from '../components/navigation/Link';
 import RGAOLogo from '../components/logos/RGAOLogo';
 import CheckboxField from '../components/form/CheckboxField';
-import { triggerSubscribe, requireSignup } from '../api';
+import { triggerSubscribe, requireSignup, isContact } from '../api';
 
 function LoginPage({ navigate, location }) {
   const { login, loggedIn } = useMagic();
@@ -48,7 +48,12 @@ function LoginPage({ navigate, location }) {
           <H2 sx={{ textAlign: 'center' }}>No sign up requied!</H2>
           <Form
             onSubmit={async ({ email, signUpNewsletter }: any) => {
-              if (!signUpNewsletter && (await requireSignup(email))) {
+              const [islreadyContact, hasNotBoughtCourse] = await Promise.all([
+                isContact(email),
+                requireSignup(email),
+              ]);
+              console.log('aaaaaa', islreadyContact, hasNotBoughtCourse);
+              if (!signUpNewsletter && !islreadyContact && hasNotBoughtCourse) {
                 return {
                   signUpNewsletter: 'Sign up to our newsletter is required',
                 };

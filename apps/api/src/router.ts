@@ -7,7 +7,7 @@ import { Router } from 'express';
 import * as config from './config';
 
 const router = Router();
-
+const autopilotApiBaseUrl = 'https://api2.autopilothq.com/v1/';
 const slackBotIconUrl =
   'https://avatars.slack-edge.com/2017-05-14/183274846643_04a16c14f97d4f0554a6_44.png';
 
@@ -93,7 +93,7 @@ function requireBodyEmail(request, response, next) {
 }
 
 async function postToAutopilot(endpoint, jsonBody = null) {
-  const res = await fetch(`https://api2.autopilothq.com/v1/${endpoint}`, {
+  const res = await fetch(`${autopilotApiBaseUrl}${endpoint}`, {
     method: 'POST',
     headers: {
       autopilotapikey: config.autopilotApikey,
@@ -233,6 +233,20 @@ async function courseSubscribe(request, response) {
   response.status(200).send('it worked');
 }
 
+async function isContact(request, response) {
+  const res = await fetch(
+    `${autopilotApiBaseUrl}contact/${request.params.email}`,
+    {
+      headers: {
+        autopilotapikey: config.autopilotApikey,
+      },
+    }
+  );
+  const json = await res.json();
+
+  response.status(200).send(json?.contact_id ? '1' : '0');
+}
+
 router.post('/contactLeanJS', contactLeanJS);
 router.post('/sendFeedback', sendFeedback);
 router.post('/requestQuote', requestQuote);
@@ -241,6 +255,7 @@ router.post('/sessionSubscribe', requireBodyEmail, sessionSubscribe);
 router.post('/subscribe', requireBodyEmail, subscribe);
 router.post('/rsvpEvent', requireBodyEmail, rsvpEvent);
 router.post('/courseSubscribe', requireBodyEmail, courseSubscribe);
+router.get('/isContact/:email', isContact);
 
 router.get('/status', status);
 

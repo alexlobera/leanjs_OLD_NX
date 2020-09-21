@@ -60,3 +60,9 @@ export const triggerSubscribe = ({
     body: JSON.stringify(payload),
   });
 };
+
+export const isContact = (email) => {
+  return fetch(`${apiBaseUrl}/isContact/${email}`).then((response) =>
+    response.json()
+  );
+};
