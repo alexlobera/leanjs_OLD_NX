@@ -10,7 +10,7 @@ import { Col, Row } from '../layout/Grid';
 import { getComponentAliaser } from '../utils/aliasComponent';
 import { composeValidators, required, mustBeEmail } from './validations';
 import { triggerSubscribe } from '../../api/rest';
-import { Newsletter } from '../elements';
+import { FreeLearningResources } from '../elements';
 import Spinner from '../form/Spinner';
 
 const aliasInput = getComponentAliaser(InputField);
@@ -79,7 +79,10 @@ const ContactForm = ({
           </P>
         </React.Fragment>
       )}
-      <Newsletter showCTA={false} anchorName={newsletterAnchorName} />
+      <FreeLearningResources
+        showCTA={false}
+        anchorName={newsletterAnchorName}
+      />
       <Row>
         <Col>
           <Form onSubmit={handleFormSubmit}>

@@ -2,7 +2,7 @@ import React from 'react';
 import LinkButton from '../buttons/LinkButton';
 import { P, H3 } from '../text';
 
-const Newsletter = ({
+const FreeLearningResources = ({
   buttonVariant,
   sx = {},
   showCTA = true,
@@ -30,4 +30,4 @@ const Newsletter = ({
   </React.Fragment>
 );
 
-export default Newsletter;
+export default FreeLearningResources;

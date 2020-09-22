@@ -63,7 +63,8 @@ function LoginPage({ navigate, location }) {
 
               if (token) {
                 clearStore();
-                if (signUpNewsletter) triggerSubscribe({ email });
+                if (signUpNewsletter)
+                  triggerSubscribe({ email, resources: false });
               }
             }}
           >
