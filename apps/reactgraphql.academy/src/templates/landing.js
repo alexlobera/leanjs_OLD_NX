@@ -19,7 +19,7 @@ import { Breadcrumb } from '../components/navigation';
 import { Link } from '../components/navigation';
 import Ul, { Li } from '../components/layout/Ul';
 import { LinkButton } from '../components/buttons';
-import Newsletter from '../components/elements/Newsletter';
+import FreeLearningResources from '../components/elements/FreeLearningResources';
 import { REACT_BOOTCAMP_ID } from '../config/data';
 
 const Landing = ({ data, trainings }) => {
@@ -71,7 +71,7 @@ const Landing = ({ data, trainings }) => {
                       <div dangerouslySetInnerHTML={{ __html: paragraph }} />
                     </P>
                   ))}
-                  <Newsletter />
+                  <FreeLearningResources />
                 </Col>
               </Row>
             </Segment>

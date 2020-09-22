@@ -21,7 +21,7 @@ import LearningResources from 'src/components/blog/LearningResources';
 import { GRAPHQL_PINK, LIGHT_PINK } from 'src/config/styles';
 import { createMetas } from 'src/components/utils';
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js';
-import Newsletter from 'src/components/elements/Newsletter';
+import FreeLearningResources from 'src/components/elements/FreeLearningResources';
 import Card from 'src/components/elements/Card';
 import { getPostsFromNodes } from 'src/components/blog/utils';
 import { Overview } from '../../components/training/PageContent';
@@ -135,7 +135,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
                 className="course-training-clicks"
               />
               <Card variant="primary" sx={{ borderColor: GRAPHQL_PINK, mt: 4 }}>
-                <Newsletter sx={{ mt: 2 }} buttonVariant="primary" />
+                <FreeLearningResources sx={{ mt: 2 }} buttonVariant="primary" />
               </Card>
             </Col>
           </Row>

@@ -22,7 +22,7 @@ import { TrainingCardList } from 'src/components/training';
 import LearningResources from 'src/components/blog/LearningResources';
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js';
 import { createMetas } from 'src/components/utils';
-import Newsletter from 'src/components/elements/Newsletter';
+import FreeLearningResources from 'src/components/elements/FreeLearningResources';
 import Card from 'src/components/elements/Card';
 import { getPostsFromNodes } from 'src/components/blog/utils';
 import { Overview } from '../../components/training/PageContent';
@@ -141,7 +141,7 @@ const ReactPage = ({ data, path, trainings }) => {
               <H3>Our React training</H3>
               <TrainingCardList data={trainingList} borderColor={BLUE} />
               <Card variant="primary" sx={{ mt: 4 }}>
-                <Newsletter
+                <FreeLearningResources
                   anchorName=""
                   sx={{ mt: 2 }}
                   buttonVariant="primary"
