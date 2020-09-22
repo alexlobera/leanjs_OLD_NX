@@ -61,6 +61,7 @@
     "final-form": "~4.9.1",
     "gatsby": "~2.24.60",
     "gatsby-image": "~2.4.9",
+    "gatsby-plugin-autopilot": "^1.0.4",
     "gatsby-plugin-feed": "~2.5.7",
     "gatsby-plugin-google-tagmanager": "~2.3.7",
     "gatsby-plugin-manifest": "~2.4.14",
