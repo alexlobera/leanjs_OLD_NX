@@ -59,15 +59,16 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-autopilot`,
-      options: {
-        // apiUrl: "", // Your unique api URL, found in your tracking code settings in your Autopilot dashboard.
-        trackingId: "ec24be3b2c6348a48c647a446b08bb8402fda7caa24b43d3950598d3fef58486", // Your unique tracking ID, also found in your tracking code settings.
-        app: false, // Determines whether to load webpage or app tracking code.
-        // exclude: ['/signup', '/about'], // optional
-      },
-    },
+    // current version 1.0.4 doesn't work
+    // {
+    //   resolve: `gatsby-plugin-autopilot`,
+    //   options: {
+    //     // apiUrl: "", // Your unique api URL, found in your tracking code settings in your Autopilot dashboard.
+    //     trackingId: "ec24be3b2c6348a48c647a446b08bb8402fda7caa24b43d3950598d3fef58486", // Your unique tracking ID, also found in your tracking code settings.
+    //     app: false, // Determines whether to load webpage or app tracking code.
+    //     // exclude: ['/signup', '/about'], // optional
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
