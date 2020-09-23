@@ -19,6 +19,9 @@ const GlobalStyle = createGlobalStyle`
 .plyr--video.plyr--stopped .plyr__controls {
      display: none;
 }
+.plyr__poster {
+    max-width: 100%;
+    width: auto;
 `;
 
 let Plyr;
