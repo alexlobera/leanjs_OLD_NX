@@ -183,7 +183,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                         {previewVideo && (
                           <GatsbyVideoPlayer
                             fluidPoster={
-                              training.previewVideo.asset?.posterImageFile
+                              previewVideo.asset?.posterImageFile
                                 ?.childImageSharp?.fluid
                             }
                             url={previewVideo.asset?.url}
