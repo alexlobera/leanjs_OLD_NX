@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
 .plyr__poster {
     max-width: 100%;
     width: auto;
+}
 `;
 
 let Plyr;
