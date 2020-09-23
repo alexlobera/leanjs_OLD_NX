@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Breadcrumb /> should render with props 1`] = `
+<Styled(Box)
+  ariaLabel="Breadcrumb"
+  as="nav"
+  fontFamily$="serif"
+>
+  <Styled(Link)
+    box="a"
+    fontFamily="serif"
+    href="/"
+    mr={1}
+  >
+    Home
+  </Styled(Link)>
+  <Styled(Box)
+    color="GREY_DARK"
+    fontFamily="serif"
+    fontSize={4}
+    fontWeight="normal"
+    lineHeight={1}
+    m={0}
+    maxWidth="full"
+    mr={1}
+  >
+     / 
+  </Styled(Box)>
+  <Styled(Link)
+    box="a"
+    fontFamily="serif"
+    mr={1}
+  >
+    1st level
+  </Styled(Link)>
+  <Styled(Box)
+    color="GREY_DARK"
+    fontFamily="serif"
+    fontSize={4}
+    fontWeight="normal"
+    lineHeight={1}
+    m={0}
+    maxWidth="full"
+    mr={1}
+  >
+     / 
+  </Styled(Box)>
+  <Styled(Link)
+    box="a"
+    fontFamily="serif"
+    mr={1}
+  >
+    2nd level
+  </Styled(Link)>
+  <Styled(Box)
+    color="GREY_DARK"
+    fontFamily="serif"
+    fontSize={4}
+    fontWeight="normal"
+    lineHeight={1}
+    m={0}
+    maxWidth="full"
+    mr={1}
+  >
+     / 
+  </Styled(Box)>
+  <Styled(Link)
+    box="a"
+    fontFamily="serif"
+    mr={1}
+  >
+    etc
+  </Styled(Link)>
+</Styled(Box)>
+`;

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should render with props 1`] = `
+<Styled(Box)
+  border={0}
+  borderRadius={1}
+  box="button"
+  boxShadow$="normal"
+  boxShadowColor$="#4D4D4D"
+  fontFamily$="serif"
+  mt={2}
+  px={3}
+  py={1}
+  type="button"
+  variant="default"
+/>
+`;
+
+exports[`<Button /> should support the prop variant="primary" 1`] = `
+<Styled(Box)
+  backgroundColor="#67BF67"
+  border={0}
+  borderRadius={1}
+  box="button"
+  boxShadow$="light"
+  boxShadowColor$="#4D4D4D"
+  color="#FFFFFF"
+  fontFamily$="serif"
+  fontSize="2"
+  fontStyle="normal"
+  fontWeight="bold"
+  lineHeight="2"
+  mt={2}
+  px={3}
+  py={1}
+  type="button"
+  variant="default"
+/>
+`;

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`buttonVariant should match snapshot 1`] = `
+Object {
+  "inactive": Object {
+    "backgroundColor": "#4D4D4D",
+    "boxShadow$": "none",
+    "color": "#FFFFFF",
+    "fontSize": "1rem",
+    "fontStyle": "normal",
+    "fontWeight": "bold",
+    "lineHeight": "1.5rem",
+  },
+  "primary": Object {
+    "backgroundColor": "#67BF67",
+    "boxShadow$": "light",
+    "color": "#FFFFFF",
+    "fontSize": "2",
+    "fontStyle": "normal",
+    "fontWeight": "bold",
+    "lineHeight": "2",
+  },
+  "secondary": Object {
+    "backgroundColor": "#0B7382",
+    "boxShadow$": "light",
+    "color": "#FFFFFF",
+    "fontSize": "1rem",
+    "fontStyle": "normal",
+    "fontWeight": "light",
+    "lineHeight": "1.5rem",
+  },
+  "tertiary": Object {
+    "backgroundColor": "#FFFFFF",
+    "boxShadow$": "light",
+    "color": "#696969",
+    "fontSize": "1rem",
+    "fontStyle": "normal",
+    "fontWeight": "normal",
+    "lineHeight": "1.5rem",
+  },
+}
+`;
