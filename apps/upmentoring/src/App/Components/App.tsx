@@ -21,14 +21,18 @@ const App = () => {
       <Route
         path={`${paths.backoffice}`}
         render={() =>
-          loading ? "loading..." :
-            loggedIn ? <Backoffice /> :
-              <Redirect to={`${paths.auth}`} />
+          loading ? (
+            'loading...'
+          ) : loggedIn ? (
+            <Backoffice />
+          ) : (
+            <Redirect to={`${paths.auth}`} />
+          )
         }
       />
       <Route component={PublicRoutes} />
     </Switch>
-  )
+  );
 };
 
 export default App;

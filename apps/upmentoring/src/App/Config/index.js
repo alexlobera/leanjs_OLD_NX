@@ -8,5 +8,4 @@ export const VIDEO_API_BASE_URL =
     ? 'https://video.upmentoring.com'
     : 'http://localhost:3000/video';
 
-export const KEY_API_GOOGLE_PLACES =
-  process.env.REACT_APP_KEY_API_GOOGLE_PLACES;
+export const NX_KEY_API_GOOGLE_PLACES = process.env.NX_KEY_API_GOOGLE_PLACES;

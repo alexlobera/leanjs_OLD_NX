@@ -27,7 +27,7 @@ function requireSignup(email: string) {
     'lena@leanjs.com',
     'ingrid@leanjs.com',
     'franciscogomestv@gmail.com',
-  ].find(e => e === email);
+  ].find((e) => e === email);
 }
 
 const login = (token: string) =>

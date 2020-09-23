@@ -1,17 +1,17 @@
-import React, { createContext, useContext } from "react";
-import { Magic } from "magic-sdk";
-import { Sema } from "async-sema";
+import React, { createContext, useContext } from 'react';
+import { Magic } from 'magic-sdk';
+import { Sema } from 'async-sema';
 
 // TODO decouple the key from CRA
-const magic = new Magic(process.env.REACT_APP_MAGIC_LINK_PK_KEY);
+const magic = new Magic(process.env.NX_MAGIC_LINK_PK_KEY);
 
 const MagicContext = createContext(null);
 
-const REQUIRE_SIGNUP = "REQUIRE_SIGNUP";
-const LOGGED_OUT = "LOGGED_OUT";
-const RECEIVE_LOGIN_RESPONSE = "RECEIVE_LOGIN_RESPONSE";
-const SET_LOADING = "SET_LOADING";
-const CLEAR_REQUIRE_SIGNUP = "CLEAR_REQUIRE_SIGNUP";
+const REQUIRE_SIGNUP = 'REQUIRE_SIGNUP';
+const LOGGED_OUT = 'LOGGED_OUT';
+const RECEIVE_LOGIN_RESPONSE = 'RECEIVE_LOGIN_RESPONSE';
+const SET_LOADING = 'SET_LOADING';
+const CLEAR_REQUIRE_SIGNUP = 'CLEAR_REQUIRE_SIGNUP';
 
 const initialState = {
   loading: true,
@@ -107,7 +107,7 @@ export default function MagicProvider({
 
   return (
     <MagicContext.Provider value={contextValue}>
-      {typeof children === "function" ? children(contextValue) : children}
+      {typeof children === 'function' ? children(contextValue) : children}
     </MagicContext.Provider>
   );
 }
