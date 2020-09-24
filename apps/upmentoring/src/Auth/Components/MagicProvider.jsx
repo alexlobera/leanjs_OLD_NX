@@ -7,8 +7,8 @@ const magic = new Magic(process.env.NX_MAGIC_LINK_PK_KEY);
 
 const MagicContext = createContext(null);
 
-const REQUIRE_SIGNUP = 'REQUIRE_SIGNUP';
 const LOGGED_OUT = 'LOGGED_OUT';
+const REQUIRE_SIGNUP = 'REQUIRE_SIGNUP';
 const RECEIVE_LOGIN_RESPONSE = 'RECEIVE_LOGIN_RESPONSE';
 const SET_LOADING = 'SET_LOADING';
 const CLEAR_REQUIRE_SIGNUP = 'CLEAR_REQUIRE_SIGNUP';

@@ -844,6 +844,17 @@
       "projectType": "application",
       "schematics": {},
       "architect": {
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "dist/apps/upmentoring",
+            "parallel": false,
+            "commands": [
+              "cp ../../../apps/upmentoring/firebase.json .",
+              "npx firebase deploy --project=upmentoring-backoffice --only hosting --token=$FIREBASE_CI_TOKEN"
+            ]
+          }
+        },
         "build": {
           "builder": "@nrwl/web:build",
           "options": {

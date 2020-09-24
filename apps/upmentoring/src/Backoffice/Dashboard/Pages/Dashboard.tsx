@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Header title="Dashboard" />
+      <Header title="Dashboard !" />
       <Row>
         <Col lg={4}>
           <Heading variant="h3" mb={2}>
