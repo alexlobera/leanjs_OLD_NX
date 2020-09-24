@@ -86,7 +86,7 @@
     "hls.js": "~0.14.5",
     "js-cookie": "^2.2.1",
     "lodash.isequal": "~4.5.0",
-    "magic-sdk": "~2.6.0",
+    "magic-sdk": "~2.7.0",
     "markdown-draft-js": "^2.2.1",
     "markdown-to-jsx": "~6.11.4",
     "node-fetch": "~2.6.1",
