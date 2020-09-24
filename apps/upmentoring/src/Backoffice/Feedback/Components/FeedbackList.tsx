@@ -15,7 +15,7 @@ import { paths as backofficePaths } from '../../../Backoffice';
 
 const FeedbackList = () => {
   const { loading, error, data, fetchMore } = useQuery(
-    QUERY_LATEST_FEEDBACK_LIST,
+    QUERY_LATEST_FEEDBACK_LIST
   );
 
   if (error) {
@@ -48,7 +48,7 @@ const FeedbackList = () => {
                       >
                         {formatUTC(
                           feedback.createdAt,
-                          trainingInstance.utcOffset,
+                          trainingInstance.utcOffset
                         )}
                       </Link>
                     </Td>
@@ -60,39 +60,39 @@ const FeedbackList = () => {
           </Table>
         </Col>
         {feedbacks &&
-          feedbacks.pageInfo &&
-          feedbacks.pageInfo.hasNextPage &&
-          !loading ? (
-            <Box pb={3}>
-              <Button
-                variant="tertiary"
-                onClick={() => {
-                  fetchMore({
-                    variables: {
-                      cursor: feedbacks.pageInfo.endCursor,
-                    },
+        feedbacks.pageInfo &&
+        feedbacks.pageInfo.hasNextPage &&
+        !loading ? (
+          <Box pb={3}>
+            <Button
+              variant="tertiary"
+              onClick={() => {
+                fetchMore({
+                  variables: {
+                    cursor: feedbacks.pageInfo.endCursor,
+                  },
 
-                    updateQuery: (prev: any, { fetchMoreResult }: any) => {
-                      if (!fetchMoreResult) {
-                        return prev;
-                      }
+                  updateQuery: (prev: any, { fetchMoreResult }: any) => {
+                    if (!fetchMoreResult) {
+                      return prev;
+                    }
 
-                      const { feedbacks: retrieved } = fetchMoreResult;
+                    const { feedbacks: retrieved } = fetchMoreResult;
 
-                      return {
-                        feedbacks: {
-                          ...retrieved,
-                          edges: [...prev.feedbacks.edges, ...retrieved.edges],
-                        },
-                      };
-                    },
-                  });
-                }}
-              >
-                Load more
+                    return {
+                      feedbacks: {
+                        ...retrieved,
+                        edges: [...prev.feedbacks.edges, ...retrieved.edges],
+                      },
+                    };
+                  },
+                });
+              }}
+            >
+              Load more
             </Button>
-            </Box>
-          ) : null}
+          </Box>
+        ) : null}
       </Box>
     );
   }

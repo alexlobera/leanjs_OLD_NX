@@ -10,7 +10,7 @@ function Autocomplete({ items, ...rest }) {
             title: `${tags ? tags.join() + ' - ' : ''}  ${title}`,
           }))
         : items || [],
-    items,
+    items
   );
 
   const [filteredItems, setItems] = React.useState(allItems);
@@ -19,8 +19,10 @@ function Autocomplete({ items, ...rest }) {
     const text = e.target.value.toLowerCase();
     setItems(
       text
-        ? allItems.filter(item => item.title.toLowerCase().indexOf(text) !== -1)
-        : allItems,
+        ? allItems.filter(
+            (item) => item.title.toLowerCase().indexOf(text) !== -1
+          )
+        : allItems
     );
   }
 

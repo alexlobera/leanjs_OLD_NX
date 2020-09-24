@@ -1,11 +1,11 @@
-import React from "react";
-import { Route, Switch } from "react-router";
-import { useRouteMatch } from "react-router-dom";
+import React from 'react';
+import { Route, Switch } from 'react-router';
+import { useRouteMatch } from 'react-router-dom';
 
-import NewTrainingFeedbackPage from "./Pages/NewTrainingFeedbackPage";
+import NewTrainingFeedbackPage from './Pages/NewTrainingFeedbackPage';
 
 const Routes = () => {
-  const match = useRouteMatch()
+  const match = useRouteMatch();
 
   return (
     <Switch>
@@ -21,5 +21,5 @@ const Routes = () => {
       />
     </Switch>
   );
-} 
+};
 export default Routes;

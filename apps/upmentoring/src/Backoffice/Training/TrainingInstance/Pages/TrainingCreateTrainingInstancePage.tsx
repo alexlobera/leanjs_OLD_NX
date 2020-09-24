@@ -14,7 +14,7 @@ const TrainingCreateTrainingInstancePage = () => {
         name="trainingId"
         onChange={(trainingId: string) => {
           history.push(
-            `/backoffice${backofficePaths.training}/${trainingId}${backofficePaths.createInstance}`,
+            `/backoffice${backofficePaths.training}/${trainingId}${backofficePaths.createInstance}`
           );
         }}
       />

@@ -20,12 +20,12 @@ function UpdateVideoPage() {
       variables: { id: videoId },
       fetchPolicy: 'cache-and-network',
       nextFetchPolicy: 'cache-first',
-    },
+    }
   );
 
   const [updateVideo] = useMutation(UPDATE_VIDEO);
 
-  const onSubmit = async video => {
+  const onSubmit = async (video) => {
     try {
       await updateVideo({
         variables: {
@@ -35,7 +35,9 @@ function UpdateVideoPage() {
 
       history.push(`${appPaths.backoffice}${backofficePaths.video}`);
       // todo show notification "video was saved"
-    } catch (e) { }
+    } catch (e) {
+      // empty
+    }
   };
 
   if (error) {

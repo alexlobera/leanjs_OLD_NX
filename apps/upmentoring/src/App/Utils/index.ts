@@ -39,10 +39,10 @@ export function createUTCDate(date: Date, time: Time, utcOffset: number) {
   const offsetMinutes = Math.round(m);
 
   const utcDate = `${year}-${twoDigits(parseInt(month, 10) + 1)}-${twoDigits(
-    day,
+    day
   )}T${twoDigits(hour)}:${twoDigits(minute)}:00.00${
     utcOffset >= 0 ? '+' : '-'
-    }${twoDigits(Math.abs(offsetHour))}:${twoDigits(offsetMinutes)}`;
+  }${twoDigits(Math.abs(offsetHour))}:${twoDigits(offsetMinutes)}`;
 
   return utcDate;
 }
@@ -63,40 +63,40 @@ const priceFormat = ({ currency, amount }: PriceFormatArgs) => {
     currency === CurrencyEnum.GBP
       ? 'en-GB'
       : currency === CurrencyEnum.EUR
-        ? 'de-DE'
-        : currency === CurrencyEnum.USD
-          ? 'en-US'
-          : currency === CurrencyEnum.AUD
-            ? 'en-AU'
-            : ' ',
+      ? 'de-DE'
+      : currency === CurrencyEnum.USD
+      ? 'en-US'
+      : currency === CurrencyEnum.AUD
+      ? 'en-AU'
+      : ' ',
     {
       style: 'currency',
       currency:
         currency === CurrencyEnum.GBP
           ? CurrencyEnum.GBP
           : currency === CurrencyEnum.EUR
-            ? CurrencyEnum.EUR
-            : currency === CurrencyEnum.USD
-              ? CurrencyEnum.USD
-              : currency === CurrencyEnum.AUD
-                ? CurrencyEnum.AUD
-                : ' ',
+          ? CurrencyEnum.EUR
+          : currency === CurrencyEnum.USD
+          ? CurrencyEnum.USD
+          : currency === CurrencyEnum.AUD
+          ? CurrencyEnum.AUD
+          : ' ',
       maximumFractionDigits: 2,
       minimumFractionDigits: 0,
-    },
+    }
   ).format(amount / 100);
 };
 
 export const formatUTC = (
   utcDate?: string,
   utcOffset?: number,
-  format = "D MMM 'YYYY",
+  format = "D MMM 'YYYY"
 ) =>
   utcDate
     ? moment
-      .utc(utcDate)
-      .utcOffset(utcOffset || 1)
-      .format(format)
+        .utc(utcDate)
+        .utcOffset(utcOffset || 1)
+        .format(format)
     : '';
 
 const removeKeyFromObject = (key: string, obj: any) => {
@@ -109,7 +109,7 @@ export function removeLastDirectoryPath(path: string) {
 
   return pathWithouTrailingSlash.substring(
     0,
-    pathWithouTrailingSlash.lastIndexOf('/'),
+    pathWithouTrailingSlash.lastIndexOf('/')
   );
 }
 

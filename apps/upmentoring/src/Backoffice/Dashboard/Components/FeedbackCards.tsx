@@ -27,7 +27,7 @@ const FeedbackCards = ({ feedbacks }: any) => {
               >
                 {formatUTC(
                   feedback.createdAt,
-                  trainingInstance && trainingInstance.utcOffset,
+                  trainingInstance && trainingInstance.utcOffset
                 )}
               </Link>
               <P>{feedback.username ? feedback.username : 'Anonymous'}</P>
@@ -38,7 +38,7 @@ const FeedbackCards = ({ feedbacks }: any) => {
                     <P>
                       {formatUTC(
                         trainingInstance.startDate,
-                        trainingInstance.utcOffset,
+                        trainingInstance.utcOffset
                       )}{' '}
                       - {trainingInstance.city}
                     </P>

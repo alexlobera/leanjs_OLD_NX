@@ -3,7 +3,7 @@ import React from 'react';
 import SvgIcon from './SvgIcon';
 import { Props } from '../../Types/React';
 
-const FilterIcon: React.FunctionComponent<Props> = props => (
+const FilterIcon: React.FunctionComponent<Props> = (props) => (
   <SvgIcon viewBox="0 0 100 100" width={35} height={35} {...props}>
     <g>
       <path d="m55.398 26.5h-36.898c-1.3984 0-2.5 1.1016-2.5 2.5s1.1016 2.5 2.5 2.5h36.898c1.1016 3.6992 4.5 6.3984 8.6016 6.3984 4 0 7.5-2.6992 8.5-6.3984h9.1016c1.3984 0 2.5-1.1016 2.5-2.5s-1.1016-2.5-2.5-2.5h-9.1016c-1.1016-3.6992-4.5-6.3984-8.5-6.3984-4.1016 0-7.5 2.6992-8.6016 6.3984zm12.402 2.5c0 2.1992-1.8008 3.8984-3.8984 3.8984-2.1016 0-3.8984-1.6992-3.8984-3.8984s1.8008-3.8984 3.8984-3.8984c1.9961 0 3.8984 1.6992 3.8984 3.8984z" />

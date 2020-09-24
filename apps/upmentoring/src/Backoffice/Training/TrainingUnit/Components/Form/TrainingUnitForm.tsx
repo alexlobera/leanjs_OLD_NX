@@ -48,11 +48,11 @@ function videosReducer(state: any, action: any) {
         items: state.allItems.filter(
           (item: any) =>
             item.title.toLowerCase().indexOf(action.text.toLowerCase()) !==
-            -1 &&
+              -1 &&
             !(
               action.values &&
               action.values.find(({ value }: any) => value === item.value)
-            ),
+            )
         ),
       };
     case UNSELECTED_VIDEO:
@@ -76,11 +76,11 @@ const TrainingUnitForm = ({
     () =>
       selectVideos && selectVideos.edges && selectVideos.edges.map
         ? selectVideos.edges.map(({ node: { id, title, tags } }: any) => ({
-          value: id,
-          title: `${tags ? tags.join() + ' - ' : ''}  ${title}`,
-        }))
+            value: id,
+            title: `${tags ? tags.join() + ' - ' : ''}  ${title}`,
+          }))
         : [],
-    [selectVideos],
+    [selectVideos]
   );
 
   const [state, dispatch] = React.useReducer(videosReducer, {
@@ -119,7 +119,7 @@ const TrainingUnitForm = ({
             const title = mutatorState.formState?.values?.title || '';
             title &&
               utils.changeValue(mutatorState, 'slug', () =>
-                slugify(title, { lower: true }),
+                slugify(title, { lower: true })
               );
           },
         }}
@@ -231,12 +231,12 @@ const TrainingUnitForm = ({
                   {({ fields: videoFields }) => (
                     <ReactSortable
                       handle=".handle"
-                      setList={sortedList => {
+                      setList={(sortedList) => {
                         const sameList = sortedList.reduce(
                           (acc, item, index) =>
                             acc &&
                             item.value === values[FORM_VIDEOS][index].value,
-                          true,
+                          true
                         );
                         if (!sameList) {
                           form.mutators.replaceVideos(sortedList);
@@ -293,7 +293,7 @@ const TrainingUnitForm = ({
                           layout === 'markdown' ? RichTextField : TextField
                         }
                         {...(layout === 'markdown' &&
-                          metadata?.find((value: any) => value === 'href')
+                        metadata?.find((value: any) => value === 'href')
                           ? { showLink: true }
                           : {})}
                         type="text"

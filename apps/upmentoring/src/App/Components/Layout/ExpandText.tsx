@@ -29,11 +29,11 @@ const ExpandText = ({ maxLength, children }: ExpandTextProps) => {
           <Link onClick={() => setHidden(false)}>read more</Link>
         </>
       ) : (
-          <>
-            <br />
-            <Link onClick={() => setHidden(true)}>read less</Link>
-          </>
-        )}
+        <>
+          <br />
+          <Link onClick={() => setHidden(true)}>read less</Link>
+        </>
+      )}
     </>
   );
 };

@@ -23,20 +23,20 @@ export const transformSubmitValues = (onSubmit: any) => ({
     ({ __typename: __, ...speakersRest }: any) => ({
       ...speakersRest,
       links: (speakersRest.links || []).map(
-        ({ __typename: ___, ...restLink }: any) => restLink,
+        ({ __typename: ___, ...restLink }: any) => restLink
       ),
-    }),
+    })
   );
   data.sponsors = (data.sponsors || []).map(
-    ({ __typename: __, ...sponsorsRest }: any) => sponsorsRest,
+    ({ __typename: __, ...sponsorsRest }: any) => sponsorsRest
   );
   data.agenda = (data.agenda || []).map(
     ({ __typename: __, ...agendaRest }: any) => ({
       ...agendaRest,
       sessions: (agendaRest.sessions || []).map(
-        ({ __typename: ___, ...sessionRest }: any) => sessionRest,
+        ({ __typename: ___, ...sessionRest }: any) => sessionRest
       ),
-    }),
+    })
   );
 
   if (meetupId) {

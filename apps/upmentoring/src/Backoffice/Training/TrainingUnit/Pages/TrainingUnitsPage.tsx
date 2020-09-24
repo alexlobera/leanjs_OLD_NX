@@ -45,7 +45,7 @@ const SortableTrainingUnits = React.memo(
           })}
       </ReactSortable>
     );
-  },
+  }
 );
 
 const TrainingUnitsPage = () => {
@@ -105,13 +105,13 @@ const TrainingUnitsPage = () => {
   }
 
   const setList = (
-    sortedList: any[],
+    sortedList: any[]
     // sortable: any,
     // store: any
   ) => {
     const sameList = sortedList.reduce(
       (acc, item, index) => acc && item.id === units[index].id,
-      true,
+      true
     );
     if (!sameList) {
       const trainingUnitIds = sortedList.map(({ id }: any) => id);

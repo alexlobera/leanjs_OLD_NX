@@ -13,7 +13,9 @@ const Select = ({
   meta = null,
   placeholder = null,
   items = [],
-  onAutocompleteChange = e => {},
+  onAutocompleteChange = (e) => {
+    // replace with TS
+  },
   multiple = false,
   ...rest
 }) => {
@@ -38,7 +40,7 @@ const Select = ({
       ? inputValue
       : selectedText;
 
-  const onSelectChange = selectedItem => {
+  const onSelectChange = (selectedItem) => {
     const value = selectedItem ? selectedItem.value : '';
     const text = selectedItem ? selectedItem.title : '';
     if (!multiple) {
@@ -85,7 +87,7 @@ const Select = ({
                     placeholder,
                     ...(onAutocompleteChange
                       ? {
-                          onChange: e => {
+                          onChange: (e) => {
                             onAutocompleteChange(e);
                             setInputValue(e.target.value);
                           },

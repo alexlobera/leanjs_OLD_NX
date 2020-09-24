@@ -127,7 +127,7 @@ export default (month = THIS_MONTH, year = THIS_YEAR) => {
 
   const { month: prevMonth, year: prevMonthYear } = getPreviousMonth(
     month,
-    year,
+    year
   );
   const { month: nextMonth, year: nextMonthYear } = getNextMonth(month, year);
 

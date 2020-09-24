@@ -72,7 +72,7 @@ const Primitive = (props: any) => {
       }
       return accProps;
     },
-    {},
+    {}
   );
 
   return <C {...filteredProps} />;
@@ -100,7 +100,7 @@ export const StyledBox = styled(Primitive)<BoxProps>(
   letterSpacing,
   maxWidth,
   display,
-  themed('Box'),
+  themed('Box')
 );
 
 // TODO type properly this component

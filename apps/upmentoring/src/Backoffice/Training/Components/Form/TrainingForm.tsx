@@ -137,42 +137,42 @@ const TrainingForm = ({
                     );
                   })}
                 {trainingInstanceTypes &&
-                  trainingInstanceTypes.edges &&
-                  trainingInstanceTypes.edges.length ? (
-                    <>
-                      <Label>Training Instance Types</Label>
-                      {trainingInstanceTypes.edges.map(
-                        ({ node: { id, title } }: any = {}) => {
-                          const name = `trainingInstanceTypes[${id}]`;
+                trainingInstanceTypes.edges &&
+                trainingInstanceTypes.edges.length ? (
+                  <>
+                    <Label>Training Instance Types</Label>
+                    {trainingInstanceTypes.edges.map(
+                      ({ node: { id, title } }: any = {}) => {
+                        const name = `trainingInstanceTypes[${id}]`;
 
-                          return (
-                            <Flex key={id}>
-                              <CheckboxField
-                                name={`${name}.selected`}
-                                label={title}
-                              />
-                              {values &&
-                                values.trainingInstanceTypes &&
-                                values.trainingInstanceTypes[id] &&
-                                values.trainingInstanceTypes[id].selected && (
-                                  <Field
-                                    name={`${name}.alternativeTitle`}
-                                    component={TextField}
-                                    type="text"
-                                    flex={{
-                                      justifyContent: 'center',
-                                      ml: 5,
-                                      flex: 1,
-                                    }}
-                                    placeholder="Optional alternative title"
-                                  />
-                                )}
-                            </Flex>
-                          );
-                        },
-                      )}
-                    </>
-                  ) : null}
+                        return (
+                          <Flex key={id}>
+                            <CheckboxField
+                              name={`${name}.selected`}
+                              label={title}
+                            />
+                            {values &&
+                              values.trainingInstanceTypes &&
+                              values.trainingInstanceTypes[id] &&
+                              values.trainingInstanceTypes[id].selected && (
+                                <Field
+                                  name={`${name}.alternativeTitle`}
+                                  component={TextField}
+                                  type="text"
+                                  flex={{
+                                    justifyContent: 'center',
+                                    ml: 5,
+                                    flex: 1,
+                                  }}
+                                  placeholder="Optional alternative title"
+                                />
+                              )}
+                          </Flex>
+                        );
+                      }
+                    )}
+                  </>
+                ) : null}
 
                 <Field
                   name="previewVideoId"
@@ -205,21 +205,21 @@ const TrainingForm = ({
                     </Button>
                   </Box>
                 ) : (
-                    <Box mt={5}>
-                      <Button variant="tertiary" mr={2} type="submit">
-                        Save course
+                  <Box mt={5}>
+                    <Button variant="tertiary" mr={2} type="submit">
+                      Save course
                     </Button>
-                      <Button
-                        onClick={() => {
-                          onSubmitOptions.redirectToCreateTrainingInstance = true;
-                        }}
-                        variant="tertiary"
-                        type="submit"
-                      >
-                        Save and create instance
+                    <Button
+                      onClick={() => {
+                        onSubmitOptions.redirectToCreateTrainingInstance = true;
+                      }}
+                      variant="tertiary"
+                      type="submit"
+                    >
+                      Save and create instance
                     </Button>
-                    </Box>
-                  )}
+                  </Box>
+                )}
               </Flex>
             </>
           );

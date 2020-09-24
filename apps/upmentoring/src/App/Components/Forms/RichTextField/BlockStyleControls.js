@@ -50,7 +50,7 @@ const BlockStyleControls = ({ editorState, onToggle, showHeading }) => {
           onToggle={onToggle}
         />
       </li> */}
-      {BLOCK_TYPES.map(type => {
+      {BLOCK_TYPES.map((type) => {
         return (
           <li key={type.label}>
             <BlockStyleButton

@@ -26,12 +26,12 @@ const TrainingInstanceFeedbackList = ({
       fetchPolicy: 'cache-first',
       nextFetchPolicy: 'cache-first',
       notifyOnNetworkStatusChange: true,
-    },
+    }
   );
 
   const { allEdges, hasNextPage, endCursor } = mergeConnections(
     feedbacks,
-    data?.payments,
+    data?.payments
   );
 
   return (
@@ -64,8 +64,8 @@ const TrainingInstanceFeedbackList = ({
       {loading
         ? 'loading...'
         : error
-          ? error
-          : hasNextPage && (
+        ? error
+        : hasNextPage && (
             <Box pb={3}>
               <Button
                 variant="tertiary"

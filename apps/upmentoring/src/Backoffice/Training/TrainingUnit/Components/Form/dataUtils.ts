@@ -15,7 +15,7 @@ export const transformSubmitValues = (onSubmit: any) => ({
   }
 
   trainingUnit.customFieldsValues = formatSubmitCustomFields(
-    customFieldsValues,
+    customFieldsValues
   );
   return onSubmit(trainingUnit);
 };
@@ -28,7 +28,7 @@ export const formatInitialValues = memoize((values, allVideos) => {
 
   const videos = published?.videoIds?.reduce((acc: any, videoId: string) => {
     const video = videoList.find(
-      (videoItem: any) => videoItem.value === videoId,
+      (videoItem: any) => videoItem.value === videoId
     );
     if (video) {
       acc.push(video);
@@ -38,7 +38,7 @@ export const formatInitialValues = memoize((values, allVideos) => {
   }, []);
 
   const customFieldsValues = formatInitialValueCustomFields(
-    published.customFieldsValues,
+    published.customFieldsValues
   );
 
   return {

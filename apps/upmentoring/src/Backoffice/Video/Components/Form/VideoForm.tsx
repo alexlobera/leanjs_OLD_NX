@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import slugify from 'slugify';
 import { FieldArray } from 'react-final-form-arrays';
 import arrayMutators from 'final-form-arrays';
+import { VideoPlayer } from '@leanjs/ui-hls';
 
 import Link from '../../../../App/Components/Navigation/Link';
 import { VIDEO_API_BASE_URL } from '../../../../App/Config';
@@ -22,7 +23,7 @@ import {
 import CheckboxField from '../../../../App/Components/Forms/CheckboxField';
 import Button from '../../../../App/Components/Buttons/Button';
 import ProgressBar from '../../../../App/Components/Elements/ProgressBar';
-import VideoPlayer from '../../../../App/Components/Media/VideoPlayer';
+// import VideoPlayer from '../../../../App/Components/Media/VideoPlayer';
 import Alert from '../../../../App/Components/Elements/Alert';
 import { useMagic } from '../../../../Auth/Components/MagicProvider';
 import Select from '../../../../App/Components/Forms/Select';
@@ -45,7 +46,7 @@ function fetchUploadUrl({ videoId, token }: FetchUploadUrl) {
       Authorization: `Bearer ${token}`,
     },
     credentials: 'include',
-  }).then(response => response.json());
+  }).then((response) => response.json());
 }
 
 const getColor = (props: any) => {
@@ -71,7 +72,7 @@ const Container = styled.div`
   padding: 20px;
   border-width: 2px;
   border-radius: 2px;
-  border-color: ${props => getColor(props)};
+  border-color: ${(props) => getColor(props)};
   border-style: dashed;
   background-color: #fafafa;
   outline: none;
@@ -103,11 +104,11 @@ function tagsReducer(state: any, action: any) {
         items: state.allItems.filter(
           (item: any) =>
             item.title.toLowerCase().indexOf(action.text.toLowerCase()) !==
-            -1 &&
+              -1 &&
             !(
               action.values &&
               action.values.find(({ value }: any) => value === item.value)
-            ),
+            )
         ),
       };
     case UNSELECTED_TAG:
@@ -154,7 +155,7 @@ const VideoForm = ({
     items: allTagItems,
   });
 
-  const onDropAccepted = useCallback(files => {
+  const onDropAccepted = useCallback((files) => {
     onFileChange({
       currentTarget: {
         files,
@@ -220,7 +221,7 @@ const VideoForm = ({
         status: 'uploading',
       });
 
-      upload.on('error', err => {
+      upload.on('error', (err) => {
         setUploadState({
           status: 'failed',
           progress: 0,
@@ -258,7 +259,7 @@ const VideoForm = ({
         .then(() => {
           setUploadState(uploadInitialState);
         })
-        .catch(err => {
+        .catch((err) => {
           // TODO NOTIFY USER IT DIDN'T WORK
         });
     } else {
@@ -278,7 +279,7 @@ const VideoForm = ({
             const title = mutatorState.formState.values.title || '';
             title &&
               utils.changeValue(mutatorState, 'slug', () =>
-                slugify(title, { lower: true }),
+                slugify(title, { lower: true })
               );
           },
         }}
@@ -293,7 +294,7 @@ const VideoForm = ({
           }
 
           function onTagAutocompleteChange(
-            e: React.ChangeEvent<HTMLInputElement>,
+            e: React.ChangeEvent<HTMLInputElement>
           ) {
             dispatch({
               type: FILTER_TAGS,
@@ -317,28 +318,28 @@ const VideoForm = ({
                     ) : uploadState.status === 'polling' && !videoUrl ? (
                       <Alert>Video uploaded, processing it...</Alert>
                     ) : (
-                          <Box maxWidth="480px" mb="20px">
-                            <VideoPlayer
-                              posterUrl={posterImageUrl}
-                              url={videoUrl}
-                              autoPlay={false}
-                            />
-                            <Container {...getRootProps()}>
-                              <input {...getInputProps()} onChange={onFileChange} />
-                              <p>
-                                Drag 'n' drop some files here, or click to select
-                                files
+                      <Box maxWidth="480px" mb="20px">
+                        <VideoPlayer
+                          posterUrl={posterImageUrl}
+                          url={videoUrl}
+                          autoPlay={false}
+                        />
+                        <Container {...getRootProps()}>
+                          <input {...getInputProps()} onChange={onFileChange} />
+                          <p>
+                            Drag 'n' drop some files here, or click to select
+                            files
                           </p>
-                              <em>(Only videos are accepted)</em>
-                            </Container>
-                            {videoUrl && (
-                              <CheckboxField
-                                name="isPrivate"
-                                label="Require private access"
-                              />
-                            )}
-                          </Box>
+                          <em>(Only videos are accepted)</em>
+                        </Container>
+                        {videoUrl && (
+                          <CheckboxField
+                            name="isPrivate"
+                            label="Require private access"
+                          />
                         )}
+                      </Box>
+                    )}
                     {uploadState.error && (
                       <Alert style={{ color: 'red' }}>
                         {uploadState.error}

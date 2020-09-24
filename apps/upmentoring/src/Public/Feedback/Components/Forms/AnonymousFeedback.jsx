@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import Markdown from "markdown-to-jsx";
-import createDecorator from "final-form-focus";
+import React, { useState } from 'react';
+import Markdown from 'markdown-to-jsx';
+import createDecorator from 'final-form-focus';
 
-import RatingField from "./RatingField";
-import { Form, TextAreaField, Field } from "../../../../App/Components/Forms";
-import { Button, Avatar, Flex } from "../../../../App";
-import { P, Heading } from "../../../../App/Components/Text";
-import { Link } from "../../../../App/Components/Navigation";
+import RatingField from './RatingField';
+import { Form, TextAreaField, Field } from '../../../../App/Components/Forms';
+import { Button, Avatar, Flex } from '../../../../App';
+import { P, Heading } from '../../../../App/Components/Text';
+import { Link } from '../../../../App/Components/Navigation';
 
 const focusOnError = createDecorator();
 
@@ -20,8 +20,8 @@ const AnonymousFeedback = ({ trainingInstance, onSubmit }) => {
       trainingUnit && trainingUnit.objectives
         ? trainingUnit.objectives
         : trainingInstance.training &&
-        trainingInstance.training.description &&
-        trainingInstance.training.description.objectives;
+          trainingInstance.training.description &&
+          trainingInstance.training.description.objectives;
 
     return (
       <>
@@ -34,13 +34,13 @@ const AnonymousFeedback = ({ trainingInstance, onSubmit }) => {
           </Heading>
         )}
         <Flex justifyContent="center">
-          {coaches.map(coach => (
+          {coaches.map((coach) => (
             <Avatar m={4} src={coach.profileImage.size400x400} />
           ))}
         </Flex>
-        <P style={{ paddingTop: "40px", paddingBottom: "20px" }}>
+        <P style={{ paddingTop: '40px', paddingBottom: '20px' }}>
           Thank you for participating in this session. We want to hear your
-          feedback so we can keep improving. Please fill this quick{" "}
+          feedback so we can keep improving. Please fill this quick{' '}
           <b>10 anonymous question</b> survey and let us know your thoughts.
         </P>
         <Form onSubmit={onSubmit} decorators={[focusOnError]}>
@@ -52,7 +52,7 @@ const AnonymousFeedback = ({ trainingInstance, onSubmit }) => {
               >
                 {displayObjectives ? (
                   <>
-                    <Markdown>{objectives || ""}</Markdown>
+                    <Markdown>{objectives || ''}</Markdown>
                     <P>
                       <Link onClick={() => setDisplayObjectives(false)}>
                         Hide learning objectives
@@ -60,12 +60,12 @@ const AnonymousFeedback = ({ trainingInstance, onSubmit }) => {
                     </P>
                   </>
                 ) : (
-                    <P>
-                      <Link onClick={() => setDisplayObjectives(true)}>
-                        See learning objectives
+                  <P>
+                    <Link onClick={() => setDisplayObjectives(true)}>
+                      See learning objectives
                     </Link>
-                    </P>
-                  )}
+                  </P>
+                )}
               </RatingField>
               <RatingField
                 name="rating[contentOrganized]"

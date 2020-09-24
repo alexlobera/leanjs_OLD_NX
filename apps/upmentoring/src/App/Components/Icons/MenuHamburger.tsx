@@ -8,7 +8,7 @@ import { ThemeInterface } from '../../Config/theme';
 interface MenuHamburguerProps extends Props {
   theme: ThemeInterface;
 }
-const MenuHamburger: React.FunctionComponent<MenuHamburguerProps> = props => (
+const MenuHamburger: React.FunctionComponent<MenuHamburguerProps> = (props) => (
   <SvgIcon
     height={30}
     width={30}

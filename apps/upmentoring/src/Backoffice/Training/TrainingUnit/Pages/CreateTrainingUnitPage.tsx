@@ -39,7 +39,7 @@ const CreateTrainingUnit = () => {
 
       if (response.data) {
         history.push(
-          `${appPaths.backoffice}${backofficePaths.training}/${trainingId}${backofficePaths.trainingUnit}`,
+          `${appPaths.backoffice}${backofficePaths.training}/${trainingId}${backofficePaths.trainingUnit}`
         );
       }
     } catch (e) {

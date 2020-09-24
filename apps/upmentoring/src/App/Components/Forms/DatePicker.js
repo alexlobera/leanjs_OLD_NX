@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Calendar from './Calendar';
 import TextField from './TextField';
 
-export const getMomentFromValue = value =>
+export const getMomentFromValue = (value) =>
   value ? (value.format ? value : moment(value)) : '';
 
 export const Wrapper = styled.div`
@@ -42,7 +42,7 @@ const Datepicker = ({
           {isOpen && (
             <Wrapper>
               <Calendar
-                onChange={e => {
+                onChange={(e) => {
                   onChange(e);
                   closeMenu();
                 }}

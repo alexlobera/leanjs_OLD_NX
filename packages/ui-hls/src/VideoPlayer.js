@@ -130,6 +130,7 @@ function useHls({ url = '', autoplay = false, autoload = true, onClick, ref }) {
   }, [url, autoplay, autoload]);
 
   useImperativeHandle(
+    /* eslint-disable no-prototype-builtins */
     ref && Object.prototype.hasOwnProperty.call(ref, 'current') ? ref : null,
     () => ({
       get player() {

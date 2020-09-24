@@ -1,6 +1,6 @@
 import React from 'react';
-import { useQuery } from '@apollo/client'
-import { useParams } from 'react-router-dom'
+import { useQuery } from '@apollo/client';
+import { useParams } from 'react-router-dom';
 
 import { Grid, Col, Row } from '../../../App';
 import { P } from '../../../App/Components/Text/P';
@@ -8,15 +8,14 @@ import AnonymousFeedback from '../Components/Forms/AnonymousFeedback';
 import TRAINING_INSTANCE_QUERY from './NewTrainingFeedbackPage.graphql.js';
 
 const NewTrainingFeedbackPage = () => {
-  const { trainingInstanceId, trainingUnitId } = useParams()
+  const { trainingInstanceId, trainingUnitId } = useParams();
   const { data, loading, error } = useQuery(TRAINING_INSTANCE_QUERY, {
     variables: { id: trainingInstanceId, trainingUnitId },
-  })
+  });
 
   const onSubmit = (values) => {
     console.log('values', values);
   };
-
 
   if (loading) {
     return <P>loading</P>;
@@ -52,6 +51,4 @@ const NewTrainingFeedbackPage = () => {
   }
 };
 
-
-
-export default NewTrainingFeedbackPage
+export default NewTrainingFeedbackPage;

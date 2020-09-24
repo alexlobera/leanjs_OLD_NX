@@ -3,7 +3,7 @@ import React from 'react';
 import SvgIcon from './SvgIcon';
 import { Props } from '../../Types/React';
 
-const SadFaceIcon: React.FunctionComponent<Props> = props => (
+const SadFaceIcon: React.FunctionComponent<Props> = (props) => (
   <SvgIcon viewBox="0 0 16 18" width={16} height={18} {...props}>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90">
       <switch>

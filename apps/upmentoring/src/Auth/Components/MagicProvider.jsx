@@ -76,24 +76,46 @@ export default function MagicProvider({
     iniState();
   }, []);
 
-  async function getToken() {
-    return new Promise(async (resolve, reject) => {
+  // async function getToken() {
+  //   return new Promise(async (resolve, reject) => {
+  //     if (user?.loading) return;
+  //     if (!user.loggedIn) resolve(null);
+
+  //     await tokenSema.acquire();
+  //     try {
+  //       if (currentToken && currentToken.expiredAt > Date.now()) {
+  //         resolve(currentToken.token);
+  //       }
+  //       const token = await magic.user.getIdToken();
+  //       setToken(token);
+  //       resolve(token);
+  //     } catch (error) {
+  //       reject(error.message);
+  //     } finally {
+  //       tokenSema.release();
+  //     }
+  //   });
+  // }
+  function getToken() {
+    return new Promise((resolve, reject) => {
       if (user?.loading) return;
       if (!user.loggedIn) resolve(null);
 
-      await tokenSema.acquire();
-      try {
-        if (currentToken && currentToken.expiredAt > Date.now()) {
-          resolve(currentToken.token);
+      return tokenSema.acquire().then(() => {
+        try {
+          if (currentToken && currentToken.expiredAt > Date.now()) {
+            resolve(currentToken.token);
+          }
+          return magic.user.getIdToken().then((token) => {
+            setToken(token);
+            resolve(token);
+          });
+        } catch (error) {
+          reject(error.message);
+        } finally {
+          tokenSema.release();
         }
-        const token = await magic.user.getIdToken();
-        setToken(token);
-        resolve(token);
-      } catch (error) {
-        reject(error.message);
-      } finally {
-        tokenSema.release();
-      }
+      });
     });
   }
 

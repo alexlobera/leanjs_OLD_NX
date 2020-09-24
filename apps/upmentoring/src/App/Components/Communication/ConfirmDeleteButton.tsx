@@ -36,7 +36,7 @@ const ConfirmDeleteButton: React.FC<ConfirmDeleteButtonProps> = ({
               </Button>
             </>
           ),
-        }),
+        })
       )}
       {...rest}
     >

@@ -11,15 +11,16 @@ type StyledAlertProps = StyledComponentProps<any, {}, {}, any> &
     message?: string;
   };
 
-const StyledAlert = styled(Flex) <StyledAlertProps>`
-  color: ${props => (props.message ? `${props.theme.colors.TEAL_DARK}` : null)};
-  background: ${props =>
+const StyledAlert = styled(Flex)<StyledAlertProps>`
+  color: ${(props) =>
+    props.message ? `${props.theme.colors.TEAL_DARK}` : null};
+  background: ${(props) =>
     props.message
       ? `${props.theme.colors.TEAL_LIGHT}`
       : `${props.theme.colors.TEAL_DARK}`};
   font-style: normal;
   border-radius: 2px;
-  font-weight: ${props => (props.message ? 'normal' : null)};
+  font-weight: ${(props) => (props.message ? 'normal' : null)};
   > * {
     margin-right: 0.9rem;
   }
@@ -35,11 +36,11 @@ const StyledAlertWithExclamation: React.FunctionComponent<AlertProps> = ({
   children,
   ...rest
 }: AlertProps) => (
-    <StyledAlert {...rest}>
-      <ExclamationIcon />
-      {children}
-    </StyledAlert>
-  );
+  <StyledAlert {...rest}>
+    <ExclamationIcon />
+    {children}
+  </StyledAlert>
+);
 
 const defaultProps = {
   fontFamily: 'serif',
@@ -52,7 +53,7 @@ const defaultProps = {
 
 const Alert: React.FunctionComponent<AlertProps> = addDefaultProps(
   StyledAlertWithExclamation,
-  defaultProps,
+  defaultProps
 );
 
 export default Alert;

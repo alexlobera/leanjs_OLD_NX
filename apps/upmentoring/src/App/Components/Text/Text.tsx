@@ -39,7 +39,7 @@ export const StyledText = styled(Box)<TextProps>(
   maxWidth,
   fontSize,
   themed('Text'),
-  ({ center }) => center && `text-align:center;`,
+  ({ center }) => center && `text-align:center;`
 );
 
 export const textDefaultProps = {

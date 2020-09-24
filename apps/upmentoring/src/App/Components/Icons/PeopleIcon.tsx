@@ -2,7 +2,7 @@ import React from 'react';
 import SvgIcon from './SvgIcon';
 import { Props } from '../../Types/React';
 
-const PeopleIcon: React.FunctionComponent<Props> = props => (
+const PeopleIcon: React.FunctionComponent<Props> = (props) => (
   <SvgIcon viewBox="0 0 20 18" width={20} height={18} {...props}>
     <g fillRule="evenodd" transform="translate(.085161)">
       <path d="m6 7.479c2.0618 0 3.739-1.67734 3.739-3.739 0-2.0624-1.67734-3.7398-3.739-3.7398s-3.739 1.67734-3.739 3.739c0 2.0624 1.67734 3.7398 3.739 3.7398z" />

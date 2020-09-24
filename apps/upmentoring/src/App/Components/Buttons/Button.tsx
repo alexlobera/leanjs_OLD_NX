@@ -22,7 +22,7 @@ export const buttonDefaultProps = {
   boxShadowColor$: colors.GREY,
 };
 
-export const StyledButton = styled(Box) <StyledButtonProps>`
+export const StyledButton = styled(Box)<StyledButtonProps>`
   appearance: none !important;
   text-decoration: none;
   ${({ disabled, loading }) =>

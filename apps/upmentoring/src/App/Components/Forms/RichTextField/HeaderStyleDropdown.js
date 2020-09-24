@@ -1,7 +1,7 @@
 import React from 'react';
 
-const HeaderStyleDropdown = props => {
-  const onToggle = e => {
+const HeaderStyleDropdown = (props) => {
+  const onToggle = (e) => {
     props.onToggle(e.target.value);
   };
 

@@ -28,13 +28,13 @@ const HiddenCheckbox = styled.input.attrs({
 const StyledCheckbox = styled.div`
   margin: 1em 0;
   border: 1px solid black;
-  height: ${props => (props.size ? props.size : defaultSize)}em;
-  width: ${props => (props.size ? props.size : defaultSize)}em;
+  height: ${(props) => (props.size ? props.size : defaultSize)}em;
+  width: ${(props) => (props.size ? props.size : defaultSize)}em;
   ${HiddenCheckbox}:focus + & {
     box-shadow: 0 0 0 3px pink !important;
   } // RM: focus needs to be fixed, it works with simple styled input
   ${Icon} {
-    visibility: ${props => (props.checked ? 'visible' : 'hidden')};
+    visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
   }
 `;
 const Span = styled.span`
@@ -43,7 +43,7 @@ const Span = styled.span`
 `;
 
 const Checkbox = ({ checked, input, onChange, ...props }) => {
-  const newOnChange = e => {
+  const newOnChange = (e) => {
     input && input.onChange && input.onChange(e);
     onChange && onChange(e);
   };
@@ -78,7 +78,7 @@ const LabeledCheckbox = ({ defaultValue, mt = 0, mb = 0, ...props }) => {
   );
 };
 
-const LabeledCheckboxField = props => (
+const LabeledCheckboxField = (props) => (
   <Field {...props} type="checkbox" component={LabeledCheckbox} />
 );
 

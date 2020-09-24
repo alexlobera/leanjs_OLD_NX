@@ -8,8 +8,8 @@ import React, {
 import styled from 'styled-components';
 
 const ModalContext = createContext(false);
-const stopPropagation = e => e.stopPropagation();
-const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args));
+const stopPropagation = (e) => e.stopPropagation();
+const callAll = (...fns) => (...args) => fns.forEach((fn) => fn && fn(...args));
 
 export const Header = styled.div`
   border-bottom: 1px solid #eee;
@@ -31,7 +31,7 @@ const StyledModal = styled.div`
   border-radius: 8px;
 `;
 
-const ModalOverlay = props => {
+const ModalOverlay = (props) => {
   const overlayEl = useRef(null);
 
   useEffect(() => {
@@ -55,11 +55,11 @@ const StyledModalOverlay = styled(ModalOverlay)`
 
 export const useModal = () => useContext(ModalContext);
 
-export const withModal = Component => props => {
-  const context = useContext(ModalContext)
+export const withModal = (Component) => (props) => {
+  const context = useContext(ModalContext);
 
-  return <Component {...props} modal={context} />
-}
+  return <Component {...props} modal={context} />;
+};
 
 function Modal(props) {
   useContext(ModalContext);
@@ -76,7 +76,7 @@ function Modal(props) {
   };
   const hide = () => setIsOpen(false);
   const toggle = () => setIsOpen(!isOpen);
-  const getModalPropsOnClick = onClick => ({
+  const getModalPropsOnClick = (onClick) => ({
     'aria-controls': 'target',
     'aria-expanded': Boolean(isOpen),
     onClick,
@@ -100,7 +100,7 @@ function Modal(props) {
           onClick={callAll(props.onClick, toggle)}
           onKeyDown={callAll(
             props.onKeyDown,
-            ({ keyCode }) => keyCode === 27 && hide(),
+            ({ keyCode }) => keyCode === 27 && hide()
           )}
           aria-modal="true"
           tabIndex="-1"

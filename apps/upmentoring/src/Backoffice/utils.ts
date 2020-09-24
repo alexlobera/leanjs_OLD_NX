@@ -1,7 +1,7 @@
 // heads up! this only works for input text custom fields
 export function formatSubmitCustomFields(customFieldsValues: any) {
   return customFieldsValues
-    ? Object.keys(customFieldsValues).map(fieldId => ({
+    ? Object.keys(customFieldsValues).map((fieldId) => ({
         fieldId,
         values: customFieldsValues[fieldId],
       }))
@@ -23,7 +23,7 @@ export function formatInitialValueCustomFields(customFieldsValues: any) {
 
 export function mergeConnections(
   initialConnection: any,
-  fetchMoreConnection: any,
+  fetchMoreConnection: any
 ) {
   const allEdges = [
     ...(initialConnection?.edges ? initialConnection.edges : []),

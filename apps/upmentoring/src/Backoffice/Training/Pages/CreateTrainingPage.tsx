@@ -29,7 +29,7 @@ const CreateTraining = () => {
       history.push(
         options?.redirectToCreateTrainingInstance
           ? `${path}/${response.data.createTraining.id}${backofficePaths.createInstance}`
-          : path,
+          : path
       );
     } catch (e) {
       // empty

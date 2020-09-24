@@ -12,7 +12,7 @@ import Button from '../../../../App/Components/Buttons/Button';
 
 const YourTrainingInstances = () => {
   const { data, loading, error, fetchMore } = useQuery(
-    QUERY_TRAINING_INSTANCES,
+    QUERY_TRAINING_INSTANCES
   );
 
   if (loading) {

@@ -4,10 +4,7 @@ import { Link as RouterLink, Route } from 'react-router-dom';
 import { Link as DefaultLinkScroll } from 'react-scroll';
 
 import Box, { BoxProps } from '../Layout/Box';
-import {
-  StyledButton,
-  buttonDefaultProps,
-} from '../Buttons/Button';
+import { StyledButton, buttonDefaultProps } from '../Buttons/Button';
 import colors from '../../Config/colors';
 
 export const DEFAULT_SCROLL_OFFSET = 0;
@@ -28,7 +25,7 @@ export interface LinkProps extends BoxProps {
 }
 
 export const StyledLink = styled(Box)`
-  color: ${props => (props.white ? `white` : `${colors.GREY_DARK};`)};
+  color: ${(props) => (props.white ? `white` : `${colors.GREY_DARK};`)};
   ${({ onClick }) => onClick && `cursor: pointer;`}
 `;
 
@@ -36,14 +33,14 @@ const LinkScroll: React.FunctionComponent<LinkScrollProps> = ({
   to,
   ...rest
 }) => (
-    <DefaultLinkScroll
-      smooth={true}
-      duration={500}
-      offset={DEFAULT_SCROLL_OFFSET}
-      to={to && to.slice(1, to.length)}
-      {...rest}
-    />
-  );
+  <DefaultLinkScroll
+    smooth={true}
+    duration={500}
+    offset={DEFAULT_SCROLL_OFFSET}
+    to={to && to.slice(1, to.length)}
+    {...rest}
+  />
+);
 
 function removeTrailingSlash(url: string) {
   return url ? url.replace(/\/$/, '') : '';
