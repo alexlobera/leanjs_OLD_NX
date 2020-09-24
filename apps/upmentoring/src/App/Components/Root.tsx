@@ -18,6 +18,7 @@ import { ThemeProvider } from '../Config/styled-components';
 import MagicProvider from '../../Auth/Components/MagicProvider';
 import Modal from './Communication/Modal';
 import { API_BASE_URL } from '../Config';
+import { login } from '../../Auth/Api'
 
 const cache = new InMemoryCache({});
 
@@ -30,13 +31,13 @@ function requireSignup(email: string) {
   ].find((e) => e === email);
 }
 
-const login = (token: string) =>
-  fetch(`${API_BASE_URL}/auth`, {
-    credentials: 'include',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+// const login = (token: string) =>
+//   fetch(`${API_BASE_URL}/auth`, {
+//     credentials: 'include',
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   });
 
 const httpLink = new HttpLink({
   uri: `${API_BASE_URL}/graphql`,
