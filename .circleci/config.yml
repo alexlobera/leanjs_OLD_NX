@@ -120,7 +120,7 @@ jobs:
           <<: *set_env
       - restore_cache:
           <<: *yarn_cache
-      - run: yarn affected:e2e -- ${AFFECTED_ARGS}
+      - run: yarn affected:e2e -- ${AFFECTED_ARGS}  --max-old-space-size=3584  --maxWorkers=1
       - store_artifacts:
           path: dist/cypress
 
