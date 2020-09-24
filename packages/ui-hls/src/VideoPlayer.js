@@ -4,7 +4,6 @@ import React, { useRef, useEffect, useState, useImperativeHandle } from 'react';
 import * as Hls from 'hls.js';
 import 'plyr/dist/plyr.css';
 import { createGlobalStyle } from 'styled-components';
-import { Box } from '@leanjs/ui-core';
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -189,11 +188,11 @@ export const VideoPlayer = (
 
   const urlProps = url
     ? {
-        onClick: handleVideoClick,
-        controls: loadingStarted,
-        muted: autoplay || muted,
-        autoPlay: autoplay,
-      }
+      onClick: handleVideoClick,
+      controls: loadingStarted,
+      muted: autoplay || muted,
+      autoPlay: autoplay,
+    }
     : {};
 
   return (
