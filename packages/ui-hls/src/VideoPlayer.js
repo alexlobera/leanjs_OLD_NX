@@ -188,11 +188,11 @@ export const VideoPlayer = (
 
   const urlProps = url
     ? {
-      onClick: handleVideoClick,
-      controls: loadingStarted,
-      muted: autoplay || muted,
-      autoPlay: autoplay,
-    }
+        onClick: handleVideoClick,
+        controls: loadingStarted,
+        muted: autoplay || muted,
+        autoPlay: autoplay,
+      }
     : {};
 
   return (
