@@ -1,15 +1,6 @@
 import React from 'react';
 // import Immutable from "immutable";
-import {
-  RichUtils,
-  EditorState,
-  Editor,
-  CompositeDecorator,
-  convertToRaw,
-  convertFromRaw,
-} from 'draft-js';
-import { getSelectionEntity, getSelectionText } from 'draftjs-utils';
-import { draftToMarkdown, markdownToDraft } from 'markdown-draft-js';
+
 import Heading from '../../../../App/Components/Text/Heading';
 import { P } from '../../../../App/Components/Text/P';
 import Button from '../../../../App/Components/Buttons/Button';
@@ -27,8 +18,23 @@ import { withModal } from '../../../../App/Components/Communication/Modal';
 
 import './RichTextField.css';
 
+//draftjs/node_modules/fbjs/lib/setImmediate.js
+window.global = {};
+
+const {
+  RichUtils,
+  EditorState,
+  CompositeDecorator,
+  Editor,
+  convertFromRaw,
+  convertToRaw,
+} = require('draft-js');
+
+const { getSelectionEntity, getSelectionText } = require('draftjs-utils');
+const { draftToMarkdown, markdownToDraft } = require('markdown-draft-js');
+
 function findLinkEntities(contentBlock, callback, contentState) {
-  contentBlock.findEntityRanges(character => {
+  contentBlock.findEntityRanges((character) => {
     const entityKey = character.getEntity();
     return (
       entityKey !== null &&
@@ -62,7 +68,7 @@ function findLinkEntities(contentBlock, callback, contentState) {
 //   }
 // }
 
-const Link = props => {
+const Link = (props) => {
   const { url } = props.contentState.getEntity(props.entityKey).getData();
   return (
     <a href={url} style={{ color: '#3b5998', textDecoration: 'underline' }}>
@@ -85,7 +91,7 @@ class RichTextField extends React.Component {
     const { value } = props.input;
     const markdownValue = markdownToDraft(
       // we should remove this and only accept a string input value of this component. First we need to remove customFieldsValues and instead update the GQL schema producing types based on customFieldsValues. E.g. training unit related links
-      Array.isArray(value) ? value[0] : value,
+      Array.isArray(value) ? value[0] : value
     );
     const editorState = value
       ? EditorState.createWithContent(convertFromRaw(markdownValue), decorator)
@@ -93,10 +99,10 @@ class RichTextField extends React.Component {
     this.state = { editorState };
   }
 
-  onChange = editorState => {
+  onChange = (editorState) => {
     this.setState({ editorState });
     const markdown = draftToMarkdown(
-      convertToRaw(editorState.getCurrentContent()),
+      convertToRaw(editorState.getCurrentContent())
     );
     this.props.input.onChange(markdown);
   };
@@ -113,56 +119,56 @@ class RichTextField extends React.Component {
 
     const modalContent = selectedText
       ? {
-        header: <Heading variant="h3">Add/Edit a link to</Heading>,
-        body: (
-          <Form
-            onSubmit={({ href }) => {
-              this.props.modal.hide();
-              this.setLink(href);
-            }}
-            initialValues={{ href: link?.url }}
-          >
-            {() => {
-              return (
-                <>
-                  <P>
-                    Selected text: <strong>{selectedText}</strong>
-                  </P>
-                  <Field
-                    name="href"
-                    component={TextField}
-                    type="text"
-                    validate={mustBeUrl}
-                  />
-                  <P>Leave it empty to remove the link</P>
-                  <Button mr={2} type="submit">
-                    Save
+          header: <Heading variant="h3">Add/Edit a link to</Heading>,
+          body: (
+            <Form
+              onSubmit={({ href }) => {
+                this.props.modal.hide();
+                this.setLink(href);
+              }}
+              initialValues={{ href: link?.url }}
+            >
+              {() => {
+                return (
+                  <>
+                    <P>
+                      Selected text: <strong>{selectedText}</strong>
+                    </P>
+                    <Field
+                      name="href"
+                      component={TextField}
+                      type="text"
+                      validate={mustBeUrl}
+                    />
+                    <P>Leave it empty to remove the link</P>
+                    <Button mr={2} type="submit">
+                      Save
                     </Button>
-                  <Button mr={2} onClick={this.props.modal.hide}>
-                    Cancel
+                    <Button mr={2} onClick={this.props.modal.hide}>
+                      Cancel
                     </Button>
-                </>
-              );
-            }}
-          </Form>
-        ),
-      }
+                  </>
+                );
+              }}
+            </Form>
+          ),
+        }
       : {
-        header: (
-          <Heading variant="h3">
-            You must select a text to add or edit a link
-          </Heading>
-        ),
-        body: (
-          <Button mr={2} onClick={this.props.modal.hide}>
-            Cancel
-          </Button>
-        ),
-      };
+          header: (
+            <Heading variant="h3">
+              You must select a text to add or edit a link
+            </Heading>
+          ),
+          body: (
+            <Button mr={2} onClick={this.props.modal.hide}>
+              Cancel
+            </Button>
+          ),
+        };
     this.props.modal.show(modalContent);
   };
 
-  setLink = link => {
+  setLink = (link) => {
     const { editorState } = this.state;
     const selection = editorState.getSelection();
     if (!link) {
@@ -181,10 +187,10 @@ class RichTextField extends React.Component {
     this.onChange(RichUtils.toggleLink(newEditorState, selection, entityKey));
   };
 
-  handleKeyCommand = command => {
+  handleKeyCommand = (command) => {
     const newState = RichUtils.handleKeyCommand(
       this.state.editorState,
-      command,
+      command
     );
 
     if (newState) {
@@ -194,18 +200,18 @@ class RichTextField extends React.Component {
     return false;
   };
 
-  onTab = e => {
+  onTab = (e) => {
     const maxDepth = 4;
     this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth));
   };
 
-  toggleBlockType = blockType => {
+  toggleBlockType = (blockType) => {
     this.onChange(RichUtils.toggleBlockType(this.state.editorState, blockType));
   };
 
-  toggleInlineStyle = inlineStyle => {
+  toggleInlineStyle = (inlineStyle) => {
     this.onChange(
-      RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle),
+      RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle)
     );
   };
 
