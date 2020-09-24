@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from '../App/Config/styled-components';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import { ThemeProvider } from '@leanjs/ui-core';
+import { useMagic } from '@leanjs/magic-link';
+import { useHistory } from 'react-router-dom';
 
 import Dashboard from '../Backoffice/Dashboard/Pages/Dashboard';
 import { Training } from '../Backoffice/Training';
@@ -17,13 +20,17 @@ import CourseIcon from '../App/Components/Icons/CourseIcon';
 import FilterIcon from '../App/Components/Icons/FilterIcon';
 import PaymentsIcon from '../App/Components/Icons/PaymentsIcon';
 import Logout from '../Auth/Components/Logout';
+import { isOrgMember } from '../Auth/Api';
+
+import oldtheme from '../App/Config/old-theme';
+import { ThemeProvider as OldThemeProvider } from '../App/Config/styled-components';
 
 const PageContent = styled(Box)`
   flex: 1;
 `;
 
 export const paths = {
-  home: '/',
+  home: '',
   training: '/courses',
   editTraining: '/edit-course',
   createTraining: '/create-course',
@@ -98,34 +105,60 @@ const getMenuData = (basePath: string): MenuData[] => [
   },
 ];
 
-const Root = () => {
+const Backoffice = () => {
   const match = useRouteMatch();
+  const history = useHistory();
+  const { loggedIn, loading } = useMagic();
+
+  React.useEffect(() => {
+    if (loggedIn) {
+      isOrgMember('@VVNFOjVhYWE5YjA3ZjE0NmU1Y2ZhZmFkMTg5ZQ==').then(
+        (isMember) => {
+          if (!isMember) {
+            history.push('/');
+          }
+        }
+      );
+    }
+  }, [loggedIn]);
+
+  if (loading || !loggedIn) {
+    return 'loading...';
+  }
 
   return (
-    <Flex>
-      <Menu data={getMenuData(match.url)} />
-      <PageContent>
-        <Grid fluid>
-          <Switch>
-            <Route exact path={match.url} component={Dashboard} />
-            <Route path={`${match.url}${paths.payment}`} component={Payments} />
-            <Route path={`${match.url}${paths.voucher}`} component={Voucher} />
-            <Route
-              path={`${match.url}${paths.training}`}
-              component={Training}
-            />
-            <Route path={`${match.url}${paths.video}`} component={Videos} />
-            <Route
-              path={`${match.url}${paths.feedback}`}
-              component={Feedback}
-            />
-            <Route path={`${match.url}${paths.event}`} component={Events} />
-            <Route component={NotFound} />
-          </Switch>
-        </Grid>
-      </PageContent>
-    </Flex>
+    <OldThemeProvider theme={oldtheme}>
+      <Flex>
+        <Menu data={getMenuData(match.url)} />
+        <PageContent>
+          <Grid fluid>
+            <Switch>
+              <Route exact path={match.url} component={Dashboard} />
+              <Route
+                path={`${match.url}${paths.payment}`}
+                component={Payments}
+              />
+              <Route
+                path={`${match.url}${paths.voucher}`}
+                component={Voucher}
+              />
+              <Route
+                path={`${match.url}${paths.training}`}
+                component={Training}
+              />
+              <Route path={`${match.url}${paths.video}`} component={Videos} />
+              <Route
+                path={`${match.url}${paths.feedback}`}
+                component={Feedback}
+              />
+              <Route path={`${match.url}${paths.event}`} component={Events} />
+              <Route component={NotFound} />
+            </Switch>
+          </Grid>
+        </PageContent>
+      </Flex>
+    </OldThemeProvider>
   );
 };
 
-export default Root;
+export default Backoffice;

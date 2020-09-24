@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { StyledComponentProps } from 'styled-components';
 import Flex, { FlexProps } from '../Layout/Flex';
 import ExclamationIcon from '../Icons/ExclamationIcon';
-import { ThemeInterface } from '../../Config/theme';
+import { ThemeInterface } from '../../Config/old-theme';
 import { addDefaultProps } from '../../Utils/react';
 
 type StyledAlertProps = StyledComponentProps<any, {}, {}, any> &

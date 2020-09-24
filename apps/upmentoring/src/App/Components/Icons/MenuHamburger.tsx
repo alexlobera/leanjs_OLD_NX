@@ -3,7 +3,7 @@ import React from 'react';
 import SvgIcon from './SvgIcon';
 import { withTheme } from '../../Config/styled-components';
 import { Props } from '../../Types/React';
-import { ThemeInterface } from '../../Config/theme';
+import { ThemeInterface } from '../../Config/old-theme';
 
 interface MenuHamburguerProps extends Props {
   theme: ThemeInterface;

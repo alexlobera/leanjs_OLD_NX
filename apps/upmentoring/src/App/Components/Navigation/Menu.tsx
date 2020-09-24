@@ -1,6 +1,6 @@
 import React, { useState, ReactNode } from 'react';
 import styled from 'styled-components';
-import { ThemeInterface } from '../../Config/theme';
+import { ThemeInterface } from '../../Config/old-theme';
 import MenuItem from './MenuItem';
 import MenuList from './MenuList';
 import MenuHamburger from '../Icons/MenuHamburger';

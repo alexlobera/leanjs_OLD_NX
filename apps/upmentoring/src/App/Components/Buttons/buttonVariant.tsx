@@ -1,5 +1,5 @@
 import { Color, color } from '../../Config/colors';
-import { BoxShadowProps } from '../../Config/theme';
+import { BoxShadowProps } from '../../Config/old-theme';
 
 interface Variant {
   color?: Color;

@@ -8,6 +8,7 @@ import slugify from 'slugify';
 import { FieldArray } from 'react-final-form-arrays';
 import arrayMutators from 'final-form-arrays';
 import { VideoPlayer } from '@leanjs/ui-hls';
+import { useMagic } from '@leanjs/magic-link';
 
 import Link from '../../../../App/Components/Navigation/Link';
 import { VIDEO_API_BASE_URL } from '../../../../App/Config';
@@ -25,7 +26,6 @@ import Button from '../../../../App/Components/Buttons/Button';
 import ProgressBar from '../../../../App/Components/Elements/ProgressBar';
 // import VideoPlayer from '../../../../App/Components/Media/VideoPlayer';
 import Alert from '../../../../App/Components/Elements/Alert';
-import { useMagic } from '../../../../Auth/Components/MagicProvider';
 import Select from '../../../../App/Components/Forms/Select';
 
 import { required } from '../../../../App/Components/Forms/validators';

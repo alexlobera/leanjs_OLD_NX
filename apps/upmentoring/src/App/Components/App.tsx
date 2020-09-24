@@ -4,8 +4,11 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import PublicRoutes from '../../Public/Routes';
 import Backoffice from '../../Backoffice';
 import AuthRoutes from '../../Auth/Routes';
-import '../../App/reset.css';
-import { useMagic } from '../../Auth/Components/MagicProvider';
+// import '../../App/reset.css';
+import 'normalize.css';
+import '../Config/site.css';
+
+import { useMagic } from '@leanjs/magic-link';
 
 export const paths = {
   auth: '/login',
@@ -13,22 +16,20 @@ export const paths = {
 };
 
 const App = () => {
-  const { loading, loggedIn } = useMagic();
-
   return (
     <Switch>
       <Route path={`${paths.auth}`} component={AuthRoutes} />
       <Route
         path={`${paths.backoffice}`}
-        render={() =>
-          loading ? (
-            'loading...'
-          ) : loggedIn ? (
-            <Backoffice />
-          ) : (
-            <Redirect to={`${paths.auth}`} />
-          )
-        }
+        component={Backoffice}
+        // render={() =>
+        //   loading ? (
+        //     'loading...'
+        //   ) : loggedIn ? (
+        //     <Backoffice />
+        //   ) : (
+        //         <Redirect to={`${paths.auth}`} />
+        //       )
       />
       <Route component={PublicRoutes} />
     </Switch>

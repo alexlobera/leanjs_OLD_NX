@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { StyledComponentProps } from 'styled-components';
 
 import colors from '../../Config/colors';
-import { boxShadow } from '../../Config/theme';
+import { boxShadow } from '../../Config/old-theme';
 
 import Box, { BoxProps } from '../Layout/Box';
 import buttonVariantProps, { ButtonVariantProps } from './buttonVariant';

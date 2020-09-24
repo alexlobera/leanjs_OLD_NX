@@ -8,6 +8,7 @@ const StyledGatsbyImage = ({ sx = {}, ...rest }) => {
 };
 
 export const Image = (props) => {
+  console.log('aaaaaaaaaaaa asdfasfd', props.fixed)
   const Component = !(props.fluid || props.fixed)
     ? LeanImage
     : StyledGatsbyImage;

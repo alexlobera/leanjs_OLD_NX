@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import { Link as GatsbyLink } from 'gatsby';
 
@@ -47,7 +47,7 @@ function CourseCard({
         <Link to={`/${slug}-course`} as={GatsbyLink} className="course-list">
           <H3 sx={{ mt: 0 }}>{`${
             !isAvailable ? 'Coming soon: ' : ''
-          } ${title}`}</H3>
+            } ${title}`}</H3>
         </Link>
         <P>{excerpt({ text: description, limit: 200 })}</P>
         <P>
@@ -85,18 +85,15 @@ function Page({ data }: PageProps) {
       <Section variant="top">
         <Container>
           <Grid columns={{ minWidth: '300px' }}>
-            {data &&
-              data.upmentoring &&
-              data.upmentoring.trainings &&
-              data.upmentoring.trainings.edges &&
-              data.upmentoring.trainings.edges.map(({ node }: any) => {
-                return (
-                  <CourseCard
-                    fixedImage={thumbnails.get(node.slug)?.fixed}
-                    course={node}
-                  />
-                );
-              })}
+            {data?.upmentoring?.trainings?.edges?.map(({ node }: any) => {
+              return (
+                <CourseCard
+                  key={node.id}
+                  fixedImage={thumbnails.get(node.slug)?.fixed}
+                  course={node}
+                />
+              );
+            })}
             <CourseCard
               isAvailable={false}
               fixedImage={thumbnails.get('graphql-foundation')?.fixed}

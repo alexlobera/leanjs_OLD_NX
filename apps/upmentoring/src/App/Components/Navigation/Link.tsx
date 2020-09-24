@@ -49,20 +49,11 @@ export function Link(props) {
   } else if (!toHref) {
     return <LeanLink {...rest} />;
   } else {
-    // The destination URLs need to have trailing slashes for Gatsby prefetching to happen
-    const dest =
-      toHref.slice(-1) === '/' ||
-        toHref.indexOf('?') > -1 ||
-        toHref.indexOf('#') > -1
-        ? toHref
-        : toHref + '/';
-
-    return <LeanLink to={dest} as={RRLink} {...rest} />;
+    return <LeanLink to={toHref} as={RRLink} {...rest} />;
   }
 }
 
-export default Link
-
+export default Link;
 
 // import React from 'react';
 // import styled from 'styled-components';

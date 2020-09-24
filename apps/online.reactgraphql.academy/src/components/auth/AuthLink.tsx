@@ -6,7 +6,7 @@ import { useClient } from '@leanjs/graphql-client';
 import Link from '../navigation/Link';
 import { Spinner } from '../display';
 
-export default function AuthLink({ to = '/login' }) {
+export default function AuthLink({ to = `${process.env.GATSBY_UPMENTORING_WEB_BASE_URL || 'https://upmentoring.com'}/login/reactgraphqlacademy` }) {
   const { loggedIn, loading, logout } = useMagic();
   const { clearStore } = useClient();
 
@@ -29,6 +29,6 @@ export default function AuthLink({ to = '/login' }) {
       logout
     </Link>
   ) : (
-    <Link to={to}>Login</Link>
-  );
+        <Link target="_self" href={to}>Login</Link>
+      );
 }

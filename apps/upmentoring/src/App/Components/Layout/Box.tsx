@@ -39,7 +39,7 @@ import {
 } from 'styled-system';
 
 import { themed } from '../../Utils';
-import { fontFamily } from '../../Config/theme';
+import { fontFamily } from '../../Config/old-theme';
 
 export type BoxProps = SpaceProps &
   WidthProps &

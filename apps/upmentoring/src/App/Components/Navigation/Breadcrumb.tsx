@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { StyledComponentProps } from 'styled-components';
 import Flex from '../Layout/Flex';
-import Link, { LinkProps } from './Link';
+import Link from './Link';
 import Text from '../Text/Text';
-import { ThemeInterface } from '../../Config/theme';
+import { ThemeInterface } from '../../Config/old-theme';
 import { Props } from '../../Types/React';
 
 const Breadcrumb: React.FunctionComponent<Props> = () => (
@@ -19,18 +19,17 @@ const Breadcrumb: React.FunctionComponent<Props> = () => (
   </Flex>
 );
 
-type StyledLinkProps = StyledComponentProps<any, {}, {}, any> &
-  LinkProps & {
-    // Make 'theme' optional because it comes from the 'styled' function
-    // (i.e. the inner component that is going to be passed to addDefaultProps)
-    theme?: ThemeInterface;
+type StyledLinkProps = StyledComponentProps<any, {}, {}, any> & {
+  // Make 'theme' optional because it comes from the 'styled' function
+  // (i.e. the inner component that is going to be passed to addDefaultProps)
+  theme?: ThemeInterface;
 
-    // Setting strings as the defaultProp for 'a' seems to cause a Typescript error
-    // because it is expecting a specific type (which happens to be equivalent to one of
-    // a number of string).  I suspect we could to a typescript cast when specifying te default
-    // parameter; but, for now, just make it 'any' here.
-    as?: any;
-  };
+  // Setting strings as the defaultProp for 'a' seems to cause a Typescript error
+  // because it is expecting a specific type (which happens to be equivalent to one of
+  // a number of string).  I suspect we could to a typescript cast when specifying te default
+  // parameter; but, for now, just make it 'any' here.
+  as?: any;
+};
 
 const BreadcrumbLink = styled(Link)<StyledLinkProps>``;
 BreadcrumbLink.defaultProps = {

@@ -11,33 +11,16 @@ import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import { ThemeProvider } from '@leanjs/ui-core';
 
 import App from './App';
-import theme from '../Config/theme';
-import { ThemeProvider } from '../Config/styled-components';
-import MagicProvider from '../../Auth/Components/MagicProvider';
+// import theme from '../Config/theme';
+import { MagicProvider } from '@leanjs/magic-link';
 import Modal from './Communication/Modal';
 import { API_BASE_URL } from '../Config';
-import { login } from '../../Auth/Api'
+import { login } from '../../Auth/Api';
 
 const cache = new InMemoryCache({});
-
-function requireSignup(email: string) {
-  return ![
-    'alex@leanjs.com',
-    'lena@leanjs.com',
-    'ingrid@leanjs.com',
-    'franciscogomestv@gmail.com',
-  ].find((e) => e === email);
-}
-
-// const login = (token: string) =>
-//   fetch(`${API_BASE_URL}/auth`, {
-//     credentials: 'include',
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   });
 
 const httpLink = new HttpLink({
   uri: `${API_BASE_URL}/graphql`,
@@ -54,7 +37,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 const Root = () => (
   <Router>
     <ToastContainer />
-    <MagicProvider requirePreSignup={requireSignup} login={login}>
+    <MagicProvider magicKey={process.env.NX_MAGIC_LINK_PK_KEY} login={login}>
       {({ getToken }: any) => {
         const authLink = setContext(async (_, { headers, ...context }) => {
           const token = await getToken();
@@ -71,22 +54,17 @@ const Root = () => (
         const client = new ApolloClient({
           link: from([authLink, errorLink, httpLink]),
           cache,
-          //   defaultOptions: {
-          //     watchQuery: {
-          //       fetchPolicy: 'cache-and-network',
-          //     },
-          //   },
         });
 
         return (
           <ApolloProvider client={client}>
-            <ThemeProvider theme={theme}>
-              <Modal>
-                <Switch>
-                  <Route component={App} />
-                </Switch>
-              </Modal>
-            </ThemeProvider>
+            {/* <ThemeProvider theme={theme}> */}
+            <Modal>
+              <Switch>
+                <Route component={App} />
+              </Switch>
+            </Modal>
+            {/* </ThemeProvider> */}
           </ApolloProvider>
         );
       }}

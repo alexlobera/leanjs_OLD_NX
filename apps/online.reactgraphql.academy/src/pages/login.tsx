@@ -59,7 +59,7 @@ function LoginPage({ navigate, location }) {
                 };
               }
 
-              const token = await login({ email });
+              const token = await login(email);
 
               if (token) {
                 clearStore();
