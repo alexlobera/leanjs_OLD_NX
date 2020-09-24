@@ -22,12 +22,12 @@ const TrainingList = ({ trainings }: any) => {
       fetchPolicy: 'cache-first',
       nextFetchPolicy: 'cache-first',
       notifyOnNetworkStatusChange: true,
-    },
+    }
   );
 
   const { allEdges, hasNextPage, endCursor } = mergeConnections(
     trainings,
-    data?.trainings,
+    data?.trainings
   );
 
   return (
@@ -57,8 +57,8 @@ const TrainingList = ({ trainings }: any) => {
         {loading
           ? 'loading...'
           : error
-            ? error
-            : hasNextPage && (
+          ? error
+          : hasNextPage && (
               <Box pb={3}>
                 <Button
                   variant="tertiary"

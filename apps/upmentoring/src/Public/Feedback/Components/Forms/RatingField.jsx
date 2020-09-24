@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { RadioField, Field } from "../../../../App/Components/Forms";
-import { P } from "../../../../App/Components/Text";
-import { required } from "../../../../App/Components/Forms/validators";
-import { ErrorMessage, Avatar, Flex } from "../../../../App";
+import { RadioField, Field } from '../../../../App/Components/Forms';
+import { P } from '../../../../App/Components/Text';
+import { required } from '../../../../App/Components/Forms/validators';
+import { ErrorMessage, Avatar, Flex } from '../../../../App';
 
 const ErrorMessageField = ({ name }) => (
   <Field
@@ -37,7 +37,7 @@ const RatingField = ({ name, children, label, avatarSrc }) => (
         <br />
         disagree
       </span>
-      {[...Array(5).keys()].map(index => {
+      {[...Array(5).keys()].map((index) => {
         const number = index + 1;
         return (
           <Field

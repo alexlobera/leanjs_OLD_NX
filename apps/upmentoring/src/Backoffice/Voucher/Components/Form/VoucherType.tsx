@@ -20,48 +20,48 @@ const VoucherType = ({
   value,
   disabled = false,
 }: VoucherTypeProps) => (
-    <>
-      <Heading variant="h6">What type of discount is it?</Heading>
+  <>
+    <Heading variant="h6">What type of discount is it?</Heading>
 
-      <Button
-        disabled={disabled}
-        onClick={() => onChange && onChange(CODE)}
-        iconElement={value === CODE ? <TickIcon /> : null}
-        variant={value === CODE ? 'secondary' : 'tertiary'}
-        mr={2}
-      >
-        Code
+    <Button
+      disabled={disabled}
+      onClick={() => onChange && onChange(CODE)}
+      iconElement={value === CODE ? <TickIcon /> : null}
+      variant={value === CODE ? 'secondary' : 'tertiary'}
+      mr={2}
+    >
+      Code
     </Button>
 
-      <Button
-        mr={2}
-        disabled={disabled}
-        onClick={() => onChange && onChange(AUTO)}
-        iconElement={value === AUTO ? <TickIcon /> : null}
-        variant={value === AUTO ? 'secondary' : 'tertiary'}
-      >
-        Automatic
+    <Button
+      mr={2}
+      disabled={disabled}
+      onClick={() => onChange && onChange(AUTO)}
+      iconElement={value === AUTO ? <TickIcon /> : null}
+      variant={value === AUTO ? 'secondary' : 'tertiary'}
+    >
+      Automatic
     </Button>
 
-      <Button
-        mr={2}
-        disabled={disabled}
-        onClick={() => onChange && onChange(GLOBAL_CODE)}
-        iconElement={value === GLOBAL_CODE ? <TickIcon /> : null}
-        variant={value === GLOBAL_CODE ? 'secondary' : 'tertiary'}
-      >
-        Global Code
+    <Button
+      mr={2}
+      disabled={disabled}
+      onClick={() => onChange && onChange(GLOBAL_CODE)}
+      iconElement={value === GLOBAL_CODE ? <TickIcon /> : null}
+      variant={value === GLOBAL_CODE ? 'secondary' : 'tertiary'}
+    >
+      Global Code
     </Button>
 
-      <Button
-        disabled={disabled}
-        onClick={() => onChange && onChange(GLOBAL_AUTO)}
-        iconElement={value === GLOBAL_AUTO ? <TickIcon /> : null}
-        variant={value === GLOBAL_AUTO ? 'secondary' : 'tertiary'}
-      >
-        Global Auto
+    <Button
+      disabled={disabled}
+      onClick={() => onChange && onChange(GLOBAL_AUTO)}
+      iconElement={value === GLOBAL_AUTO ? <TickIcon /> : null}
+      variant={value === GLOBAL_AUTO ? 'secondary' : 'tertiary'}
+    >
+      Global Auto
     </Button>
-    </>
-  );
+  </>
+);
 
 export default VoucherType;

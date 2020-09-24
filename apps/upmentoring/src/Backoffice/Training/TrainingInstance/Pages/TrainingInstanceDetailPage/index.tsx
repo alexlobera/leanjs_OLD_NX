@@ -97,7 +97,7 @@ const TrainingInstanceDetailPage = () => {
                     Start date:{' '}
                     {formatUTC(
                       trainingInstance.startDate,
-                      trainingInstance.utcOffset,
+                      trainingInstance.utcOffset
                     )}
                   </Small>
                 </Li>
@@ -106,7 +106,7 @@ const TrainingInstanceDetailPage = () => {
                     End date:{' '}
                     {formatUTC(
                       trainingInstance.endDate,
-                      trainingInstance.utcOffset,
+                      trainingInstance.utcOffset
                     )}{' '}
                   </Small>
                 </Li>
@@ -116,13 +116,13 @@ const TrainingInstanceDetailPage = () => {
                     {formatUTC(
                       trainingInstance.startDate,
                       trainingInstance.utcOffset,
-                      'HH:mm',
+                      'HH:mm'
                     )}{' '}
                     -{' '}
                     {formatUTC(
                       trainingInstance.endDate,
                       trainingInstance.utcOffset,
-                      'HH:mm',
+                      'HH:mm'
                     )}
                   </Small>
                 </Li>

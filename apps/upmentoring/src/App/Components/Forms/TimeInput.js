@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import TextField from './TextField';
 
-export const onlyTime = value => (isValid(value) ? null : 'Time not valid');
+export const onlyTime = (value) => (isValid(value) ? null : 'Time not valid');
 
 function isValid(val = '') {
   let regexp = /^\d{0,2}?:?\d{0,2}$/,
@@ -16,12 +16,12 @@ function isValid(val = '') {
 
   const hours = Number(hoursStr);
   const minutes = Number(minutesStr);
-  const isValidHour = hours => {
+  const isValidHour = (hours) => {
     return Number.isInteger(hours) && hoursStr.length === 1
       ? hours < 3
       : hours >= 0 && hours < 24;
   };
-  const isValidMinutes = minutes =>
+  const isValidMinutes = (minutes) =>
     (Number.isInteger(minutes) && hours >= 0 && hours < 24) ||
     Number.isNaN(minutes);
   if (!isValidHour(hours) || !isValidMinutes(minutes)) {
@@ -126,7 +126,7 @@ class TimeInput extends Component {
       <TextField
         {...this.props}
         input={{ value: this.state.time }}
-        onChange={e => this.onChangeHandler(e.target.value)}
+        onChange={(e) => this.onChangeHandler(e.target.value)}
       />
     );
   }

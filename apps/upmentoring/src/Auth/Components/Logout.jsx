@@ -1,15 +1,15 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-import Link from "../../App/Components/Navigation/Link";
-import { useMagic } from "./MagicProvider";
-import { deleteSession } from "../Utils";
+import Link from '../../App/Components/Navigation/Link';
+import { useMagic } from './MagicProvider';
+import { deleteSession } from '../Utils';
 
-export default function Logout({ to = "/login", children = "logout" }) {
+export default function Logout({ to = '/login', children = 'logout' }) {
   const { loading, loggedIn, logout } = useMagic();
   const history = useHistory();
 
-  if (loading) return "...";
+  if (loading) return '...';
 
   if (loggedIn)
     return (

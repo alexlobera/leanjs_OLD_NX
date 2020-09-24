@@ -12,7 +12,7 @@ import calendar, {
   CALENDAR_MONTHS,
 } from './helpers';
 
-const formatDate = date => ({
+const formatDate = (date) => ({
   year: date.getFullYear(),
   month: date.getMonth(),
   day: date.getDate(),
@@ -44,7 +44,7 @@ class Calendar extends Component {
     return calendar(calendarMonth, calendarYear);
   };
 
-  gotoDate = date => evt => {
+  gotoDate = (date) => (evt) => {
     evt && evt.preventDefault();
     const { current } = this.state;
     const { onChange } = this.props;
@@ -75,7 +75,7 @@ class Calendar extends Component {
     this.setState({ year: year + 1 });
   };
 
-  handlePressure = fn => {
+  handlePressure = (fn) => {
     if (typeof fn === 'function') {
       fn();
       this.pressureTimeout = setTimeout(() => {
@@ -93,13 +93,13 @@ class Calendar extends Component {
     this.dayTimeout && clearTimeout(this.dayTimeout);
   };
 
-  handlePrevious = evt => {
+  handlePrevious = (evt) => {
     evt && evt.preventDefault();
     const fn = evt.shiftKey ? this.gotoPreviousYear : this.gotoPreviousMonth;
     this.handlePressure(fn);
   };
 
-  handleNext = evt => {
+  handleNext = (evt) => {
     evt && evt.preventDefault();
     const fn = evt.shiftKey ? this.gotoNextYear : this.gotoNextMonth;
     this.handlePressure(fn);

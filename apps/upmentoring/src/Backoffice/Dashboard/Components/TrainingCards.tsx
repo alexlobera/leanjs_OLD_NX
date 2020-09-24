@@ -24,7 +24,7 @@ const TrainingCards = ({ trainingInstances }: any) => {
               {formatUTC(
                 trainingInstance.startDate,
                 trainingInstance.utcOffset,
-                'HH:mm',
+                'HH:mm'
               )}
             </Link>
             <P>{trainingInstance.city}</P>

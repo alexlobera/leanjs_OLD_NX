@@ -22,8 +22,8 @@ const ToggleContent = ({
       {isShown ? (
         <Link onClick={() => setIsShown(false)}>{hideContentText}</Link>
       ) : (
-          <Link onClick={() => setIsShown(true)}>{showContentText}</Link>
-        )}
+        <Link onClick={() => setIsShown(true)}>{showContentText}</Link>
+      )}
       {isShown ? <Box mt={2}>{children}</Box> : null}
     </>
   ) : direction === 'above' ? (
@@ -34,8 +34,8 @@ const ToggleContent = ({
           <Link onClick={() => setIsShown(false)}>{hideContentText}</Link>
         </>
       ) : (
-          <Link onClick={() => setIsShown(true)}>{showContentText}</Link>
-        )}
+        <Link onClick={() => setIsShown(true)}>{showContentText}</Link>
+      )}
     </>
   ) : null;
 };

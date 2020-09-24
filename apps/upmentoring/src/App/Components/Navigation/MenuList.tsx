@@ -9,7 +9,7 @@ const StyledMenuList = styled(Ul)`
   margin-bottom: 0rem;
 `;
 
-const MenuList: React.FunctionComponent<Props> = props => {
+const MenuList: React.FunctionComponent<Props> = (props) => {
   return <StyledMenuList>{props.children}</StyledMenuList>;
 };
 

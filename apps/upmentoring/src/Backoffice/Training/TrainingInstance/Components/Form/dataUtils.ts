@@ -21,7 +21,7 @@ export const transformSubmitValues = (onSubmit: any) => ({
   trainingInstance.isOnline = isOnline(trainingInstance);
 
   trainingInstance.coaches = trainingInstance.coaches.map(
-    ({ __typename: __, ...coach }: any) => coach,
+    ({ __typename: __, ...coach }: any) => coach
   );
 
   return onSubmit(trainingInstance);

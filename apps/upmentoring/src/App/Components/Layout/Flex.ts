@@ -33,7 +33,7 @@ const Flex = styled(Box)<FlexProps>(
   alignItems,
   justifyContent,
   flexGrow,
-  themed('Flex'),
+  themed('Flex')
 );
 
 export default Flex;

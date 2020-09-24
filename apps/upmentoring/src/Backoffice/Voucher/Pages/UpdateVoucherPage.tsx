@@ -28,7 +28,7 @@ const UpdateVoucher = () => {
       });
 
       history.push(
-        `${appPaths.backoffice}${backofficePaths.payment}${backofficePaths.voucher}`,
+        `${appPaths.backoffice}${backofficePaths.payment}${backofficePaths.voucher}`
       );
     } catch (e) {
       // empty

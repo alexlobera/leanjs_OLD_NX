@@ -1,1 +1,1 @@
-export const USER = 'x-um-user'
+export const USER = 'x-um-user';

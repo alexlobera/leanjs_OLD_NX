@@ -45,7 +45,7 @@ const PaymentsPage = () => {
           <Tbody>
             {edges.map(({ node: payment }: any) => {
               const { path, utcOffset, title, startDate } = getPaymentItemData(
-                payment.item,
+                payment.item
               );
 
               return (

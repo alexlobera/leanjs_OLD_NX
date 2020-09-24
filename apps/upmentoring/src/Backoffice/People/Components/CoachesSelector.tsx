@@ -24,7 +24,7 @@ const CoachesSelector = ({
         initialValues.reduce((accumulated: any, coach: any = {}) => {
           accumulated[coach.userId] = coach;
           return accumulated;
-        }, {}),
+        }, {})
       );
   }, [initialValues]);
 
@@ -61,76 +61,76 @@ const CoachesSelector = ({
             Oops, there was a problem, no trainings instances could be loaded
           </P>
         ) : (
-              <>
-                <FinalFormFocus name={name} />
+          <>
+            <FinalFormFocus name={name} />
 
-                {meta && meta.error && meta.touched && (
-                  <ErrorMessage>{meta.error}. Please select a teacher</ErrorMessage>
-                )}
-
-                <Table>
-                  <Tbody>
-                    {edges.length > 0 ? (
-                      edges.map(({ node: user }: any) => (
-                        <Tr key={user.id}>
-                          <Td>{user.firstName}</Td>
-                          <Td>{user.lastName}</Td>
-                          <Td>
-                            <Button
-                              variant={
-                                selectedCoaches[user.id] ? 'primary' : 'tertiary'
-                              }
-                              onClick={() => toggleCoach(user)}
-                            >
-                              {selectedCoaches[user.id]
-                                ? 'teacher added'
-                                : 'Add teacher'}
-                            </Button>
-                          </Td>
-                        </Tr>
-                      ))
-                    ) : (
-                        <P>No instances available</P>
-                      )}
-                  </Tbody>
-                </Table>
-
-                {users &&
-                  users.pageInfo &&
-                  users.pageInfo.hasNextPage &&
-                  !loading ? (
-                    <Box pb={3}>
-                      <Button
-                        variant="tertiary"
-                        onClick={() => {
-                          fetchMore({
-                            variables: {
-                              cursor: users.pageInfo.endCursor,
-                            },
-
-                            updateQuery: (prev, { fetchMoreResult }) => {
-                              if (!fetchMoreResult) {
-                                return prev;
-                              }
-
-                              const { users: retrieved } = fetchMoreResult;
-
-                              return {
-                                users: {
-                                  ...retrieved,
-                                  edges: [...prev.users.edges, ...retrieved.edges],
-                                },
-                              };
-                            },
-                          });
-                        }}
-                      >
-                        Load More
-                </Button>
-                    </Box>
-                  ) : null}
-              </>
+            {meta && meta.error && meta.touched && (
+              <ErrorMessage>{meta.error}. Please select a teacher</ErrorMessage>
             )}
+
+            <Table>
+              <Tbody>
+                {edges.length > 0 ? (
+                  edges.map(({ node: user }: any) => (
+                    <Tr key={user.id}>
+                      <Td>{user.firstName}</Td>
+                      <Td>{user.lastName}</Td>
+                      <Td>
+                        <Button
+                          variant={
+                            selectedCoaches[user.id] ? 'primary' : 'tertiary'
+                          }
+                          onClick={() => toggleCoach(user)}
+                        >
+                          {selectedCoaches[user.id]
+                            ? 'teacher added'
+                            : 'Add teacher'}
+                        </Button>
+                      </Td>
+                    </Tr>
+                  ))
+                ) : (
+                  <P>No instances available</P>
+                )}
+              </Tbody>
+            </Table>
+
+            {users &&
+            users.pageInfo &&
+            users.pageInfo.hasNextPage &&
+            !loading ? (
+              <Box pb={3}>
+                <Button
+                  variant="tertiary"
+                  onClick={() => {
+                    fetchMore({
+                      variables: {
+                        cursor: users.pageInfo.endCursor,
+                      },
+
+                      updateQuery: (prev, { fetchMoreResult }) => {
+                        if (!fetchMoreResult) {
+                          return prev;
+                        }
+
+                        const { users: retrieved } = fetchMoreResult;
+
+                        return {
+                          users: {
+                            ...retrieved,
+                            edges: [...prev.users.edges, ...retrieved.edges],
+                          },
+                        };
+                      },
+                    });
+                  }}
+                >
+                  Load More
+                </Button>
+              </Box>
+            ) : null}
+          </>
+        )}
       </Box>
     );
   }

@@ -14,22 +14,22 @@ const TrInstance = ({
   index,
   clickedIndex,
 }: any) => (
-    <Tr key={instance.id}>
-      <Td>{instance.title}</Td>
-      <Td>{formatUTC(instance.startDate, instance.utcOffset)}</Td>
-      <Td>{instance.city}</Td>
-      {selectTrainingInstance && (
-        <Td>
-          <Button
-            variant={index === clickedIndex ? 'primary' : 'tertiary'}
-            onClick={() => selectTrainingInstance(index)}
-          >
-            {index === clickedIndex ? 'Discount added' : 'Add discount'}
-          </Button>
-        </Td>
-      )}
-    </Tr>
-  );
+  <Tr key={instance.id}>
+    <Td>{instance.title}</Td>
+    <Td>{formatUTC(instance.startDate, instance.utcOffset)}</Td>
+    <Td>{instance.city}</Td>
+    {selectTrainingInstance && (
+      <Td>
+        <Button
+          variant={index === clickedIndex ? 'primary' : 'tertiary'}
+          onClick={() => selectTrainingInstance(index)}
+        >
+          {index === clickedIndex ? 'Discount added' : 'Add discount'}
+        </Button>
+      </Td>
+    )}
+  </Tr>
+);
 
 const TrainingInstanceSelector = ({
   meta,
@@ -85,8 +85,8 @@ const TrainingInstanceSelector = ({
                 />
               ))
             ) : (
-                <P>No course instances available</P>
-              )}
+              <P>No course instances available</P>
+            )}
           </Tbody>
         </Table>
       </>

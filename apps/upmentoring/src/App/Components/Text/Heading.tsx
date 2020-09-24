@@ -8,14 +8,14 @@ import { BoxProps } from '../Layout/Box';
 interface HeadingProps extends BoxProps {
   variant?: keyof HeadingVariantProps;
   exclamation?: boolean;
-  children?: any
+  children?: any;
 }
 
 type StyledHeadingProps = StyledComponentProps<any, {}, {}, any> &
   BoxProps &
   HeadingProps;
 
-export const StyledHeading = styled(Text) <StyledHeadingProps>``;
+export const StyledHeading = styled(Text)<StyledHeadingProps>``;
 
 StyledHeading.defaultProps = {
   ...textDefaultProps,

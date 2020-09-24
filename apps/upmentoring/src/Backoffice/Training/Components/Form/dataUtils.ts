@@ -1,6 +1,6 @@
 import memoize from 'lodash.memoize';
 
-export const formatInitialValues = memoize(values => {
+export const formatInitialValues = memoize((values) => {
   const { customFieldsValues, trainingInstanceTypes, ...rest } = values || {};
   const initialValues = {
     ...rest,
@@ -14,7 +14,7 @@ export const formatInitialValues = memoize(values => {
               };
               return acc;
             },
-            {},
+            {}
           ),
         }
       : {}),
@@ -28,7 +28,7 @@ export const formatInitialValues = memoize(values => {
             };
             return acc;
           },
-          {},
+          {}
         )
       : {}),
   };
@@ -45,7 +45,7 @@ export const formatSubmitValues = ({
   const trainingInstanceTypesObject: any = {};
   if (rawTrainingInstanceTypes) {
     trainingInstanceTypesObject.trainingInstanceTypes = Object.keys(
-      rawTrainingInstanceTypes,
+      rawTrainingInstanceTypes
     ).reduce((acc: any, id) => {
       const item = rawTrainingInstanceTypes[id];
 
@@ -68,7 +68,7 @@ export const formatSubmitValues = ({
       : { standardPrice: null }),
     customFieldsValues:
       customFieldsValues &&
-      Object.keys(customFieldsValues).map(fieldId => ({
+      Object.keys(customFieldsValues).map((fieldId) => ({
         fieldId,
         values: customFieldsValues[fieldId],
       })),

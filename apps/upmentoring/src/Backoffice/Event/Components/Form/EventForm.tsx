@@ -281,7 +281,7 @@ const EventForm = ({ onSubmit, initialValues = {} }: any) => {
                             placeholder="eg. John Doo"
                             validate={composeValidators(
                               atLeastFiveCharacters,
-                              required,
+                              required
                             )}
                           />
                           <Field
@@ -336,7 +336,7 @@ const EventForm = ({ onSubmit, initialValues = {} }: any) => {
                                           placeholder="eg. https://someurl.com"
                                           validate={composeValidators(
                                             mustBeUrl,
-                                            required,
+                                            required
                                           )}
                                         />
                                         <P mt={2} mb={2}>
@@ -350,7 +350,7 @@ const EventForm = ({ onSubmit, initialValues = {} }: any) => {
                                         </P>
                                         <hr />
                                       </React.Fragment>
-                                    ),
+                                    )
                                   )}
                                   <Flex mt={5}>
                                     <Button
@@ -359,7 +359,7 @@ const EventForm = ({ onSubmit, initialValues = {} }: any) => {
                                       onClick={() =>
                                         push(
                                           `${speakersFormName}.${FORM_SPEAKERS_LINKS}`,
-                                          undefined,
+                                          undefined
                                         )
                                       }
                                     >
@@ -437,7 +437,7 @@ const EventForm = ({ onSubmit, initialValues = {} }: any) => {
                                           <Link
                                             onClick={() =>
                                               sessionFields.remove(
-                                                sessionsIndex,
+                                                sessionsIndex
                                               )
                                             }
                                           >
@@ -447,7 +447,7 @@ const EventForm = ({ onSubmit, initialValues = {} }: any) => {
                                         </P>
                                         <hr />
                                       </React.Fragment>
-                                    ),
+                                    )
                                   )}
                                   <Flex mt={5}>
                                     <Button
@@ -456,7 +456,7 @@ const EventForm = ({ onSubmit, initialValues = {} }: any) => {
                                       onClick={() =>
                                         push(
                                           `${agendaFormName}.${FORM_AGENDA_SESSIONS}`,
-                                          undefined,
+                                          undefined
                                         )
                                       }
                                     >

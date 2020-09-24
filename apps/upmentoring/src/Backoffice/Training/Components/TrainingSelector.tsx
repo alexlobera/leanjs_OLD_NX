@@ -35,76 +35,76 @@ const TrainingSelector = ({ onChange, meta, input }: any) => {
         ) : data.error ? (
           <P>Oops, there was a problem, no trainings could be loaded</P>
         ) : (
-              <>
-                {meta && meta.error && meta.touched && (
-                  <ErrorMessage>
-                    {meta.error}. Please select a training
-                  </ErrorMessage>
-                )}
-                <Table>
-                  <Tbody>
-                    {edges.length > 0 ? (
-                      edges.map(({ node: training }: any, index: number) => (
-                        <Tr key={training.id}>
-                          <Td>{training.title}</Td>
-                          <Td>
-                            <Button
-                              variant={
-                                index === clickedIndex ? 'primary' : 'tertiary'
-                              }
-                              onClick={() => selectTraining(index)}
-                            >
-                              {index === clickedIndex
-                                ? 'Course added'
-                                : 'Add course'}
-                            </Button>
-                          </Td>
-                        </Tr>
-                      ))
-                    ) : (
-                        <P>No trainings available</P>
-                      )}
-                  </Tbody>
-                </Table>
-                {trainings &&
-                  trainings.pageInfo &&
-                  trainings.pageInfo.hasNextPage &&
-                  !loading ? (
-                    <Box pb={3}>
-                      <Button
-                        variant="tertiary"
-                        onClick={() => {
-                          fetchMore({
-                            variables: {
-                              cursor: trainings.pageInfo.endCursor,
-                            },
-
-                            updateQuery: (prev, { fetchMoreResult }) => {
-                              if (!fetchMoreResult) {
-                                return prev;
-                              }
-
-                              const { trainings: retrieved } = fetchMoreResult;
-
-                              return {
-                                trainings: {
-                                  ...retrieved,
-                                  edges: [
-                                    ...prev.trainings.edges,
-                                    ...retrieved.edges,
-                                  ],
-                                },
-                              };
-                            },
-                          });
-                        }}
-                      >
-                        Load More
-                </Button>
-                    </Box>
-                  ) : null}
-              </>
+          <>
+            {meta && meta.error && meta.touched && (
+              <ErrorMessage>
+                {meta.error}. Please select a training
+              </ErrorMessage>
             )}
+            <Table>
+              <Tbody>
+                {edges.length > 0 ? (
+                  edges.map(({ node: training }: any, index: number) => (
+                    <Tr key={training.id}>
+                      <Td>{training.title}</Td>
+                      <Td>
+                        <Button
+                          variant={
+                            index === clickedIndex ? 'primary' : 'tertiary'
+                          }
+                          onClick={() => selectTraining(index)}
+                        >
+                          {index === clickedIndex
+                            ? 'Course added'
+                            : 'Add course'}
+                        </Button>
+                      </Td>
+                    </Tr>
+                  ))
+                ) : (
+                  <P>No trainings available</P>
+                )}
+              </Tbody>
+            </Table>
+            {trainings &&
+            trainings.pageInfo &&
+            trainings.pageInfo.hasNextPage &&
+            !loading ? (
+              <Box pb={3}>
+                <Button
+                  variant="tertiary"
+                  onClick={() => {
+                    fetchMore({
+                      variables: {
+                        cursor: trainings.pageInfo.endCursor,
+                      },
+
+                      updateQuery: (prev, { fetchMoreResult }) => {
+                        if (!fetchMoreResult) {
+                          return prev;
+                        }
+
+                        const { trainings: retrieved } = fetchMoreResult;
+
+                        return {
+                          trainings: {
+                            ...retrieved,
+                            edges: [
+                              ...prev.trainings.edges,
+                              ...retrieved.edges,
+                            ],
+                          },
+                        };
+                      },
+                    });
+                  }}
+                >
+                  Load More
+                </Button>
+              </Box>
+            ) : null}
+          </>
+        )}
       </Box>
     );
   }

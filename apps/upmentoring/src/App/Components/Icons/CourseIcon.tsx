@@ -3,7 +3,7 @@ import React from 'react';
 import SvgIcon from './SvgIcon';
 import { Props } from '../../Types/React';
 
-const CourseIcon: React.FunctionComponent<Props> = props => (
+const CourseIcon: React.FunctionComponent<Props> = (props) => (
   <SvgIcon viewBox="0 0 22 22" width={22} height={22} {...props}>
     <path
       fillRule="evenodd"

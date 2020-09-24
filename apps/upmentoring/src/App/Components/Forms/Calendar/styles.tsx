@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const Arrow = styled(props => <a role="button" {...props} />)`
+export const Arrow = styled((props) => <a role="button" {...props} />)`
   appearance: none;
   user-select: none;
   outline: none !important;
@@ -91,12 +91,12 @@ export const CalendarDate = styled(CalendarCell)`
   font-weight: ${(props: CalendarDateProps) => (props.inMonth ? 500 : 300)};
   font-size: 4em;
   cursor: pointer;
-  border-bottom: ${props =>
+  border-bottom: ${(props) =>
     (props.index + 1) / 7 <= 5 ? `1px solid #ddd` : `none`};
-  border-right: ${props =>
+  border-right: ${(props) =>
     (props.index % 7) + 1 === 7 ? `none` : `1px solid #ddd`};
-  color: ${props => (props.inMonth ? `#333` : `#ddd`)};
-  grid-row: ${props => Math.floor(props.index / 7) + 2} / span 1;
+  color: ${(props) => (props.inMonth ? `#333` : `#ddd`)};
+  grid-row: ${(props) => Math.floor(props.index / 7) + 2} / span 1;
   transition: all 0.4s ease-out;
   :hover {
     color: #06c;

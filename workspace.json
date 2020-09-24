@@ -49,10 +49,7 @@
               "apps/leanjs.com/tsconfig.json",
               "apps/leanjs.com/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/leanjs.com/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/leanjs.com/**/*"]
           }
         },
         "test": {
@@ -87,13 +84,8 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": [
-              "apps/leanjs.com-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/leanjs.com-e2e/**/*"
-            ]
+            "tsConfig": ["apps/leanjs.com-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/leanjs.com-e2e/**/*"]
           }
         }
       }
@@ -111,12 +103,7 @@
             "tsConfig": "packages/ui-core/tsconfig.lib.json",
             "project": "packages/ui-core/package.json",
             "entryFile": "packages/ui-core/src/index.ts",
-            "external": [
-              "react",
-              "react-dom",
-              "react-is",
-              "styled-components"
-            ],
+            "external": ["react", "react-dom", "react-is", "styled-components"],
             "babelConfig": "@nrwl/react/plugins/bundle-babel",
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
@@ -136,10 +123,7 @@
               "packages/ui-core/tsconfig.lib.json",
               "packages/ui-core/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!packages/ui-core/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!packages/ui-core/**/*"]
           }
         },
         "test": {
@@ -166,10 +150,7 @@
               "packages/ui-final-form/tsconfig.lib.json",
               "packages/ui-final-form/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!packages/ui-final-form/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!packages/ui-final-form/**/*"]
           }
         },
         "test": {
@@ -230,10 +211,7 @@
               "apps/reactgraphql.academy/tsconfig.json",
               "apps/reactgraphql.academy/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/reactgraphql.academy/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/reactgraphql.academy/**/*"]
           }
         },
         "test": {
@@ -268,9 +246,7 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": [
-              "apps/reactgraphql.academy-e2e/tsconfig.e2e.json"
-            ],
+            "tsConfig": ["apps/reactgraphql.academy-e2e/tsconfig.e2e.json"],
             "exclude": [
               "**/node_modules/**",
               "!apps/reactgraphql.academy-e2e/**/*"
@@ -313,9 +289,7 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/_REMOVE_WORKAROUND_ON_NX_10.1.1"
-            ]
+            "assets": ["apps/api/src/_REMOVE_WORKAROUND_ON_NX_10.1.1"]
           },
           "configurations": {
             "production": {
@@ -345,10 +319,7 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/api/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
           }
         },
         "test": {
@@ -372,9 +343,7 @@
           "options": {
             "cwd": "apps/rga.studio",
             "parallel": false,
-            "commands": [
-              "npx sanity start ."
-            ]
+            "commands": ["npx sanity start ."]
           }
         },
         "test": {
@@ -382,9 +351,7 @@
           "options": {
             "cwd": "apps/rga.studio",
             "parallel": false,
-            "commands": [
-              "npx sanity check $(pwd)"
-            ]
+            "commands": ["npx sanity check $(pwd)"]
           }
         },
         "deploy": {
@@ -392,9 +359,7 @@
           "options": {
             "cwd": "apps/rga.studio",
             "parallel": false,
-            "commands": [
-              "echo 'WIP: deploy to Firebase'"
-            ]
+            "commands": ["echo 'WIP: deploy to Firebase'"]
           }
         }
       }
@@ -413,10 +378,7 @@
               "packages/ui-twitter-embed/tsconfig.lib.json",
               "packages/ui-twitter-embed/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!packages/ui-twitter-embed/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!packages/ui-twitter-embed/**/*"]
           }
         },
         "test": {
@@ -465,10 +427,7 @@
               "apps/leanui-docz/tsconfig.json",
               "apps/leanui-docz/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/leanui-docz/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/leanui-docz/**/*"]
           }
         },
         "test": {
@@ -554,9 +513,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "parallel": false,
-            "commands": [
-              "echo DISABLED"
-            ]
+            "commands": ["echo DISABLED"]
           }
         },
         "lint": {
@@ -588,10 +545,7 @@
               "packages/ui-hls/tsconfig.lib.json",
               "packages/ui-hls/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!packages/ui-hls/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!packages/ui-hls/**/*"]
           }
         },
         "test": {
@@ -618,10 +572,7 @@
               "packages/ui-page/tsconfig.lib.json",
               "packages/ui-page/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!packages/ui-page/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!packages/ui-page/**/*"]
           }
         },
         "test": {
@@ -648,10 +599,7 @@
               "packages/ui-gatsby-sanity/tsconfig.lib.json",
               "packages/ui-gatsby-sanity/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!packages/ui-gatsby-sanity/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!packages/ui-gatsby-sanity/**/*"]
           }
         },
         "test": {
@@ -678,10 +626,7 @@
               "packages/ui-icons/tsconfig.lib.json",
               "packages/ui-icons/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!packages/ui-icons/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!packages/ui-icons/**/*"]
           }
         },
         "test": {
@@ -708,10 +653,7 @@
               "packages/ui-link/tsconfig.lib.json",
               "packages/ui-link/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!packages/ui-link/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!packages/ui-link/**/*"]
           }
         },
         "test": {
@@ -738,10 +680,7 @@
               "packages/ui-academy/tsconfig.lib.json",
               "packages/ui-academy/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!packages/ui-academy/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!packages/ui-academy/**/*"]
           }
         },
         "test": {
@@ -768,10 +707,7 @@
               "packages/magic-link/tsconfig.lib.json",
               "packages/magic-link/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!packages/magic-link/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!packages/magic-link/**/*"]
           }
         },
         "test": {
@@ -798,10 +734,7 @@
               "packages/graphql-client/tsconfig.lib.json",
               "packages/graphql-client/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!packages/graphql-client/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!packages/graphql-client/**/*"]
           }
         },
         "build": {
@@ -811,12 +744,7 @@
             "tsConfig": "packages/graphql-client/tsconfig.lib.json",
             "project": "packages/graphql-client/package.json",
             "entryFile": "packages/graphql-client/src/index.ts",
-            "external": [
-              "react",
-              "react-dom",
-              "react-is",
-              "styled-components"
-            ],
+            "external": ["react", "react-dom", "react-is", "styled-components"],
             "babelConfig": "@nrwl/react/plugins/bundle-babel",
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
@@ -916,10 +844,7 @@
               "apps/upmentoring/tsconfig.app.json",
               "apps/upmentoring/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/upmentoring/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/upmentoring/**/*"]
           }
         },
         "test": {
@@ -954,13 +879,8 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": [
-              "apps/upmentoring-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/upmentoring-e2e/**/*"
-            ]
+            "tsConfig": ["apps/upmentoring-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/upmentoring-e2e/**/*"]
           }
         }
       }

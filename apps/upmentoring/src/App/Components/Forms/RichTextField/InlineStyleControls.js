@@ -2,17 +2,17 @@ import React from 'react';
 
 import BlockStyleButton from './BlockStyleButton';
 
-var INLINE_STYLES = [
+const INLINE_STYLES = [
   { label: 'Bold', style: 'BOLD' },
   { label: 'Italic', style: 'ITALIC' },
   { label: 'Underline', style: 'UNDERLINE' },
 ];
 
-const InlineStyleControls = props => {
-  var currentStyle = props.editorState.getCurrentInlineStyle();
+const InlineStyleControls = (props) => {
+  const currentStyle = props.editorState.getCurrentInlineStyle();
   return (
     <ul className="RichEditor-controls">
-      {INLINE_STYLES.map(type => (
+      {INLINE_STYLES.map((type) => (
         <li key={type.label}>
           <BlockStyleButton
             key={type.label}
@@ -23,8 +23,7 @@ const InlineStyleControls = props => {
           />
         </li>
       ))}
-      {props.linkControl &&
-        <li>{props.linkControl}</li>}
+      {props.linkControl && <li>{props.linkControl}</li>}
     </ul>
   );
 };

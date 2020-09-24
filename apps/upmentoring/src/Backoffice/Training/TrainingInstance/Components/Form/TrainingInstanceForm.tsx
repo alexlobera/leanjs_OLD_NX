@@ -84,7 +84,7 @@ const TrainingInstanceForm = ({
 
                         return acc;
                       },
-                      [],
+                      []
                     )}
                     label="Training Type"
                     validate={required}

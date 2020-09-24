@@ -11,7 +11,7 @@ import {
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import { fontFamily, lineHeight, fontWeight } from 'styled-system';
 
-const withoutStyledProps = Component => ({
+const withoutStyledProps = (Component) => ({
   fontFamily,
   lineHeight,
   fontWeight,

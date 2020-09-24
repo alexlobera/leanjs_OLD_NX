@@ -49,7 +49,7 @@ const FeedbackDetailPage = () => {
       <Header
         title={`Feedback - ${
           feedback.username ? feedback.username : 'Anonymous'
-          }`}
+        }`}
         subtitle={
           training && (
             <>
@@ -61,7 +61,7 @@ const FeedbackDetailPage = () => {
               {<br />}received:
               {formatUTC(
                 feedback.createdAt,
-                trainingInstance && trainingInstance.utcOffset,
+                trainingInstance && trainingInstance.utcOffset
               )}
             </>
           )

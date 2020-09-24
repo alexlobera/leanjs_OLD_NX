@@ -11,7 +11,7 @@ function CreateVideoPage() {
   const history = useHistory();
   const [createVideo] = useMutation(CREATE_VIDEO);
 
-  const onSubmit = async video => {
+  const onSubmit = async (video) => {
     try {
       const { data } = await createVideo({
         variables: {
@@ -20,9 +20,11 @@ function CreateVideoPage() {
       });
 
       history.push(
-        `${appPaths.backoffice}${backofficePaths.video}/${data.createVideo.video.id}${backofficePaths.editVideo}`,
+        `${appPaths.backoffice}${backofficePaths.video}/${data.createVideo.video.id}${backofficePaths.editVideo}`
       );
-    } catch (e) { }
+    } catch (e) {
+      // empty
+    }
   };
 
   return (

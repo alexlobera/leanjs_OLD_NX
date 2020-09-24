@@ -31,12 +31,12 @@ const PaymentList = ({
       fetchPolicy: 'cache-first',
       nextFetchPolicy: 'cache-first',
       notifyOnNetworkStatusChange: true,
-    },
+    }
   );
 
   const { allEdges, hasNextPage, endCursor } = mergeConnections(
     payments,
-    data?.payments,
+    data?.payments
   );
 
   return (
@@ -77,8 +77,8 @@ const PaymentList = ({
       {loading
         ? 'loading...'
         : error
-          ? error
-          : hasNextPage && (
+        ? error
+        : hasNextPage && (
             <Box pb={3}>
               <Button
                 variant="tertiary"

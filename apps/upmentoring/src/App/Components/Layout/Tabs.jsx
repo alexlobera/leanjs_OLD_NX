@@ -15,7 +15,7 @@ export const TabList = styled.ul`
   }
 `;
 
-export const TabItem = props => {
+export const TabItem = (props) => {
   const { name } = props;
   const { onChange, value } = useTabsContext();
   const isSelected = name === value;
@@ -32,7 +32,7 @@ export const TabItem = props => {
       cursor="pointer"
       role="tab"
       {...props}
-      onClick={e => {
+      onClick={(e) => {
         e.preventDefault();
         onChange(name);
       }}
@@ -44,7 +44,7 @@ export const TabItem = props => {
 TabItem.displayName = 'TabItem';
 
 // TODO ADD aria-labelledby and tabindex -> https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Tab_Role
-export const TabPanel = props => {
+export const TabPanel = (props) => {
   const { value } = useTabsContext();
 
   return value === props.name ? (
@@ -61,7 +61,7 @@ export const useTabsContext = () => {
 
   if (!context) {
     throw new Error(
-      `Tab components such as TabList need a parent Tabs component in the component tree`,
+      `Tab components such as TabList need a parent Tabs component in the component tree`
     );
   }
 
@@ -71,12 +71,14 @@ export const useTabsContext = () => {
 export const Tabs = function ({
   value: valueProp = null,
   defaultValue = null,
-  onChange: onChangeProp = value => {},
+  onChange: onChangeProp = (value) => {
+    // TODO replace with TS
+  },
   children,
 }) {
   const [value, setValue] = useState(defaultValue);
 
-  const onChange = value => {
+  const onChange = (value) => {
     onChangeProp && onChangeProp(value);
     // if it's a controlled component then there is no need to update the state and trigger another rerender
     !valueProp && setValue(value);

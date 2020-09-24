@@ -26,12 +26,12 @@ function TrainingInstanceList({
       fetchPolicy: 'cache-first',
       nextFetchPolicy: 'cache-first',
       notifyOnNetworkStatusChange: true,
-    },
+    }
   );
 
   const { allEdges, hasNextPage, endCursor } = mergeConnections(
     trainingInstances,
-    data?.trainingInstances,
+    data?.trainingInstances
   );
 
   return (
@@ -50,8 +50,8 @@ function TrainingInstanceList({
         {loading
           ? 'loading...'
           : error
-            ? error
-            : hasNextPage && (
+          ? error
+          : hasNextPage && (
               <Box pb={3}>
                 <Button
                   variant="tertiary"

@@ -35,7 +35,7 @@ const PaymentDetailPage = () => {
     }
 
     const { path, utcOffset, title, startDate, city } = getPaymentItemData(
-      payment.item,
+      payment.item
     );
 
     const subtitle = (

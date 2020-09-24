@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 import React from 'react';
-// import Immutable from "immutable";
 
 import Heading from '../../../../App/Components/Text/Heading';
 import { P } from '../../../../App/Components/Text/P';

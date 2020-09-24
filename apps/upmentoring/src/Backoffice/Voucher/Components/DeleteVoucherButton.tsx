@@ -22,7 +22,7 @@ const DeleteVoucher = ({ voucherId }: Props) => {
       const response = await deleteVoucher();
       response?.data?.deleteVoucher?.voucher?.deletedAt &&
         history.push(
-          `${appPaths.backoffice}${backofficePaths.payment}${backofficePaths.voucher}`,
+          `${appPaths.backoffice}${backofficePaths.payment}${backofficePaths.voucher}`
         );
     } catch (e) {
       // empty

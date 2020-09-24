@@ -2,7 +2,7 @@
   background: #fff;
   border: 0.05rem solid;
   border-color: #000;
-  font-family: "Roboto Slab, Bodoni MT, Didot, Times New Roman, serif";
+  font-family: 'Roboto Slab, Bodoni MT, Didot, Times New Roman, serif';
   font-size: 1rem;
   padding: 15px;
 }
@@ -39,7 +39,7 @@
 .RichEditor-editor .RichEditor-blockquote {
   border-left: 5px solid #eee;
   color: rgb(0, 0, 0);
-  font-family: "Roboto Slab, Bodoni MT, Didot, Times New Roman, serif";
+  font-family: 'Roboto Slab, Bodoni MT, Didot, Times New Roman, serif';
 
   margin: 16px 0;
   padding: 10px 20px;
@@ -47,13 +47,13 @@
 
 .RichEditor-editor .public-DraftStyleDefault-pre {
   background-color: rgba(0, 0, 0, 0.05);
-  font-family: "Roboto Slab, Bodoni MT, Didot, Times New Roman, serif";
+  font-family: 'Roboto Slab, Bodoni MT, Didot, Times New Roman, serif';
   font-size: 1rem;
   padding: 20px;
 }
 
 .RichEditor-controls {
-  font-family: "Roboto Slab, Bodoni MT, Didot, Times New Roman, serif";
+  font-family: 'Roboto Slab, Bodoni MT, Didot, Times New Roman, serif';
   font-size: 14px;
   margin-bottom: 5px;
   user-select: none;

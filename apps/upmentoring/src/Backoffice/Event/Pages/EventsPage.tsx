@@ -49,7 +49,7 @@ const EventsPage = () => {
                 {formatUTC(
                   event.startDate,
                   event.utcOffset,
-                  "D MMM 'YYYY HH:mm",
+                  "D MMM 'YYYY HH:mm"
                 )}
               </Td>
               <Td>

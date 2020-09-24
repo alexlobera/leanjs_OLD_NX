@@ -31,9 +31,9 @@ const styledTextFieldDefaultProps = {
 
 export const StyledTextField = styled(Box)`
   ::placeholder {
-    font-style: ${props => props.theme.fontStyle.italic};
-    color: ${props => props.theme.colors.GREY};
-    font-weight: ${props => props.theme.fontWeights.normal};
+    font-style: ${(props) => props.theme.fontStyle.italic};
+    color: ${(props) => props.theme.colors.GREY};
+    font-weight: ${(props) => props.theme.fontWeights.normal};
   }
 `;
 
@@ -42,7 +42,7 @@ StyledTextField.defaultProps = styledTextFieldDefaultProps;
 
 const TextField = (
   { input, meta, label, icon, value, flex = {}, ...props }: TextFieldProps,
-  ref: any,
+  ref: any
 ) => (
   <Flex {...flex} flexDirection="column">
     {label ? <Label htmlFor={input.name}>{label}</Label> : null}

@@ -18,9 +18,9 @@ type TextAreaFieldProps = FieldRenderProps<string, HTMLElement> & ParentProps;
 
 const StyledTextAreaField = styled(Box)`
   ::placeholder {
-    font-style: ${props => props.theme.fontStyle.italic};
-    color: ${props => props.theme.colors.GREY};
-    font-weight: ${props => props.theme.fontWeights.normal};
+    font-style: ${(props) => props.theme.fontStyle.italic};
+    color: ${(props) => props.theme.colors.GREY};
+    font-weight: ${(props) => props.theme.fontWeights.normal};
   }
 `;
 

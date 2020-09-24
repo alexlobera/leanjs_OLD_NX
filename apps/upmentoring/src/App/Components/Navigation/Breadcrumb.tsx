@@ -32,7 +32,7 @@ type StyledLinkProps = StyledComponentProps<any, {}, {}, any> &
     as?: any;
   };
 
-const BreadcrumbLink = styled(Link) <StyledLinkProps>``;
+const BreadcrumbLink = styled(Link)<StyledLinkProps>``;
 BreadcrumbLink.defaultProps = {
   box: 'a',
   mr: 1,

@@ -105,14 +105,14 @@ const VoucherDetailPage = () => {
                     </Em>
                   </Li>
                 ) : (
-                    <Li>
-                      <Em>
-                        <Small>
-                          Discount Percentage: {voucher.discountPercentage}%
+                  <Li>
+                    <Em>
+                      <Small>
+                        Discount Percentage: {voucher.discountPercentage}%
                       </Small>
-                      </Em>
-                    </Li>
-                  )}
+                    </Em>
+                  </Li>
+                )}
                 <Li>
                   <Em>
                     <Small>Used {voucher.redemptions || 0} times</Small>
@@ -143,8 +143,8 @@ const VoucherDetailPage = () => {
                           Course: {voucher.training && voucher.training.title}
                         </Link>
                       ) : (
-                              'Globaly'
-                            )}
+                        'Globaly'
+                      )}
                     </Small>
                   </Em>
                 </Li>

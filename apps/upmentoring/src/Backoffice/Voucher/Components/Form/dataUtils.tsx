@@ -9,7 +9,7 @@ import { GLOBAL_CODE, GLOBAL_AUTO } from './VoucherType';
 
 export const transformSubmitValues = (
   onSubmit: any,
-  { extraValues: { type } }: any,
+  { extraValues: { type } }: any
 ) => ({ item, formVouchers = [] }: any) => {
   const itemId = item?.itemId;
   const vouchers = formVouchers.map((voucher: any) => {
@@ -43,7 +43,7 @@ export const transformSubmitValues = (
 
 export function createEmptyVoucher(
   formVouchers: any = null,
-  momentFn = moment,
+  momentFn = moment
 ) {
   const previousVoucher =
     formVouchers && formVouchers.length && formVouchers.value

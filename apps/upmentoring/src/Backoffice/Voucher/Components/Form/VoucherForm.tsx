@@ -95,7 +95,7 @@ const VoucherForm = ({
                           placeholder="eg. 30% off"
                           validate={composeValidators(
                             atLeastFiveCharacters,
-                            required,
+                            required
                           )}
                         />
                         {(type === CODE || type === GLOBAL_CODE) &&
@@ -108,7 +108,7 @@ const VoucherForm = ({
                               placeholder="Only letters or numbers"
                               validate={composeValidators(
                                 onlyAlphanumeric,
-                                required,
+                                required
                               )}
                               small
                             />
@@ -137,7 +137,7 @@ const VoucherForm = ({
                               name={`${name}.voucherValue`}
                               validate={composeValidators(
                                 onlyAmounts,
-                                required,
+                                required
                               )}
                               type="text"
                               placeholder="% or £"
@@ -203,7 +203,7 @@ const VoucherForm = ({
                           onClick={() =>
                             form.mutators.push(
                               FORM_VOUCHERS,
-                              createEmptyVoucher(fields),
+                              createEmptyVoucher(fields)
                             )
                           }
                         >

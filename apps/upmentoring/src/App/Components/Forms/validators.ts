@@ -64,12 +64,12 @@ export const twoDecimals = (value: string) => {
 export const mustBeUrl = (value: string) => {
   const urlRegex = new RegExp(
     '^(https?:\\/\\/)?' + // protocol
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-      '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+@]*)*' + // port and path
-      '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+@]*)*' + // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
       '(\\#[-a-z\\d_]*)?$',
-    'i',
+    'i'
   );
 
   if (!value) {
@@ -97,7 +97,7 @@ export const composeValidators = (...validators: any) => (value: string) =>
   validators.reduceRight(
     (error: ValidatorError, validator: ValidatorFunction) =>
       error || validator(value),
-    undefined,
+    undefined
   );
 
 interface ValidatorFactorArg {
@@ -122,5 +122,5 @@ export const composeValidatorsFactory = (validators: [ValidatorFactorArg]) => {
 export const priceValidator = composeValidators(
   minAmount(0.5),
   twoDecimals,
-  required,
+  required
 );
