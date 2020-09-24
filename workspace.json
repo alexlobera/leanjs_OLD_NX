@@ -937,7 +937,7 @@
       "sourceRoot": "apps/upmentoring-e2e/src",
       "projectType": "application",
       "architect": {
-        "__e2e": {
+        "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/upmentoring-e2e/cypress.json",
