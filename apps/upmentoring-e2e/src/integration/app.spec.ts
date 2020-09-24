@@ -1,13 +1,10 @@
 import { getGreeting } from '../support/app.po';
 
 describe('upmentoring', () => {
-  beforeEach(() => cy.visit('/'));
+  beforeEach(() => cy.visit('/login'));
 
   it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to upmentoring!');
+    cy.get('label').contains(`Enter your email address and we'll email you a login link:`);
   });
 });
