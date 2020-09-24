@@ -84,6 +84,13 @@
     },
     "graphql-client": {
       "tags": []
+    },
+    "upmentoring": {
+      "tags": []
+    },
+    "upmentoring-e2e": {
+      "tags": [],
+      "implicitDependencies": ["upmentoring"]
     }
   }
 }

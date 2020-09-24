@@ -1,0 +1,83 @@
+.RichEditor-root {
+  background: #fff;
+  border: 0.05rem solid;
+  border-color: #000;
+  font-family: "Roboto Slab, Bodoni MT, Didot, Times New Roman, serif";
+  font-size: 1rem;
+  padding: 15px;
+}
+
+.RichEditor-editor {
+  border-top: 0.05rem solid;
+  border-color: #000;
+  cursor: text;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.RichEditor-editor .public-DraftEditorPlaceholder-root,
+.RichEditor-editor .public-DraftEditor-content {
+  margin: 0 -15px -15px;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #4d4d4d;
+}
+
+.RichEditor-editor .public-DraftEditor-content {
+  min-height: 100px;
+}
+
+.RichEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {
+  display: none;
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #4d4d4d;
+}
+
+.RichEditor-editor .RichEditor-blockquote {
+  border-left: 5px solid #eee;
+  color: rgb(0, 0, 0);
+  font-family: "Roboto Slab, Bodoni MT, Didot, Times New Roman, serif";
+
+  margin: 16px 0;
+  padding: 10px 20px;
+}
+
+.RichEditor-editor .public-DraftStyleDefault-pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  font-family: "Roboto Slab, Bodoni MT, Didot, Times New Roman, serif";
+  font-size: 1rem;
+  padding: 20px;
+}
+
+.RichEditor-controls {
+  font-family: "Roboto Slab, Bodoni MT, Didot, Times New Roman, serif";
+  font-size: 14px;
+  margin-bottom: 5px;
+  user-select: none;
+}
+
+ul.RichEditor-controls {
+  margin: 0;
+  list-style: none;
+  display: inline-block;
+}
+
+ul.RichEditor-controls li {
+  display: inline;
+  margin-right: 16px;
+}
+
+.RichEditor-styleButton {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+
+  padding: 2px 0;
+  display: inline-block;
+}
+
+.RichEditor-activeButton {
+  color: #5890ff;
+}
