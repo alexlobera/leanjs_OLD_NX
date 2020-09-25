@@ -6,7 +6,7 @@ import { MagicProvider } from '@leanjs/magic-link';
 import { GraphQLProvider, createHttpLink } from '@leanjs/graphql-client';
 import { fetch } from 'whatwg-fetch';
 import Cookies from 'js-cookie';
-////
+///
 import { login } from './src/api';
 import theme from './src/config/theme';
 import './src/config/site.css';
