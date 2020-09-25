@@ -53,7 +53,11 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 const Root = () => (
   <Router>
     <ToastContainer />
-    <MagicProvider magicKey={process.env.NX_MAGIC_LINK_PK_KEY} requirePreSignup={requireSignup} login={login}>
+    <MagicProvider
+      magicKey={process.env.NX_MAGIC_LINK_PK_KEY}
+      requirePreSignup={requireSignup}
+      login={login}
+    >
       {({ getToken }: any) => {
         const authLink = setContext(async (_, { headers, ...context }) => {
           const token = await getToken();
