@@ -10,12 +10,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 import { ToastContainer, toast } from 'react-toastify';
+import { ThemeProvider } from '../Config/styled-components';
+import { MagicProvider } from '@leanjs/magic-link';
 import 'react-toastify/dist/ReactToastify.css';
 
 import App from './App';
 import theme from '../Config/theme';
-import { ThemeProvider } from '../Config/styled-components';
-import MagicProvider from '../../Auth/Components/MagicProvider';
 import Modal from './Communication/Modal';
 import { API_BASE_URL } from '../Config';
 
@@ -53,7 +53,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 const Root = () => (
   <Router>
     <ToastContainer />
-    <MagicProvider requirePreSignup={requireSignup} login={login}>
+    <MagicProvider magicKey={process.env.NX_MAGIC_LINK_PK_KEY} requirePreSignup={requireSignup} login={login}>
       {({ getToken }: any) => {
         const authLink = setContext(async (_, { headers, ...context }) => {
           const token = await getToken();

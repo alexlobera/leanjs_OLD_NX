@@ -1,8 +1,8 @@
 import React from 'react';
+import { useMagic } from '@leanjs/magic-link';
 
 import { Field, Form, TextField } from '../../App/Components/Forms';
 import Button from '../../App/Components/Buttons/Button';
-import { useMagic } from '../Components/MagicProvider';
 // import { getSession } from '../Utils';
 import {
   required,

@@ -12,7 +12,7 @@ import theme from './src/config/theme';
 import './src/config/site.css';
 
 export const wrapRootElement = ({ element }) => (
-  <MagicProvider login={login}>
+  <MagicProvider magicKey={process.env.GATSBY_MAGIC_LINK_PK_KEY} login={login}>
     {({ getToken, logout }) => {
       return (
         <GraphQLProvider

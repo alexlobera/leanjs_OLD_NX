@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { useMagic } from '@leanjs/magic-link';
 
 import PublicRoutes from '../../Public/Routes';
 import Backoffice from '../../Backoffice';
 import AuthRoutes from '../../Auth/Routes';
 import '../../App/reset.css';
-import { useMagic } from '../../Auth/Components/MagicProvider';
 
 export const paths = {
   auth: '/login',
