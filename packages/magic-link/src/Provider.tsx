@@ -54,12 +54,12 @@ function magicReducer(state, action) {
   }
 }
 
-export function MagicProvider({ children, requirePreSignup, login: myLogin }) {
+export function MagicProvider({, children, requirePreSignup, login: myLogin }) {
   const [user, dispatch] = React.useReducer(magicReducer, initialState);
   React.useEffect(() => {
     // magic-sdk v2.5.1 breaks on SSR so we need to require it here
     const { Magic } = require('magic-sdk');
-    magic = new Magic(process.env.GATSBY_MAGIC_LINK_PK_KEY);
+    magic = new Magic(magicKey);
     async function iniState() {
       const loggedIn = await magic.user.isLoggedIn();
       dispatch({ type: RECEIVE_LOGIN_RESPONSE, loggedIn });

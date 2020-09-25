@@ -6,6 +6,6 @@ describe('reactgraphql.academy: contact', () => {
 
     cy.findAllByText(/Submit email/).click();
 
-    cy.findAllByText(/Thanks for submitting!/);
+    cy.findAllByText(/Thanks for submitting!/, { timeout: 15000 });
   });
 });

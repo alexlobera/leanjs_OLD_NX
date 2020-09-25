@@ -5,7 +5,7 @@ describe('reactgraphql.academy: contact', () => {
     cy.findAllByText(/Prices & more details/)
       .first()
       .click({ force: true });
-    cy.findAllByText(/Buy now/, { timeout: 10000 }).click();
+    cy.findAllByText(/Buy now/, { timeout: 15000 }).click();
 
     cy.get('input[name="email"]').first().type('hello+e2e@leanjs.com');
     cy.get('input[name="name"]').first().type('Alex');
