@@ -54,7 +54,15 @@ function magicReducer(state, action) {
   }
 }
 
-export function MagicProvider({, children, requirePreSignup, login: myLogin }) {
+type MagicRenderProps = (args: any) => JSX.Element;
+
+interface MagicProviderProps {
+  magicKey: string
+  children: JSX.Element | MagicRenderProps
+  requirePreSignup?: (email: string) => Promise<Response> | boolean
+  login: (email: string) => Promise<Response> | boolean
+}
+export function MagicProvider({ magicKey, children, requirePreSignup, login: myLogin }: MagicProviderProps) {
   const [user, dispatch] = React.useReducer(magicReducer, initialState);
   React.useEffect(() => {
     // magic-sdk v2.5.1 breaks on SSR so we need to require it here
