@@ -179,6 +179,7 @@
     "gatsby-source-sanity": "~6.0.1",
     "gatsby-source-sanity-transform-images": "~0.0.7",
     "gatsby-transform-portable-text": "~0.0.2",
+    "husky": "^4.3.0",
     "jest": "25.2.3",
     "jest-environment-jsdom-global": "~2.0.4",
     "prettier": "~2.0.4",
@@ -186,5 +187,11 @@
     "ts-node": "~8.10.2",
     "tslint": "~6.1.2",
     "typescript": "~3.9.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx nx format:write --base HEAD",
+      "pre-push": "npx nx affected:test &  npx nx affected:lint"
+    }
   }
 }
