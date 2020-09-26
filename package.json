@@ -40,6 +40,7 @@
     "@sanity/block-content-to-react": "~2.0.7",
     "@sanity/components": "~1.149.16",
     "@sanity/core": "~1.149.17",
+    "@sanity/dashboard": "^1.150.8",
     "@sanity/default-layout": "~1.149.16",
     "@sanity/default-login": "~1.149.16",
     "@sanity/desk-tool": "~1.149.16",

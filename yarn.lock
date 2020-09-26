@@ -3686,6 +3686,16 @@
     postcss-value-parser "^3.3.0"
     source-list-map "^2.0.0"
 
+"@sanity/dashboard@^1.150.8":
+  version "1.150.8"
+  resolved "https://registry.yarnpkg.com/@sanity/dashboard/-/dashboard-1.150.8.tgz#b34886c8250b83650a7591d9bb3423723f98da5c"
+  integrity sha512-yGUf5qHrQ/X0MngP0qUu/T0oiZg9o8k8qlAFzoyE05iBoN4hlv6L2wnfqnlh3b/YXYQ4Woj3z59SAwqU/yg2Lg==
+  dependencies:
+    "@sanity/image-url" "^0.140.19"
+    lodash "^4.17.15"
+    react-icons "^2.2.7"
+    rxjs "^6.5.3"
+
 "@sanity/data-aspects@1.149.18":
   version "1.149.18"
   resolved "https://registry.yarnpkg.com/@sanity/data-aspects/-/data-aspects-1.149.18.tgz#a52853a6bb7d65f4ed17050eac72232a0095a1ee"
