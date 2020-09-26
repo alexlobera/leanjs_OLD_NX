@@ -91,7 +91,7 @@ module.exports = {
         dataset: process.env.GATSBY_SANITY_DATASET || sanityDataset,
         token: process.env.SANITY_TOKEN,
         watchMode: true,
-        overlayDrafts: true
+        overlayDrafts: true,
       },
     },
     {
