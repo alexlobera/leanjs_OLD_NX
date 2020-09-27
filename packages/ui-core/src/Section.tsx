@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
-export function Section<T extends As = 'section'>(props: LeanProps<T>) {
+export function Section<T extends As = 'section'>(props: BoxProps<T>) {
   return (
     <Box
       as="section"

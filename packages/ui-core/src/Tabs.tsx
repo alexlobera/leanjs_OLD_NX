@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 
 import { Ul } from './List';
-import { Box, SxProp, LeanProps, As } from './Box';
+import { Box, SxProp, BoxProps, As } from './Box';
 
 export const TabList = React.memo(function <T extends As = 'ul'>(
-  props: LeanProps<T>
+  props: BoxProps<T>
 ) {
   return (
     <Ul
@@ -32,7 +32,7 @@ interface TabItemProps {
 
 // TODO add aria-controls and tabindex -> https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Tab_Role
 export const TabItem = React.memo(function <T extends As = 'li'>(
-  props: LeanProps<T, TabItemProps>
+  props: BoxProps<T, TabItemProps>
 ) {
   const {
     name,
@@ -93,7 +93,7 @@ interface TabPanelProps {
 }
 // TODO ADD aria-labelledby and tabindex -> https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Tab_Role
 export const TabPanel = React.memo(function <T extends As = 'div'>(
-  props: LeanProps<T, TabPanelProps>
+  props: BoxProps<T, TabPanelProps>
 ) {
   const { value } = useTabsContext();
 

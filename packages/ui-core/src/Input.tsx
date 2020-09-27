@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, SxProp, LeanProps, As, get } from './Box';
+import { Box, SxProp, BoxProps, As } from './Box';
 import { Label } from './Label';
-import { useTheme } from './ThemeProvider';
 
 interface InputFormProps {
   onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
@@ -10,9 +9,7 @@ interface InputFormProps {
   checked?: boolean;
 }
 
-function InputForm<T extends As = 'input'>(
-  props: LeanProps<T, InputFormProps>
-) {
+function InputForm<T extends As = 'input'>(props: BoxProps<T, InputFormProps>) {
   return (
     <Box
       variant="input"
@@ -97,7 +94,7 @@ export function Input<T extends As>({
   sx = {},
   formGroupSx = {},
   ...props
-}: LeanProps<T>) {
+}: BoxProps<T>) {
   const { invalid, pristine, error, submitFailed, submitSucceeded } = meta;
   const name = props.name || input.name;
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {

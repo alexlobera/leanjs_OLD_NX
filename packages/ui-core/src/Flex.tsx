@@ -7,7 +7,9 @@ export const Flex = React.forwardRef(function <T extends As = 'div'>(
 ) {
   const { sx = {} } = props;
   return <Box {...props} ref={ref} sx={{ display: 'flex', ...sx }} />;
-}) as <E extends As = 'div'>(props: BoxProps<E>) => JSX.Element;
+}) as <T extends As = 'div'>(props: BoxProps<T>) => JSX.Element;
 
-// ❌ this fails since it doesnt fail even without spreading {...props}. -> React.forwardRef
-// const B = (props) => <Flex asss sx={{ m: 1 }} />;
+// interface P {
+//   a: boolean;
+// }
+// const B = ({ a, ...rest }: P) => <Flex {...rest} asss sx={{ m: 1 }} />;

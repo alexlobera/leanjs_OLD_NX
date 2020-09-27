@@ -12,18 +12,17 @@ export type PropsOf<T extends As> = React.ComponentPropsWithRef<T>;
 
 export type As = React.ElementType;
 
-export interface BoxOwnProps<E extends As = As> {
-  as?: E;
+export interface BoxOwnProps<T extends As = As> {
+  as?: T;
   sx?: SxProp;
   variant?: string;
-  // box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
   box?: As;
   __themeKey?: string;
   __sx?: SxProp;
 }
 
-export type BoxProps<E extends As, P = {}> = BoxOwnProps<E> &
-  Omit<PropsOf<E>, keyof BoxOwnProps> &
+export type BoxProps<T extends As, P = {}> = BoxOwnProps<T> &
+  Omit<PropsOf<T>, keyof BoxOwnProps> &
   P;
 
 export const StyledBox = styled(
@@ -57,21 +56,11 @@ export const StyledBox = styled(
       ...sx,
     });
   }
-) as <E extends As = 'div'>(props: BoxProps<E>) => JSX.Element;
+);
 
-export function Box<T extends As = 'div'>(props: BoxProps<T>) {
-  return <StyledBox {...props} box={props.box || props.as} as={null} />;
-}
-
-export function Link<T extends As = 'a'>({ a, ...props }: BoxProps<T>) {
-  return (
-    <Box
-      as="a"
-      variant="a"
-      aadfs
-      {...props}
-      __sx={{ mt: 1 }}
-      __themeKey="styles"
-    />
-  );
-}
+export const Box = React.forwardRef(function <T extends As = 'div'>(
+  { box, as, ...rest }: BoxProps<T>,
+  ref
+) {
+  return <StyledBox ref={ref} {...rest} box={box || as} />;
+}) as <T extends As = 'div'>(props: BoxProps<T>) => JSX.Element;

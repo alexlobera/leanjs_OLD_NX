@@ -9,7 +9,6 @@ export const Container = React.forwardRef(function <T extends As>(
     <Box
       ref={ref}
       variant="container"
-      asdf
       {...props}
       __sx={{
         width: '100%',
@@ -19,12 +18,10 @@ export const Container = React.forwardRef(function <T extends As>(
       __themeKey="layout"
     />
   );
-}) as <E extends As = 'div'>(props: BoxProps<E>) => JSX.Element;
+}) as <T extends As = 'div'>(props: BoxProps<T>) => JSX.Element;
 
 // const B = (props: F) => <Container ddd {...props} sx={{ m: 1 }} />;
 // interface F {
 //   test: boolean;
 // }
-// const B2 = (props: F) => (
-//   <Container {...props} fff id="aad" onClick={(e) => {}} />
-// );
+// const B2 = (props: F) => <B {...props} test fff id="aad" onClick={(e) => {}} />;

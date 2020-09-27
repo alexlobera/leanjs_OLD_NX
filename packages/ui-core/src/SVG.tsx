@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
 interface SVGProps {
   width?: number;
@@ -8,7 +8,7 @@ interface SVGProps {
   fill?: string;
 }
 
-export function SVG<T extends As = 'svg'>(props: LeanProps<T, SVGProps>) {
+export function SVG<T extends As = 'svg'>(props: BoxProps<T, SVGProps>) {
   const { width, height, viewBox = '0 0 24 24', fill = 'currentcolor' } = props;
   return (
     <Box

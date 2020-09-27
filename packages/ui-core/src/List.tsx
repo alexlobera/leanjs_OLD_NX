@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 import { getVariantProps } from './utils';
 
 interface UlProps {
@@ -9,7 +9,7 @@ interface UlProps {
 
 const UlContext = React.createContext({ variant: '', variants: [] });
 
-function Ul<T extends As = 'ul'>(props: LeanProps<T, UlProps>) {
+function Ul<T extends As = 'ul'>(props: BoxProps<T, UlProps>) {
   return (
     <UlContext.Provider
       value={{ variant: props.variant, variants: props.variants }}
@@ -55,7 +55,7 @@ const liVariantSxProp = {
   },
 };
 
-function Li<T extends As = 'li'>(props: LeanProps<T>) {
+function Li<T extends As = 'li'>(props: BoxProps<T>) {
   const { variant, variants } = React.useContext(UlContext);
 
   return (

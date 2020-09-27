@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
 function createTypography(variant: string) {
   return React.forwardRef(
-    <T extends As & string = 'h2'>(props: LeanProps<T>, ref) => (
+    <T extends As & string = 'h2'>(props: BoxProps<T>, ref) => (
       <Box
         {...props}
         ref={ref}
