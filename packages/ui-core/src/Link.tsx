@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, BoxProps, As } from './Box3';
+import { Box, BoxProps, As } from './Box';
 // import { Box, LeanProps, As } from './Box';
 
-export function Link<T extends As = 'a'>(props: BoxProps<T>) {
+export function Link<T extends As = 'a'>({ a, ...props }: BoxProps<T>) {
   return (
     <Box as="a" variant="a" {...props} __sx={{ mt: 1 }} __themeKey="styles" />
   );

@@ -1,5 +1,5 @@
 import React, { ReactNode, MouseEvent } from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
 interface ButtonProps {
   // variant?: keyof typeof buttonVariantProps;
@@ -46,7 +46,7 @@ export const buttonDefaultSxProp = {
 // };
 
 export const Button = function <T extends As = 'button'>(
-  props: LeanProps<T, ButtonProps>
+  props: BoxProps<T, ButtonProps>
 ) {
   const {
     children,
@@ -77,9 +77,12 @@ export const Button = function <T extends As = 'button'>(
   );
 };
 
-// 🎉 works well, fff fails
+// // 🎉 works well, fff fails
 // const B = (props) => <Button fff id="aad" onClick={(e) => {}} />;
-// ❌ this doesn't work since it doesnt fail when spreading {...props}
-// const B = (props) => <Button {...props} fff id="aad" onClick={(e) => {}} />;
+// // ❌ this doesn't work since it doesnt fail when spreading {...props}
+// interface F {
+//     test: boolean
+// }
+// const B2 = (props: F) => <Button {...props} fff id="aad" onClick={(e) => {}} />;
 
 Button.displayName = 'Button';

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { ThemeProps } from 'styled-components';
-
 import {
   css,
   Theme,
@@ -9,43 +8,25 @@ import {
 } from '@theme-ui/css';
 export type SxProp = any;
 
-export { get };
-
-type WithAs<P, T extends As> = P &
-  Omit<PropsOf<T>, 'as'> & {
-    as?: T;
-  };
-
-export type BoxProps<T extends As = 'div'> = {
-  sx?: SxProp;
-  variant?: string;
-  children?: React.ReactNode;
-  box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
-  className?: string;
-  as?: T;
-  ref?:
-    | ((instance: unknown) => void)
-    | React.MutableRefObject<unknown>
-    | React.Ref<unknown>;
-  __themeKey?: string;
-  __sx?: SxProp;
-};
-
-export type LeanComponent<P = {}, TT extends As = 'div'> = <T extends As = TT>(
-  props: LeanProps<T, P>
-) => JSX.Element;
-
-export type LeanProps<T extends As = 'div', P = {}> = WithAs<P, T> &
-  BoxProps<T>;
-
-export type As = React.ElementType<any>; // keyof JSX.IntrinsicElements | React.ComponentType<any>;
-
 export type PropsOf<T extends As> = React.ComponentPropsWithRef<T>;
 
-const StyledBox: LeanComponent<
-  {},
-  'div'
-> = styled(
+export type As = React.ElementType;
+
+export interface BoxOwnProps<E extends As = As> {
+  as?: E;
+  sx?: SxProp;
+  variant?: string;
+  // box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+  box?: As;
+  __themeKey?: string;
+  __sx?: SxProp;
+}
+
+export type BoxProps<E extends As, P = {}> = BoxOwnProps<E> &
+  Omit<PropsOf<E>, keyof BoxOwnProps> &
+  P;
+
+export const StyledBox = styled(
   (
     { sx, box: Comp = 'div', variant, variants, __themeKey, __sx, ...rest },
     ref
@@ -64,7 +45,7 @@ const StyledBox: LeanComponent<
     __sx = {},
     theme,
     variant,
-  }: ThemeProps<Theme> & BoxProps) => {
+  }: ThemeProps<Theme> & BoxOwnProps) => {
     return css({
       fontFamily: 'body',
       fontWeight: 'normal',
@@ -76,9 +57,21 @@ const StyledBox: LeanComponent<
       ...sx,
     });
   }
-);
+) as <E extends As = 'div'>(props: BoxProps<E>) => JSX.Element;
 
-export function Box<T extends As = 'div'>(props: LeanProps<T>) {
-  const box = props.box || props.as;
-  return <StyledBox {...props} box={box} as={null} />;
+export function Box<T extends As = 'div'>(props: BoxProps<T>) {
+  return <StyledBox {...props} box={props.box || props.as} as={null} />;
+}
+
+export function Link<T extends As = 'a'>({ a, ...props }: BoxProps<T>) {
+  return (
+    <Box
+      as="a"
+      variant="a"
+      aadfs
+      {...props}
+      __sx={{ mt: 1 }}
+      __themeKey="styles"
+    />
+  );
 }
