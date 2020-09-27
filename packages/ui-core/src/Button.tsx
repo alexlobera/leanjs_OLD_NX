@@ -79,7 +79,6 @@ export const Button = function <T extends As = 'button'>(
 
 // // 🎉 works well, fff fails
 // const B = (props) => <Button fff id="aad" onClick={(e) => {}} />;
-// // ❌ this doesn't work since it doesnt fail when spreading {...props}
 // interface F {
 //     test: boolean
 // }

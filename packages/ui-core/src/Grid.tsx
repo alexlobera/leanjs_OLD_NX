@@ -45,7 +45,6 @@ export const Grid = <T extends As = 'div'>(props: BoxProps<T, GridProps>) => {
 
 // 🎉 works well, fff fails
 // const B = (props) => <Button fff id="aad" onClick={(e) => {}} />;
-// ❌ this doesn't work since it doesnt fail when spreading {...props}
 // interface P {
 //   a: boolean;
 // }

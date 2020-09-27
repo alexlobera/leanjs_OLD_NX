@@ -8,7 +8,6 @@ export const Image = React.forwardRef(function <T extends As = 'img'>(
   return <Box as="img" {...props} ref={ref} __sx={{ maxWidth: '100%' }} />;
 }) as <T extends As = 'div'>(props: BoxProps<T>) => JSX.Element;
 
-// ❌ this fails since it doesnt fail even without spreading {...props}. -> React.forwardRef
 // interface P {
 //   a: boolean;
 // }
