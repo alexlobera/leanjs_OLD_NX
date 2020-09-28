@@ -11,7 +11,8 @@ describe('leanjs.com: contact', () => {
     cy.findAllByText(/Submit/).click();
 
     cy.findAllByText(
-      /Thank you for your submission! We will be in touch shortly./
-      , { timeout: 15000 });
+      /Thank you for your submission! We will be in touch shortly./,
+      { timeout: 15000 }
+    );
   });
 });
