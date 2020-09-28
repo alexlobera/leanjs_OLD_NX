@@ -15,11 +15,14 @@ export function GatsbyVideoPlayer({
 }) {
   const [imageLoaded, setImageLoaded] = React.useState(false);
   const [derivedAutoload, setDerivedAutoload] = React.useState(autoload);
-  const poster = new Image();
-  poster.src = fluidPoster?.src;
-  poster.onload = () => {
-    setImageLoaded(true);
-  };
+  let poster: HTMLImageElement;
+  if (typeof Image !== 'undefined') {
+    poster = new Image();
+    poster.src = fluidPoster?.src;
+    poster.onload = () => {
+      setImageLoaded(true);
+    };
+  }
 
   return (
     <Box
@@ -38,7 +41,7 @@ export function GatsbyVideoPlayer({
       >
         {imageLoaded && (
           <VideoPlayer
-            posterUrl={poster.src}
+            posterUrl={poster?.src}
             url={url}
             autoload={derivedAutoload}
             {...rest}
