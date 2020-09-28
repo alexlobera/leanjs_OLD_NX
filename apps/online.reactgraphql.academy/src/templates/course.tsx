@@ -179,7 +179,12 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                   const { previewVideo } = published;
                   acc.push(
                     <>
-                      <Box sx={{ gridColumn: ['1/ -1', '1/ 4'], mb: 5 }}>
+                      <Box
+                        sx={{
+                          gridColumn: ['1/ -1', '1/ 4'],
+                          mb: 5,
+                        }}
+                      >
                         {previewVideo && (
                           <GatsbyVideoPlayer
                             fluidPoster={
@@ -413,7 +418,7 @@ export const query = graphql`
             posterImageUrl
             posterImageFile {
               childImageSharp {
-                fluid(maxWidth: 1200) {
+                fluid(maxWidth: 750) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -432,7 +437,7 @@ export const query = graphql`
                 posterImageUrl
                 posterImageFile {
                   childImageSharp {
-                    fluid(maxWidth: 1200) {
+                    fluid(maxWidth: 500) {
                       ...GatsbyImageSharpFluid
                     }
                   }

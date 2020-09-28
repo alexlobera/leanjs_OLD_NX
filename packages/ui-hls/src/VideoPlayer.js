@@ -22,6 +22,10 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     width: auto;
 }
+
+.plyr__video-wrapper video {
+    object-fit: cover;
+}
 `;
 
 let Plyr;

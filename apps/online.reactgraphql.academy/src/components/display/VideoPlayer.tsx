@@ -1,7 +1,7 @@
 import React from 'react';
 import { VideoPlayer } from '@leanjs/ui-hls';
 
-import Image from './Image';
+import Img from './Image';
 import { Box } from '../layout';
 
 export { VideoPlayer };
@@ -15,9 +15,14 @@ export function GatsbyVideoPlayer({
 }) {
   const [imageLoaded, setImageLoaded] = React.useState(false);
   const [derivedAutoload, setDerivedAutoload] = React.useState(autoload);
+  const poster = new Image();
+  poster.src = fluidPoster?.src;
+  poster.onload = () => {
+    setImageLoaded(true);
+  };
+
   return (
     <Box
-      adasf
       onMouseOver={() => setDerivedAutoload(true)}
       sx={{ position: 'relative' }}
     >
@@ -33,14 +38,14 @@ export function GatsbyVideoPlayer({
       >
         {imageLoaded && (
           <VideoPlayer
-            posterUrl={fluidPoster?.src}
+            posterUrl={poster.src}
             url={url}
             autoload={derivedAutoload}
             {...rest}
           />
         )}
       </Box>
-      <Image onLoad={() => setImageLoaded(true)} fluid={fluidPoster} />
+      <Img fluid={fluidPoster} />
       {overlay}
     </Box>
   );
