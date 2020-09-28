@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form as StateForm } from 'react-final-form';
 import { Config } from 'final-form';
-import { Box, BoxProps } from '@leanjs/ui-core';
+import { Box, BoxProps, As } from '@leanjs/ui-core';
 
 export * from './validators';
 export { Field } from 'react-final-form';
@@ -18,14 +18,14 @@ interface ExtendedBoxProps {
 }
 
 interface FormProps<FormValues = AnyObject>
-  extends BoxProps,
-    ExtendedBoxProps,
-    Config {
+  extends
+  ExtendedBoxProps,
+  Config {
   children?: (props: FormValues) => React.ReactNode;
   render?: (props: FormValues) => React.ReactNode;
 }
 
-export const Form = ({
+export const Form = <T extends As = 'form'>({
   children,
   render,
   autoComplete,
@@ -33,7 +33,7 @@ export const Form = ({
   name,
   sx,
   ...rest
-}: FormProps) => {
+}: BoxProps<T, FormProps>) => {
   const renderProp = render || children;
 
   return (

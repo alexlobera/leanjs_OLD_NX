@@ -12,6 +12,6 @@ describe('leanjs.com: contact', () => {
 
     cy.findAllByText(
       /Thank you for your submission! We will be in touch shortly./
-    );
+      , { timeout: 15000 });
   });
 });

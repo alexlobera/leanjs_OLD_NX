@@ -82,18 +82,21 @@ const IndexPage = ({ trainings }) => {
   const [selectedTab, setTab] = useState(TAB_REACT);
 
   const featuredTrainings = [
-    // selectTrainingByInstanceId({
-    //   trainings,
-    //   id: '@VFJBOjVlMzg1NGQ2NmJmZDIzMDAwMjM4NjQ3Zg==',
-    // }),
+    // react bootcamp
+    getNextTrainingByTrainingId({
+      trainings,
+      trainingId: '@VFJBOjVhMTZmMGVhNDkzOWE2MDFmZTJkYjcwMQ==',
+    }),
+    // react trial
     getNextTrainingByTrainingId({
       trainings,
       trainingId: '@VFJBOjVlMzg1NGQ2NmJmZDIzMDAwMjM4NjQ3Zg==',
     }),
-    getNextTrainingByTrainingId({
-      trainings,
-      trainingId: '@VFJBOjVlMzQ5Mjc1Nzc4ZTg4MDAwMjExMzQ3NA==',
-    }),
+    // gql trial
+    // getNextTrainingByTrainingId({
+    //   trainings,
+    //   trainingId: '@VFJBOjVlMzQ5Mjc1Nzc4ZTg4MDAwMjExMzQ3NA==',
+    // }),
   ].filter((t) => t);
 
   return (
@@ -143,8 +146,8 @@ const IndexPage = ({ trainings }) => {
           {selectedTab === TAB_REACT ? (
             <FullCurriculumsImmersive trainings={trainings} />
           ) : (
-            <FullCurriculumsPartTime trainings={trainings} />
-          )}
+              <FullCurriculumsPartTime trainings={trainings} />
+            )}
         </Segment>
       </TopSection>
       <ColSection
