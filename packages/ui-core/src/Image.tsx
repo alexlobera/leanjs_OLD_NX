@@ -1,12 +1,14 @@
 import React from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
 export const Image = React.forwardRef(function <T extends As = 'img'>(
-  props: LeanProps<T>,
+  props: BoxProps<T>,
   ref
 ) {
   return <Box as="img" {...props} ref={ref} __sx={{ maxWidth: '100%' }} />;
-});
+}) as <T extends As = 'div'>(props: BoxProps<T>) => JSX.Element;
 
-// ❌ this fails since it doesnt fail even without spreading {...props}. -> React.forwardRef
-// const B = (props) => <Image asss sx={{ m: 1 }} />;
+// interface P {
+//   a: boolean;
+// }
+// const B = ({ a, ...rest }) => <Image {...rest} asss sx={{ m: 1 }} />;

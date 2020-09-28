@@ -1,16 +1,19 @@
 import React from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
-export function Link<T extends As = 'a'>(props: LeanProps<T>) {
+export function Link<T extends As = 'a'>(props: BoxProps<T>) {
   return (
     <Box as="a" variant="a" {...props} __sx={{ mt: 1 }} __themeKey="styles" />
   );
 }
 
-// 🎉 works well, fff fails. The type requires the As = 'default' <T extends As = 'label'> so it works here
+// // 🎉 it works! fff fails
 // const B = (props) => <Link fff />;
-// ❌ this doesn't work since it doesnt fail when spreading {...props}
-// const B = (props) => <Link {...props} fff />;
-// const B = <T extends As>({ removeProps, ...rest }: LeanProps<T>) => (
-//   <Link {...rest} sx={{ m: 1 }} />
-// );
+// // 🎉 it works! fff fails
+// interface P {
+//   a: boolean;
+// }
+// const B2 = (props: P) => <Link {...props} fff className="ssdaf" />;
+// // 🎉 it works! fff fails
+// //import { Link as RRLink } from 'react-router-dom';
+// const B3 = ({ a, ...rest }: P) => <Link {...rest} as={RRLink} sx={{ m: 1 }} />;

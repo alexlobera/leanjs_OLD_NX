@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
 export const Container = React.forwardRef(function <T extends As>(
-  props: LeanProps<T>,
+  props: BoxProps<T>,
   ref
 ) {
   return (
@@ -18,7 +18,10 @@ export const Container = React.forwardRef(function <T extends As>(
       __themeKey="layout"
     />
   );
-});
+}) as <T extends As = 'div'>(props: BoxProps<T>) => JSX.Element;
 
-// ❌
-// const B = (props) => <Container ddd {...props} sx={{ m: 1 }} />;
+// const B = (props: F) => <Container ddd {...props} sx={{ m: 1 }} />;
+// interface F {
+//   test: boolean;
+// }
+// const B2 = (props: F) => <B {...props} test fff id="aad" onClick={(e) => {}} />;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
-export function Label<T extends As = 'label'>(props: LeanProps<T>) {
+export function Label<T extends As = 'label'>(props: BoxProps<T>) {
   return <Box as="label" variant="label" {...props} __themeKey="forms" />;
 }
 

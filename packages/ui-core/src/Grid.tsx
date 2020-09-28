@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
 const px = (n) => (typeof n === 'number' ? n + 'px' : n);
 
@@ -21,7 +21,7 @@ interface GridProps {
   gap?: number;
 }
 
-export const Grid = <T extends As>(props: LeanProps<T, GridProps>) => {
+export const Grid = <T extends As = 'div'>(props: BoxProps<T, GridProps>) => {
   const { columns = 3, gap = 3 } = props;
   const gridTemplateColumns =
     typeof columns === 'object'
@@ -45,5 +45,7 @@ export const Grid = <T extends As>(props: LeanProps<T, GridProps>) => {
 
 // 🎉 works well, fff fails
 // const B = (props) => <Button fff id="aad" onClick={(e) => {}} />;
-// ❌ this doesn't work since it doesnt fail when spreading {...props}
-// const B = (props) => <Grid fff sx={{ m: 1 }} />;
+// interface P {
+//   a: boolean;
+// }
+// const B = ({a, ...rest}: P) => <Grid fssff {...rest} sx={{ m: 1 }} />;

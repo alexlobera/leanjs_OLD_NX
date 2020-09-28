@@ -2,7 +2,7 @@ import React from 'react';
 
 // import { fontColor } from '../text';
 import { getVariantProps } from './utils';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
 const defaultPadding = {
   pl: [1, 4],
@@ -37,7 +37,7 @@ const cardVariants = ({
 //     fontColor(theme.colors ? theme.colors.text : undefined, true)}
 // `;
 
-export function Card<T extends As = 'div'>(props: LeanProps) {
+export function Card<T extends As = 'div'>(props: BoxProps<T>) {
   // function Card <T extends As = 'div'> ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
   //   let smallSxProps = {};
   //   if (rest.small) {

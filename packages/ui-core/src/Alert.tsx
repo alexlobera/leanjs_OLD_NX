@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
-export function Alert<T extends As = 'div'>(props: LeanProps<T>) {
+export function Alert<T extends As = 'div'>(props: BoxProps<T>) {
   return (
     <Box
       {...props}

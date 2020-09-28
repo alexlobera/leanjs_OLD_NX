@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, LeanProps, As } from './Box';
+import { Box, BoxProps, As } from './Box';
 
-export function Tag<T extends As = 'span'>(props: LeanProps<T>) {
+export function Tag<T extends As = 'span'>(props: BoxProps<T>) {
   return (
     <Box
       as="span"
