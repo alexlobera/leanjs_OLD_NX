@@ -17,10 +17,7 @@ interface ExtendedBoxProps {
   name?: string;
 }
 
-interface FormProps<FormValues = AnyObject>
-  extends
-  ExtendedBoxProps,
-  Config {
+interface FormProps<FormValues = AnyObject> extends ExtendedBoxProps, Config {
   children?: (props: FormValues) => React.ReactNode;
   render?: (props: FormValues) => React.ReactNode;
 }
