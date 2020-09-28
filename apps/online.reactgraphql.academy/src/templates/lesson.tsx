@@ -239,22 +239,20 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         >
                           {pageContext.isPublicVideo && !loggedIn ? (
                             <>
-                              You have to{' '}
                               <Link
                                 to="/login"
                                 state={{ referrer: location.pathname }}
                               >
-                                log in
+                                Log in
                               </Link>{' '}
-                              to watch this video.
+                              to watch this video
                             </>
                           ) : (
                             <>
-                              You have to{' '}
                               <Link to={`${trainingPath}#pricing`}>
-                                purchase this course
+                                Buy this course
                               </Link>{' '}
-                              to watch this video.
+                              to watch this video
                             </>
                           )}
                         </H3>
@@ -265,7 +263,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                               to="/login"
                               state={{ referrer: location.pathname }}
                             >
-                              Log in now
+                              Watch now
                             </LinkButton>
                           ) : (
                             <LinkButton
@@ -313,11 +311,10 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             ) : !relatedResources && !loggedIn ? (
               <>
                 <P>
-                  You have to{' '}
                   <Link to={`${trainingPath}#pricing`}>
-                    purchase this course
+                    Purchase this course
                   </Link>{' '}
-                  to see its related resources.
+                  to access its related resources.
                 </P>
                 <P sx={{ textAlign: 'center' }}>
                   <LinkButton to={`${trainingPath}#pricing`} variant="primary">
