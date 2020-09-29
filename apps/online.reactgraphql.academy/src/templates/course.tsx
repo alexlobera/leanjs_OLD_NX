@@ -43,7 +43,7 @@ const metas = {
   type: 'website',
 };
 
-const COURSE_QUERY = `
+export const COURSE_QUERY = `
   query purchasedTraining($trainingId: ID!) {
     viewer {
       purchasedTraining(trainingId: $trainingId) {
@@ -56,6 +56,17 @@ const COURSE_QUERY = `
       discountPrice {
         currentPrice
         endsOn
+      }
+      units {
+        id
+        published {
+          videos {
+            id
+            viewer {
+              completedAt
+            }
+          }
+        }
       }
     }
   }
@@ -72,18 +83,23 @@ function CoursePage({ data, pageContext: { trainingId } }) {
 
   const trainingInstances =
     data.upmentoring.trainingInstances &&
-    data.upmentoring.trainingInstances.edges
+      data.upmentoring.trainingInstances.edges
       ? data.upmentoring.trainingInstances.edges
-          .map(formatTraining())
-          .slice(0, 3)
+        .map(formatTraining())
+        .slice(0, 3)
       : [];
 
   // TODO useMemo variables inside useQuery
-  const options = React.useMemo(() => {
-    return { variables: { trainingId }, skip: loggingInUser };
-  }, [trainingId, loggingInUser]);
+  // const options = React.useMemo(() => {
+  //   return { variables: { trainingId }, skip: loggingInUser };
+  // }, [trainingId, loggingInUser]);
 
-  const { data: runTimeData, loading } = useQuery(COURSE_QUERY, options);
+  // const { data: runTimeData, loading } = useQuery(COURSE_QUERY, options);
+  const { data: runTimeData, loading } = useQuery(COURSE_QUERY,
+    {
+      variables: { trainingId }, skip: loggingInUser
+    }
+  );
 
   const loadingData = loggingInUser || loading;
   const purchased = runTimeData?.viewer?.purchasedTraining?.id === trainingId;
@@ -97,6 +113,23 @@ function CoursePage({ data, pageContext: { trainingId } }) {
   const standardPrice = runTimeData?.trainingById?.standardPrice;
   const currency = runTimeData?.trainingById?.currency;
   const BgLogo = ReactBgWithBorder;
+
+  const completedVideoSet = React.useMemo(
+    () =>
+      runTimeData?.trainingById?.units.reduce((set, { published, id }) => {
+        set[id] = {}
+        published?.videos?.reduce((innerSet, { viewer, id: videoId }) => {
+          if (viewer?.completedAt) {
+            innerSet[videoId] = true
+          }
+
+          return innerSet;
+        }, set[id])
+
+        return set
+      }, {}),
+    [runTimeData?.trainingById?.units]
+  );
 
   return (
     <Layout
@@ -172,7 +205,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
 
             <Grid columns={10}>
               {units.reduce((acc, unit, index) => {
-                const { published } = unit;
+                const { published, id: unitId } = unit;
                 if (published) {
                   const lessonsCount =
                     (published.videos && published.videos.length) || 0;
@@ -259,7 +292,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                           {lessonsCount > 0 && (
                             <TabPanel name="lessons">
                               <Ul variant="unstyled" sx={{ pl: 0 }}>
-                                {published.videos.map(({ title, slug, id }) => {
+                                {published.videos.map(({ title, slug, id: videoId }) => {
                                   const path = `${trainingPath}/${slug}`;
 
                                   return (
@@ -276,7 +309,11 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                                           display: 'inline-block',
                                         }}
                                       >
-                                        <PlayIcon />
+                                        {completedVideoSet && completedVideoSet[unitId] && completedVideoSet[unitId][videoId] ? (
+                                          <Tick width={25} sx={{ mb: '-5px' }} />
+                                        ) : (
+                                            <PlayIcon />
+                                          )}
                                       </Box>
                                       <Box>
                                         <Link to={path}>{title}</Link>
@@ -325,11 +362,11 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                     discountPrice={discountPrice}
                   />
                 ) : (
-                  <H2 sx={{ color: 'inverseText' }}>
-                    <Link id="pricing" />
+                    <H2 sx={{ color: 'inverseText' }}>
+                      <Link id="pricing" />
                     Thank you for purchasing this course :)
-                  </H2>
-                )}
+                    </H2>
+                  )}
               </Box>
             </Grid>
           </Sheet>
@@ -426,6 +463,7 @@ export const query = graphql`
           }
         }
         units {
+          id
           published {
             title
             objectives
@@ -445,6 +483,7 @@ export const query = graphql`
               }
             }
             videos {
+              id
               title
               slug
             }

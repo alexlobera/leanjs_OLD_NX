@@ -20,13 +20,16 @@ const memoizedHashGql = memoize(hashGql);
 export const GraphQLProvider = ({ children, link }) => {
   const [state, setState] = useState({});
 
-  async function runQuery({ query, variables }) {
+  async function runQuery({ query, variables, refetchQueries = [] }) {
     const cacheKey = memoizedHashGql(query, variables);
     let result;
 
     try {
       const { data, errors } = await link.fetch({ query, variables });
       result = { data, errors };
+      refetchQueries?.map(refetch => runQuery({
+        query: refetch.query, variables: refetch.variables
+      }))
     } catch (error) {
       result = { errors: [error.message] };
     }
