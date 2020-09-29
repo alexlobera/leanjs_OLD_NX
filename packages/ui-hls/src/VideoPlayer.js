@@ -13,7 +13,8 @@ const GlobalStyle = createGlobalStyle`
     min-width:150px;
 }
 .plyr--video {
-    height: auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 .plyr--video.plyr--stopped .plyr__controls {
      display: none;
@@ -24,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 .plyr__video-wrapper video {
-    object-fit: cover;
+    object-fit: initial;
 }
 `;
 
