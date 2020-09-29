@@ -12255,10 +12255,12 @@ final-form-focus@^1.1.2:
   resolved "https://registry.yarnpkg.com/final-form-focus/-/final-form-focus-1.1.2.tgz#8ea5c4bd802e220cebaa47a587bb0be164eb6806"
   integrity sha512-Gd+Bd2Ll7ijo3/sd6kJ/bwLkhc2bUJPxTON6fIqee/008EJpACWhT+zoWCm9q6NcfMcWRS+Sp5ikRX8iqdXeGQ==
 
-final-form@~4.9.1:
-  version "4.9.1"
-  resolved "https://registry.yarnpkg.com/final-form/-/final-form-4.9.1.tgz#1afd6c61b4946b153b592c07eba7440979f257ed"
-  integrity sha512-yAsPPjWuERotoSyhEvQ0bVU/fBylvZeoQ+byDiGVsKfOeyeAIUiRQOelNsoNNW/Dyo98tTUYIq6/3cu0vWedNg==
+final-form@~4.20.1:
+  version "4.20.1"
+  resolved "https://registry.yarnpkg.com/final-form/-/final-form-4.20.1.tgz#525a7f7f27f55c28d8994b157b24d6104fc560e9"
+  integrity sha512-IIsOK3JRxJrN72OBj7vFWZxtGt3xc1bYwJVPchjVWmDol9DlzMSAOPB+vwe75TUYsw1JaH0fTQnIgwSQZQ9Acg==
+  dependencies:
+    "@babel/runtime" "^7.10.0"
 
 finalhandler@1.1.2, finalhandler@~1.1.2:
   version "1.1.2"
@@ -22511,13 +22513,12 @@ react-final-form-arrays@^3.1.2:
   dependencies:
     "@babel/runtime" "^7.4.5"
 
-react-final-form@~6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/react-final-form/-/react-final-form-6.4.0.tgz#7f9064c10a8bee6a02cd3e9b8aff06fa07f9c908"
-  integrity sha512-M7J7f0pnoj0o8sBq3iG6jsWJEh08pNUyl2D4wBC9SJvCNkGdol2UdyjMiEFYD3rz9LIFzQqFSG0kbRBCadqzhA==
+react-final-form@^6.5.1:
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/react-final-form/-/react-final-form-6.5.1.tgz#baf798129d459c669cfda5ce60a77801ef52badc"
+  integrity sha512-+Hzd9PqYY1Cv3MnWzw64QOl5BjC5BtSDakx+N7Re49r0FASdFhgpXLFFCJ31fvegq2euP6hz6Ow9K6XM9BSqCA==
   dependencies:
-    "@babel/runtime" "^7.9.2"
-    ts-essentials "^6.0.3"
+    "@babel/runtime" "^7.10.0"
 
 react-focus-lock@^2.3.1:
   version "2.4.1"
@@ -26667,11 +26668,6 @@ tryer@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/tryer/-/tryer-1.0.1.tgz#f2c85406800b9b0f74c9f7465b81eaad241252f8"
   integrity sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA==
-
-ts-essentials@^6.0.3:
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/ts-essentials/-/ts-essentials-6.0.7.tgz#5f4880911b7581a873783740ce8b94da163d18a6"
-  integrity sha512-2E4HIIj4tQJlIHuATRHayv0EfMGK3ris/GRk1E3CFnsZzeNV+hUmelbaTZHLtXaZppM5oLhHRtO04gINC4Jusw==
 
 ts-invariant@^0.4.0, ts-invariant@^0.4.4:
   version "0.4.4"
