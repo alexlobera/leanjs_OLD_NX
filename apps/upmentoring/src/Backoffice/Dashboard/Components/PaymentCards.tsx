@@ -70,15 +70,19 @@ export const FRAGMENT_PAYMENTS_DASHBOARD = gql`
           ... on TrainingPayment {
             trainingId
             training {
-              title
+              published {
+                title
+              }
             }
           }
           ... on TrainingInstancePayment {
             trainingInstanceId
             trainingInstance {
               title
-              startDate
-              utcOffset
+              published {
+                startDate
+                utcOffset
+              }
             }
           }
           ... on EventPayment {

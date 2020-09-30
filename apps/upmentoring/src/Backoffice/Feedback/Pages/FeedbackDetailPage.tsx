@@ -95,10 +95,12 @@ const QUERY_FEEDBACK = gql`
       username
       trainingInstance {
         id
-        startDate
-        utcOffset
-        city
         title
+        published {
+          startDate
+          utcOffset
+          city
+        }
       }
     }
   }

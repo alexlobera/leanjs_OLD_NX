@@ -27,7 +27,7 @@ const FeedbackCards = ({ feedbacks }: any) => {
               >
                 {formatUTC(
                   feedback.createdAt,
-                  trainingInstance && trainingInstance.utcOffset
+                  trainingInstance && trainingInstance.published.utcOffset
                 )}
               </Link>
               <P>{feedback.username ? feedback.username : 'Anonymous'}</P>
@@ -37,10 +37,10 @@ const FeedbackCards = ({ feedbacks }: any) => {
                   {trainingInstance && (
                     <P>
                       {formatUTC(
-                        trainingInstance.startDate,
-                        trainingInstance.utcOffset
+                        trainingInstance.published.startDate,
+                        trainingInstance.published.utcOffset
                       )}{' '}
-                      - {trainingInstance.city}
+                      - {trainingInstance.published.city}
                     </P>
                   )}
                 </>
@@ -69,10 +69,12 @@ export const FRAGMENT_FEEDBACKS_DASHBOARD = gql`
         createdAt
         trainingInstance {
           id
-          startDate
-          utcOffset
-          city
           title
+          published {
+            startDate
+            utcOffset
+            city
+          }
         }
       }
     }

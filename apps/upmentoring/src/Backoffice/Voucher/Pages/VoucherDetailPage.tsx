@@ -126,7 +126,7 @@ const VoucherDetailPage = () => {
                         <Link
                           to={`${appPaths.backoffice}${backofficePaths.event}/${voucher.eventId}/`}
                         >
-                          Event: {voucher.event.title}
+                          Event: {voucher.event.published.title}
                         </Link>
                       ) : voucher.trainingInstanceId ? (
                         <Link
@@ -140,7 +140,8 @@ const VoucherDetailPage = () => {
                         <Link
                           to={`${appPaths.backoffice}${backofficePaths.training}/${voucher.trainingId}`}
                         >
-                          Course: {voucher.training && voucher.training.title}
+                          Course:{' '}
+                          {voucher.training && voucher.training.published.title}
                         </Link>
                       ) : (
                         'Globaly'
@@ -175,7 +176,9 @@ const QUERY_VOUCHER = gql`
       type
       training {
         id
-        title
+        published {
+          title
+        }
       }
       trainingInstance {
         id
@@ -183,7 +186,9 @@ const QUERY_VOUCHER = gql`
       }
       event {
         id
-        title
+        published {
+          title
+        }
       }
     }
   }

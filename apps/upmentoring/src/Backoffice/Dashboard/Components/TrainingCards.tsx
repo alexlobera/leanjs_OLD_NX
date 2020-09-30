@@ -22,12 +22,12 @@ const TrainingCards = ({ trainingInstances }: any) => {
             >
               {trainingInstance.title} -{' '}
               {formatUTC(
-                trainingInstance.startDate,
-                trainingInstance.utcOffset,
+                trainingInstance.published.startDate,
+                trainingInstance.published.utcOffset,
                 'HH:mm'
               )}
             </Link>
-            <P>{trainingInstance.city}</P>
+            <P>{trainingInstance.published.city}</P>
           </Flex>
         </Card>
       ))}
@@ -47,11 +47,13 @@ export const FRAGMENT_TRAINING_INSTANCES_DASHBOARD = gql`
     edges {
       node {
         id
-        startDate
-        utcOffset
-        city
-        title
         trainingId
+        title
+        published {
+          startDate
+          utcOffset
+          city
+        }
       }
     }
   }

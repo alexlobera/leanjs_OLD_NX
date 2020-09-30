@@ -36,8 +36,11 @@ const YourTrainingInstances = () => {
                   <Tr key={instance.id}>
                     <Td>
                       {instance.title},{' '}
-                      {formatUTC(instance.startDate, instance.utcOffset)},{' '}
-                      {instance.city}
+                      {formatUTC(
+                        instance.published.startDate,
+                        instance.published.utcOffset
+                      )}
+                      , {instance.published.city}
                     </Td>
                     <Td>
                       <Link fontSize={1}>View feedback</Link>
@@ -109,11 +112,13 @@ export const QUERY_TRAINING_INSTANCES = gql`
         cursor
         node {
           id
-          city
-          startDate
-          utcOffset
           title
           trainingId
+          published {
+            city
+            startDate
+            utcOffset
+          }
         }
       }
     }

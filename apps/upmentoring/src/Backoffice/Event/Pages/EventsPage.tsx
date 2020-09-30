@@ -90,7 +90,7 @@ export const QUERY_EVENTS = gql`
     events(
       first: $first
       after: $cursor
-      orderBy: { sort: createdAt, direction: DESC }
+      orderBy: { sort: startDate, direction: DESC }
     ) {
       pageInfo {
         endCursor
