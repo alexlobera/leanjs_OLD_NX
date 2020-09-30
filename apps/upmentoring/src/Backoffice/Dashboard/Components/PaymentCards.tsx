@@ -84,9 +84,11 @@ export const FRAGMENT_PAYMENTS_DASHBOARD = gql`
           ... on EventPayment {
             eventId
             event {
-              title
-              startDate
-              utcOffset
+              published {
+                title
+                startDate
+                utcOffset
+              }
             }
           }
         }

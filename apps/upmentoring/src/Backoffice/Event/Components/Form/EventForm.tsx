@@ -513,46 +513,48 @@ const EventForm = ({ onSubmit, initialValues = {} }: any) => {
 export const EVENT_FORM_FRAGMENT = gql`
   fragment eventFormFragment on Event {
     id
-    meetup {
-      id
-    }
-    isOnline
-    title
-    overview
-    sponsors {
-      url
-      imageUrl
-    }
-    agenda {
+    published {
+      meetup {
+        id
+      }
+      isOnline
       title
-      sessions {
-        title
-        description
-      }
-    }
-    callForPapersUrl
-    speakers {
-      fullName
-      bio
-      profilePicUrl
-      jobTitle
-      companyName
-      links {
-        name
+      overview
+      sponsors {
         url
+        imageUrl
       }
+      agenda {
+        title
+        sessions {
+          title
+          description
+        }
+      }
+      callForPapersUrl
+      speakers {
+        fullName
+        bio
+        profilePicUrl
+        jobTitle
+        companyName
+        links {
+          name
+          url
+        }
+      }
+      venueName
+      address
+      mapUrl
+      city
+      cityCountry
+      startDate
+      endDate
+      utcOffset
+      maxAttendees
+      standardPrice
+      currency
     }
-    venueName
-    address
-    mapUrl
-    city
-    cityCountry
-    startDate
-    endDate
-    utcOffset
-    maxAttendees
-    standardPrice
-    currency
   }
 `;
 

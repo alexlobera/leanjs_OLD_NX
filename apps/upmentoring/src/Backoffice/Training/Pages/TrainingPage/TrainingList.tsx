@@ -46,7 +46,7 @@ const TrainingList = ({ trainings }: any) => {
                       fontSize={1}
                       to={`${appPaths.backoffice}${backofficePaths.training}/${training.id}`}
                     >
-                      {training.title}
+                      {training.published.title}
                     </Link>
                   </Flex>
                 </Td>
@@ -90,7 +90,9 @@ export const QUERY_TRAINING_LIST_FRAGMENT = gql`
       node {
         id
         createdAt
-        title
+        published {
+          title
+        }
       }
     }
   }

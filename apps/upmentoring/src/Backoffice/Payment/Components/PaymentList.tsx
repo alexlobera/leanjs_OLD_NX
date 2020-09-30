@@ -115,7 +115,9 @@ export const FRAGMENT_ANY_PAYMENTS_LIST = gql`
           ... on TrainingPayment {
             trainingId
             training {
-              title
+              published {
+                title
+              }
             }
           }
           ... on TrainingInstancePayment {
@@ -127,7 +129,9 @@ export const FRAGMENT_ANY_PAYMENTS_LIST = gql`
           ... on EventPayment {
             eventId
             event {
-              title
+              published {
+                title
+              }
             }
           }
         }

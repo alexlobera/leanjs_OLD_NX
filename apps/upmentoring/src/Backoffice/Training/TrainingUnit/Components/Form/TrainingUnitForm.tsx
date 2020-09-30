@@ -75,10 +75,17 @@ const TrainingUnitForm = ({
   const allVideoItems = React.useMemo(
     () =>
       selectVideos && selectVideos.edges && selectVideos.edges.map
-        ? selectVideos.edges.map(({ node: { id, title, tags } }: any) => ({
-            value: id,
-            title: `${tags ? tags.join() + ' - ' : ''}  ${title}`,
-          }))
+        ? selectVideos.edges.map(
+            ({
+              node: {
+                id,
+                published: { title, tags },
+              },
+            }: any) => ({
+              value: id,
+              title: `${tags ? tags.join() + ' - ' : ''}  ${title}`,
+            })
+          )
         : [],
     [selectVideos]
   );

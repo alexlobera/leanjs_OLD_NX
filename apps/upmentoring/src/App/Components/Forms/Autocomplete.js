@@ -5,7 +5,7 @@ function Autocomplete({ items, ...rest }) {
   const allItems = React.useMemo(
     () =>
       items && items.edges && items.edges.map
-        ? items.edges.map(({ node: { id, title, tags } }) => ({
+        ? items.edges.map(({ node: { id, published: { title, tags } } }) => ({
             value: id,
             title: `${tags ? tags.join() + ' - ' : ''}  ${title}`,
           }))

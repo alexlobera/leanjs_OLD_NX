@@ -67,7 +67,10 @@ const TrainingUnitsPage = () => {
     return null;
   }
 
-  const { title, units: immutableUnits } = data.trainingById;
+  const {
+    published: { title },
+    units: immutableUnits,
+  } = data.trainingById;
   const units = [...immutableUnits];
   const parentPath = removeLastDirectoryPath(match.url);
   const grandParentPath = removeLastDirectoryPath(parentPath);
@@ -205,8 +208,10 @@ export const QUERY_TRAINING_UNIT_LIST = gql`
   query trainingUnits($trainingId: ID!) {
     trainingById(id: $trainingId) {
       id
-      title
-      trainingUnitsOrder
+      published {
+        title
+        trainingUnitsOrder
+      }
       updatedAt
       ...TrainingUnitList
     }

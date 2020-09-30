@@ -68,26 +68,27 @@ const EventDetailPage = () => {
                 </Link>
               </Flex>
               <Ul nomargin>
-                <Li>Title: {event.title}</Li>
-                <Li>City: {event.city}</Li>
-                <Li>Max Atttendees: {event.maxAttendees}</Li>
-                <Li>Address: {event.address}</Li>
-                <Li>Venue: {event.venueName}</Li>
-                {event.mapUrl && (
+                <Li>Title: {event.published.title}</Li>
+                <Li>City: {event.published.city}</Li>
+                <Li>Max Atttendees: {event.published.maxAttendees}</Li>
+                <Li>Address: {event.published.address}</Li>
+                <Li>Venue: {event.published.venueName}</Li>
+                {event.published.mapUrl && (
                   <Li>
                     Map url:{' '}
-                    <Link to={event.mapUrl} target="_blank">
+                    <Link to={event.published.mapUrl} target="_blank">
                       open map
                     </Link>
                   </Li>
                 )}
                 <Li>
-                  Price: {event.currency} {event.standardPrice}
+                  Price: {event.published.currency}{' '}
+                  {event.published.standardPrice}
                 </Li>
                 {currentPrice || currentPrice === 0 ? (
                   <>
                     <Li>
-                      Current discounted price: {event.currency} {` `}
+                      Current discounted price: {event.published.currency} {` `}
                       {Math.floor(currentPrice * 100) / 100}
                     </Li>
                   </>
@@ -106,22 +107,30 @@ const EventDetailPage = () => {
                     ))}
                   </Ul>
                 </Li>
-                {event.startDate && (
+                {event.published.startDate && (
                   <Li>
                     Starts:{' '}
-                    {formatUTC(event.startDate, event.utcOffset, "D MMM 'YYYY")}
+                    {formatUTC(
+                      event.published.startDate,
+                      event.published.utcOffset,
+                      "D MMM 'YYYY"
+                    )}
                   </Li>
                 )}
-                {event.endDate && (
+                {event.published.endDate && (
                   <Li>
                     Ends:{' '}
-                    {formatUTC(event.endDate, event.utcOffset, "D MMM 'YYYY")}
+                    {formatUTC(
+                      event.published.endDate,
+                      event.published.utcOffset,
+                      "D MMM 'YYYY"
+                    )}
                   </Li>
                 )}
                 {/* <Li>
                   Description:
                   <br />
-                  <Markdown>{event.description}</Markdown>
+                  <Markdown>{event.published.description}</Markdown>
                 </Li> */}
               </Ul>
               <DeleteEventButton eventId={event.id} />
@@ -146,21 +155,23 @@ const QUERY_EVENT = gql`
     }
     event(id: $id) {
       id
-      meetup {
-        id
+      published {
+        meetup {
+          id
+        }
+        title
+        # description
+        venueName
+        address
+        mapUrl
+        city
+        startDate
+        endDate
+        utcOffset
+        maxAttendees
+        standardPrice
+        currency
       }
-      title
-      # description
-      venueName
-      address
-      mapUrl
-      city
-      startDate
-      endDate
-      utcOffset
-      maxAttendees
-      standardPrice
-      currency
       discountPrice {
         currentPrice
       }

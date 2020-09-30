@@ -46,7 +46,7 @@ const TrainingSelector = ({ onChange, meta, input }: any) => {
                 {edges.length > 0 ? (
                   edges.map(({ node: training }: any, index: number) => (
                     <Tr key={training.id}>
-                      <Td>{training.title}</Td>
+                      <Td>{training.published.title}</Td>
                       <Td>
                         <Button
                           variant={
@@ -125,7 +125,9 @@ const QUERY_TRAINING = gql`
         cursor
         node {
           id
-          title
+          published {
+            title
+          }
         }
       }
     }

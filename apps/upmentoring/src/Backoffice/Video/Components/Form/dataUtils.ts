@@ -23,13 +23,14 @@ function isVideoPrivate(isPrivate: any, asset: any) {
   return asset && asset.isPrivate;
 }
 
-export const formatInitialValues = memoize((values) => {
+export const formatInitialValues = memoize(({ published, ...values }) => {
   const isPrivate = values && isVideoPrivate(values.isPrivate, values.asset);
 
   return {
     ...values,
-    tags: values?.tags
-      ? values.tags.map((tag: any) => ({ value: tag, title: tag }))
+    ...published,
+    tags: published?.tags
+      ? published.tags.map((tag: any) => ({ value: tag, title: tag }))
       : [],
     isPrivate,
   };

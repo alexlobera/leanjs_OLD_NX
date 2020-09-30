@@ -27,49 +27,54 @@ export const transformSubmitValues = (onSubmit: any) => ({
   return onSubmit(trainingInstance);
 };
 
-export const formatInitialValues = memoize(({ ...values }) => {
+export const formatInitialValues = memoize((values) => {
   if (!values) {
     return;
   }
 
-  if (values.startDate) {
-    const startDate = moment
-      .utc(values.startDate)
-      .utcOffset(values.utcOffset || 0);
+  const { published: immutablePublish, id, trainingId } = values;
+  const published = { ...immutablePublish };
 
-    values.startDate = {
+  if (published.startDate) {
+    const startDate = moment
+      .utc(published.startDate)
+      .utcOffset(published.utcOffset || 0);
+
+    published.startDate = {
       year: startDate.year(),
       month: twoDigits(startDate.month()),
       day: twoDigits(startDate.date()),
     };
 
-    values.startTime = {
+    published.startTime = {
       hour: twoDigits(startDate.hour()),
       minute: twoDigits(startDate.minutes()),
     };
   }
 
-  if (!values.venueName) {
-    values.venueName = 'To be confirmed';
+  if (!published.venueName) {
+    published.venueName = 'To be confirmed';
   }
 
-  if (values.isOnline) {
-    values.isOnline = [true];
+  if (published.isOnline) {
+    published.isOnline = [true];
   }
 
-  if (values.endDate) {
-    const endDate = moment.utc(values.endDate).utcOffset(values.utcOffset || 0);
-    values.endDate = {
+  if (published.endDate) {
+    const endDate = moment
+      .utc(published.endDate)
+      .utcOffset(published.utcOffset || 0);
+    published.endDate = {
       year: endDate.year(),
       month: twoDigits(endDate.month()),
       day: twoDigits(endDate.date()),
     };
 
-    values.endTime = {
+    published.endTime = {
       hour: twoDigits(endDate.hour()),
       minute: twoDigits(endDate.minutes()),
     };
   }
 
-  return values;
+  return { ...published, ...(id ? { id } : { trainingId }) };
 });

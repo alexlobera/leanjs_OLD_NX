@@ -137,9 +137,11 @@ const QUERY_PAYMENTS = gql`
             ... on EventPayment {
               eventId
               event {
-                title
-                startDate
-                utcOffset
+                published {
+                  title
+                  startDate
+                  utcOffset
+                }
               }
             }
           }
