@@ -70,7 +70,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
   const training = data.upmentoring.trainingById;
   const trainingPath = `/${training.published.slug}-course`;
   const units = training.units || [];
-  const title = `Online ${training.title} Course`;
+  const title = `Online ${training.published.title} Course`;
   const trainingInstances =
     data.upmentoring.trainingInstances &&
     data.upmentoring.trainingInstances.edges
@@ -107,7 +107,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           path: '/',
           text: 'Home',
         },
-        { text: training.title },
+        { text: training.published.title },
       ]}
     >
       <Helmet
@@ -124,7 +124,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
       <BgLogo bgColor="#44B0C5" right={-50}>
         <Header
           title={title}
-          subtitle={training.subtitle}
+          subtitle={training.published.subtitle}
           minHeight="650px"
           bgColors={['#44B0C5']}
           bgImageOpacity={1}
@@ -301,7 +301,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
             </Grid>
             <H2>{training.title} Curriculum</H2>
             <Card variant="secondary">
-              <Markdown>{training?.description?.syllabus}</Markdown>
+              <Markdown>{training?.published?.description?.syllabus}</Markdown>
             </Card>
             {/* <H2>
               <a id="target-audience" />
@@ -324,7 +324,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                     itemId={training.id}
                     type={'Training'}
                     endDate={undefined}
-                    onDemand={training.onDemand}
+                    onDemand={training.published?.onDemand}
                     loading={loadingData}
                     discountPrice={discountPrice}
                   />
