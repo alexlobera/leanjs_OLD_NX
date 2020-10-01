@@ -29,6 +29,7 @@ class LocationAutocomplete extends React.Component {
 
   componentDidMount() {
     const key = NX_KEY_API_GOOGLE_PLACES;
+
     const src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places&language=en`;
     if (!document.getElementById(key)) {
       const script = document.createElement('script');

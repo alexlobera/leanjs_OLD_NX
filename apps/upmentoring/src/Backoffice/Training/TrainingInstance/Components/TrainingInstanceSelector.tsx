@@ -15,9 +15,11 @@ const TrInstance = ({
   clickedIndex,
 }: any) => (
   <Tr key={instance.id}>
-    <Td>{instance.title}</Td>
-    <Td>{formatUTC(instance.startDate, instance.utcOffset)}</Td>
-    <Td>{instance.city}</Td>
+    <Td>{instance.published.title}</Td>
+    <Td>
+      {formatUTC(instance.published.startDate, instance.published.utcOffset)}
+    </Td>
+    <Td>{instance.published.city}</Td>
     {selectTrainingInstance && (
       <Td>
         <Button
@@ -104,10 +106,12 @@ export const QUERY_TRAINING_INSTANCES = gql`
       edges {
         node {
           id
-          startDate
-          utcOffset
-          city
-          title
+          published {
+            startDate
+            utcOffset
+            city
+            title
+          }
         }
       }
     }

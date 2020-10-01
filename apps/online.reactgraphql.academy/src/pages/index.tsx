@@ -31,9 +31,11 @@ function excerpt({ text, limit }) {
 
 function CourseCard({
   course: {
-    slug,
-    title,
-    description: { description },
+    published: {
+      slug,
+      title,
+      description: { description },
+    },
   },
   isAvailable = true,
   fixedImage,
@@ -92,7 +94,7 @@ function Page({ data }: PageProps) {
               data.upmentoring.trainings.edges.map(({ node }: any) => {
                 return (
                   <CourseCard
-                    fixedImage={thumbnails.get(node.slug)?.fixed}
+                    fixedImage={thumbnails.get(node.published.slug)?.fixed}
                     course={node}
                   />
                 );
@@ -101,11 +103,13 @@ function Page({ data }: PageProps) {
               isAvailable={false}
               fixedImage={thumbnails.get('graphql-foundation')?.fixed}
               course={{
-                slug: 'graphql-foundation',
-                title: 'GraphQL Foundation',
-                description: {
-                  description:
-                    'Get started building GraphQL APIs wrapping existent REST APIs with GraphQL and start thinking in Graphs',
+                published: {
+                  slug: 'graphql-foundation',
+                  title: 'GraphQL Foundation',
+                  description: {
+                    description:
+                      'Get started building GraphQL APIs wrapping existent REST APIs with GraphQL and start thinking in Graphs',
+                  },
                 },
               }}
             />
@@ -113,11 +117,13 @@ function Page({ data }: PageProps) {
               fixedImage={thumbnails.get('advanced-react')?.fixed}
               isAvailable={false}
               course={{
-                title: 'Advanced React',
-                slug: 'advanced-react',
-                description: {
-                  description:
-                    'Learn pragmatic functional programming and use effectively advanced React patterns to build performant and maintainable apps',
+                published: {
+                  title: 'Advanced React',
+                  slug: 'advanced-react',
+                  description: {
+                    description:
+                      'Learn pragmatic functional programming and use effectively advanced React patterns to build performant and maintainable apps',
+                  },
                 },
               }}
             />
@@ -150,11 +156,13 @@ export const query = graphql`
       trainings(filter: { onDemand: true }) {
         edges {
           node {
-            slug
-            title
             id
-            description {
-              description
+            published {
+              slug
+              title
+              description {
+                description
+              }
             }
             units {
               id

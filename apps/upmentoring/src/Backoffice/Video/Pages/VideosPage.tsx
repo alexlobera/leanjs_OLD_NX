@@ -46,13 +46,13 @@ const VideosPage = () => {
                 <Link
                   to={`${match.url}/${video.id}${backofficePaths.editVideo}`}
                 >
-                  {video.title}
+                  {video.published.title}
                 </Link>
               </Td>
               <Td>
                 {video?.asset?.isPrivate ? 'Private' : <strong>Public</strong>}
               </Td>
-              <Td>{video.tags && video.tags.join()} </Td>
+              <Td>{video.published.tags && video.published.tags.join()} </Td>
             </Tr>
           ))}
         </Tbody>
@@ -92,8 +92,10 @@ export const QUERY_VIDEOS = gql`
         cursor
         node {
           id
-          title
-          tags
+          published {
+            title
+            tags
+          }
           asset {
             isPrivate
             posterImageUrl(width: 100)

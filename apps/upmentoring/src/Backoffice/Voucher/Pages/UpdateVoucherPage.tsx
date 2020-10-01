@@ -70,23 +70,29 @@ const QUERY_VOUCHER = gql`
       maxRedemptions
       trainingInstance {
         id
-        startDate
-        endDate
-        utcOffset
-        city
         title
+        published {
+          startDate
+          endDate
+          utcOffset
+          city
+        }
       }
       training {
         id
-        title
+        published {
+          title
+        }
       }
       event {
         id
-        title
-        startDate
-        endDate
-        utcOffset
-        city
+        published {
+          title
+          startDate
+          endDate
+          utcOffset
+          city
+        }
       }
     }
   }

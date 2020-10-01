@@ -46,7 +46,7 @@ const TrainingInstanceDetailPage = () => {
       return null;
     }
 
-    const { trainingId, coaches } = trainingInstance;
+    const { trainingId } = trainingInstance;
     const isPresent = moment();
     const isFuture = moment(trainingInstance.startDate).diff(isPresent);
 
@@ -96,8 +96,8 @@ const TrainingInstanceDetailPage = () => {
                   <Small>
                     Start date:{' '}
                     {formatUTC(
-                      trainingInstance.startDate,
-                      trainingInstance.utcOffset
+                      trainingInstance.published.startDate,
+                      trainingInstance.published.utcOffset
                     )}
                   </Small>
                 </Li>
@@ -105,8 +105,8 @@ const TrainingInstanceDetailPage = () => {
                   <Small>
                     End date:{' '}
                     {formatUTC(
-                      trainingInstance.endDate,
-                      trainingInstance.utcOffset
+                      trainingInstance.published.endDate,
+                      trainingInstance.published.utcOffset
                     )}{' '}
                   </Small>
                 </Li>
@@ -114,23 +114,25 @@ const TrainingInstanceDetailPage = () => {
                   <Small>
                     Timings:{' '}
                     {formatUTC(
-                      trainingInstance.startDate,
-                      trainingInstance.utcOffset,
+                      trainingInstance.published.startDate,
+                      trainingInstance.published.utcOffset,
                       'HH:mm'
                     )}{' '}
                     -{' '}
                     {formatUTC(
-                      trainingInstance.endDate,
-                      trainingInstance.utcOffset,
+                      trainingInstance.published.endDate,
+                      trainingInstance.published.utcOffset,
                       'HH:mm'
                     )}
                   </Small>
                 </Li>
                 <Li>
-                  <Small>Venue: {trainingInstance.venueName} </Small>
+                  <Small>Venue: {trainingInstance.published.venueName} </Small>
                 </Li>
                 <Li>
-                  <Small>Price: £{trainingInstance.standardPrice}</Small>
+                  <Small>
+                    Price: £{trainingInstance.published.standardPrice}
+                  </Small>
                 </Li>
                 {currentPrice || currentPrice === 0 ? (
                   <>
@@ -160,13 +162,14 @@ const TrainingInstanceDetailPage = () => {
                 </Li>
                 <Li>
                   <Small>
-                    Max number of students: {trainingInstance.maxAttendees}{' '}
+                    Max number of students:{' '}
+                    {trainingInstance.published.maxAttendees}{' '}
                   </Small>
                 </Li>
                 <Li>
                   <Small>Coaches: </Small>
                   <Ul>
-                    {coaches?.map((coach: any) => (
+                    {trainingInstance.published.coaches?.map((coach: any) => (
                       <Li key={coach.userId}>
                         <Link to="#">
                           {coach.firstName} {coach.lastName}
@@ -208,23 +211,25 @@ export const QUERY_TRAINING_INSTANCE = gql`
       feedbacks(first: $first) {
         ...trainingInstanceFeedbacksFragment
       }
-      coaches {
-        firstName
-        lastName
-        userId
-      }
       id
       trainingId
       createdBy
-      startDate
-      endDate
-      utcOffset
-      standardPrice
-      city
-      address
-      venueName
-      maxAttendees
       title
+      published {
+        coaches {
+          firstName
+          lastName
+          userId
+        }
+        startDate
+        endDate
+        utcOffset
+        standardPrice
+        city
+        address
+        venueName
+        maxAttendees
+      }
     }
   }
   ${FRAGMENT_ANY_PAYMENTS_LIST}

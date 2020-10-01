@@ -6,8 +6,10 @@ export const ALL_VIDEOS_FRAGMENT = gql`
       edges {
         node {
           id
-          title
-          tags
+          published {
+            title
+            tags
+          }
         }
       }
     }

@@ -59,8 +59,13 @@ const TrainingDetailInstanceList = ({
                     {instance.title}
                   </Link>
                 </Td>
-                <Td>{formatUTC(instance.startDate, instance.utcOffset)}</Td>
-                <Td>{instance.city}</Td>
+                <Td>
+                  {formatUTC(
+                    instance.published.startDate,
+                    instance.published.utcOffset
+                  )}
+                </Td>
+                <Td>{instance.published.city}</Td>
               </Tr>
             ))}
           </Tbody>
@@ -99,10 +104,12 @@ export const FRAGMENT_TRAINING_DETAIL_INSTANCE_LIST = gql`
       node {
         trainingId
         id
-        city
-        startDate
-        utcOffset
         title
+        published {
+          city
+          startDate
+          utcOffset
+        }
       }
     }
   }

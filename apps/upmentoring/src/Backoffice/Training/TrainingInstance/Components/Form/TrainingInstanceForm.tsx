@@ -35,15 +35,14 @@ const TrainingInstanceForm = ({
   training,
 }: any) => {
   const trainingInstanceTypes =
-    training && training.trainingInstanceTypes
-      ? training.trainingInstanceTypes
-      : [];
+    training?.published?.trainingInstanceTypes || [];
+  const formatedInitialValues = formatInitialValues(initialValues);
 
   return (
     <>
       <Form
         onSubmit={transformSubmitValues(onSubmit)}
-        initialValues={formatInitialValues(initialValues)}
+        initialValues={formatedInitialValues}
         decorators={[focusOnError]}
       >
         {({ form, submitting, pristine, values }: any) => {
@@ -54,7 +53,7 @@ const TrainingInstanceForm = ({
               <Flex flexDirection="column">
                 <Heading variant="h6">
                   {initialValues.id ? 'Update the ' : 'Create a new '} instance
-                  of this course: {training?.title}
+                  of this course: {training?.published.title}
                 </Heading>
                 {/* {initialValues.trainingId ? (
                   <Field name="trainingId" render={() => null} />
@@ -260,9 +259,7 @@ const TrainingInstanceForm = ({
                 <Flex>
                   <Field
                     name="coaches"
-                    initialValues={
-                      initialValues.coaches ? initialValues.coaches : undefined
-                    }
+                    initialValues={formatedInitialValues?.coaches || undefined}
                     component={CoachesSelector}
                     validate={required}
                   />

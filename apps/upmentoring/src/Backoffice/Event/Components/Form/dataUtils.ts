@@ -50,49 +50,54 @@ export const transformSubmitValues = (onSubmit: any) => ({
   return onSubmit({ event: data });
 };
 
-export const formatInitialValues = memoize(({ ...values }) => {
-  if (!values) {
-    return;
+export const formatInitialValues = memoize(
+  ({ published: immutablePublished, ...values }) => {
+    const published = { ...immutablePublished };
+    if (!published) {
+      return;
+    }
+
+    if (published.startDate) {
+      const startDate = moment
+        .utc(published.startDate)
+        .utcOffset(published.utcOffset || 0);
+
+      published.startDate = {
+        year: startDate.year(),
+        month: twoDigits(startDate.month()),
+        day: twoDigits(startDate.date()),
+      };
+
+      published.startTime = {
+        hour: twoDigits(startDate.hour()),
+        minute: twoDigits(startDate.minutes()),
+      };
+    }
+
+    if (published.isOnline) {
+      published.isOnline = [true];
+    }
+
+    if (!published.venueName) {
+      published.venueName = 'To be confirmed';
+    }
+
+    if (published.endDate) {
+      const endDate = moment
+        .utc(published.endDate)
+        .utcOffset(published.utcOffset || 0);
+      published.endDate = {
+        year: endDate.year(),
+        month: twoDigits(endDate.month()),
+        day: twoDigits(endDate.date()),
+      };
+
+      published.endTime = {
+        hour: twoDigits(endDate.hour()),
+        minute: twoDigits(endDate.minutes()),
+      };
+    }
+
+    return { ...values, ...published };
   }
-
-  if (values.startDate) {
-    const startDate = moment
-      .utc(values.startDate)
-      .utcOffset(values.utcOffset || 0);
-
-    values.startDate = {
-      year: startDate.year(),
-      month: twoDigits(startDate.month()),
-      day: twoDigits(startDate.date()),
-    };
-
-    values.startTime = {
-      hour: twoDigits(startDate.hour()),
-      minute: twoDigits(startDate.minutes()),
-    };
-  }
-
-  if (values.isOnline) {
-    values.isOnline = [true];
-  }
-
-  if (!values.venueName) {
-    values.venueName = 'To be confirmed';
-  }
-
-  if (values.endDate) {
-    const endDate = moment.utc(values.endDate).utcOffset(values.utcOffset || 0);
-    values.endDate = {
-      year: endDate.year(),
-      month: twoDigits(endDate.month()),
-      day: twoDigits(endDate.date()),
-    };
-
-    values.endTime = {
-      hour: twoDigits(endDate.hour()),
-      minute: twoDigits(endDate.minutes()),
-    };
-  }
-
-  return values;
-});
+);

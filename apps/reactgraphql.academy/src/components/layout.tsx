@@ -62,21 +62,23 @@ const layoutQuery = graphql`
         edges {
           node {
             __typename
-            meetup {
-              id
-            }
             id
-            title
-            standardPrice
-            currency
-            startDate
-            utcOffset
-            endDate
-            city
-            cityCountry
-            mapUrl
-            address
-            venueName
+            published {
+              meetup {
+                id
+              }
+              title
+              standardPrice
+              currency
+              startDate
+              utcOffset
+              endDate
+              city
+              cityCountry
+              mapUrl
+              address
+              venueName
+            }
           }
         }
       }
@@ -88,31 +90,36 @@ const layoutQuery = graphql`
           node {
             __typename
             id
-            startDate
-            utcOffset
-            endDate
-            isOnline
-            city
-            cityCountry
-            daysOfTheWeek
-            address
-            venueName
-            mapUrl
-            standardPrice
-            currency
-            title
-            training {
-              id
-              slug
-              customFieldsValues {
-                values
-                fieldId
+            published {
+              startDate
+              utcOffset
+              endDate
+              isOnline
+              city
+              cityCountry
+              daysOfTheWeek
+              address
+              venueName
+              mapUrl
+              standardPrice
+              currency
+              trainingInstanceType {
+                name
+                title
+                id
               }
             }
-            trainingInstanceType {
-              name
-              title
+            title
+            trainingId
+            training {
               id
+              published {
+                slug
+                customFieldsValues {
+                  values
+                  fieldId
+                }
+              }
             }
           }
         }
@@ -144,15 +151,25 @@ const Layout = ({ children }) => {
 
   const cityIndex = {};
   const formatTraining = ({ node }) => {
-    const { training, title, trainingInstanceType, city = '', isOnline } = node;
-    const { slug, id: trainingId } = training || {};
+    const { training, published: publishedInstance, ...restInstance } = node;
+    const {
+      title,
+      trainingInstanceType,
+      city = '',
+      isOnline,
+    } = publishedInstance;
+
+    const { published: publishedTraining, ...restTraining } = training || {};
+    const trainingId = restTraining.id;
+
+    const { slug } = publishedTraining;
     const remoteOrCity = isOnline ? 'remote' : city;
 
-    const trainingType = training.customFieldsValues.find(
+    const trainingType = training.published.customFieldsValues.find(
       ({ fieldId }) => fieldId === TRAINING_TYPE_FIELD_ID
     ).values[0];
 
-    const tech = training.customFieldsValues.find(
+    const tech = training.published.customFieldsValues.find(
       ({ fieldId }) => fieldId === TRAINING_TECH_FIELD_ID
     ).values[0];
 
@@ -163,13 +180,15 @@ const Layout = ({ children }) => {
     cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1;
 
     return {
-      ...node,
+      ...restInstance,
+      ...publishedInstance,
       trainingInstanceTypeName,
       title,
       trainingType,
       tech,
       training: {
-        ...training,
+        ...restTraining,
+        ...publishedTraining,
         toPath: createTrainingPath({
           trainingId,
           slug,
@@ -196,7 +215,6 @@ const Layout = ({ children }) => {
     () => data.upmentoring.trainingInstances.edges.map(formatTraining),
     [data]
   );
-
   const meetups = data.upmentoring.events.edges
     .filter(({ node: { meetup } }) => meetup && meetup.id)
     .map(formatMeetup);

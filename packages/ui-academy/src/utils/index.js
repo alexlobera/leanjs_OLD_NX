@@ -281,16 +281,24 @@ export const formatTraining = ({
 } = {}) => {
   const cityIndex = {};
 
-  return ({ node }) => {
-    const { training, title, trainingInstanceType, city = '', isOnline } = node;
-    const { slug, id: trainingId } = training || {};
+  return ({ node: { published, ...restNode } }) => {
+    const { training } = restNode;
+    if (!training) {
+      console.log('🔥🔥🔥🔥🔥🔥 aaaaaa dd', restNode, published);
+      return;
+    }
+    const { title, trainingInstanceType, city = '', isOnline } = published;
+    const {
+      published: { slug },
+      id: trainingId,
+    } = training || {};
     const remoteOrCity = isOnline ? 'remote' : city;
 
-    const trainingType = training.customFieldsValues.find(
+    const trainingType = training.published.customFieldsValues.find(
       ({ fieldId }) => fieldId === TRAINING_TYPE_FIELD_ID
     ).values[0];
 
-    const tech = training.customFieldsValues.find(
+    const tech = training.published.customFieldsValues.find(
       ({ fieldId }) => fieldId === TRAINING_TECH_FIELD_ID
     ).values[0];
 
@@ -301,7 +309,8 @@ export const formatTraining = ({
     cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1;
 
     return {
-      ...node,
+      ...published,
+      ...restNode,
       trainingInstanceTypeName,
       title,
       trainingType,

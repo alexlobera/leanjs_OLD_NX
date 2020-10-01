@@ -16,9 +16,12 @@ import ErrorMessage from '../../../../App/Components/Forms/ErrorMessage';
 
 const TrItem = ({ selectItem, selectedItem, item }: any) => (
   <Tr key={item.id}>
-    <Td>{item.title}</Td>
-    <Td>{item.startDate && formatUTC(item.startDate, item.utcOffset)}</Td>
-    <Td>{item.city}</Td>
+    <Td>{item.published?.title || item.title}</Td>
+    <Td>
+      {item.published.startDate &&
+        formatUTC(item.published.startDate, item.published.utcOffset)}
+    </Td>
+    <Td>{item.published.city}</Td>
     {selectItem && (
       <Td>
         <Button
@@ -130,10 +133,12 @@ export const QUERY_ITEMS = gql`
       edges {
         node {
           id
-          startDate
-          utcOffset
-          city
           title
+          published {
+            startDate
+            utcOffset
+            city
+          }
         }
       }
     }
@@ -141,7 +146,9 @@ export const QUERY_ITEMS = gql`
       edges {
         node {
           id
-          title
+          published {
+            title
+          }
         }
       }
     }
@@ -153,10 +160,12 @@ export const QUERY_ITEMS = gql`
       edges {
         node {
           id
-          title
-          startDate
-          utcOffset
-          city
+          published {
+            title
+            startDate
+            utcOffset
+            city
+          }
         }
       }
     }

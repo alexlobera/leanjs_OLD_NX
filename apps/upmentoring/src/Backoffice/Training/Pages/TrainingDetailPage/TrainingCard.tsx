@@ -11,9 +11,10 @@ import ExpandText from '../../../../App/Components/Layout/ExpandText';
 import DeleteTrainingButton from '../../Components/DeleteTrainingButton';
 
 const TrainingDetail = ({ training }: any) => {
-  const units = training && training.units;
-  const description = training && training.description;
-  const title = training && training.title;
+  const { published } = training || {};
+  const units = published.units;
+  const description = published.description;
+  const title = published.title;
 
   return (
     <InfoBox>
@@ -67,10 +68,12 @@ export const QUERY_TRAINING_DETAIL_FRAGMENT = gql`
         objectives
       }
     }
-    title
-    description {
-      objectives
-      syllabus
+    published {
+      title
+      description {
+        objectives
+        syllabus
+      }
     }
   }
 `;

@@ -232,24 +232,26 @@ const TrainingForm = ({
 export const TRAINING_FORM_FRAGMENT = gql`
   fragment trainingFormFragment on Training {
     id
-    title
-    subtitle
-    standardPrice
-    currency
-    onDemand
-    previewVideoId
-    description {
-      syllabus
-      objectives
-      description
-    }
-    customFieldsValues {
-      fieldId
-      values
-    }
-    trainingInstanceTypes {
-      trainingInstanceTypeId
-      alternativeTitle
+    published {
+      title
+      subtitle
+      standardPrice
+      currency
+      onDemand
+      previewVideoId
+      description {
+        syllabus
+        objectives
+        description
+      }
+      customFieldsValues {
+        fieldId
+        values
+      }
+      trainingInstanceTypes {
+        trainingInstanceTypeId
+        alternativeTitle
+      }
     }
   }
 `;

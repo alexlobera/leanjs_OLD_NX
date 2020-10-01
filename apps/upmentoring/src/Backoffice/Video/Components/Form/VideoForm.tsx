@@ -443,10 +443,12 @@ const VideoForm = ({
 export const VIDEO_FORM_FRAGMENT = gql`
   fragment VideoFormFragment on Video {
     id
-    title
-    slug
-    transcript
-    tags
+    published {
+      title
+      slug
+      transcript
+      tags
+    }
     asset {
       url
       isPrivate

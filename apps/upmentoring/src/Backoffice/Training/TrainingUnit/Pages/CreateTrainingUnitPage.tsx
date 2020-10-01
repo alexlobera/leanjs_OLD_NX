@@ -54,7 +54,7 @@ const CreateTrainingUnit = () => {
   } else if (!data.trainingById) {
     return null;
   }
-  const { title } = data.trainingById;
+  const { title } = data.trainingById.published;
 
   return (
     <>
@@ -86,7 +86,9 @@ const QUERY_TRAINING = gql`
     ...trainingUnitQueriesFragment
     trainingById(id: $id) {
       id
-      title
+      published {
+        title
+      }
     }
     ...allVideos
   }

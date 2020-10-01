@@ -8,8 +8,14 @@ import { paths as appPaths } from '../../../../App';
 import { paths as backofficePaths } from '../../../../Backoffice';
 
 function TrainingRow({ trainingInstance }: any) {
+  if (!trainingInstance?.published) {
+    return;
+  }
+
+  const { published } = trainingInstance;
+
   return (
-    <Tr key={trainingInstance.id}>
+    <Tr key={published.id}>
       <Td>
         <Link
           to={`${appPaths.backoffice}${backofficePaths.training}/instances/${trainingInstance.id}`}
@@ -17,10 +23,8 @@ function TrainingRow({ trainingInstance }: any) {
           {trainingInstance.title}
         </Link>
       </Td>
-      <Td>
-        {formatUTC(trainingInstance.startDate, trainingInstance.utcOffset)}
-      </Td>
-      <Td>{trainingInstance.city}</Td>
+      <Td>{formatUTC(published.startDate, published.utcOffset)}</Td>
+      <Td>{published.city}</Td>
     </Tr>
   );
 }
@@ -29,10 +33,12 @@ export const FRAGMENT_TRAINING_ROW = gql`
   fragment TrainingInstanceRow on trainingInstance {
     trainingId
     id
-    city
-    startDate
-    utcOffset
-    title
+    published {
+      city
+      startDate
+      utcOffset
+      title
+    }
   }
 `;
 

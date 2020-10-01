@@ -37,23 +37,25 @@ const EventsPage = () => {
           {edges.map(({ node: event }: any) => (
             <Tr key={event.id}>
               <Td>
-                <Link to={`${match.url}/${event.id}`}>{event.title}</Link>
+                <Link to={`${match.url}/${event.id}`}>
+                  {event.published.title}
+                </Link>
               </Td>
-              <Td>{event.city}</Td>
-              <Td>
+              <Td>{event.published.city}</Td>
+              {/* <Td>
                 {event.meetup && event.meetup.id && event.meetup.id
                   ? 'Meetup'
                   : 'Mini Conf'}
-              </Td>
+              </Td> */}
               <Td>
                 {formatUTC(
-                  event.startDate,
-                  event.utcOffset,
+                  event.published.startDate,
+                  event.published.utcOffset,
                   "D MMM 'YYYY HH:mm"
                 )}
               </Td>
               <Td>
-                {event.currency} {event.standardPrice}
+                {event.published.currency} {event.published.standardPrice}
               </Td>
             </Tr>
           ))}
@@ -88,7 +90,7 @@ export const QUERY_EVENTS = gql`
     events(
       first: $first
       after: $cursor
-      orderBy: { sort: createdAt, direction: DESC }
+      orderBy: { sort: startDate, direction: DESC }
     ) {
       pageInfo {
         endCursor
@@ -97,16 +99,18 @@ export const QUERY_EVENTS = gql`
       edges {
         cursor
         node {
-          meetup {
-            id
-          }
           id
-          title
-          city
-          startDate
-          utcOffset
-          standardPrice
-          currency
+          published {
+            # meetup {
+            #   id
+            # }
+            title
+            city
+            startDate
+            utcOffset
+            standardPrice
+            currency
+          }
         }
       }
     }

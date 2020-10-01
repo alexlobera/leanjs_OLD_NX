@@ -82,10 +82,12 @@ export const QUERY_TRAINING_INSTANCE_LIST_FRAGMENT = gql`
       node {
         id
         trainingId
-        city
-        startDate
-        utcOffset
         title
+        published {
+          city
+          startDate
+          utcOffset
+        }
       }
     }
   }

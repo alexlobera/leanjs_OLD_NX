@@ -1,8 +1,16 @@
 import memoize from 'lodash.memoize';
 
 export const formatInitialValues = memoize((values) => {
-  const { customFieldsValues, trainingInstanceTypes, ...rest } = values || {};
+  if (!values) {
+    return;
+  }
+
+  const { published: immutablePublished, id } = values;
+  // const published = { ...immutablePublished };
+  const { customFieldsValues, trainingInstanceTypes, ...rest } =
+    immutablePublished || {};
   const initialValues = {
+    id,
     ...rest,
     ...(trainingInstanceTypes
       ? {

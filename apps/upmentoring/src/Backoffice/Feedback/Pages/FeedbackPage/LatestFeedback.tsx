@@ -55,8 +55,8 @@ const LatestFeedback = () => {
                       {trainingInstance.title} -{' '}
                       {trainingInstance.startDate ? (
                         formatUTC(
-                          trainingInstance.startDate,
-                          trainingInstance.utcOffset
+                          trainingInstance.published.startDate,
+                          trainingInstance.published.utcOffset
                         )
                       ) : (
                         <P>no date</P>
@@ -126,9 +126,11 @@ const QUERY_LATEST_FEEDBACK_LIST = gql`
           trainingId
           trainingInstance {
             id
-            startDate
-            utcOffset
             title
+            published {
+              startDate
+              utcOffset
+            }
           }
           averageRating
         }

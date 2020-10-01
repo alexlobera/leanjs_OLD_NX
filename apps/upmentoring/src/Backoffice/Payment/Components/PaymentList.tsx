@@ -115,19 +115,31 @@ export const FRAGMENT_ANY_PAYMENTS_LIST = gql`
           ... on TrainingPayment {
             trainingId
             training {
-              title
+              published {
+                title
+              }
             }
           }
           ... on TrainingInstancePayment {
             trainingInstanceId
             trainingInstance {
               title
+              published {
+                utcOffset
+                startDate
+                city
+              }
             }
           }
           ... on EventPayment {
             eventId
             event {
-              title
+              published {
+                title
+                utcOffset
+                startDate
+                city
+              }
             }
           }
         }

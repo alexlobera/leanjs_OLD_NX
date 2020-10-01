@@ -52,7 +52,10 @@ const TrainingInstanceFeedbackList = ({
                   <Link
                     to={`${appPaths.backoffice}${backofficePaths.feedback}/${feedback.id}`}
                   >
-                    {formatUTC(feedback.createdAt, trainingInstance.utcOffset)}
+                    {formatUTC(
+                      feedback.createdAt,
+                      trainingInstance.published.utcOffset
+                    )}
                   </Link>
                 </Td>
                 <Td>email</Td>
@@ -96,8 +99,10 @@ export const FRAGMENT_TRAINING_INSTANCE_FEEDBACKS = gql`
         createdAt
         trainingInstance {
           id
-          startDate
-          utcOffset
+          published {
+            startDate
+            utcOffset
+          }
         }
         averageRating
       }
