@@ -77,13 +77,15 @@ exports.createPages = async ({ graphql, actions }) => {
       unit.published.videos.forEach((video) => {
         const lessonPath = `${coursePath}${video.published.slug}`;
         const transcriptBlock =
-          video.published && video.published.transcript && video.published.transcript.split('\n');
+          video.published &&
+          video.published.transcript &&
+          video.published.transcript.split('\n');
         const transcriptPreview =
           transcriptBlock && transcriptBlock.length > 0
             ? transcriptBlock.slice(0, 2).join('\n')
             : transcriptBlock.length === 1
-              ? transcriptBlock[0].slice(0, 200)
-              : '';
+            ? transcriptBlock[0].slice(0, 200)
+            : '';
         const isPublicVideo =
           video.asset &&
           video.asset.playback &&

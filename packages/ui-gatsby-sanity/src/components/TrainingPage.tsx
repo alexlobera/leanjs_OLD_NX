@@ -1,16 +1,7 @@
 import React from 'react';
 import { Link } from '@leanjs/ui-link';
 import BlockContent from '@sanity/block-content-to-react';
-import {
-  Grid,
-  Section,
-  Box,
-  H2,
-  H3,
-  P,
-  Container,
-  LeanComponent,
-} from '@leanjs/ui-core';
+import { Grid, Section, Box, H2, H3, P, Container } from '@leanjs/ui-core';
 
 import { internalLinkTo } from '../utils/sanitySerializers';
 
@@ -81,66 +72,71 @@ interface FAQSectionProps {
   pageData: any;
 }
 
-export const FAQSection: LeanComponent<FAQSectionProps> = React.memo(
-  ({ pageData }) => {
-    if (!(pageData && pageData.faqs && pageData.faqs.length)) {
-      return null;
-    }
-
-    const featuredFaqs = pageData.faqs.filter((faq) => faq.featured);
-    const nofeaturedFaqs = pageData.faqs.filter((faq) => !faq.featured);
-
-    return (
-      <Section>
-        <Container as={Grid} columns={12}>
-          <Box sx={{ gridColumn: ['1 / -1', '2 / -2'] }}>
-            <H2>
-              <a id="faqs" />
-              Frequently Asked Questions
-            </H2>
-            {featuredFaqs.map(({ extendAnswer, faq }) => {
-              let extendedFaq;
-
-              if (
-                extendAnswer &&
-                faq._rawAnswer &&
-                faq._rawAnswer.length &&
-                faq._rawAnswer[faq._rawAnswer.length - 1].children
-              ) {
-                extendedFaq = {
-                  ...faq,
-                  _rawAnswer: faq._rawAnswer.map((rawAnswer) => ({
-                    ...rawAnswer,
-                    children: [
-                      ...rawAnswer.children,
-                      {
-                        _key: Math.random(),
-                        _type: 'span',
-                        text: ` ${extendAnswer}`,
-                      },
-                    ],
-                  })),
-                };
-
-                return <Answer faq={extendedFaq} />;
-              } else if (extendAnswer && !faq._rawAnswer) {
-                extendedFaq = {
-                  ...faq,
-                  extendAnswer,
-                };
-
-                return <Answer faq={extendedFaq} />;
-              }
-            })}
-            {nofeaturedFaqs.map(({ faq }) => {
-              return <Answer faq={faq} showToggle={true} display={false} />;
-            })}
-          </Box>
-        </Container>
-      </Section>
-    );
+export const FAQSection = React.memo<FAQSectionProps>(({ pageData }) => {
+  if (!(pageData && pageData.faqs && pageData.faqs.length)) {
+    return null;
   }
-);
+
+  const featuredFaqs = pageData.faqs.filter((faq) => faq.featured);
+  const nofeaturedFaqs = pageData.faqs.filter((faq) => !faq.featured);
+
+  return (
+    <Section>
+      <Container as={Grid} columns={12}>
+        <Box sx={{ gridColumn: ['1 / -1', '2 / -2'] }}>
+          <H2>
+            <a id="faqs" />
+            Frequently Asked Questions
+          </H2>
+          {featuredFaqs.map(({ extendAnswer, faq }) => {
+            let extendedFaq;
+
+            if (
+              extendAnswer &&
+              faq._rawAnswer &&
+              faq._rawAnswer.length &&
+              faq._rawAnswer[faq._rawAnswer.length - 1].children
+            ) {
+              extendedFaq = {
+                ...faq,
+                _rawAnswer: faq._rawAnswer.map((rawAnswer) => ({
+                  ...rawAnswer,
+                  children: [
+                    ...rawAnswer.children,
+                    {
+                      _key: Math.random(),
+                      _type: 'span',
+                      text: ` ${extendAnswer}`,
+                    },
+                  ],
+                })),
+              };
+
+              return <Answer key={faq._key} faq={extendedFaq} />;
+            } else if (extendAnswer && !faq._rawAnswer) {
+              extendedFaq = {
+                ...faq,
+                extendAnswer,
+              };
+
+              return <Answer key={faq._key} faq={extendedFaq} />;
+            }
+          })}
+          {nofeaturedFaqs.map(({ faq }) => {
+            return (
+              <Answer
+                key={faq._key}
+                faq={faq}
+                showToggle={true}
+                display={false}
+              />
+            );
+          })}
+        </Box>
+      </Container>
+    </Section>
+  );
+});
 
 // export const query = graphql`
 //   fragment sanityTrainingPageFragment on SanityTrainingPage {

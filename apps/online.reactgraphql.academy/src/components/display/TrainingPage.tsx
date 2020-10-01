@@ -10,6 +10,7 @@ export const query = graphql`
     metaTitle
     metaDescription
     faqs {
+      _key
       extendAnswer
       featured
       faq {

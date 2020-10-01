@@ -38,7 +38,7 @@ function removeTrailingSlashes(url) {
 const LESSON_QUERY = `
   query videoLesson($videoId: ID!, $unitId: ID!) {
     video(id: $videoId) {
-      pubished {
+      published {
         transcript
       }
       asset {
@@ -231,53 +231,53 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         {loggingInUser ? 'logging in...' : 'loading data...'}
                       </>
                     ) : (
-                        <>
-                          <H3
-                            sx={{
-                              ...textBackgroundProps,
-                              padding: 2,
-                              lineHeight: 1.85,
-                            }}
-                          >
-                            {pageContext.isPublicVideo && !loggedIn ? (
-                              <>
-                                <Link
-                                  to="/login"
-                                  state={{ referrer: location.pathname }}
-                                >
-                                  Log in
-                              </Link>{' '}
-                              to watch this video
-                            </>
-                            ) : (
-                                <>
-                                  <Link to={`${trainingPath}#pricing`}>
-                                    Buy this course
-                              </Link>{' '}
-                              to watch this video
-                            </>
-                              )}
-                          </H3>
-                          <P sx={{ textAlign: 'center', mt: 6 }}>
-                            {pageContext.isPublicVideo && !loggedIn ? (
-                              <LinkButton
-                                variant="primary"
+                      <>
+                        <H3
+                          sx={{
+                            ...textBackgroundProps,
+                            padding: 2,
+                            lineHeight: 1.85,
+                          }}
+                        >
+                          {pageContext.isPublicVideo && !loggedIn ? (
+                            <>
+                              <Link
                                 to="/login"
                                 state={{ referrer: location.pathname }}
                               >
-                                Watch now
-                              </LinkButton>
-                            ) : (
-                                <LinkButton
-                                  variant="primary"
-                                  to={`${trainingPath}#pricing`}
-                                >
-                                  Buy course
-                                </LinkButton>
-                              )}
-                          </P>
-                        </>
-                      )}
+                                Log in
+                              </Link>{' '}
+                              to watch this video
+                            </>
+                          ) : (
+                            <>
+                              <Link to={`${trainingPath}#pricing`}>
+                                Buy this course
+                              </Link>{' '}
+                              to watch this video
+                            </>
+                          )}
+                        </H3>
+                        <P sx={{ textAlign: 'center', mt: 6 }}>
+                          {pageContext.isPublicVideo && !loggedIn ? (
+                            <LinkButton
+                              variant="primary"
+                              to="/login"
+                              state={{ referrer: location.pathname }}
+                            >
+                              Watch now
+                            </LinkButton>
+                          ) : (
+                            <LinkButton
+                              variant="primary"
+                              to={`${trainingPath}#pricing`}
+                            >
+                              Buy course
+                            </LinkButton>
+                          )}
+                        </P>
+                      </>
+                    )}
                   </Box>
                 </ThemeProvider>
               </Box>
@@ -287,14 +287,24 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
         <Flex sx={{ pt: 2 }}>
           <Box sx={{ flex: 1 }}>
             {prevVideo && (
-              <Link to={getVideoPath({ slug: prevVideo.published.slug, trainingPath })}>
+              <Link
+                to={getVideoPath({
+                  slug: prevVideo.published.slug,
+                  trainingPath,
+                })}
+              >
                 Previous lesson
               </Link>
             )}
           </Box>
           <div>
             {nextVideo && (
-              <Link to={getVideoPath({ slug: nextVideo.published.slug, trainingPath })}>
+              <Link
+                to={getVideoPath({
+                  slug: nextVideo.published.slug,
+                  trainingPath,
+                })}
+              >
                 Next lesson
               </Link>
             )}
@@ -325,28 +335,28 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 </P>
               </>
             ) : (
-                    <P>There are no related resources</P>
-                  )}
+              <P>There are no related resources</P>
+            )}
             <H3>Transcript</H3>
-            {privateData?.video?.pubished?.transcript ? (
-              <Markdown>{privateData.video.pubished.transcript}</Markdown>
+            {privateData?.video?.published?.transcript ? (
+              <Markdown>{privateData.video.published.transcript}</Markdown>
             ) : (
-                <Box sx={{ position: 'relative' }}>
-                  <Markdown>{pageContext.transcript}</Markdown>
-                  {!pageContext.isPublicVideo && (
-                    <Box
-                      sx={{
-                        width: '100%',
-                        height: '75px',
-                        position: 'absolute',
-                        bottom: 0,
-                        backgroundImage:
-                          'linear-gradient(to bottom, transparent, white)',
-                      }}
-                    />
-                  )}
-                </Box>
-              )}
+              <Box sx={{ position: 'relative' }}>
+                <Markdown>{pageContext.transcript}</Markdown>
+                {!pageContext.isPublicVideo && (
+                  <Box
+                    sx={{
+                      width: '100%',
+                      height: '75px',
+                      position: 'absolute',
+                      bottom: 0,
+                      backgroundImage:
+                        'linear-gradient(to bottom, transparent, white)',
+                    }}
+                  />
+                )}
+              </Box>
+            )}
           </Box>
           <Box sx={{ gridColumn: ['1/-1', '9/ -1'] }}>
             <StickyBox offsetTop={0}>
@@ -357,36 +367,39 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 {trainingUnit.published.videos.length} lessons
               </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
-                {trainingUnit.published.videos.map(({ published: { title, slug }, id }) => {
-                  const path = getVideoPath({ slug, trainingPath });
+                {trainingUnit.published.videos.map(
+                  ({ published: { title, slug }, id }) => {
+                    const path = getVideoPath({ slug, trainingPath });
 
-                  return (
-                    <Li
-                      sx={{
-                        position: 'relative',
-                        listStyle: 'none',
-                        display: 'flex',
-                      }}
-                    >
-                      <Box sx={{ minWidth: '35px', display: 'inline-block' }}>
-                        {completedVideoSet?.has(id) ? (
-                          <Tick width={25} sx={{ mb: '-5px' }} />
-                        ) : (
+                    return (
+                      <Li
+                        key={id}
+                        sx={{
+                          position: 'relative',
+                          listStyle: 'none',
+                          display: 'flex',
+                        }}
+                      >
+                        <Box sx={{ minWidth: '35px', display: 'inline-block' }}>
+                          {completedVideoSet?.has(id) ? (
+                            <Tick width={25} sx={{ mb: '-5px' }} />
+                          ) : (
                             <Icon comp={PlayMedia} color="#d8d8d8" />
                           )}
-                      </Box>
-                      <Box>
-                        {removeTrailingSlashes(location.pathname).indexOf(
-                          removeTrailingSlashes(path)
-                        ) > -1 ? (
+                        </Box>
+                        <Box>
+                          {removeTrailingSlashes(location.pathname).indexOf(
+                            removeTrailingSlashes(path)
+                          ) > -1 ? (
                             title
                           ) : (
                             <Link to={path}>{title}</Link>
                           )}
-                      </Box>
-                    </Li>
-                  );
-                })}
+                        </Box>
+                      </Li>
+                    );
+                  }
+                )}
               </Ul>
               <Box as="hr" sx={{ my: 5 }} />
               <Flex sx={{ pt: 2 }}>

@@ -73,11 +73,11 @@ function CoursePage({ data, pageContext: { trainingId } }) {
   const title = `Online ${training.title} Course`;
   const trainingInstances =
     data.upmentoring.trainingInstances &&
-      data.upmentoring.trainingInstances.edges
+    data.upmentoring.trainingInstances.edges
       ? data.upmentoring.trainingInstances.edges
-        .map(formatTraining())
-        .filter(t => t)
-        .slice(0, 3)
+          .map(formatTraining())
+          .filter((t) => t)
+          .slice(0, 3)
       : [];
 
   // TODO useMemo variables inside useQuery
@@ -261,31 +261,33 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                           {lessonsCount > 0 && (
                             <TabPanel name="lessons">
                               <Ul variant="unstyled" sx={{ pl: 0 }}>
-                                {published.videos.map(({ published: { title, slug }, id }) => {
-                                  const path = `${trainingPath}/${slug}`;
+                                {published.videos.map(
+                                  ({ published: { title, slug }, id }) => {
+                                    const path = `${trainingPath}/${slug}`;
 
-                                  return (
-                                    <Li
-                                      sx={{
-                                        position: 'relative',
-                                        listStyle: 'none',
-                                        display: 'flex',
-                                      }}
-                                    >
-                                      <Box
+                                    return (
+                                      <Li
                                         sx={{
-                                          minWidth: '35px',
-                                          display: 'inline-block',
+                                          position: 'relative',
+                                          listStyle: 'none',
+                                          display: 'flex',
                                         }}
                                       >
-                                        <PlayIcon />
-                                      </Box>
-                                      <Box>
-                                        <Link to={path}>{title}</Link>
-                                      </Box>
-                                    </Li>
-                                  );
-                                })}
+                                        <Box
+                                          sx={{
+                                            minWidth: '35px',
+                                            display: 'inline-block',
+                                          }}
+                                        >
+                                          <PlayIcon />
+                                        </Box>
+                                        <Box>
+                                          <Link to={path}>{title}</Link>
+                                        </Box>
+                                      </Li>
+                                    );
+                                  }
+                                )}
                               </Ul>
                             </TabPanel>
                           )}
@@ -327,11 +329,11 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                     discountPrice={discountPrice}
                   />
                 ) : (
-                    <H2 sx={{ color: 'inverseText' }}>
-                      <Link id="pricing" />
+                  <H2 sx={{ color: 'inverseText' }}>
+                    <Link id="pricing" />
                     Thank you for purchasing this course :)
-                    </H2>
-                  )}
+                  </H2>
+                )}
               </Box>
             </Grid>
           </Sheet>

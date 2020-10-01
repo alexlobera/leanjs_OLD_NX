@@ -2,7 +2,6 @@ import { paths as appPaths } from '../../App';
 import { paths as backofficePaths } from '../../Backoffice';
 
 export function getPaymentItemData(item: any) {
-  console.log('aaaa', item);
   let path, utcOffset, title, startDate, city;
 
   if (item) {

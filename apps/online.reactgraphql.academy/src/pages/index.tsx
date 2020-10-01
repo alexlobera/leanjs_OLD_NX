@@ -30,11 +30,13 @@ function excerpt({ text, limit }) {
 }
 
 function CourseCard({
-  course: { published: {
-    slug,
-    title,
-    description: { description },
-  } },
+  course: {
+    published: {
+      slug,
+      title,
+      description: { description },
+    },
+  },
   isAvailable = true,
   fixedImage,
 }: CourseCardProps) {
@@ -47,7 +49,7 @@ function CourseCard({
         <Link to={`/${slug}-course`} as={GatsbyLink} className="course-list">
           <H3 sx={{ mt: 0 }}>{`${
             !isAvailable ? 'Coming soon: ' : ''
-            } ${title}`}</H3>
+          } ${title}`}</H3>
         </Link>
         <P>{excerpt({ text: description, limit: 200 })}</P>
         <P>
@@ -108,7 +110,7 @@ function Page({ data }: PageProps) {
                     description:
                       'Get started building GraphQL APIs wrapping existent REST APIs with GraphQL and start thinking in Graphs',
                   },
-                }
+                },
               }}
             />
             <CourseCard
@@ -122,7 +124,7 @@ function Page({ data }: PageProps) {
                     description:
                       'Learn pragmatic functional programming and use effectively advanced React patterns to build performant and maintainable apps',
                   },
-                }
+                },
               }}
             />
           </Grid>
