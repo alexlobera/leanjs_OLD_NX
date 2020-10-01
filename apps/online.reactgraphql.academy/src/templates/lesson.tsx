@@ -38,7 +38,9 @@ function removeTrailingSlashes(url) {
 const LESSON_QUERY = `
   query videoLesson($videoId: ID!, $unitId: ID!) {
     video(id: $videoId) {
-      transcript
+      pubished {
+        transcript
+      }
       asset {
         url
       }
@@ -48,7 +50,7 @@ const LESSON_QUERY = `
         videos {
           id
           viewer {
-              completedAt
+            completedAt
           }
         }
         customFieldsValues {
@@ -105,7 +107,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   location,
 }) => {
   const { trainingById: training, video, trainingUnit } = data.upmentoring;
-  const trainingPath = `/${training.slug}-course/`;
+  const trainingPath = `/${training.published.slug}-course/`;
   const fluidPoster = video?.asset?.posterImageFile?.childImageSharp?.fluid;
   const { unitId, videoId } = pageContext;
   const { loggedIn, loading: loggingInUser } = useMagic();
@@ -189,9 +191,9 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
         },
         {
           path: trainingPath,
-          text: training.title,
+          text: training.published.title,
         },
-        { text: video.title },
+        { text: video.published.title },
       ]}
     >
       {/* <OkaidiaRGA /> */}
@@ -229,53 +231,53 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         {loggingInUser ? 'logging in...' : 'loading data...'}
                       </>
                     ) : (
-                      <>
-                        <H3
-                          sx={{
-                            ...textBackgroundProps,
-                            padding: 2,
-                            lineHeight: 1.85,
-                          }}
-                        >
-                          {pageContext.isPublicVideo && !loggedIn ? (
-                            <>
-                              <Link
+                        <>
+                          <H3
+                            sx={{
+                              ...textBackgroundProps,
+                              padding: 2,
+                              lineHeight: 1.85,
+                            }}
+                          >
+                            {pageContext.isPublicVideo && !loggedIn ? (
+                              <>
+                                <Link
+                                  to="/login"
+                                  state={{ referrer: location.pathname }}
+                                >
+                                  Log in
+                              </Link>{' '}
+                              to watch this video
+                            </>
+                            ) : (
+                                <>
+                                  <Link to={`${trainingPath}#pricing`}>
+                                    Buy this course
+                              </Link>{' '}
+                              to watch this video
+                            </>
+                              )}
+                          </H3>
+                          <P sx={{ textAlign: 'center', mt: 6 }}>
+                            {pageContext.isPublicVideo && !loggedIn ? (
+                              <LinkButton
+                                variant="primary"
                                 to="/login"
                                 state={{ referrer: location.pathname }}
                               >
-                                Log in
-                              </Link>{' '}
-                              to watch this video
-                            </>
-                          ) : (
-                            <>
-                              <Link to={`${trainingPath}#pricing`}>
-                                Buy this course
-                              </Link>{' '}
-                              to watch this video
-                            </>
-                          )}
-                        </H3>
-                        <P sx={{ textAlign: 'center', mt: 6 }}>
-                          {pageContext.isPublicVideo && !loggedIn ? (
-                            <LinkButton
-                              variant="primary"
-                              to="/login"
-                              state={{ referrer: location.pathname }}
-                            >
-                              Watch now
-                            </LinkButton>
-                          ) : (
-                            <LinkButton
-                              variant="primary"
-                              to={`${trainingPath}#pricing`}
-                            >
-                              Buy course
-                            </LinkButton>
-                          )}
-                        </P>
-                      </>
-                    )}
+                                Watch now
+                              </LinkButton>
+                            ) : (
+                                <LinkButton
+                                  variant="primary"
+                                  to={`${trainingPath}#pricing`}
+                                >
+                                  Buy course
+                                </LinkButton>
+                              )}
+                          </P>
+                        </>
+                      )}
                   </Box>
                 </ThemeProvider>
               </Box>
@@ -285,14 +287,14 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
         <Flex sx={{ pt: 2 }}>
           <Box sx={{ flex: 1 }}>
             {prevVideo && (
-              <Link to={getVideoPath({ slug: prevVideo.slug, trainingPath })}>
+              <Link to={getVideoPath({ slug: prevVideo.published.slug, trainingPath })}>
                 Previous lesson
               </Link>
             )}
           </Box>
           <div>
             {nextVideo && (
-              <Link to={getVideoPath({ slug: nextVideo.slug, trainingPath })}>
+              <Link to={getVideoPath({ slug: nextVideo.published.slug, trainingPath })}>
                 Next lesson
               </Link>
             )}
@@ -301,7 +303,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
         <Grid columns={12} sx={{ mt: 7, px: [2, 0] }}>
           <Box sx={{ gridColumn: ['1/-1', '1/ 8'] }}>
             <H1 as="h1" variant="h2" sx={{ mt: 2 }}>
-              {video.title}
+              {video.published.title}
             </H1>
             <H3>Related resources</H3>
             {relatedResources ? (
@@ -323,28 +325,28 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 </P>
               </>
             ) : (
-              <P>There are no related resources</P>
-            )}
+                    <P>There are no related resources</P>
+                  )}
             <H3>Transcript</H3>
-            {privateData?.video?.transcript ? (
-              <Markdown>{privateData.video.transcript}</Markdown>
+            {privateData?.video?.pubished?.transcript ? (
+              <Markdown>{privateData.video.pubished.transcript}</Markdown>
             ) : (
-              <Box sx={{ position: 'relative' }}>
-                <Markdown>{pageContext.transcript}</Markdown>
-                {!pageContext.isPublicVideo && (
-                  <Box
-                    sx={{
-                      width: '100%',
-                      height: '75px',
-                      position: 'absolute',
-                      bottom: 0,
-                      backgroundImage:
-                        'linear-gradient(to bottom, transparent, white)',
-                    }}
-                  />
-                )}
-              </Box>
-            )}
+                <Box sx={{ position: 'relative' }}>
+                  <Markdown>{pageContext.transcript}</Markdown>
+                  {!pageContext.isPublicVideo && (
+                    <Box
+                      sx={{
+                        width: '100%',
+                        height: '75px',
+                        position: 'absolute',
+                        bottom: 0,
+                        backgroundImage:
+                          'linear-gradient(to bottom, transparent, white)',
+                      }}
+                    />
+                  )}
+                </Box>
+              )}
           </Box>
           <Box sx={{ gridColumn: ['1/-1', '9/ -1'] }}>
             <StickyBox offsetTop={0}>
@@ -355,7 +357,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 {trainingUnit.published.videos.length} lessons
               </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
-                {trainingUnit.published.videos.map(({ title, slug, id }) => {
+                {trainingUnit.published.videos.map(({ published: { title, slug }, id }) => {
                   const path = getVideoPath({ slug, trainingPath });
 
                   return (
@@ -370,17 +372,17 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         {completedVideoSet?.has(id) ? (
                           <Tick width={25} sx={{ mb: '-5px' }} />
                         ) : (
-                          <Icon comp={PlayMedia} color="#d8d8d8" />
-                        )}
+                            <Icon comp={PlayMedia} color="#d8d8d8" />
+                          )}
                       </Box>
                       <Box>
                         {removeTrailingSlashes(location.pathname).indexOf(
                           removeTrailingSlashes(path)
                         ) > -1 ? (
-                          title
-                        ) : (
-                          <Link to={path}>{title}</Link>
-                        )}
+                            title
+                          ) : (
+                            <Link to={path}>{title}</Link>
+                          )}
                       </Box>
                     </Li>
                   );
@@ -392,7 +394,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                   {prevUnit?.published?.videos?.length ? (
                     <Link
                       to={getVideoPath({
-                        slug: prevUnit.published.videos[0].slug,
+                        slug: prevUnit.published.videos[0].published.slug,
                         trainingPath,
                       })}
                     >
@@ -404,7 +406,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                   {nextUnit?.published?.videos?.length ? (
                     <Link
                       to={getVideoPath({
-                        slug: nextUnit.published.videos[0].slug,
+                        slug: nextUnit.published.videos[0].published.slug,
                         trainingPath,
                       })}
                     >
@@ -426,7 +428,9 @@ export const query = graphql`
     upmentoring {
       video(id: $videoId) {
         id
-        title
+        published {
+          title
+        }
         asset {
           posterImageUrl
           posterImageFile {
@@ -444,19 +448,25 @@ export const query = graphql`
           slug
           videos {
             id
-            title
-            slug
+            published {
+              title
+              slug
+            }
           }
         }
       }
       trainingById(id: $trainingId) {
-        title
-        slug
+        published {
+          title
+          slug
+        }
         units {
           id
           published {
             videos {
-              slug
+              published {
+                slug
+              }
             }
           }
         }

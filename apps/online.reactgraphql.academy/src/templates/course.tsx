@@ -51,8 +51,10 @@ const COURSE_QUERY = `
       }
     }
     trainingById(id: $trainingId) {
-      standardPrice
-      currency
+      published {
+        standardPrice
+        currency
+      }
       discountPrice {
         currentPrice
         endsOn
@@ -66,16 +68,16 @@ const PlayIcon = () => <PlayMedia sx={{ mb: '-7px', mr: 2 }} fill="#d8d8d8" />;
 function CoursePage({ data, pageContext: { trainingId } }) {
   const { loading: loggingInUser } = useMagic();
   const training = data.upmentoring.trainingById;
-  const trainingPath = `/${training.slug}-course`;
+  const trainingPath = `/${training.published.slug}-course`;
   const units = training.units || [];
   const title = `Online ${training.title} Course`;
-
   const trainingInstances =
     data.upmentoring.trainingInstances &&
-    data.upmentoring.trainingInstances.edges
+      data.upmentoring.trainingInstances.edges
       ? data.upmentoring.trainingInstances.edges
-          .map(formatTraining())
-          .slice(0, 3)
+        .map(formatTraining())
+        .filter(t => t)
+        .slice(0, 3)
       : [];
 
   // TODO useMemo variables inside useQuery
@@ -94,8 +96,8 @@ function CoursePage({ data, pageContext: { trainingId } }) {
       : coverImageNode.childImageSharp.fluid.src;
 
   const discountPrice = runTimeData?.trainingById?.discountPrice;
-  const standardPrice = runTimeData?.trainingById?.standardPrice;
-  const currency = runTimeData?.trainingById?.currency;
+  const standardPrice = runTimeData?.trainingById?.published.standardPrice;
+  const currency = runTimeData?.trainingById?.published.currency;
   const BgLogo = ReactBgWithBorder;
 
   return (
@@ -148,14 +150,14 @@ function CoursePage({ data, pageContext: { trainingId } }) {
             },
           ]}
           info={
-            training.previewVideo && (
+            training.published.previewVideo && (
               <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
                 <GatsbyVideoPlayer
                   fluidPoster={
-                    training.previewVideo.asset?.posterImageFile
+                    training.published.previewVideo.asset?.posterImageFile
                       ?.childImageSharp?.fluid
                   }
-                  url={training.previewVideo.asset?.url}
+                  url={training.published.previewVideo.asset?.url}
                 />
               </Box>
             )
@@ -167,7 +169,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           <Sheet>
             <H2 sx={{ mt: 0 }}>
               <Link id="course-modules" />
-              {training.title} Modules
+              {training.published.title} Modules
             </H2>
 
             <Grid columns={10}>
@@ -205,7 +207,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                         {lessonsCount > 0 && (
                           <P sx={{ mb: 6 }}>
                             <Link
-                              to={`${trainingPath}/${published.videos[0].slug}`}
+                              to={`${trainingPath}/${published.videos[0].published.slug}`}
                             >
                               <PlayIcon />
                               Start watching
@@ -259,7 +261,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                           {lessonsCount > 0 && (
                             <TabPanel name="lessons">
                               <Ul variant="unstyled" sx={{ pl: 0 }}>
-                                {published.videos.map(({ title, slug, id }) => {
+                                {published.videos.map(({ published: { title, slug }, id }) => {
                                   const path = `${trainingPath}/${slug}`;
 
                                   return (
@@ -325,11 +327,11 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                     discountPrice={discountPrice}
                   />
                 ) : (
-                  <H2 sx={{ color: 'inverseText' }}>
-                    <Link id="pricing" />
+                    <H2 sx={{ color: 'inverseText' }}>
+                      <Link id="pricing" />
                     Thank you for purchasing this course :)
-                  </H2>
-                )}
+                    </H2>
+                  )}
               </Box>
             </Grid>
           </Sheet>
@@ -403,23 +405,25 @@ export const query = graphql`
     }
     upmentoring {
       trainingById(id: $trainingId) {
-        title
-        subtitle
-        slug
         id
-        onDemand
-        description {
-          objectives
-          syllabus
-        }
-        previewVideo {
-          asset {
-            url
-            posterImageUrl
-            posterImageFile {
-              childImageSharp {
-                fluid(maxWidth: 750) {
-                  ...GatsbyImageSharpFluid
+        published {
+          title
+          subtitle
+          slug
+          onDemand
+          description {
+            objectives
+            syllabus
+          }
+          previewVideo {
+            asset {
+              url
+              posterImageUrl
+              posterImageFile {
+                childImageSharp {
+                  fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }
@@ -445,8 +449,10 @@ export const query = graphql`
               }
             }
             videos {
-              title
-              slug
+              published {
+                title
+                slug
+              }
             }
           }
         }
@@ -466,31 +472,35 @@ export const query = graphql`
           node {
             __typename
             id
-            startDate
-            utcOffset
-            endDate
-            isOnline
-            city
-            cityCountry
-            daysOfTheWeek
-            address
-            venueName
-            mapUrl
-            standardPrice
-            currency
             title
             training {
               id
-              slug
-              customFieldsValues {
-                values
-                fieldId
+              published {
+                slug
+                customFieldsValues {
+                  values
+                  fieldId
+                }
               }
             }
-            trainingInstanceType {
-              name
-              title
-              id
+            published {
+              startDate
+              utcOffset
+              endDate
+              isOnline
+              city
+              cityCountry
+              daysOfTheWeek
+              address
+              venueName
+              mapUrl
+              standardPrice
+              currency
+              trainingInstanceType {
+                name
+                title
+                id
+              }
             }
           }
         }

@@ -36,19 +36,19 @@ function formatDate(date, format) {
     return '';
   }
   const months = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ],
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ],
     D = date.getDate() || '',
     MMM = months[date.getMonth()] || '',
     YYYY = date.getFullYear() || '',
@@ -118,12 +118,12 @@ export const trainingDateByDay = ({ training = {}, dayOffset = 0 }) => {
 export const trainingTimings = ({ training }) =>
   training && training.startDate
     ? `${
-        training.startDate &&
-        `, ${formatUTC(training.startDate, training.utcOffset, 'HH:mm')}`
-      } - ${
-        training.endDate &&
-        formatUTC(training.endDate, training.utcOffset, 'HH:mm')
-      }`
+    training.startDate &&
+    `, ${formatUTC(training.startDate, training.utcOffset, 'HH:mm')}`
+    } - ${
+    training.endDate &&
+    formatUTC(training.endDate, training.utcOffset, 'HH:mm')
+    }`
     : '';
 
 function twoDigits(number, includeSymbol = false) {
@@ -143,9 +143,9 @@ export const trainingDateTime = ({
   preEvening = false,
 }) =>
   `${trainingDateByDay({ training, dayOffset })} ${
-    dayOffset === 0 && preEvening
-      ? '18:30 - 21:00'
-      : training
+  dayOffset === 0 && preEvening
+    ? '18:30 - 21:00'
+    : training
       ? trainingTimings({ training })
       : ''
   }`;
@@ -281,16 +281,20 @@ export const formatTraining = ({
 } = {}) => {
   const cityIndex = {};
 
-  return ({ node }) => {
-    const { training, title, trainingInstanceType, city = '', isOnline } = node;
-    const { slug, id: trainingId } = training || {};
+  return ({ node: { published, ...restNode } }) => {
+    const { training } = restNode;
+    if (!training) {
+      return
+    }
+    const { title, trainingInstanceType, city = '', isOnline } = published;
+    const { published: { slug }, id: trainingId } = training || {};
     const remoteOrCity = isOnline ? 'remote' : city;
 
-    const trainingType = training.customFieldsValues.find(
+    const trainingType = training.published.customFieldsValues.find(
       ({ fieldId }) => fieldId === TRAINING_TYPE_FIELD_ID
     ).values[0];
 
-    const tech = training.customFieldsValues.find(
+    const tech = training.published.customFieldsValues.find(
       ({ fieldId }) => fieldId === TRAINING_TECH_FIELD_ID
     ).values[0];
 
@@ -301,7 +305,8 @@ export const formatTraining = ({
     cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1;
 
     return {
-      ...node,
+      ...published,
+      ...restNode,
       trainingInstanceTypeName,
       title,
       trainingType,
@@ -355,28 +360,28 @@ export function getTrainingTimings({ training }) {
     hours < 1
       ? `1 hour`
       : hours < 7
-      ? `${hours} hours`
-      : days < 2
-      ? '1 day'
-      : days < 3
-      ? `2 days`
-      : days < 5
-      ? `3 days`
-      : days < 10
-      ? '1 week'
-      : days < 15
-      ? '2 weeks'
-      : days < 22
-      ? '3 weeks'
-      : days < 30
-      ? '4 weeks'
-      : days < 36
-      ? '5 weeks'
-      : days < 43
-      ? '6 weeks'
-      : days < 50
-      ? '7 weeks'
-      : '';
+        ? `${hours} hours`
+        : days < 2
+          ? '1 day'
+          : days < 3
+            ? `2 days`
+            : days < 5
+              ? `3 days`
+              : days < 10
+                ? '1 week'
+                : days < 15
+                  ? '2 weeks'
+                  : days < 22
+                    ? '3 weeks'
+                    : days < 30
+                      ? '4 weeks'
+                      : days < 36
+                        ? '5 weeks'
+                        : days < 43
+                          ? '6 weeks'
+                          : days < 50
+                            ? '7 weeks'
+                            : '';
 
   return { duration, dayMonth, days };
 }
