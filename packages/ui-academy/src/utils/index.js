@@ -283,8 +283,7 @@ export const formatTraining = ({
 
   return ({ node: { published, ...restNode } }) => {
     const { training } = restNode;
-    if (!training) {
-      console.log('🔥🔥🔥🔥🔥🔥 aaaaaa dd', restNode, published);
+    if (!training || !training.published) {
       return;
     }
     const { title, trainingInstanceType, city = '', isOnline } = published;
