@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, BoxProps, As } from './Box';
+// import { Link as RRLink } from 'react-router-dom';
 
 export function Link<T extends As = 'a'>(props: BoxProps<T>) {
   return (

@@ -12,18 +12,34 @@ export type PropsOf<T extends As> = React.ComponentPropsWithRef<T>;
 
 export type As = React.ElementType;
 
+// export interface BoxOwnProps<T extends As = As> {
+//   as?: T;
+//   sx?: SxProp;
+//   variant?: string;
+//   box?: As;
+//   __themeKey?: string;
+//   __sx?: SxProp;
+// }
+
+// export type BoxProps<T extends As, P = {}> = BoxOwnProps<T> &
+//   Omit<PropsOf<T>, keyof BoxOwnProps> &
+//   P;
+
 export interface BoxOwnProps<T extends As = As> {
   as?: T;
   sx?: SxProp;
   variant?: string;
+  children?: React.ReactNode;
   box?: As;
   __themeKey?: string;
   __sx?: SxProp;
 }
 
-export type BoxProps<T extends As, P = {}> = BoxOwnProps<T> &
-  Omit<PropsOf<T>, keyof BoxOwnProps> &
-  P;
+export type BoxProps<T extends As, P = {}> = P &
+  BoxOwnProps<T> &
+  Omit<PropsOf<T>, 'as'> & {
+    as?: T;
+  };
 
 export const StyledBox = styled(
   (

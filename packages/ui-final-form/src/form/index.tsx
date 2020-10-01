@@ -11,7 +11,6 @@ interface AnyObject {
 }
 
 interface ExtendedBoxProps {
-  onSubmit: Config['onSubmit'];
   autoComplete?: 'on' | 'off';
   noValidate?: boolean;
   name?: string;
@@ -29,6 +28,7 @@ export const Form = <T extends As = 'form'>({
   noValidate,
   name,
   sx,
+  onSubmit,
   ...rest
 }: BoxProps<T, FormProps>) => {
   const renderProp = render || children;
@@ -36,6 +36,7 @@ export const Form = <T extends As = 'form'>({
   return (
     <StateForm
       {...rest}
+      onSubmit={onSubmit}
       render={({ handleSubmit, ...renderRest }) => (
         <Box
           autoComplete={autoComplete}
