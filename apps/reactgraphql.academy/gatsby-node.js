@@ -179,41 +179,43 @@ exports.createPages = async ({ graphql, actions }) => {
             edges {
               node {
                 id
-                title
-                standardPrice
-                city
-                currency
-                description
-                address
-                venueName
-                mapUrl
-                utcOffset
-                startDate
-                endDate
                 ticketsLeft
-                isOnline
-                overview
-                sponsors {
-                  url
-                  imageUrl
-                }
-                callForPapersUrl
-                speakers {
-                  fullName
-                  bio
-                  profilePicUrl
-                  jobTitle
-                  companyName
-                  links {
-                    name
-                    url
-                  }
-                }
-                agenda {
+                published {
                   title
-                  sessions {
+                  standardPrice
+                  city
+                  currency
+                  description
+                  address
+                  venueName
+                  mapUrl
+                  utcOffset
+                  startDate
+                  endDate
+                  isOnline
+                  overview
+                  sponsors {
+                    url
+                    imageUrl
+                  }
+                  callForPapersUrl
+                  speakers {
+                    fullName
+                    bio
+                    profilePicUrl
+                    jobTitle
+                    companyName
+                    links {
+                      name
+                      url
+                    }
+                  }
+                  agenda {
                     title
-                    description
+                    sessions {
+                      title
+                      description
+                    }
                   }
                 }
               }
@@ -334,21 +336,27 @@ exports.createPages = async ({ graphql, actions }) => {
       }
 
       await Promise.all(
-        result.data.upmentoring.events.edges.map(({ node }) => {
-          const locationImage = getLocationImage(
-            result,
-            node.city,
-            node.isOnline
-          );
-          return createPage({
-            path: `/community/meetups/${node.id}`,
-            component: path.resolve(`./src/templates/meetup.js`),
-            context: {
-              meetup: { ...node, shoppingItemEnum: 'event' },
-              locationImage: locationImage && locationImage.childImageSharp,
-            },
-          });
-        })
+        result.data.upmentoring.events.edges.map(
+          ({ node: { published, ...restNode } }) => {
+            const locationImage = getLocationImage(
+              result,
+              published.city,
+              published.isOnline
+            );
+            return createPage({
+              path: `/community/meetups/${restNode.id}`,
+              component: path.resolve(`./src/templates/meetup.js`),
+              context: {
+                meetup: {
+                  ...published,
+                  ...restNode,
+                  shoppingItemEnum: 'event',
+                },
+                locationImage: locationImage && locationImage.childImageSharp,
+              },
+            });
+          }
+        )
       );
 
       await Promise.all(
@@ -407,6 +415,7 @@ exports.createPages = async ({ graphql, actions }) => {
               tagsNin = '',
               ...restConfig
             } = require(pathConfig);
+
             const tagsInNoDuplicates = [
               ...new Set([...tagsIn, restConfig.tech.toLowerCase()]),
             ];

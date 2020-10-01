@@ -26,19 +26,23 @@ exports.createPages = async ({ graphql, actions }) => {
           trainings(filter: { onDemand: true }) {
             edges {
               node {
-                slug
                 id
-                units {
-                  id
-                  published {
-                    title
-                    videos {
-                      slug
-                      id
-                      transcript
-                      asset {
-                        playback {
-                          policy
+                published {
+                  slug
+                  units {
+                    id
+                    published {
+                      title
+                      videos {
+                        id
+                        published {
+                          slug
+                          transcript
+                        }
+                        asset {
+                          playback {
+                            policy
+                          }
                         }
                       }
                     }
@@ -58,22 +62,22 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   result.data.upmentoring.trainings.edges.forEach(({ node: training }) => {
-    const coursePath = `${training.slug}-course/`;
+    const coursePath = `${training.published.slug}-course/`;
 
     createPage({
       path: coursePath,
       component: courseTemplate,
       context: {
         trainingId: training.id,
-        coverImageRegex: `/courses/cover_${training.slug}/`,
+        coverImageRegex: `/courses/cover_${training.published.slug}/`,
       },
     });
 
     training.units.forEach((unit) => {
       unit.published.videos.forEach((video) => {
-        const lessonPath = `${coursePath}${video.slug}`;
+        const lessonPath = `${coursePath}${video.published.slug}`;
         const transcriptBlock =
-          video.transcript && video.transcript.split('\n');
+          video.published.transcript && video.transcript.split('\n');
         const transcriptPreview =
           transcriptBlock && transcriptBlock.length > 0
             ? transcriptBlock.slice(0, 2).join('\n')
@@ -95,7 +99,9 @@ exports.createPages = async ({ graphql, actions }) => {
             // transcript: isPublicVideo ? video.transcript : null,
             // transcriptPreview: isPublicVideo ? null : transcriptPreview,
             isPublicVideo,
-            transcript: isPublicVideo ? video.transcript : transcriptPreview,
+            transcript: isPublicVideo
+              ? video.published.transcript
+              : transcriptPreview,
           },
         });
       });
