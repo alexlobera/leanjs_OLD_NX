@@ -147,13 +147,13 @@ const Layout = ({ children }) => {
 
   const cityIndex = {};
   const formatTraining = ({ node }) => {
-    const { training, published: publishedInstance, ...restInstance } = node;
     const {
+      training,
       title,
-      trainingInstanceType,
-      city = '',
-      isOnline,
-    } = publishedInstance;
+      published: publishedInstance,
+      ...restInstance
+    } = node;
+    const { trainingInstanceType, city = '', isOnline } = publishedInstance;
 
     const { published: publishedTraining, ...restTraining } = training || {};
     const trainingId = restTraining.id;
