@@ -211,12 +211,7 @@ const Layout = ({ children }) => {
     () => data.upmentoring.trainingInstances.edges.map(formatTraining),
     [data]
   );
-  const meetups = data.upmentoring.events.edges
-    // .filter(({ node: { meetup } }) => meetup && meetup.id)
-    .map(formatMeetup);
-  //   const confs = data.upmentoring.events.edges
-  //     .filter(({ node: { meetup } }) => !meetup || !meetup.id)
-  //     .map(formatConf);
+  const meetups = data.upmentoring.events.edges.map(formatMeetup);
   const trainingAndEvents = [...trainings, ...meetups];
 
   return (

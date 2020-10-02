@@ -78,10 +78,3 @@ export function formatMeetup({ node: { published, ...rest } }) {
     toPath: `/community/meetups/${rest.id}`,
   };
 }
-
-// export function formatConf({ node }) {
-//   return {
-//     ...node,
-//     toPath: '/graphql/mini-conference/',
-//   };
-// }
