@@ -173,7 +173,6 @@ class PaymentSection extends React.Component {
         ticketsLeft !== null &&
         parseInt(ticketsLeft) <= 0
       );
-      price = item.standardPrice;
 
       const dataItem =
         data && data.trainingInstance
@@ -181,6 +180,8 @@ class PaymentSection extends React.Component {
           : data && data.event
           ? data.event
           : {};
+
+      price = dataItem?.published?.standardPrice;
 
       const { discountPrice } = dataItem;
       currency = item.currency || 'gbp';
@@ -326,6 +327,9 @@ PaymentSection.defaultProps = {
 export const QUERY_UPCOMING_TRAINING_VOUCHERS = `
 query instanceDiscountPrice($trainingInstanceId: ID!) {
     trainingInstance(id: $trainingInstanceId) {
+        published {
+            standardPrice
+        }
         discountPrice {
             currentPrice
             endsOn
