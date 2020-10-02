@@ -8,6 +8,7 @@
     "gatsby": "^2.24.*"
   },
   "scripts": {
+    "preinstall": "cp ../../yarn.lock .",
     "build": "cd ../.. && npx nx run rformacion:build"
   }
 }
