@@ -3,11 +3,7 @@ import { Helmet } from 'react-helmet';
 import raven from 'raven-js';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import {
-  createTrainingPath,
-  formatMeetup,
-  formatConf,
-} from './training/dataUtils';
+import { createTrainingPath, formatMeetup } from './training/dataUtils';
 
 import { setCookie, getCookie } from './utils/store';
 import { getURLParameter } from './utils/url';
@@ -215,13 +211,8 @@ const Layout = ({ children }) => {
     () => data.upmentoring.trainingInstances.edges.map(formatTraining),
     [data]
   );
-  const meetups = data.upmentoring.events.edges
-    .filter(({ node: { meetup } }) => meetup && meetup.id)
-    .map(formatMeetup);
-  const confs = data.upmentoring.events.edges
-    .filter(({ node: { meetup } }) => !meetup || !meetup.id)
-    .map(formatConf);
-  const trainingAndEvents = [...trainings, ...meetups, ...confs];
+  const meetups = data.upmentoring.events.edges.map(formatMeetup);
+  const trainingAndEvents = [...trainings, ...meetups];
 
   return (
     <React.Fragment>

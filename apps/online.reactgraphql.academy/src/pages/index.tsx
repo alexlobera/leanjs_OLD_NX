@@ -81,6 +81,7 @@ function Page({ data }: PageProps) {
             title="Online React and GraphQL Courses"
             subtitle="Learn React and GraphQL online at your own pace with the React GraphQL Academy teaching method"
             bgColors={['#DF0098', '#267280', 'rgba(256,256,256, 0.9)']}
+            minHeight="650px"
           />
         </GraphQLHeaderBg>
       </ReactHeaderBg>
