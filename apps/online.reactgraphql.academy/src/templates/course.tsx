@@ -80,12 +80,15 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           .slice(0, 3)
       : [];
 
-  // TODO useMemo variables inside useQuery
-  const options = React.useMemo(() => {
-    return { variables: { trainingId }, skip: loggingInUser };
-  }, [trainingId, loggingInUser]);
+  //   // TODO useMemo variables inside useQuery
+  //   const options = React.useMemo(() => {
+  //     return { variables: { trainingId }, skip: loggingInUser };
+  //   }, [trainingId, loggingInUser]);
 
-  const { data: runTimeData, loading } = useQuery(COURSE_QUERY, options);
+  const { data: runTimeData, loading } = useQuery(COURSE_QUERY, {
+    variables: { trainingId },
+    skip: loggingInUser,
+  });
 
   const loadingData = loggingInUser || loading;
   const purchased = runTimeData?.viewer?.purchasedTraining?.id === trainingId;

@@ -123,14 +123,20 @@ const MeetupPage = ({
               <H3 sx={{ mb: 6, pt: 2 }}>Sponsors</H3>
               <StickyBox offsetTop={120}>
                 {sponsors.map(
-                  ({ imageUrl, borderColor = MEETUP_RED }, index) => (
-                    <Card
-                      variant="primary"
-                      sx={{ borderColor, mt: index > 0 ? 6 : 0 }}
-                    >
+                  ({ imageUrl, url, borderColor = MEETUP_RED }, index) => {
+                    const img = (
                       <Image sx={{ maxWidth: '70%' }} src={imageUrl} />
-                    </Card>
-                  )
+                    );
+
+                    return (
+                      <Card
+                        variant="primary"
+                        sx={{ borderColor, mt: index > 0 ? 6 : 0 }}
+                      >
+                        {url ? <Link to={url}>{img}</Link> : img}
+                      </Card>
+                    );
+                  }
                 )}
               </StickyBox>
             </Col>
