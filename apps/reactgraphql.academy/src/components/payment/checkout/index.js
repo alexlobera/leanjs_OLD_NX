@@ -50,15 +50,14 @@ const Checkout = (props) => {
   const isCheckoutOpen = (checkoutContext && checkoutContext.isOpen) || isOpen;
 
   const openCheckout = () => {
-    props.trackUserBehaviour({
-      event: BUY_BUTTON_CLICK,
-    });
+    props.trackUserBehaviour &&
+      props.trackUserBehaviour({
+        event: BUY_BUTTON_CLICK,
+      });
     setIsOpen(true);
   };
 
   const {
-    // trainingInstanceId,
-    // eventId,
     itemId,
     price,
     discountPrice,
@@ -127,8 +126,6 @@ const Checkout = (props) => {
           city={city}
           navigate={navigate}
           itemId={itemId}
-          //   trainingInstanceId={trainingInstanceId}
-          //   eventId={eventId}
           vatRate={vatRate}
           updateVatRate={updateVatRate}
           currency={currency}
