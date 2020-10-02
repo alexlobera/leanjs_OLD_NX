@@ -83,7 +83,7 @@
     "gatsby-transformer-remark": "~2.8.19",
     "gatsby-transformer-sharp": "~2.5.11",
     "graphql-tag": "~2.10.3",
-    "hls.js": "~0.14.5",
+    "hls.js": "~0.14.13",
     "js-cookie": "^2.2.1",
     "lodash.isequal": "~4.5.0",
     "magic-sdk": "~2.7.0",
