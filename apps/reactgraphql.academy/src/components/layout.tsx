@@ -147,9 +147,8 @@ const Layout = ({ children }) => {
 
   const cityIndex = {};
   const formatTraining = ({ node }) => {
-    const { training, published: publishedInstance, ...restInstance } = node;
+    const { training, title, published: publishedInstance, ...restInstance } = node;
     const {
-      title,
       trainingInstanceType,
       city = '',
       isOnline,
