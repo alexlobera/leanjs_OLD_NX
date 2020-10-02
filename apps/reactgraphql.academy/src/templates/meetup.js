@@ -3,6 +3,7 @@ import Markdown from 'markdown-to-jsx';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
+import { createMetas } from '../components/utils';
 import { TopSection } from 'src/components/layout/Section';
 import { Ul, Li } from 'src/components/layout/Ul';
 import { Col, Row } from 'src/components/layout/Grid';
@@ -101,15 +102,15 @@ const Meetup = ({
           },
         ]}
       >
-        {/* TODO REPLACE THIS WITH createMetas function */}
-        <meta property="og:title" content={title || defaultMetaText} />
-        <meta property="og:description" content={excerpt || defaultMetaText} />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@reactgqlacademy" />
-        <meta name="twitter:title" content={title || defaultMetaText} />
-        <meta name="twitter:description" content={excerpt || defaultMetaText} />
-        <meta name="twitter:creator" content="@reactgqlacademy" />
+        {createMetas({
+          title: title || defaultMetaText,
+          description: excerpt || defaultMetaText,
+          imageFullPublicUrl:
+            'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2FmeetupImages%2Fmeetupsocial1.png?alt=media',
+          ogType: 'website',
+          twitterSite: '@reactgqlacademy',
+          authorTwitter: '@reactgqlacademy',
+        })}
       </Helmet>
       <Breadcrumb
         bgColor={MEETUP_RED}
