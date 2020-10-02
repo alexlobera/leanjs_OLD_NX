@@ -6,5 +6,8 @@
   "license": "MIT",
   "dependencies": {
     "gatsby": "^2.24.*"
+  },
+  "scripts": {
+    "build": "cd ../.. && npx nx run rformacion:build"
   }
 }
