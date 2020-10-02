@@ -30,3 +30,7 @@
 
 /apps/rga.studio/dist
 
+
+/apps/rformacion/node_modules
+/apps/rformacion/public
+/apps/rformacion/.cache

@@ -64,3 +64,7 @@ Thumbs.db
 /apps/leanui-docz/public
 /apps/leanui-docz/.cache
 
+
+/apps/rformacion/node_modules
+/apps/rformacion/public
+/apps/rformacion/.cache
