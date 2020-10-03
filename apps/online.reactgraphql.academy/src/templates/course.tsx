@@ -183,7 +183,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                   const lessonsCount =
                     (published.videos && published.videos.length) || 0;
 
-                  const containsFreeVideos = !!published.videos?.find(
+                  const containsFreeVideos = !published.videos?.find(
                     ({ asset }) => asset.isPrivate
                   );
                   const { previewVideo } = published;
