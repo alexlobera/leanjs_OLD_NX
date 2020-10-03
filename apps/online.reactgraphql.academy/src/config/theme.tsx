@@ -183,6 +183,9 @@ export const theme = {
     img: {
       maxWidth: '100%',
     },
+    span: {
+      lineHeight: 'body',
+    },
   },
   sections: {
     top: {

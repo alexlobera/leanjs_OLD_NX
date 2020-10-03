@@ -88,7 +88,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
 
   const loadingData = loggingInUser || loading;
   const purchased = runTimeData?.viewer?.purchasedTraining?.id === trainingId;
-  const coverImageNode = data.courseThumbnailImages.nodes[0];
+  const coverImageNode = data.courseThumbnailImage;
   const coverImage =
     coverImageNode.extension === 'svg'
       ? coverImageNode.publicURL
@@ -124,7 +124,6 @@ function CoursePage({ data, pageContext: { trainingId } }) {
         <Header
           title={title}
           subtitle={training.published.subtitle}
-          minHeight="650px"
           bgColors={['#44B0C5']}
           bgImageOpacity={1}
           bgImage={coverImage}
@@ -317,7 +316,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                 }
               }, [])}
             </Grid>
-            <H2>{training.title} Curriculum</H2>
+            <H2>What you'll learn</H2>
             <Card variant="secondary">
               <Markdown>{training?.published?.description?.syllabus}</Markdown>
             </Card>
@@ -405,20 +404,16 @@ export const query = graphql`
     $path: String!
     $coverImageRegex: String!
   ) {
-    courseThumbnailImages: allFile(
-      filter: {
-        absolutePath: { regex: $coverImageRegex }
-        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)|(svg)/" }
-      }
+    courseThumbnailImage: file(
+      absolutePath: { regex: $coverImageRegex }
+      extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)|(svg)/" }
     ) {
-      nodes {
-        publicURL
-        extension
-        name
-        childImageSharp {
-          fluid(maxWidth: 1200) {
-            ...GatsbyImageSharpFluid
-          }
+      publicURL
+      extension
+      name
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
