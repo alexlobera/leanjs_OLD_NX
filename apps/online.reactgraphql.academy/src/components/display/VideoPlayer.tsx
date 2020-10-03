@@ -11,6 +11,7 @@ export function GatsbyVideoPlayer({
   url,
   autoload = false,
   overlay = null,
+  sx = {},
   ...rest
 }) {
   const [imageLoaded, setImageLoaded] = React.useState(false);
@@ -27,7 +28,7 @@ export function GatsbyVideoPlayer({
   return (
     <Box
       onMouseOver={() => setDerivedAutoload(true)}
-      sx={{ position: 'relative' }}
+      sx={{ position: 'relative', ...sx }}
     >
       <Box
         sx={{

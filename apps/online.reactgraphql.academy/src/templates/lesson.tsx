@@ -221,6 +221,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
           fluidPoster={fluidPoster}
           onEnded={completeVideo}
           url={privateData?.video?.asset?.url}
+          sx={{ boxShadow: 'box' }}
           overlay={
             !privateData?.video?.asset?.url ? (
               <Box
@@ -422,14 +423,14 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 Completed {completedVideosSoFar} out of{' '}
                 {trainingUnit.published.videos.length} lessons
               </P>
-              <P>
-                <ProgressBar
-                  progress={
-                    (100 * completedVideosSoFar) /
-                    trainingUnit.published.videos.length
-                  }
-                />
-              </P>
+
+              <ProgressBar
+                progress={
+                  (100 * completedVideosSoFar) /
+                  trainingUnit.published.videos.length
+                }
+              />
+
               <Ul variant="unstyled" sx={{ pl: 0 }}>
                 {trainingUnit.published.videos.map(
                   ({ published: { title, slug }, id }) => {
