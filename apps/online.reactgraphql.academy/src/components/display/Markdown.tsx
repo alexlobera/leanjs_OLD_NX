@@ -1,7 +1,7 @@
 import MarkdownToJsx from 'markdown-to-jsx';
 import React from 'react';
 
-import { P } from '.';
+import { P, Span } from '.';
 import { Ul, Li } from '../layout';
 import Link from '../navigation/Link';
 
@@ -22,6 +22,9 @@ export default function Markdown({ children, li = Li }) {
           li,
           a: {
             component: Link,
+          },
+          span: {
+            component: Span,
           },
         },
       }}
