@@ -8,6 +8,7 @@ import {
   formatTraining,
   TrainingItem,
   getTrainingTimings,
+  useExpandCheckout,
 } from '@leanjs/ui-academy';
 import { PlayMedia } from '@leanjs/ui-icons';
 import { useQuery } from '@leanjs/graphql-client';
@@ -17,7 +18,7 @@ import Tick from '../components/icons/Tick';
 import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
 import Sheet from '../components/layout/Sheet';
-import Link from '../components/navigation/Link';
+import Link, { LinkButton } from '../components/navigation/Link';
 import Header from '../components/layout/Header';
 import { P, H2, H3, H4 } from '../components/display';
 import {
@@ -79,6 +80,8 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           .filter((t) => t)
           .slice(0, 3)
       : [];
+
+  const expandCheckout = useExpandCheckout();
 
   const { data: runTimeData, loading } = useQuery(COURSE_QUERY, {
     variables: { trainingId },
@@ -149,7 +152,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           ]}
           info={
             training.published.previewVideo && (
-              <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
+              <Box sx={{ mb: 5 }}>
                 <GatsbyVideoPlayer
                   fluidPoster={
                     training.published.previewVideo.asset?.posterImageFile
@@ -157,6 +160,11 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                   }
                   url={training.published.previewVideo.asset?.url}
                 />
+                <P sx={{ textAlign: 'center' }}>
+                  <LinkButton onClick={expandCheckout} to="#pricing">
+                    Buy
+                  </LinkButton>
+                </P>
               </Box>
             )
           }
@@ -352,7 +360,9 @@ function CoursePage({ data, pageContext: { trainingId } }) {
             </P>
             <Grid columns={{ minWidth: '300px' }} sx={{ mt: 7 }}>
               {trainingInstances.map((training) => {
-                const { dayMonth, duration } = getTrainingTimings({ training });
+                const { dayMonth, duration } = getTrainingTimings({
+                  training,
+                });
                 return (
                   <TrainingItem
                     key={training.id}

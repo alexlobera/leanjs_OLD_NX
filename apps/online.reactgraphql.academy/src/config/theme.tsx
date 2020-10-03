@@ -198,6 +198,7 @@ export const theme = {
       },
       bg: 'primary',
       fontWeight: 'bold',
+      textShadow: 'none',
     },
     secondary: {
       color: 'inverseText',
