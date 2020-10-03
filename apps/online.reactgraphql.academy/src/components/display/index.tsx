@@ -12,4 +12,5 @@ export {
   Image,
   Span,
   Spinner,
+  Tag,
 } from '@leanjs/ui-core';

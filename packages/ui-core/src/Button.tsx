@@ -12,6 +12,7 @@ interface ButtonProps {
 export const buttonDefaultSxProp = {
   py: 3,
   px: 6,
+  mt: 0,
   display: 'inline-flex',
   justifyContent: 'center',
   alignItems: 'center',

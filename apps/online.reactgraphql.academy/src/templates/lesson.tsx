@@ -345,7 +345,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               <Markdown>{relatedResources}</Markdown>
             ) : loading || loggingInUser ? (
               <P>Loading data...</P>
-            ) : !relatedResources && loggedIn ? (
+            ) : !loggedIn ? (
               <>
                 <P>
                   <Link to={`${trainingPath}#pricing`}>

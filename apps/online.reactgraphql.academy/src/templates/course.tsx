@@ -20,7 +20,7 @@ import Layout from '../components/layout/Layout';
 import Sheet from '../components/layout/Sheet';
 import Link, { LinkButton } from '../components/navigation/Link';
 import Header from '../components/layout/Header';
-import { P, H2, H3, H4 } from '../components/display';
+import { P, H2, H3, Tag } from '../components/display';
 import {
   Card,
   Container,
@@ -64,7 +64,7 @@ const COURSE_QUERY = `
   }
 `;
 
-const PlayIcon = () => <PlayMedia sx={{ mb: '-7px', mr: 2 }} fill="#d8d8d8" />;
+// const PlayIcon = () => <PlayMedia sx={{ mb: '-7px', mr: 2 }} fill="#d8d8d8" />;
 
 function CoursePage({ data, pageContext: { trainingId } }) {
   const { loading: loggingInUser } = useMagic();
@@ -184,6 +184,10 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                 if (published) {
                   const lessonsCount =
                     (published.videos && published.videos.length) || 0;
+
+                  const containsFreeVideos = !!published.videos?.find(
+                    ({ asset }) => asset.isPrivate
+                  );
                   const { previewVideo } = published;
                   acc.push(
                     <>
@@ -211,14 +215,21 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                       >
                         <H3 sx={{ mt: 0 }}>{published.title}</H3>
                         {lessonsCount > 0 && (
-                          <P sx={{ mb: 6 }}>
-                            <Link
-                              to={`${trainingPath}/${published.videos[0].published.slug}`}
-                            >
-                              <PlayIcon />
-                              Start watching
-                            </Link>
-                          </P>
+                          <Ul variant="inline" sx={{ mb: 6 }}>
+                            <Li>
+                              <LinkButton
+                                to={`${trainingPath}/${published.videos[0].published.slug}`}
+                              >
+                                <PlayMedia sx={{ mr: 2 }} fill="#d8d8d8" />{' '}
+                                Watch
+                              </LinkButton>
+                            </Li>
+                            {containsFreeVideos && (
+                              <Li>
+                                <Tag sx={{ ml: 3 }}>Contains free videos</Tag>
+                              </Li>
+                            )}
+                          </Ul>
                         )}
                         <Markdown>{published.description}</Markdown>
                         <Tabs defaultValue="learning" sx={{ mt: 6 }}>
@@ -285,7 +296,10 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                                             display: 'inline-block',
                                           }}
                                         >
-                                          <PlayIcon />
+                                          <PlayMedia
+                                            sx={{ mb: '-7px', mr: 2 }}
+                                            fill="#d8d8d8"
+                                          />
                                         </Box>
                                         <Box>
                                           <Link to={path}>{title}</Link>
@@ -462,6 +476,9 @@ export const query = graphql`
               published {
                 title
                 slug
+              }
+              asset {
+                isPrivate
               }
             }
           }

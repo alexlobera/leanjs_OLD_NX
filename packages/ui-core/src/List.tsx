@@ -33,6 +33,8 @@ const ulVariantSxProp = {
   inline: {
     m: 0,
     p: 0,
+    display: 'flex',
+    alignItems: 'center',
   },
   unstyled: {
     ml: 0,
