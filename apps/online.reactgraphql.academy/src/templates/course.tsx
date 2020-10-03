@@ -204,6 +204,12 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                             url={previewVideo.asset?.url}
                           />
                         )}
+                        <Box
+                          as="small"
+                          sx={{ textAlign: 'center', display: 'block', pt: 3 }}
+                        >
+                          Preview video
+                        </Box>
                       </Box>
                       <Box
                         sx={{
