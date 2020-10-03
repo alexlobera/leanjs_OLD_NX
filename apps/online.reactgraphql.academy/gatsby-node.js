@@ -38,6 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
                         transcript
                       }
                       asset {
+                        isPrivate
                         playback {
                           policy
                         }
