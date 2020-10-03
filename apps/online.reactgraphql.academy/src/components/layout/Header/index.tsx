@@ -84,7 +84,8 @@ const HeaderSection = styled('header')<SectionProps>`
   `}
   
   @media (min-width: ${SCREEN_SM_MIN}) {
-    min-height: ${({ minHeight }) => (minHeight ? minHeight : '100vh')};
+    min-height: ${({ minHeight }) =>
+      minHeight ? minHeight : '650px'}; /*100vh*/
   }
 `;
 

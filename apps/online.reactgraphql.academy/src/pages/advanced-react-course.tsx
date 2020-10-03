@@ -17,8 +17,7 @@ const metas = {
 
 function CoursePage({ data }) {
   const title = 'Advanced React';
-  const coverImage =
-    data.courseThumbnailImages.nodes[0].childImageSharp.fixed.src;
+  const coverImage = data.courseThumbnailImage.publicURL;
 
   return (
     <Layout
@@ -66,21 +65,11 @@ function CoursePage({ data }) {
 
 export const query = graphql`
   query {
-    courseThumbnailImages: allFile(
-      filter: {
-        absolutePath: { regex: "/courses/cover_advanced-react/" }
-        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
-      }
+    courseThumbnailImage: file(
+      absolutePath: { regex: "/courses/cover_advanced-react/" }
+      extension: { regex: "/(svg)/" }
     ) {
-      nodes {
-        publicURL
-        name
-        childImageSharp {
-          fixed(width: 1200) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
+      publicURL
     }
   }
 `;
