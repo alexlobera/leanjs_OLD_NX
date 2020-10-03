@@ -238,13 +238,6 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                       </>
                     ) : (
                       <>
-                        {/* <H3
-                          sx={{
-                            ...textBackgroundProps,
-                            padding: 2,
-                            lineHeight: 1.85,
-                          }}
-                        > */}
                         <Box
                           sx={{
                             ...textBackgroundProps,
@@ -307,27 +300,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                               </P>
                             </>
                           )}
-                          {/* </H3> */}
                         </Box>
-                        {/* <P sx={{ textAlign: 'center', mt: 6 }}>
-                          {pageContext.isPublicVideo && !loggedIn ? (
-                            <LinkButton
-                              to="/login"
-                              state={{ referrer: location.pathname }}
-                              sx={{ color: `${DARK_GREY} !important` }}
-                            >
-                              Log in now
-                            </LinkButton>
-                          ) : (
-                            <LinkButton
-                              variant="primary"
-                              to={`${trainingPath}#pricing`}
-                              onClick={expandCheckout}
-                            >
-                              Buy course
-                            </LinkButton>
-                          )}
-                        </P> */}
                       </>
                     )}
                   </Box>
