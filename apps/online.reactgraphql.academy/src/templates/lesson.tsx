@@ -39,7 +39,12 @@ function removeTrailingSlashes(url) {
 }
 
 const LESSON_QUERY = `
-  query videoLesson($videoId: ID!, $unitId: ID!) {
+  query videoLesson($videoId: ID!, $unitId: ID!, $trainingId: ID!) {
+    viewer {
+        purchasedTraining(trainingId: $trainingId) {
+          id
+        }
+    }
     video(id: $videoId) {
       published {
         transcript
@@ -112,13 +117,13 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   const { trainingById: training, video, trainingUnit } = data.upmentoring;
   const trainingPath = `/${training.published.slug}-course/`;
   const fluidPoster = video?.asset?.posterImageFile?.childImageSharp?.fluid;
-  const { unitId, videoId } = pageContext;
+  const { unitId, videoId, trainingId } = pageContext;
   const { loggedIn, loading: loggingInUser } = useMagic();
   const skip = !loggedIn;
   const client = useClient();
 
   const { loading, data: privateData, errors } = useQuery(LESSON_QUERY, {
-    variables: { videoId, unitId },
+    variables: { videoId, unitId, trainingId },
     skip,
   });
   const expandCheckout = useExpandCheckout();
@@ -128,6 +133,14 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   )?.values[0];
   const zIndexVideoPlayer = 9998;
+
+  const viewerPurchasedTraining = !!privateData?.viewer?.purchasedTraining?.id;
+  console.log(
+    'aaaa',
+    privateData?.viewer?.purchasedTraining?.id,
+    privateData?.viewer,
+    privateData
+  );
 
   const completedVideoSet = React.useMemo(
     () =>
@@ -250,8 +263,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         >
                           {pageContext.isPublicVideo && !loggedIn ? (
                             <>
-                              This lesson is free. You need to log in to watch
-                              this video
+                              This video is free. You need to log in to watch it
                               <P>
                                 <LinkButton
                                   to="/login"
@@ -348,13 +360,32 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
             ) : !loggedIn ? (
               <>
                 <P>
-                  <Link to={`${trainingPath}#pricing`}>
-                    Purchase this course
+                  Related resources are only available for ticket holders. Buy
+                  this course or{' '}
+                  <Link to="/login" state={{ referrer: location.pathname }}>
+                    log in
                   </Link>{' '}
-                  to access its related resources.
+                  if you already did.
                 </P>
                 <P sx={{ textAlign: 'center' }}>
-                  <LinkButton to={`${trainingPath}#pricing`} variant="primary">
+                  <LinkButton
+                    onClick={expandCheckout}
+                    to={`${trainingPath}#pricing`}
+                    variant="primary"
+                  >
+                    Buy course
+                  </LinkButton>
+                </P>
+              </>
+            ) : !relatedResources && loggedIn && !viewerPurchasedTraining ? (
+              <>
+                <P>Related resources are only available for ticket holders.</P>
+                <P sx={{ textAlign: 'center' }}>
+                  <LinkButton
+                    onClick={expandCheckout}
+                    to={`${trainingPath}#pricing`}
+                    variant="primary"
+                  >
                     Buy course
                   </LinkButton>
                 </P>

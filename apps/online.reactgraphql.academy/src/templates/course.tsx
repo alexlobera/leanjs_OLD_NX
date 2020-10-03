@@ -64,8 +64,6 @@ const COURSE_QUERY = `
   }
 `;
 
-// const PlayIcon = () => <PlayMedia sx={{ mb: '-7px', mr: 2 }} fill="#d8d8d8" />;
-
 function CoursePage({ data, pageContext: { trainingId } }) {
   const { loading: loggingInUser } = useMagic();
   const training = data.upmentoring.trainingById;
