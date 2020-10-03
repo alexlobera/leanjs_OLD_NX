@@ -7,6 +7,7 @@ import { useMagic } from '@leanjs/magic-link';
 import { useQuery, useClient } from '@leanjs/graphql-client';
 // import { OkaidiaRGA } from '@leanjs/ui-academy';
 
+import ProgressBar from '../components/display/ProgressBar';
 import Tick from '../components/icons/Tick';
 import Markdown from '../components/display/Markdown';
 import Layout from '../components/layout/Layout';
@@ -181,6 +182,8 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     unitId
   );
 
+  const completedVideosSoFar = completedVideoSet?.size || 0;
+
   return (
     <Layout
       variant="stack"
@@ -243,6 +246,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                             <>
                               <Link
                                 to="/login"
+                                sx={{ color: 'text' }}
                                 state={{ referrer: location.pathname }}
                               >
                                 Log in
@@ -261,11 +265,10 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         <P sx={{ textAlign: 'center', mt: 6 }}>
                           {pageContext.isPublicVideo && !loggedIn ? (
                             <LinkButton
-                              variant="primary"
                               to="/login"
                               state={{ referrer: location.pathname }}
                             >
-                              Watch now
+                              Log in now
                             </LinkButton>
                           ) : (
                             <LinkButton
@@ -287,26 +290,26 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
         <Flex sx={{ pt: 2 }}>
           <Box sx={{ flex: 1 }}>
             {prevVideo && (
-              <Link
+              <LinkButton
                 to={getVideoPath({
                   slug: prevVideo.published.slug,
                   trainingPath,
                 })}
               >
                 Previous lesson
-              </Link>
+              </LinkButton>
             )}
           </Box>
           <div>
             {nextVideo && (
-              <Link
+              <LinkButton
                 to={getVideoPath({
                   slug: nextVideo.published.slug,
                   trainingPath,
                 })}
               >
                 Next lesson
-              </Link>
+              </LinkButton>
             )}
           </div>
         </Flex>
@@ -363,8 +366,16 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               <H3 sx={{ mt: 2 }}>Module: {trainingUnit.published.title}</H3>
               <H4>Lessons in this module</H4>
               <P>
-                Completed {completedVideoSet?.size || 0} out of{' '}
+                Completed {completedVideosSoFar} out of{' '}
                 {trainingUnit.published.videos.length} lessons
+              </P>
+              <P>
+                <ProgressBar
+                  progress={
+                    (100 * completedVideosSoFar) /
+                    trainingUnit.published.videos.length
+                  }
+                />
               </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
                 {trainingUnit.published.videos.map(
