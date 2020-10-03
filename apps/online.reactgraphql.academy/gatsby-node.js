@@ -86,10 +86,10 @@ exports.createPages = async ({ graphql, actions }) => {
             : transcriptBlock.length === 1
             ? transcriptBlock[0].slice(0, 200)
             : '';
-        const isPublicVideo =
-          video.asset &&
-          video.asset.playback &&
-          video.asset.playback.policy === 'public';
+        const isPublicVideo = !video.asset.isPrivate;
+        //   video.asset &&
+        //   video.asset.playback &&
+        //   video.asset.playback.policy === 'public';
 
         createPage({
           path: lessonPath,
