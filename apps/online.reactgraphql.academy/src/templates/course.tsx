@@ -87,7 +87,8 @@ function CoursePage({ data, pageContext: { trainingId } }) {
   });
 
   const loadingData = loggingInUser || loading;
-  const purchased = runTimeData?.viewer?.purchasedTraining?.id === trainingId;
+  const viewerPurchasedTraining =
+    runTimeData?.viewer?.purchasedTraining?.id === trainingId;
   const coverImageNode = data.courseThumbnailImage;
   const coverImage =
     coverImageNode.extension === 'svg'
@@ -143,7 +144,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
               to: '#faqs',
             },
             {
-              text: purchased ? 'Thanks' : 'Price',
+              text: viewerPurchasedTraining ? 'Thanks' : 'Price',
               to: '#pricing',
             },
           ]}
@@ -221,7 +222,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                                 Watch
                               </LinkButton>
                             </Li>
-                            {containsFreeVideos && (
+                            {containsFreeVideos && !viewerPurchasedTraining && (
                               <Li>
                                 <Tag sx={{ ml: 3 }}>Contains free videos</Tag>
                               </Li>
@@ -334,7 +335,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           <Sheet variant="transparent">
             <Grid columns={10}>
               <Box sx={{ gridColumn: ['1/ -1', '1/ 6'] }}>
-                {!purchased ? (
+                {!viewerPurchasedTraining ? (
                   <PaymentSection
                     standardPrice={standardPrice}
                     currency={currency}
