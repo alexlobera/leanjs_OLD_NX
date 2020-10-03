@@ -201,10 +201,16 @@ export const theme = {
     },
     secondary: {
       color: 'inverseText',
+      '&:link,&:hover,&:visited,&:active': {
+        color: 'inverseText',
+      },
       backgroundColor: 'secondary',
     },
     default: {
       color: 'text',
+      '&:link,&:hover,&:visited,&:active': {
+        color: 'text',
+      },
       bg: 'background',
       boxShadow: 'thin',
       border: '1px solid',
