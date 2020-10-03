@@ -6,7 +6,9 @@ import { ThemeProvider } from '@leanjs/ui-core';
 import { useMagic } from '@leanjs/magic-link';
 import { useQuery, useClient } from '@leanjs/graphql-client';
 // import { OkaidiaRGA } from '@leanjs/ui-academy';
+import { useExpandCheckout } from '@leanjs/ui-academy';
 
+import { DARK_GREY } from '../config/theme';
 import ProgressBar from '../components/display/ProgressBar';
 import Tick from '../components/icons/Tick';
 import Markdown from '../components/display/Markdown';
@@ -119,6 +121,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     variables: { videoId, unitId },
     skip,
   });
+  const expandCheckout = useExpandCheckout();
 
   const published = privateData?.trainingUnit?.published;
   const relatedResources = published?.customFieldsValues?.find(
@@ -235,50 +238,69 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                       </>
                     ) : (
                       <>
-                        <H3
+                        <Box
                           sx={{
                             ...textBackgroundProps,
-                            padding: 2,
-                            lineHeight: 1.85,
+                            display: 'block',
+                            fontSize: 4,
+                            lineHeight: 1.4,
+                            p: 4,
+                            textAlign: 'center',
                           }}
                         >
                           {pageContext.isPublicVideo && !loggedIn ? (
                             <>
-                              <Link
-                                to="/login"
-                                sx={{ color: 'text' }}
-                                state={{ referrer: location.pathname }}
-                              >
-                                Log in
-                              </Link>{' '}
+                              This lesson is free. You need to log in to watch
+                              this video
+                              <P>
+                                <LinkButton
+                                  to="/login"
+                                  state={{ referrer: location.pathname }}
+                                  sx={{ color: `${DARK_GREY} !important` }}
+                                >
+                                  Log in
+                                </LinkButton>
+                              </P>
+                            </>
+                          ) : !pageContext.isPublicVideo && !loggedIn ? (
+                            <>
+                              This lesson is not free. Buy this course or log in
                               to watch this video
+                              <P>
+                                <LinkButton
+                                  to="/login"
+                                  state={{ referrer: location.pathname }}
+                                  sx={{ color: `${DARK_GREY} !important` }}
+                                >
+                                  Log in
+                                </LinkButton>
+
+                                <LinkButton
+                                  sx={{ ml: 4 }}
+                                  to={`${trainingPath}#pricing`}
+                                  onClick={expandCheckout}
+                                  variant="primary"
+                                >
+                                  Buy course
+                                </LinkButton>
+                              </P>
                             </>
                           ) : (
                             <>
-                              <Link to={`${trainingPath}#pricing`}>
-                                Buy this course
-                              </Link>{' '}
-                              to watch this video
+                              This lesson is not free. You need to buy this
+                              course to watch this video.
+                              <P>
+                                <LinkButton
+                                  to={`${trainingPath}#pricing`}
+                                  onClick={expandCheckout}
+                                  variant="primary"
+                                >
+                                  Buy course
+                                </LinkButton>
+                              </P>
                             </>
                           )}
-                        </H3>
-                        <P sx={{ textAlign: 'center', mt: 6 }}>
-                          {pageContext.isPublicVideo && !loggedIn ? (
-                            <LinkButton
-                              to="/login"
-                              state={{ referrer: location.pathname }}
-                            >
-                              Log in now
-                            </LinkButton>
-                          ) : (
-                            <LinkButton
-                              variant="primary"
-                              to={`${trainingPath}#pricing`}
-                            >
-                              Buy course
-                            </LinkButton>
-                          )}
-                        </P>
+                        </Box>
                       </>
                     )}
                   </Box>
@@ -323,7 +345,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               <Markdown>{relatedResources}</Markdown>
             ) : loading || loggingInUser ? (
               <P>Loading data...</P>
-            ) : !relatedResources && !loggedIn ? (
+            ) : !relatedResources && loggedIn ? (
               <>
                 <P>
                   <Link to={`${trainingPath}#pricing`}>
