@@ -36,6 +36,7 @@ function ProgressBar({
           backgroundImage: `linear-gradient(${backgroundColorTop}, ${backgroundColorBottom})`,
           display: 'block',
           height: `100%`,
+          transition: 'width 1s ease-in-out',
         }}
       />
     </Box>
