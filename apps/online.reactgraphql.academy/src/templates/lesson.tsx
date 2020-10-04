@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import StickyBox from 'react-sticky-box';
 import { PlayMedia } from '@leanjs/ui-icons';
 import { ThemeProvider } from '@leanjs/ui-core';
@@ -301,6 +301,38 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
           onEnded={completeVideo}
           url={clientRuntimeData?.video?.asset?.url}
           sx={{ boxShadow: 'box' }}
+          otherVideoElements={[
+            { otherVideo: nextVideo, caption: 'Next lesson:' },
+            { otherVideo: prevVideo, caption: 'Previous lesson:' },
+          ]
+            .filter((v) => v.otherVideo)
+            .map(({ otherVideo, caption }) => (
+              <Flex
+                onClick={() => {
+                  navigate(
+                    getVideoPath({
+                      slug: otherVideo.published.slug,
+                      trainingPath,
+                    })
+                  );
+                }}
+                sx={{
+                  alignItems: 'stretch',
+                }}
+              >
+                <Box sx={{ flex: 2 }}>
+                  <H4>{caption}</H4>
+                  <H3>{otherVideo.published.title}</H3>
+                </Box>
+                <Box
+                  sx={{
+                    flex: 1,
+                    backgroundPosition: 'center',
+                    backgroundImage: `url(${otherVideo.asset?.posterImageFile?.childImageSharp?.fixed?.src})`,
+                  }}
+                />
+              </Flex>
+            ))}
           overlay={
             !clientRuntimeData?.video?.asset?.url ? (
               <Box
@@ -623,6 +655,16 @@ export const query = graphql`
             published {
               title
               slug
+            }
+            asset {
+              posterImageUrl
+              posterImageFile {
+                childImageSharp {
+                  fixed(width: 400) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
             }
           }
         }

@@ -1,4 +1,5 @@
 export const DARK_BLUE = 'rgba(0,41,56, 1)';
+export const DARK_BLUE_75 = 'rgba(0,41,56,0.75)';
 export const DARK_GREY = '#4a4a4a';
 export const REACT = 'rgba(97, 218, 251, 1)';
 
@@ -58,13 +59,12 @@ export const theme = {
   },
   colors: {
     text: DARK_GREY,
-    // lightText: '#fff',
     inverseText: '#fff',
-    // darkBackground: 'rgba(0,41,56, 1)',
     background: '#fff',
-    inverseBackground: 'rgba(0,41,56, 1)',
+    inverseBackground: DARK_BLUE,
+    inverseBackgroundOpacity: DARK_BLUE_75,
     primary: '#C0392B',
-    secondary: 'rgba(0,41,56, 1)',
+    secondary: DARK_BLUE,
     danger: 'rgb(243, 136, 162)',
     react: REACT,
     tech: REACT,

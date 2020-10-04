@@ -1,5 +1,5 @@
 import React from 'react';
-import { Ul, Li, Box, LeanProps, As } from '../layout';
+import { Ul, Li, Box, BoxProps, As } from '../layout';
 import Link from './Link';
 
 export interface BreadcrumbPath {
@@ -16,11 +16,11 @@ function Breadcrumb<T extends As = 'div'>({
   sx = {},
   divider = '>',
   className = 'breadcrumb',
-}: LeanProps<T, BreadcrumbProps>) {
+}: BoxProps<T, BreadcrumbProps>) {
   return paths && paths.length ? (
     <Box
       sx={{
-        bg: 'rgba(0,41,56,0.75)',
+        bg: 'inverseBackgroundOpacity',
         ...sx,
       }}
     >
