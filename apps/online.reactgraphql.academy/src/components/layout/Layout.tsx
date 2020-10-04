@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { AcceptCookiesBanner } from '@leanjs/ui-academy';
 
 import Footer from './Footer';
 import Navbar from '../navigation/Navbar';
@@ -70,8 +71,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
       {children}
       <Footer />
 
-      {/*
-      <AcceptCookies /> */}
+      <AcceptCookiesBanner />
     </React.Fragment>
   );
 };

@@ -44,6 +44,8 @@ export const theme = {
   breakpoints: ['40em', '52em', '64em'],
   colors: {
     text: DARK_GREY,
+    inverseText: WHITE,
+    inverseBackground: DARK_BLUE,
     lightText: WHITE,
     background: WHITE,
     darkBackground: DARK_BLUE,
@@ -103,5 +105,34 @@ export const theme = {
     light: '0 18px 29px -2px rgba(0, 0, 0, 0.26)',
     bold: 'rgb(74, 74, 74) 0px 0px 1px',
     box: '0 -2px 24px 0 rgba(0, 0, 0, 0.24), 0 2px 24px 0 rgba(0, 0, 0, 0.12)',
+  },
+  buttons: {
+    primary: {
+      color: 'inverseText',
+      '&:link,&:hover,&:visited,&:active': {
+        color: 'inverseText',
+      },
+      bg: 'primary',
+      fontWeight: 'bold',
+      textShadow: 'none',
+    },
+    secondary: {
+      color: 'inverseText',
+      '&:link,&:hover,&:visited,&:active': {
+        color: 'inverseText',
+      },
+      backgroundColor: 'secondary',
+    },
+    default: {
+      color: 'text',
+      '&:link,&:hover,&:visited,&:active': {
+        color: 'text',
+      },
+      bg: 'background',
+      boxShadow: 'thin',
+      border: '1px solid',
+      textShadow: 'bold',
+      borderColor: 'secondary',
+    },
   },
 };
