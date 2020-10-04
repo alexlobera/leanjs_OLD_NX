@@ -123,6 +123,38 @@ function getNextPrevious(list, id) {
   );
 }
 
+function getCourseProgress(completedVideosInThisCourse) {
+  return (
+    completedVideosInThisCourse &&
+    Object.keys(completedVideosInThisCourse).reduce(
+      (acc, key) => {
+        acc.total = acc.total + completedVideosInThisCourse[key].total;
+        acc.completed =
+          acc.completed + completedVideosInThisCourse[key].completed.size;
+
+        return acc;
+      },
+      { total: 0, completed: 0 }
+    )
+  );
+}
+
+function getCompletedVideosInThisCourse(units) {
+  return units?.reduce((set, { published, id }) => {
+    set[id] = { completed: new Set(), total: 0 };
+    published?.videos?.reduce((innerSet, { viewer, id: videoId }) => {
+      if (viewer?.completedAt) {
+        innerSet.completed.add(videoId);
+      }
+      innerSet.total++;
+
+      return innerSet;
+    }, set[id]);
+
+    return set;
+  }, {});
+}
+
 const LessonPage: FunctionComponent<LessonPageProps> = ({
   data,
   pageContext,
@@ -136,19 +168,20 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   const skip = !loggedIn;
   const client = useClient();
 
-  const { loading, data: runTimeData, errors } = useQuery(LESSON_QUERY, {
+  const { loading, data: clientRuntimeData, errors } = useQuery(LESSON_QUERY, {
     variables: { videoId, unitId, trainingId },
     skip,
   });
   const expandCheckout = useExpandCheckout();
 
-  const published = runTimeData?.trainingUnit?.published;
+  const published = clientRuntimeData?.trainingUnit?.published;
   const relatedResources = published?.customFieldsValues?.find(
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   )?.values[0];
   const zIndexVideoPlayer = 9998;
 
-  const viewerPurchasedTraining = !!runTimeData?.viewer?.purchasedTraining?.id;
+  const viewerPurchasedTraining = !!clientRuntimeData?.viewer?.purchasedTraining
+    ?.id;
 
   //   const completedVideoSet = React.useMemo(
   //     () =>
@@ -230,35 +263,12 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
 
   const completedVideosInThisCourse = React.useMemo(
     () =>
-      runTimeData?.trainingById?.units.reduce((set, { published, id }) => {
-        set[id] = { completed: new Set(), total: 0 };
-        published?.videos?.reduce((innerSet, { viewer, id: videoId }) => {
-          if (viewer?.completedAt) {
-            innerSet.completed.add(videoId);
-          }
-          innerSet.total++;
-
-          return innerSet;
-        }, set[id]);
-
-        return set;
-      }, {}),
-    [runTimeData?.trainingById?.units]
+      getCompletedVideosInThisCourse(clientRuntimeData?.trainingById?.units),
+    [clientRuntimeData?.trainingById?.units]
   );
 
   const courseProgress = React.useMemo(
-    () =>
-      completedVideosInThisCourse &&
-      Object.keys(completedVideosInThisCourse).reduce(
-        (acc, key) => {
-          acc.total = acc.total + completedVideosInThisCourse[key].total;
-          acc.completed =
-            acc.completed + completedVideosInThisCourse[key].completed.size;
-
-          return acc;
-        },
-        { total: 0, completed: 0 }
-      ),
+    () => getCourseProgress(completedVideosInThisCourse),
     [completedVideosInThisCourse]
   );
 
@@ -289,10 +299,10 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
         <GatsbyVideoPlayer
           fluidPoster={fluidPoster}
           onEnded={completeVideo}
-          url={runTimeData?.video?.asset?.url}
+          url={clientRuntimeData?.video?.asset?.url}
           sx={{ boxShadow: 'box' }}
           overlay={
-            !runTimeData?.video?.asset?.url ? (
+            !clientRuntimeData?.video?.asset?.url ? (
               <Box
                 sx={{
                   position: 'absolute',
@@ -464,8 +474,10 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               <P>There are no related resources</P>
             )}
             <H3>Transcript</H3>
-            {runTimeData?.video?.published?.transcript ? (
-              <Markdown>{runTimeData.video.published.transcript}</Markdown>
+            {clientRuntimeData?.video?.published?.transcript ? (
+              <Markdown>
+                {clientRuntimeData.video.published.transcript}
+              </Markdown>
             ) : (
               <Box sx={{ position: 'relative' }}>
                 <Markdown>{pageContext.transcript}</Markdown>
@@ -549,7 +561,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                   />
                 </>
               )}
-              <Flex sx={{ pt: 2 }}>
+              <Flex sx={{ pt: 6 }}>
                 <Box sx={{ flex: 1 }}>
                   {prevUnit?.published?.videos?.length ? (
                     <Link
