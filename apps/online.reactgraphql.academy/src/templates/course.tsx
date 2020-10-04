@@ -173,7 +173,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           <Sheet>
             <H2 sx={{ mt: 0 }}>
               <Link id="course-modules" />
-              {training.published.title} Modules
+              {training.published.title}
             </H2>
 
             <Grid columns={10}>
