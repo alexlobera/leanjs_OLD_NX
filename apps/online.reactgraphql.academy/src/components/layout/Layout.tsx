@@ -64,7 +64,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
         }
       >
         {breadcrumbPaths && (
-          <Breadcrumb sx={{ px: 4, py: 1 }} paths={breadcrumbPaths} />
+          <Breadcrumb sx={{ px: 4, py: 0 }} paths={breadcrumbPaths} />
         )}
       </Navbar>
       {children}
