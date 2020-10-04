@@ -303,7 +303,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
           sx={{ boxShadow: 'box' }}
           otherVideoElements={[
             { otherVideo: nextVideo, caption: 'Next lesson:' },
-            { otherVideo: prevVideo, caption: 'Previous lesson:' },
+            // { otherVideo: prevVideo, caption: 'Previous lesson:' },
           ]
             .filter((v) => v.otherVideo)
             .map(({ otherVideo, caption }) => (
