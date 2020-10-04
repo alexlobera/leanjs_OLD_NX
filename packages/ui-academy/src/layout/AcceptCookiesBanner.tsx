@@ -7,13 +7,19 @@ const cookies = new Cookies();
 const COOKIE_BANNER = 'rga-cookie-banner';
 
 export function AcceptCookiesBanner() {
-  const [hide, setHide] = React.useState(cookies.get(COOKIE_BANNER) === 'hide');
+  const [hide, setHide] = React.useState(true);
 
   function accept(accepted) {
     cookies.set(COOKIE_BANNER, 'hide');
     cookies.set('gatsby-gdpr-google-tagmanager', accepted.toString());
     setHide(true);
   }
+
+  React.useEffect(() => {
+    if (cookies.get(COOKIE_BANNER) !== 'hide') {
+      setHide(false);
+    }
+  });
 
   if (hide) return null;
 
