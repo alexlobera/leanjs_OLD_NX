@@ -19,7 +19,7 @@ export function AcceptCookiesBanner() {
     if (cookies.get(COOKIE_BANNER) !== 'hide') {
       setHide(false);
     }
-  });
+  }, []);
 
   if (hide) return null;
 
