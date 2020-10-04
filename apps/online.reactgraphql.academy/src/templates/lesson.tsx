@@ -17,7 +17,6 @@ import { GatsbyVideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container, Ul, Li, Flex } from '../components/layout';
 import Link, { LinkButton } from '../components/navigation/Link';
 import { H1, H3, H4, P } from '../components/display';
-import Image from '../components/display/Image';
 
 // import Code from '../components/display/Code';
 import { textBackgroundProps } from '../components/layout/Header';
