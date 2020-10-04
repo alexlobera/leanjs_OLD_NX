@@ -73,9 +73,9 @@ export function GatsbyVideoPlayer({
                     width: '100%',
                     position: 'absolute',
                     alignItems: 'stretch',
-                    top: '55%',
+                    top: '60%',
                     left: 0,
-                    backgroundColor: 'inverseBackgroundOpacity',
+                    backgroundColor: 'inverseBackground',
                   }}
                 >
                   {otherVideoElements.map((videoElement) => (
@@ -84,7 +84,7 @@ export function GatsbyVideoPlayer({
                         flex: 1,
                         p: 4,
                         cursor: 'pointer',
-                        '&:hover': { backgroundColor: 'inverseBackground' },
+                        // '&:hover': { backgroundColor: 'inverseBackground' },
                       }}
                     >
                       {videoElement}
