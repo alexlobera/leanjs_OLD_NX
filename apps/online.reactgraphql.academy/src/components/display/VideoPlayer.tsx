@@ -10,6 +10,7 @@ export { VideoPlayer };
 
 export function GatsbyVideoPlayer({
   fluidPoster,
+  className = null,
   url,
   autoload = false,
   overlay = null,
@@ -31,6 +32,7 @@ export function GatsbyVideoPlayer({
 
   return (
     <Box
+      className={className}
       onMouseOver={() => setDerivedAutoload(true)}
       sx={{ position: 'relative', ...sx }}
     >

@@ -91,7 +91,7 @@ const HeaderSection = styled('header')<SectionProps>`
 
 export const textBackgroundProps = {
   color: WHITE,
-  bg: 'rgba(0, 41, 56, 0.75)',
+  bg: 'inverseBackgroundOpacity',
   boxDecorationBreak: 'clone',
   whiteSpace: 'pre-wrap',
   display: 'inline',

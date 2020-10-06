@@ -152,6 +152,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
             training.published.previewVideo && (
               <Box sx={{ mb: 5 }}>
                 <GatsbyVideoPlayer
+                  className="top-preview-video"
                   fluidPoster={
                     training.published.previewVideo.asset?.posterImageFile
                       ?.childImageSharp?.fluid
@@ -159,9 +160,13 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                   url={training.published.previewVideo.asset?.url}
                 />
                 <P sx={{ textAlign: 'center' }}>
-                  <LinkButton onClick={expandCheckout} to="#pricing">
-                    Buy
-                  </LinkButton>
+                  {viewerPurchasedTraining ? (
+                    "Thank's for buying"
+                  ) : (
+                    <LinkButton onClick={expandCheckout} to="#pricing">
+                      Buy
+                    </LinkButton>
+                  )}
                 </P>
               </Box>
             )
@@ -197,6 +202,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                       >
                         {previewVideo && (
                           <GatsbyVideoPlayer
+                            className="module-preview-video"
                             fluidPoster={
                               previewVideo.asset?.posterImageFile
                                 ?.childImageSharp?.fluid
