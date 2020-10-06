@@ -33,8 +33,8 @@ export const theme = {
   ],
   breakpoints: ['40em', '52em', '64em'],
   fonts: {
-    body: `'Barlow', sans-serif`,
-    heading: 'inherit',
+    body: `'Open Sans', sans-serif`,
+    heading: `'Bubblegum Sans', cursive`,
     monospace: 'Courier New,Courier,monospace;',
   },
 
