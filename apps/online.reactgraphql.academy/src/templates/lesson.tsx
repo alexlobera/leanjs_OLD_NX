@@ -365,7 +365,8 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                       <>
                         <Box
                           sx={{
-                            ...textBackgroundProps,
+                            color: 'white',
+                            bg: 'inverseBackground',
                             display: 'block',
                             fontSize: 4,
                             lineHeight: 1.4,
@@ -375,14 +376,16 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         >
                           {pageContext.isPublicVideo && !loggedIn ? (
                             <>
-                              This video is free. You need to log in to watch it
+                              This video is FREE. You need to log in to watch
+                              the video
                               <P>
                                 <LinkButton
                                   to="/login"
+                                  className="login-to-watch"
                                   state={{ referrer: location.pathname }}
                                   sx={{ color: `${DARK_GREY} !important` }}
                                 >
-                                  Log in
+                                  Watch video
                                 </LinkButton>
                               </P>
                             </>

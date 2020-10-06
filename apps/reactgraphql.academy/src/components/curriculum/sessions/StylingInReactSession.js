@@ -13,13 +13,7 @@ const StylingInReactSession = ({ title = titleSession }) => (
         React-Bootstrap
       </Li>
       <Li>Storybook</Li>
-      <Li>
-        Context
-        <Ul>
-          <Li>Themes</Li>
-          <Li>Modals</Li>
-        </Ul>
-      </Li>
+      <Li>Themes</Li>
     </Ul>
   </Session>
 );

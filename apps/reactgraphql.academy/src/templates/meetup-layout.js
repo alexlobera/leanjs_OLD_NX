@@ -125,7 +125,7 @@ const MeetupPage = ({
                 {sponsors.map(
                   ({ imageUrl, url, borderColor = MEETUP_RED }, index) => {
                     const img = (
-                      <Image sx={{ maxWidth: '70%' }} src={imageUrl} />
+                      <Image sx={{ maxWidth: '65%' }} src={imageUrl} />
                     );
 
                     return (

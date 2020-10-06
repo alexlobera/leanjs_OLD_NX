@@ -12,6 +12,7 @@ const FormsAndAuthSession = ({ title = 'Forms and Authentication' }) => (
           <Li>Uncontrolled Components</Li>
         </Ul>
       </Li>
+      <Li>Conditional rendering</Li>
       <Li>
         Authentication
         <Ul>

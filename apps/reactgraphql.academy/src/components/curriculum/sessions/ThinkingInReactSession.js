@@ -9,8 +9,9 @@ const ThinkingInReactSession = ({ title = titleSession }) => (
     <Ul>
       <Li>The Imperative to Declarative shift</Li>
       <Li>UI as a function of state and props</Li>
-      <Li>React component tree, host tree, and virtual tree</Li>
+      <Li>React component tree</Li>
       <Li>Lifting state up</Li>
+      <Li>React useState hook</Li>
       <Li>One-way top-down data flow</Li>
       <Li>React composition model</Li>
       <Li>React developer tools</Li>

@@ -8,24 +8,20 @@ const DesignSystemSession = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
       <Li>Design system tokens: spacing, fonts, and colors</Li>
+      <Li>Theme specification</Li>
+      <Li>Build a box</Li>
       <Li>
-        Styled System
+        Design System based on props
         <Ul>
-          <Li>Build a box</Li>
-          <Li>
-            Design System based on props
-            <Ul>
-              <Li>Array props</Li>
-              <Li>Variants</Li>
-            </Ul>
-          </Li>
-          <Li>
-            Responsive design
-            <Ul>
-              <Li>Using props instead of writting media queries by hand</Li>
-              <Li>Array scales</Li>
-            </Ul>
-          </Li>
+          <Li>Array props</Li>
+          <Li>Variants</Li>
+        </Ul>
+      </Li>
+      <Li>
+        Responsive design
+        <Ul>
+          <Li>Using props instead of writting media queries by hand</Li>
+          <Li>Array scales</Li>
         </Ul>
       </Li>
     </Ul>
