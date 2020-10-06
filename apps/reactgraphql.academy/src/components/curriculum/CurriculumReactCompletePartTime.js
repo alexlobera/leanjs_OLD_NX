@@ -17,8 +17,6 @@ export const defaultSessionsFirstHalf = [
   ...fundamentalsDefaultSessionsSecondHalf,
 ];
 
-// export const defaultSessionsSecondHalf = advDefaultSessionsFirstHalf
-
 const trainingInstanceTypeName = PART_TIME;
 const tech = TECH_REACT;
 const trainingType = TRAINING_TYPE_FULL_CURRICULUM;

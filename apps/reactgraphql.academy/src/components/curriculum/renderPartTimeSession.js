@@ -58,23 +58,13 @@ const renderPartTimeSection = ({
         ) : (
           <React.Fragment>
             <br />
-            {/* {comps && comps.length > 1 ? (
-              <React.Fragment>{` `}4-hour training</React.Fragment>
-            ) : ( */}
             {hours}-hour training
-            {/* )} */}
           </React.Fragment>
         )
       }
       {...sectionProps}
     >
-      {/* {Comp ? ( */}
       <Comp title="" />
-      {/*//   ) : (
-    //     comps &&
-    //     comps.length &&
-    //     comps.map((Comp, i) => <Comp key={`${title || subTitle}${i}`} />)
-    //   )}*/}
     </Section>
   );
 };
