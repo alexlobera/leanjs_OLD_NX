@@ -220,7 +220,7 @@ class ReactCurriculum extends React.Component {
                       </Td>
                     </Tr>
                     <Tr>
-                      <Td>Basic Hooks</Td>
+                      <Td>Hooks</Td>
                       <Td>
                         <Tick />
                       </Td>
@@ -335,8 +335,7 @@ class ReactCurriculum extends React.Component {
                           Part-time Bundle
                         </LinkButton>
                         <UlLearningExperience>
-                          <Li>Between 5 and 7 weeks</Li>
-                          <Li>Max 9 hours a week</Li>
+                          <Li>Between 2 and 4 weeks</Li>
                           <Li>In-person and remote</Li>
                           <Li>Starting at £1630</Li>
                           <Li>Fundamentals + Advanced</Li>
@@ -351,8 +350,7 @@ class ReactCurriculum extends React.Component {
                           Advanced PT
                         </LinkButton>
                         <UlLearningExperience>
-                          <Li>3 weeks</Li>
-                          <Li>8 hours a week</Li>
+                          <Li>Between 1 and 2 weeks</Li>
                           <Li>In-person and remote</Li>
                           <Li>Starting at £1100</Li>
                         </UlLearningExperience>
@@ -367,7 +365,6 @@ class ReactCurriculum extends React.Component {
                         </LinkButton>
                         <UlLearningExperience>
                           <Li>Between 2 and 4 weeks</Li>
-                          <Li>Max 9 hours a week</Li>
                           <Li>In-person and remote</Li>
                           <Li>Starting at £990</Li>
                         </UlLearningExperience>
