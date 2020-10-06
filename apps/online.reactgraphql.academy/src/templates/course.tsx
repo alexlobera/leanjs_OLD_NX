@@ -161,7 +161,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                 />
                 <P sx={{ textAlign: 'center' }}>
                   {viewerPurchasedTraining ? (
-                    "Thank's for buying"
+                    <strong>Thank's for buying</strong>
                   ) : (
                     <LinkButton onClick={expandCheckout} to="#pricing">
                       Buy
