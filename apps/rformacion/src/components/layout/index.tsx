@@ -6,9 +6,7 @@ export {
   Ul,
   Li,
   BoxProps,
-  LeanProps,
   As,
-  LeanComponent,
   Heading,
   H1,
   H2,
@@ -24,3 +22,4 @@ export {
   TabPanel,
   Section,
 } from '@leanjs/ui-core';
+

@@ -68,8 +68,6 @@ export const theme = {
     primary: '#C0392B',
     secondary: 'rgba(0,41,56, 1)',
     danger: 'rgb(243, 136, 162)',
-    react: REACT,
-    tech: REACT,
   },
   sizes: {
     container: '64rem',
