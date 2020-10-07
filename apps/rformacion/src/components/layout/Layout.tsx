@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
-import Footer from './Footer';
+// import Footer from './Footer';
 import Navbar from '../navigation/Navbar';
 import Link from '../navigation/Link';
-import AuthLink from '../auth/AuthLink';
 import { Ul, Li } from '.';
 
 import Breadcrumb, { BreadcrumbPath } from '../navigation/Breadcrumb';
@@ -74,7 +73,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
         )}
       </Navbar>
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };

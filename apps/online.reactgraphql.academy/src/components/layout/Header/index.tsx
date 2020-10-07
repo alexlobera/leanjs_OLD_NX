@@ -5,6 +5,8 @@ export function Header(props) {
   return <HeaderAcademy {...props} textBgColor='rgba(0, 41, 56, 0.75)' />
 }
 
+export default Header
+
 // import React, { FunctionComponent } from 'react';
 // import styled from 'styled-components';
 

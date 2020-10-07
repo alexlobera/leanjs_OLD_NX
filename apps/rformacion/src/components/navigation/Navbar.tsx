@@ -19,13 +19,14 @@ const Navbar = function <T extends As = 'button'>({
         box="nav"
         sx={{
           width: '100%',
+          bg: 'background',
           ...sx,
         }}
+
       >
         <Container
           sx={{
             p: sx?.p || 4,
-            bg: 'background',
           }}
         >
           <Flex>
