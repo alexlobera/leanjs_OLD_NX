@@ -48,7 +48,9 @@ const TrainingInstanceDetailPage = () => {
 
     const { trainingId } = trainingInstance;
     const isPresent = moment();
-    const isFuture = moment(trainingInstance.published.startDate).diff(isPresent);
+    const isFuture = moment(trainingInstance.published.startDate).diff(
+      isPresent
+    );
 
     const { discountPrice } = trainingInstance;
     const currentPrice = discountPrice ? discountPrice.currentPrice : undefined;
