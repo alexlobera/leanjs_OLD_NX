@@ -5,7 +5,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const { capitalize } = require('./src/components/utils/text');
 const { getPostsFromNodes } = require('./src/components/blog/utils');
 const { removeTrailingSlash } = require('./src/components/utils/text');
-//
+///
 exports.onPostBuild = () => {
   const dir = path.join(__dirname, '../../dist/reactgraphql.academy');
 
@@ -63,12 +63,12 @@ exports.createPages = async ({ graphql, actions }) => {
         sanityNodes: allSanityPost(
           filter: {
             ${
-      tagsNin || tagsIn.length
-        ? `tags: { elemMatch: { name: { in : ["${tagsIn.join(
-          '","'
-        )}"], nin: "${tagsNin}" }}}`
-        : ''
-      }
+              tagsNin || tagsIn.length
+                ? `tags: { elemMatch: { name: { in : ["${tagsIn.join(
+                    '","'
+                  )}"], nin: "${tagsNin}" }}}`
+                : ''
+            }
           }
           sort: { fields: publishedAt, order: DESC }
           limit: $limit
@@ -94,10 +94,10 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter: {
               contentType: { eq: "blog" }
               ${
-      tagsNin || tagsIn.length
-        ? `tags: { in: ["${tagsIn.join('","')}"], nin: "${tagsNin}" }`
-        : ''
-      }
+                tagsNin || tagsIn.length
+                  ? `tags: { in: ["${tagsIn.join('","')}"], nin: "${tagsNin}" }`
+                  : ''
+              }
             }
           }
           sort: { fields: [frontmatter___date], order: DESC }
@@ -477,7 +477,7 @@ exports.createPages = async ({ graphql, actions }) => {
                   path: pagePath,
                   component: path.resolve(
                     `./src/templates/instance/${
-                    overrideInstanceTemplate || instanceTemplate
+                      overrideInstanceTemplate || instanceTemplate
                     }.js`
                   ),
                   context: {
