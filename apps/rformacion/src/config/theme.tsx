@@ -1,8 +1,9 @@
 export const DARK_BLUE = 'rgba(0,41,56, 1)';
 export const DARK_GREY = '#4a4a4a';
-export const BLUE = '';
-export const YELLOW = '';
-export const GREEN = '';
+// export const BLUE = '#265199'; // blue logo arrow
+export const BLUE = '#27477e'; // blue logo text
+export const YELLOW = '#f8b545';
+export const GREEN = '#45b042';
 
 const heading = {
   color: 'text',
@@ -64,9 +65,10 @@ export const theme = {
     inverseText: '#fff',
     // darkBackground: 'rgba(0,41,56, 1)',
     background: '#fff',
-    inverseBackground: 'rgba(0,41,56, 1)',
-    primary: '#C0392B',
-    secondary: 'rgba(0,41,56, 1)',
+    inverseBackground: BLUE,
+    primary: YELLOW,
+    secondary: BLUE,
+    tertiary: GREEN,
     danger: 'rgb(243, 136, 162)',
   },
   sizes: {
@@ -188,7 +190,11 @@ export const theme = {
     top: {
       mt: '-50px',
     },
-    // secondary: { bg: 'secondary', py: [4, 9] },
+    default: {
+      mt: 10,
+      mb: 10,
+    },
+    secondary: { py: [4, 10] },
   },
   buttons: {
     primary: {

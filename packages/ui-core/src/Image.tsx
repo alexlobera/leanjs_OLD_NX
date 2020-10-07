@@ -6,7 +6,7 @@ export const Image = React.forwardRef(function <T extends As = 'img'>(
   ref
 ) {
   return <Box as="img" {...props} ref={ref} __sx={{ maxWidth: '100%' }} />;
-}) as <T extends As = 'div'>(props: BoxProps<T>) => JSX.Element;
+}) as <T extends As = 'img'>(props: BoxProps<T>) => JSX.Element;
 
 // interface P {
 //   a: boolean;

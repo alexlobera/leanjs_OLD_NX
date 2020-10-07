@@ -15,11 +15,9 @@ export {
   H5,
   H6,
   P,
-  Card,
   Tabs,
   TabList,
   TabItem,
   TabPanel,
   Section,
 } from '@leanjs/ui-core';
-
