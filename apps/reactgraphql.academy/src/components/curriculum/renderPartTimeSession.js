@@ -43,10 +43,7 @@ const renderPartTimeSection = ({
         training ? (
           <React.Fragment>
             <br />
-            {/* {comps && comps.length > 1 ? (
-              <React.Fragment> <Tag>Full-day</Tag> </React.Fragment>
-            ) : ( */}
-            {trainingDateTime({ dayOffset, training })}
+            {trainingDateTime({ dayOffset, training, endAfterXHours: hours })}
             {gmt && (
               <small>
                 {` `}
