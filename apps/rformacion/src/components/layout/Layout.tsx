@@ -49,10 +49,22 @@ const Layout: FunctionComponent<LayoutProps> = ({
             }}
           >
             <Li>
-              <AuthLink />
+              <Link>Inicio</Link>
+            </Li>
+            <Li>
+              <Link>Formacion</Link>
+            </Li>
+            <Li>
+              <Link>Nosotros</Link>
             </Li>
             <Li>
               <Link>Blog</Link>
+            </Li>
+            <Li>
+              <Link>Testimonios</Link>
+            </Li>
+            <Li>
+              <Link>Contacto</Link>
             </Li>
           </Ul>
         }
