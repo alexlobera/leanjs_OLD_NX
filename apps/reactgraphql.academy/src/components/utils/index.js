@@ -32,21 +32,20 @@ const Components = ({ children, ...props }) =>
     })
   );
 
-
 Date.prototype.addHours = function (h) {
-  this.setTime(this.getTime() + (h * 60 * 60 * 1000));
+  this.setTime(this.getTime() + h * 60 * 60 * 1000);
   return this;
-}
+};
 
 export const getVariantProps = (variants, variantProps) =>
   variants && variants.reduce
     ? variants.reduce(
-      (acc, variant) => ({
-        ...acc,
-        ...(variantProps[variant] || {}),
-      }),
-      {}
-    )
+        (acc, variant) => ({
+          ...acc,
+          ...(variantProps[variant] || {}),
+        }),
+        {}
+      )
     : variantProps[variants || 'default'] || {};
 
 export const selectTechColor = ({ tech } = {}) => {
@@ -125,73 +124,73 @@ export const createMetas = ({
 
 export const HideComponentsUsingCss = styled(Components)`
     ${(props) =>
-    props.xs
-      ? `
+      props.xs
+        ? `
         @media (max-width: ${SCREEN_XS_MAX}) {
             display:none !important;
         }
     `
-      : ''}
+        : ''}
     ${(props) =>
-    props.sm
-      ? `
+      props.sm
+        ? `
         @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
             display:none !important;
         }
     `
-      : ''}
+        : ''}
     ${(props) =>
-    props.md
-      ? `
+      props.md
+        ? `
         @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
             display:none !important;
         }
     `
-      : ''}
+        : ''}
     ${(props) =>
-    props.lg
-      ? `
+      props.lg
+        ? `
        @media (min-width: ${SCREEN_LG_MIN}) {
         display: none !important;
        }
     `
-      : ''}
+        : ''}
 `;
 
 export const DisplayComponentsUsingCss = styled(Components)`
     display:none !important;
     ${(props) =>
-    props.xs
-      ? `
+      props.xs
+        ? `
         @media (max-width: ${SCREEN_XS_MAX}) {
             display:block !important;
         }
     `
-      : ''}
+        : ''}
     ${(props) =>
-    props.sm
-      ? `
+      props.sm
+        ? `
         @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
             display:block !important;
         }
     `
-      : ''}
+        : ''}
     ${(props) =>
-    props.md
-      ? `
+      props.md
+        ? `
         @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
             display:block !important;
         }
     `
-      : ''}
+        : ''}
     ${(props) =>
-    props.lg
-      ? `
+      props.lg
+        ? `
        @media (min-width: ${SCREEN_LG_MIN}) {
         display: block !important;
        }
     `
-      : ''}
+        : ''}
 `;
 
 function getOffsetDate(utcDate, utcOffset = 60, offsetDays = 0) {
@@ -217,19 +216,19 @@ function formatDate(date, format) {
     return '';
   }
   const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ],
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ],
     D = date.getDate() || '',
     MMM = months[date.getMonth()] || '',
     YYYY = date.getFullYear() || '',
@@ -299,13 +298,20 @@ export const trainingDateByDay = ({ training = {}, dayOffset = 0 }) => {
 export const trainingTimings = ({ training, endAfterXHours }) =>
   training && training.startDate
     ? `${
-    training.startDate &&
-    `, ${formatUTC(training.startDate, training.utcOffset, 'HH:mm')}`
-    } - ${
-    training?.startDate && endAfterXHours ? formatDate(getOffsetDate(training?.startDate, training.utcOffset).addHours(endAfterXHours), 'HH:mm') :
-      training?.endDate ?
-        formatUTC(training.endDate, training.utcOffset, 'HH:mm') : ''
-    }`
+        training.startDate &&
+        `, ${formatUTC(training.startDate, training.utcOffset, 'HH:mm')}`
+      } - ${
+        training?.startDate && endAfterXHours
+          ? formatDate(
+              getOffsetDate(training?.startDate, training.utcOffset).addHours(
+                endAfterXHours
+              ),
+              'HH:mm'
+            )
+          : training?.endDate
+          ? formatUTC(training.endDate, training.utcOffset, 'HH:mm')
+          : ''
+      }`
     : '';
 
 function twoDigits(number, includeSymbol = false) {
@@ -325,9 +331,7 @@ export const trainingDateTime = ({
   endAfterXHours = 0,
 }) =>
   `${trainingDateByDay({ training, dayOffset })} ${
-  training
-    ? trainingTimings({ training, endAfterXHours })
-    : ''
+    training ? trainingTimings({ training, endAfterXHours }) : ''
   } `;
 
 const daysOfTheWeekEnglish = [
