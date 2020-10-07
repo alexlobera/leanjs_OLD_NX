@@ -6,14 +6,8 @@ import Link from '../navigation/Link';
 import AuthLink from '../auth/AuthLink';
 import { Ul, Li } from '.';
 
-// import { setCookie, getCookie, getURLParameter } from '../../utils';
-// import { BreadcrumbProps } from '../navigation/Breadcrumb';
-// TODO include in teaching material BreadcrumbPath vs BreadcrumbProps. See comments below
 import Breadcrumb, { BreadcrumbPath } from '../navigation/Breadcrumb';
 interface LayoutProps {
-  // breadcrumb?: React.FunctionComponent<BreadcrumbProps>;
-  // TODO include in teaching material passing breadcrumbPaths (data) vs breadcrumb (data + component). How often the data changes vs the component in the entire app?
-  // breadcrumb?: JSX.Element;
   breadcrumbPaths?: BreadcrumbPath[];
   variant?: string;
 }
@@ -58,7 +52,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
               <AuthLink />
             </Li>
             <Li>
-              <Link to="https://reactgraphql.academy/blog/">Blog</Link>
+              <Link>Blog</Link>
             </Li>
           </Ul>
         }

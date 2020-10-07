@@ -2,10 +2,12 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import { Header } from '../components/layout/Header';
+import Navbar from '../components/navigation/Navbar';
 
 function Index(props) {
   return (
     <>
+      <Navbar />
       <Header
         bgFixedImage={props.data.coverImage.childImageSharp.fixed}
         title={'Title in the home page'}

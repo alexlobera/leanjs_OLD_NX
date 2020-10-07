@@ -1,23 +1,18 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
-import { Container, Box, LeanComponent, Flex } from '../layout';
+import { Container, Box, BoxProps, As, Flex } from '../layout';
 import Link from '../navigation/Link';
-import RGALogo from '../logos/RGAOLogo';
-// TODO show in teaching material indirection layer if we use this interface here because breadcrum is a prop rather than children (see below)
-// import { BreadcrumbProps } from './Breadcrumb';
+import ReinventaLogo from '../logos/ReinvantaLogo';
 
-interface HeadeProps {
-  // TODO include this BreadcrumbProps in some teaching material.  Rather than passing data and build the elements inside the Header, we pass the element and we type it. Abstraction Vs implementation, Composition vs Encapsulation
-  // breadcrumb?: JSX.Element;
+interface NavbarProps {
   menu?: JSX.Element;
 }
 
-const Navbar: LeanComponent<HeadeProps> = ({
-  // breadcrumb,
+const Navbar = function <T extends As = 'button'>({
   menu,
   children,
-  sx = {},
-}) => {
+  sx,
+}: BoxProps<T, NavbarProps>) {
   return (
     <>
       <Box
@@ -29,13 +24,8 @@ const Navbar: LeanComponent<HeadeProps> = ({
       >
         <Container
           sx={{
-            p: sx.p || 4,
-            bg: 'rgba(256,256,256, 0.9)',
-            borderColor: 'rgba(0, 41, 56, 0.5)',
-            borderStyle: 'solid',
-            borderWidth: 0,
-            borderLeftWidth: '1px',
-            borderRightWidth: '1px',
+            p: sx?.p || 4,
+            bg: 'background',
           }}
         >
           <Flex>
@@ -44,7 +34,7 @@ const Navbar: LeanComponent<HeadeProps> = ({
               to="/"
               title="React GraphQL Academy Online"
             >
-              <RGALogo />
+              <ReinventaLogo />
             </Link>
             {menu}
           </Flex>
