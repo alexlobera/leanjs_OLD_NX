@@ -1,21 +1,20 @@
 import React from 'react'
 import {
     Section as LeanSection,
-    ThemeProvider
+    ThemeProvider, useTheme
 } from '@leanjs/ui-core';
 import { BoxProps, As } from '.';
 
 
-export default function Section<T extends As = 'section'>({ variant, ...rest }: BoxProps<T>) {
-    const section = <LeanSection {...rest} />
+export function Section<T extends As = 'section'>(props: BoxProps<T>) {
+    const theme: any = useTheme()
 
-    return (variant === "secondary") ?
+    return (props.variant === "secondary") ?
         <ThemeProvider theme={{
-            bg: "secondary",
-            py: [4, 9],
-            color: "inverseText"
+            colors: { text: theme.colors.inverseText }
         }} >
-            {section}
-        </ThemeProvider > : section
+            <LeanSection {...props} sx={{ py: [4, 9], bg: "secondary" }} />
+        </ThemeProvider > : <LeanSection {...props} />
 }
 
+export default Section
