@@ -36,17 +36,14 @@ const renderPartTimeSection = ({
         title ||
         (Comp && Comp.defaultProps && Comp.defaultProps.title) ||
         subTitle
-      }`}
+        }`}
       name={`session${sectionNum}`}
       trainingId={trainingId}
       trainingDateTime={
         training ? (
           <React.Fragment>
             <br />
-            {/* {comps && comps.length > 1 ? (
-              <React.Fragment> <Tag>Full-day</Tag> </React.Fragment>
-            ) : ( */}
-            {trainingDateTime({ dayOffset, training })}
+            {trainingDateTime({ dayOffset, training, endAfterXHours: hours })}
             {gmt && (
               <small>
                 {` `}
@@ -56,11 +53,11 @@ const renderPartTimeSection = ({
             {coachName && ` by ${coachName}`}
           </React.Fragment>
         ) : (
-          <React.Fragment>
-            <br />
-            {hours}-hour training
-          </React.Fragment>
-        )
+            <React.Fragment>
+              <br />
+              {hours}-hour training
+            </React.Fragment>
+          )
       }
       {...sectionProps}
     >

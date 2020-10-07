@@ -79,7 +79,7 @@ const TAB_REACT = 'react';
 const TAB_GRAPHQL = 'graphql';
 
 const IndexPage = ({ trainings }) => {
-  const [selectedTab, setTab] = useState(TAB_REACT);
+  const [selectedTab, setTab] = useState(TAB_GRAPHQL);
 
   const featuredTrainings = [
     // react bootcamp
@@ -146,8 +146,8 @@ const IndexPage = ({ trainings }) => {
           {selectedTab === TAB_REACT ? (
             <FullCurriculumsImmersive trainings={trainings} />
           ) : (
-            <FullCurriculumsPartTime trainings={trainings} />
-          )}
+              <FullCurriculumsPartTime trainings={trainings} />
+            )}
         </Segment>
       </TopSection>
       <ColSection

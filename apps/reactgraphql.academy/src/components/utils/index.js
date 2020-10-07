@@ -32,15 +32,21 @@ const Components = ({ children, ...props }) =>
     })
   );
 
+
+Date.prototype.addHours = function (h) {
+  this.setTime(this.getTime() + (h * 60 * 60 * 1000));
+  return this;
+}
+
 export const getVariantProps = (variants, variantProps) =>
   variants && variants.reduce
     ? variants.reduce(
-        (acc, variant) => ({
-          ...acc,
-          ...(variantProps[variant] || {}),
-        }),
-        {}
-      )
+      (acc, variant) => ({
+        ...acc,
+        ...(variantProps[variant] || {}),
+      }),
+      {}
+    )
     : variantProps[variants || 'default'] || {};
 
 export const selectTechColor = ({ tech } = {}) => {
@@ -119,73 +125,73 @@ export const createMetas = ({
 
 export const HideComponentsUsingCss = styled(Components)`
     ${(props) =>
-      props.xs
-        ? `
+    props.xs
+      ? `
         @media (max-width: ${SCREEN_XS_MAX}) {
             display:none !important;
         }
     `
-        : ''}
+      : ''}
     ${(props) =>
-      props.sm
-        ? `
+    props.sm
+      ? `
         @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
             display:none !important;
         }
     `
-        : ''}
+      : ''}
     ${(props) =>
-      props.md
-        ? `
+    props.md
+      ? `
         @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
             display:none !important;
         }
     `
-        : ''}
+      : ''}
     ${(props) =>
-      props.lg
-        ? `
+    props.lg
+      ? `
        @media (min-width: ${SCREEN_LG_MIN}) {
         display: none !important;
        }
     `
-        : ''}
+      : ''}
 `;
 
 export const DisplayComponentsUsingCss = styled(Components)`
     display:none !important;
     ${(props) =>
-      props.xs
-        ? `
+    props.xs
+      ? `
         @media (max-width: ${SCREEN_XS_MAX}) {
             display:block !important;
         }
     `
-        : ''}
+      : ''}
     ${(props) =>
-      props.sm
-        ? `
+    props.sm
+      ? `
         @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
             display:block !important;
         }
     `
-        : ''}
+      : ''}
     ${(props) =>
-      props.md
-        ? `
+    props.md
+      ? `
         @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
             display:block !important;
         }
     `
-        : ''}
+      : ''}
     ${(props) =>
-      props.lg
-        ? `
+    props.lg
+      ? `
        @media (min-width: ${SCREEN_LG_MIN}) {
         display: block !important;
        }
     `
-        : ''}
+      : ''}
 `;
 
 function getOffsetDate(utcDate, utcOffset = 60, offsetDays = 0) {
@@ -211,19 +217,19 @@ function formatDate(date, format) {
     return '';
   }
   const months = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ],
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ],
     D = date.getDate() || '',
     MMM = months[date.getMonth()] || '',
     YYYY = date.getFullYear() || '',
@@ -290,15 +296,16 @@ export const trainingDateByDay = ({ training = {}, dayOffset = 0 }) => {
   }
 };
 
-export const trainingTimings = ({ training }) =>
+export const trainingTimings = ({ training, endAfterXHours }) =>
   training && training.startDate
     ? `${
-        training.startDate &&
-        `, ${formatUTC(training.startDate, training.utcOffset, 'HH:mm')}`
-      } - ${
-        training.endDate &&
-        formatUTC(training.endDate, training.utcOffset, 'HH:mm')
-      }`
+    training.startDate &&
+    `, ${formatUTC(training.startDate, training.utcOffset, 'HH:mm')}`
+    } - ${
+    training?.startDate && endAfterXHours ? formatDate(getOffsetDate(training?.startDate, training.utcOffset).addHours(endAfterXHours), 'HH:mm') :
+      training?.endDate ?
+        formatUTC(training.endDate, training.utcOffset, 'HH:mm') : ''
+    }`
     : '';
 
 function twoDigits(number, includeSymbol = false) {
@@ -307,23 +314,21 @@ function twoDigits(number, includeSymbol = false) {
 
   return includeSymbol
     ? intNumber < 0
-      ? `-${twoDigitNumber}`
-      : `+${twoDigitNumber}`
+      ? `- ${twoDigitNumber} `
+      : `+ ${twoDigitNumber} `
     : twoDigitNumber;
 }
 
 export const trainingDateTime = ({
   dayOffset,
   training = {},
-  preEvening = false,
+  endAfterXHours = 0,
 }) =>
   `${trainingDateByDay({ training, dayOffset })} ${
-    dayOffset === 0 && preEvening
-      ? '18:30 - 21:00'
-      : training
-      ? trainingTimings({ training })
-      : ''
-  }`;
+  training
+    ? trainingTimings({ training, endAfterXHours })
+    : ''
+  } `;
 
 const daysOfTheWeekEnglish = [
   'Sunday',
@@ -345,19 +350,19 @@ export function dayOfTheWeekFromDate(dateString) {
 export function dayToPlural(dayOfTheWeek) {
   switch (dayOfTheWeek) {
     case 'Mon':
-      return `${daysOfTheWeekEnglish[1]}s`;
+      return `${daysOfTheWeekEnglish[1]} s`;
     case 'Tue':
-      return `${daysOfTheWeekEnglish[2]}s`;
+      return `${daysOfTheWeekEnglish[2]} s`;
     case 'Wed':
-      return `${daysOfTheWeekEnglish[3]}s`;
+      return `${daysOfTheWeekEnglish[3]} s`;
     case 'Thu':
-      return `${daysOfTheWeekEnglish[4]}s`;
+      return `${daysOfTheWeekEnglish[4]} s`;
     case 'Fri':
-      return `${daysOfTheWeekEnglish[5]}s`;
+      return `${daysOfTheWeekEnglish[5]} s`;
     case 'Sat':
-      return `${daysOfTheWeekEnglish[6]}s`;
+      return `${daysOfTheWeekEnglish[6]} s`;
     case 'Sun':
-      return `${daysOfTheWeekEnglish[0]}s`;
+      return `${daysOfTheWeekEnglish[0]} s`;
   }
 }
 
@@ -370,8 +375,8 @@ export function convertMinutesToHoursAndMinutes(
   const minutes = intMinutes % 60;
 
   return {
-    hours: useTwoDigits ? twoDigits(hours, true) : `${hours}`,
-    minutes: useTwoDigits ? twoDigits(minutes) : `${minutes}`,
+    hours: useTwoDigits ? twoDigits(hours, true) : `${hours} `,
+    minutes: useTwoDigits ? twoDigits(minutes) : `${minutes} `,
   };
 }
 
