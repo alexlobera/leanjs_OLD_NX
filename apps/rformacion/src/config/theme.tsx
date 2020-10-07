@@ -1,5 +1,5 @@
 export const DARK_BLUE = 'rgba(0,41,56, 1)';
-export const DARK_GREY = '#4a4a4a';
+export const DARK_GREY = '#3a3a3a';
 // export const BLUE = '#265199'; // blue logo arrow
 export const BLUE = '#27477e'; // blue logo text
 export const YELLOW = '#f8b545';
@@ -53,7 +53,7 @@ export const theme = {
   ],
   fontWeights: {
     body: 400,
-    bold: 800,
+    bold: 600,
   },
   lineHeights: {
     body: 1.5,
@@ -93,8 +93,9 @@ export const theme = {
     light: '0 18px 29px -2px rgba(0, 0, 0, 0.26)',
   },
   shadows: {
-    thin: '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)',
-    light: '0 18px 29px -2px rgba(0, 0, 0, 0.26)',
+    thin: '1px 1px 15px 8px rgba(0,0,0,0.1)',
+    // thin: '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)',: '0 18px 29px -2px rgba(0, 0, 0, 0.26)',
+    light: '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)',
     bold: 'rgb(74, 74, 74) 0px 0px 1px',
     box: '0 -2px 24px 0 rgba(0, 0, 0, 0.24), 0 2px 24px 0 rgba(0, 0, 0, 0.12)',
   },
@@ -113,33 +114,32 @@ export const theme = {
       ...heading,
       fontWeight: 'bold',
       fontSize: 6,
-      // my: 8,
-      mt: 8,
-      mb: 8,
+      mt: 7,
+      mb: 7,
     },
     h3: {
       ...heading,
       fontSize: 5,
-      mt: 7,
-      mb: 7,
+      mt: 6,
+      mb: 6,
     },
     h4: {
       ...heading,
       fontSize: 4,
-      mt: 6,
-      mb: 6,
+      mt: 5,
+      mb: 5,
     },
     h5: {
       ...heading,
       fontSize: 3,
-      mt: 5,
-      mb: 5,
+      mt: 4,
+      mb: 4,
     },
     h6: {
       ...heading,
       fontSize: 2,
-      mt: 4,
-      mb: 4,
+      mt: 3,
+      mb: 3,
     },
     p: {
       color: 'text',
@@ -194,13 +194,14 @@ export const theme = {
       mt: 10,
       mb: 10,
     },
-    secondary: { py: [4, 10] },
+    secondary: { bg: 'secondary', py: [4, 10] },
+    primary: { bg: 'primary', py: [4, 10] },
   },
   buttons: {
     primary: {
-      color: 'inverseText',
+      color: DARK_GREY,
       '&:link,&:hover,&:visited,&:active': {
-        color: 'inverseText',
+        color: DARK_GREY,
       },
       bg: 'primary',
       fontWeight: 'bold',
@@ -212,9 +213,9 @@ export const theme = {
     default: {
       color: 'text',
       bg: 'background',
-      boxShadow: 'thin',
+      boxShadow: 'light',
       border: '1px solid',
-      textShadow: 'bold',
+      fontWeight: 'bold',
       borderColor: 'secondary',
     },
   },

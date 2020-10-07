@@ -15,7 +15,7 @@ export function Section<T extends As = 'section'>(props: BoxProps<T>) {
         colors: { text: theme.colors.inverseText },
       }}
     >
-      <LeanSection {...props} sx={{ py: [4, 9], bg: 'secondary' }} />
+      <LeanSection {...props} variant={props.variant} />
     </ThemeProvider>
   ) : (
     <LeanSection {...props} variant={props.variant || 'default'} />

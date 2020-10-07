@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
-// import Footer from './Footer';
+import Footer from './Footer';
 import Navbar from '../navigation/Navbar';
+// import Link, { LinkButton } from '../navigation/Link';
 import Link from '../navigation/Link';
 import { Ul, Li } from '.';
 
@@ -54,7 +55,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
               <Link>Formacion</Link>
             </Li>
             <Li>
-              <Link>Nosotros</Link>
+              <Link to="/nosotros">Nosotros</Link>
             </Li>
             <Li>
               <Link>Blog</Link>
@@ -73,7 +74,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
         )}
       </Navbar>
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </React.Fragment>
   );
 };
