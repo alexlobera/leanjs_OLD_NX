@@ -6,7 +6,7 @@ import {
 import { BoxProps, As } from '.';
 
 
-export default function <T extends As = 'section'>({ variant, ...rest }: BoxProps<T>) {
+export default function Section<T extends As = 'section'>({ variant, ...rest }: BoxProps<T>) {
     const section = <LeanSection {...rest} />
 
     return (variant === "secondary") ?
@@ -18,3 +18,4 @@ export default function <T extends As = 'section'>({ variant, ...rest }: BoxProp
             {section}
         </ThemeProvider > : section
 }
+

@@ -2,7 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import { Header } from '../components/layout/Header';
-import { Section, Container } from '../components/layout';
+import { Container } from '../components/layout';
+import { Section } from '../components/layout/Section';
 import { H2, P } from '../components/display';
 
 function Index(props) {

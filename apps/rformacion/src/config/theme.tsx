@@ -188,7 +188,7 @@ export const theme = {
     top: {
       mt: '-50px',
     },
-    secondary: { bg: 'secondary', py: [4, 9] },
+    // secondary: { bg: 'secondary', py: [4, 9] },
   },
   buttons: {
     primary: {
