@@ -8,7 +8,7 @@ const cardVariants = {
     pt: [1, 6],
     pb: [1, 6],
     border: `2px solid`,
-    borderColor: 'tertiary',
+    borderColor: 'secondary',
   },
 };
 

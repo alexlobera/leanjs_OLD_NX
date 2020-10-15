@@ -148,6 +148,7 @@ export const theme = {
       lineHeight: 'body',
     },
     a: {
+      mt: 0,
       cursor: 'pointer',
       ":not([role='button'])": {
         textDecoration: 'underline',

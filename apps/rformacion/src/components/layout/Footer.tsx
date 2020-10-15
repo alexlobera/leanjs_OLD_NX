@@ -183,11 +183,6 @@ const Footer = () => {
                     title: 'React GraphQL Academy LinkedIn',
                     icon: LinkedinIcon,
                   },
-                  {
-                    to: '',
-                    title: 'React GraphQL Academy GitHub',
-                    icon: GitHubIcon,
-                  },
                 ].map(({ to, title, icon: Icon }) => (
                   <Li key={to}>
                     <Link title={title} to={to} className="footer-follow-us">
