@@ -9,11 +9,12 @@ interface Props {
   src: string;
   title: string;
   excerpt: string;
+  sx: any;
 }
 
-function CourseCard({ src, excerpt, title }: Props) {
+function CourseCard({ sx, src, excerpt, title }: Props) {
   return (
-    <Card variant="primary" sx={{ pb: 2 }}>
+    <Card variant="primary" sx={{ pb: 2, ...sx }}>
       <Link to="">
         <Image src={src} sx={{ mb: 0, maxHeight: '200px' }} />
       </Link>

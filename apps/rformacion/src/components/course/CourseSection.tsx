@@ -13,16 +13,23 @@ interface Course {
 interface Props {
   courses: Course[];
   title?: string;
+  sx?: any;
+  top?: boolean;
 }
 
-function CourseSection({ courses, title = 'Cursos destacados' }: Props) {
+function CourseSection({ sx, top, courses, title }: Props) {
   return (
-    <Section>
+    <Section top={top}>
       <Container>
         <H2 sx={{ mt: 0 }}>{title}</H2>
         <Grid columns={{ minWidth: '300px' }}>
           {courses.map(({ imageSrc, title, excerpt }) => (
-            <CourseCard src={imageSrc} title={title} excerpt={excerpt} />
+            <CourseCard
+              sx={sx}
+              src={imageSrc}
+              title={title}
+              excerpt={excerpt}
+            />
           ))}
         </Grid>
       </Container>

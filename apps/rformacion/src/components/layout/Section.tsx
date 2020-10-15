@@ -9,19 +9,35 @@ import { Container, Grid, Box } from './';
 import { H2, H3, P, Image } from '../display';
 import { Card } from './Card';
 
-export function Section<T extends As = 'section'>(props: BoxProps<T>) {
-  const theme: any = useTheme();
+interface Props {
+  top?: boolean;
+}
 
-  return props.variant === 'secondary' ? (
+export function Section<T extends As = 'section'>({
+  top,
+  sx,
+  variant,
+  ...rest
+}: BoxProps<T, Props>) {
+  const theme: any = useTheme();
+  const section = (
+    <LeanSection
+      {...(rest as any)}
+      sx={{ ...sx, ...(top ? { mt: ['-90px'] } : {}) }}
+      variant={variant || 'default'}
+    />
+  );
+
+  return variant === 'secondary' ? (
     <ThemeProvider
       theme={{
         colors: { text: theme.colors.inverseText },
       }}
     >
-      <LeanSection {...props} variant={props.variant} />
+      {section}
     </ThemeProvider>
   ) : (
-    <LeanSection {...props} variant={props.variant || 'default'} />
+    section
   );
 }
 

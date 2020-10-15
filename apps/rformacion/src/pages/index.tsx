@@ -7,7 +7,7 @@ import { PageSection } from '../components/layout/Section';
 import { P } from '../components/display';
 import { BLUE, YELLOW, GREEN } from '../config/theme';
 import { LinkButton } from '../components/navigation/Link';
-import ConvinceCourseSection from '../components/course/ConvinceCourseSection';
+import ConvinceSection from '../components/layout/ConvinceSection';
 import CourseSection from '../components/course/CourseSection';
 import PostSection from '../components/blog/PostSection';
 
@@ -26,6 +26,7 @@ function Index(props) {
       />
 
       <CourseSection
+        title="Cursos destacados"
         courses={[1, 2, 3].map(() => ({
           imageSrc: imageDemo.src,
           title: 'course title',
@@ -43,7 +44,7 @@ function Index(props) {
         fasfs orem ipsum sdfadf asd fasfs orem ipsum sdfadf asd fasfs"
       />
 
-      <ConvinceCourseSection
+      <ConvinceSection
         testimonialImageSrc={imageDemo.src}
         testimonialQuote="Amazing course because  jalsdjflasjdflakjd fklaskajsdflj sfaskfalsfj asdf a "
         testimonialFullname="John Travolta"

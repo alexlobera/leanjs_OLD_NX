@@ -49,19 +49,19 @@ const Layout: FunctionComponent<LayoutProps> = ({
             }}
           >
             <Li>
-              <Link>Inicio</Link>
+              <Link to="/">Inicio</Link>
             </Li>
             <Li>
-              <Link>Formacion</Link>
+              <Link to="/formacion">Formacion</Link>
             </Li>
             <Li>
               <Link to="/nosotros">Nosotros</Link>
             </Li>
             <Li>
-              <Link>Blog</Link>
+              <Link to="/testimonios">Testimonios</Link>
             </Li>
             <Li>
-              <Link>Testimonios</Link>
+              <Link to="/blog">Blog</Link>
             </Li>
             <Li>
               <Link>Contacto</Link>

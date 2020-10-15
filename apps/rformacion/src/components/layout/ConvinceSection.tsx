@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, Grid, Box } from '../layout';
-import { Section } from '../layout/Section';
+import { Container, Grid, Box } from '.';
+import { Section } from './Section';
 import { H2, H3 } from '../display';
-import TestimonialCard from './TestimonialCard';
+import TestimonialCard from '../course/TestimonialCard';
 
 interface Props {
   testimonialImageSrc: string;
@@ -13,7 +13,7 @@ interface Props {
   text: JSX.Element;
 }
 
-function ConvinceCourseSection({
+function ConvinceSection({
   testimonialImageSrc,
   testimonialQuote,
   testimonialFullname,
@@ -51,4 +51,4 @@ function ConvinceCourseSection({
   );
 }
 
-export default ConvinceCourseSection;
+export default ConvinceSection;
