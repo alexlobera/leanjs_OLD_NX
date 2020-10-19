@@ -22,7 +22,11 @@ function Index(props) {
         subtitle="Escribir aquí lo que vendemos sin que ocupe mas de dos lineas"
         bgColors={['#031430', BLUE, BLUE, GREEN, YELLOW]}
         bgGradientOpacity={1}
-        callToAction={<LinkButton variant="primary">Ver cursos</LinkButton>}
+        callToAction={
+          <LinkButton variant="primary" to="/cursos">
+            Ver cursos
+          </LinkButton>
+        }
       />
 
       <CourseSection
@@ -31,6 +35,8 @@ function Index(props) {
           imageSrc: imageDemo.src,
           title: 'course title',
           excerpt: 'lorem relk afjasfj alkslkfaf laskjdfa',
+          slug: '/cursos/gestion-de-la-diversidad',
+          available: true,
         }))}
       />
 
@@ -78,7 +84,8 @@ function Index(props) {
       />
 
       <PostSection
-        courses={[1, 2, 3].map(() => ({
+        title="Ultimos Articulos"
+        posts={[1, 2, 3].map(() => ({
           imageSrc: imageDemo.src,
           title: 'Post super cool',
           excerpt: 'post posrt relk afjasfj alkslkfaf laskjdfa',

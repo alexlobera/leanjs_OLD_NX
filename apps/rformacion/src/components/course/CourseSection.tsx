@@ -8,6 +8,8 @@ interface Course {
   imageSrc: string;
   title: string;
   excerpt: string;
+  slug: string;
+  available?: boolean;
 }
 
 interface Props {
@@ -23,12 +25,14 @@ function CourseSection({ sx, top, courses, title }: Props) {
       <Container>
         <H2 sx={{ mt: 0 }}>{title}</H2>
         <Grid columns={{ minWidth: '300px' }}>
-          {courses.map(({ imageSrc, title, excerpt }) => (
+          {courses.map(({ imageSrc, title, excerpt, slug, available }) => (
             <CourseCard
               sx={sx}
               src={imageSrc}
               title={title}
               excerpt={excerpt}
+              slug={slug}
+              available={available}
             />
           ))}
         </Grid>

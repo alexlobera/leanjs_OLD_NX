@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import SheetSection from '../layout/SheetSection';
 import { H3, H4, P } from '../display';
-import Link from '../navigation/Link';
+import Image from '../display/Image';
+import YouTube from '../display/YouTube';
 import { Box } from '../layout';
 
 const StyledStars = styled.div`
@@ -38,9 +39,18 @@ interface Props {
   date: string;
   fullname: string;
   courseTitle: string;
+  imageSrc?: string;
+  youtubeId?: string;
 }
 
-function TestimonialSheet({ top, date, fullname, courseTitle }: Props) {
+function TestimonialSheet({
+  top,
+  date,
+  fullname,
+  courseTitle,
+  imageSrc,
+  youtubeId,
+}: Props) {
   return (
     <SheetSection top={top}>
       <Box
@@ -50,6 +60,15 @@ function TestimonialSheet({ top, date, fullname, courseTitle }: Props) {
       >
         <H3 sx={{ mt: 0 }}>{fullname}</H3>
         <H4 sx={{ mt: 0 }}>{courseTitle}</H4>
+
+        {youtubeId ? (
+          <YouTube youtubeId={youtubeId} />
+        ) : imageSrc ? (
+          <Image src={imageSrc} />
+        ) : (
+          imageSrc
+        )}
+
         <P>
           a ljaks lfaj lfjas a ljaks lfaj lfjas a ljaks lfaj lfjas a ljaks lfaj
           lfjas a ljaks lfaj lfjas a ljaks lfaj lfjas a ljaks lfaj lfjas

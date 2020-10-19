@@ -11,17 +11,17 @@ interface Post {
 }
 
 interface Props {
-  courses: Post[];
+  posts: Post[];
   title?: string;
 }
 
-function PostSection({ courses, title = 'Articulos' }: Props) {
+function PostSection({ posts, title = 'Articulos' }: Props) {
   return (
     <Section>
       <Container>
         <H2 sx={{ mt: 0 }}>{title}</H2>
         <Grid columns={{ minWidth: '300px' }}>
-          {courses.map(({ imageSrc, title, excerpt }) => (
+          {posts.map(({ imageSrc, title, excerpt }) => (
             <PostCard src={imageSrc} title={title} excerpt={excerpt} />
           ))}
         </Grid>

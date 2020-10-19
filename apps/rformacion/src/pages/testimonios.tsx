@@ -2,14 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import { Header } from '../components/layout/Header';
-import { Ul, Li } from '../components/layout';
-import { PageSection } from '../components/layout/Section';
-import { P } from '../components/display';
 import { BLUE, YELLOW, GREEN } from '../config/theme';
-import { LinkButton } from '../components/navigation/Link';
-import ConvinceSection from '../components/layout/ConvinceSection';
 import CourseSection from '../components/course/CourseSection';
-import PostSection from '../components/blog/PostSection';
 import TestimonialSheet from '../components/course/TestimonialSheet';
 
 function Index(props) {
@@ -26,12 +20,14 @@ function Index(props) {
       />
 
       <TestimonialSheet
+        youtubeId="lG50I6KmzsQ"
         top={true}
         date="Sept 23, 2020"
         fullname="Mery Popins"
         courseTitle="Titulo del curso"
       />
       <TestimonialSheet
+        imageSrc={imageDemo.src}
         date="Sept 23, 2020"
         fullname="Mery Popins"
         courseTitle="Titulo del curso"
@@ -48,6 +44,7 @@ function Index(props) {
           imageSrc: imageDemo.src,
           title: 'course title',
           excerpt: 'lorem relk afjasfj alkslkfaf laskjdfa',
+          slug: '/cursos/gestion-de-la-diversidad',
         }))}
       />
     </>

@@ -5,7 +5,6 @@ import {
   FacebookIcon,
   InstagramIcon,
   TwitterIcon,
-  GitHubIcon,
   LinkedinIcon,
 } from '@leanjs/ui-icons';
 
@@ -22,7 +21,6 @@ import {
   mustBeEmail,
   required,
 } from '../form';
-// import { triggerSubscribe } from '../../api';
 
 const Footer = () => {
   return (
@@ -52,7 +50,10 @@ const Footer = () => {
         <Container sx={{ pt: 10, pb: 8 }}>
           <Grid columns={12}>
             <Box sx={{ gridColumn: ['1/ -1', '1 / 6'] }}>
-              <H3 sx={{ mt: 0 }}>Únete a nuestra newsletter</H3>
+              <H3 sx={{ mt: 0 }}>
+                <a id="contact-form" />
+                Contacta con nosotros
+              </H3>
               <Form
                 onSubmit={async ({ email }: any) => {
                   // await triggerSubscribe({ email, form: 'footer' });
@@ -66,9 +67,24 @@ const Footer = () => {
                       <Field
                         component={Input}
                         validate={composeValidators(mustBeEmail, required)}
+                        label="Nombre completo:"
+                        name="Escribe tu nombre aquí"
+                        placeholder="Escribe tu nombre aquí"
+                      />
+                      <Field
+                        component={Input}
+                        validate={composeValidators(mustBeEmail, required)}
                         label="Tu correo electrónico:"
                         name="email"
                         placeholder="direccion@ejemplo.com"
+                      />
+                      <Field
+                        component={Input}
+                        as="textarea"
+                        validate={composeValidators(mustBeEmail, required)}
+                        label="Mensaje:"
+                        name="email"
+                        placeholder="Escribe tu mensaje aquí"
                       />
                       <Button
                         variant="primary"
@@ -82,7 +98,7 @@ const Footer = () => {
                   )
                 }
               </Form>
-              <P sx={{ pt: 3 }}>
+              {/* <P sx={{ pt: 3 }}>
                 No enviamos spam según nuestra{' '}
                 <Link
                   className="footer-privacy-policy"
@@ -102,6 +118,7 @@ const Footer = () => {
                 </Link>{' '}
                 de la newsletter cuando quieras.
               </P>
+               */}
               <P>
                 Copyright &copy; {`${new Date().getFullYear()}`},
                 ReinventaFormacion.
@@ -123,10 +140,6 @@ const Footer = () => {
                     {
                       to: '',
                       text: 'Testimonios',
-                    },
-                    {
-                      to: '',
-                      text: 'Contacto',
                     },
                   ].map(({ to, text }) => (
                     <Li key={to}>

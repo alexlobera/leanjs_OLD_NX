@@ -12,8 +12,8 @@ function Index(props) {
     <>
       <Header
         bgFixedImage={imageDemo}
-        title={'Sobre Reinvanta'}
-        subtitle="La escuela de curso que 'anadir aqui una frase cool sobre vosotros'"
+        title={'Empresas'}
+        subtitle="Formaciones para empresas pim pam pum'"
         bgColors={['#031430', BLUE, BLUE, GREEN, YELLOW]}
         bgGradientOpacity={1}
       />

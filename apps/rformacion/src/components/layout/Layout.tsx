@@ -48,11 +48,17 @@ const Layout: FunctionComponent<LayoutProps> = ({
               li: { alignItems: 'center', display: 'flex' },
             }}
           >
-            <Li>
+            {/* <Li>
               <Link to="/">Inicio</Link>
+            </Li> */}
+            {/* <Li>
+              <Link to="/cursos">Proximas fechas</Link>
+            </Li> */}
+            <Li>
+              <Link to="/cursos">Catalogo de cursos</Link>
             </Li>
             <Li>
-              <Link to="/formacion">Formacion</Link>
+              <Link to="/empresas">Empresas</Link>
             </Li>
             <Li>
               <Link to="/nosotros">Nosotros</Link>
@@ -64,7 +70,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
               <Link to="/blog">Blog</Link>
             </Li>
             <Li>
-              <Link>Contacto</Link>
+              <Link to="#contact-form">Contacto</Link>
             </Li>
           </Ul>
         }

@@ -14,7 +14,7 @@ interface Props {
 function PostCard({ src, title, excerpt }: Props) {
   return (
     <Card sx={{ pb: 3 }}>
-      <Link to="">
+      <Link to="" sx={{ pl: 2, pr: 2, pt: 2 }}>
         <Image src={src} sx={{ mb: 0, maxHeight: '200px' }} />
       </Link>
       <Box sx={{ p: 3, mt: 1 }}>
