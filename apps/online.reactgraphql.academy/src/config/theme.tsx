@@ -222,6 +222,11 @@ export const theme = {
       borderColor: 'secondary',
     },
   },
+  cards: {
+    secondary: {
+      borderLeftColor: REACT,
+    },
+  },
 };
 
 export type Theme = typeof theme;

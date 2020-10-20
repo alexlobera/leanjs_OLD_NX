@@ -50,22 +50,22 @@ const IndexPage = () => (
   <React.Fragment>
     <Header
       titleLines={['LeanJS']}
-      subtitle="Optimize software for change, reduce waste & move faster!"
+      subtitle="Optimize software for change, reduce waste & move faster."
       supportingText={
-        <Col md={7}>
+        <Box sx={{ maxWidth: ['auto', '650px'], mt: 5 }}>
           <HeaderSupportingText>
-            Our series of sprints can help you cut business costs & speed up the
-            development process by introducing modern Web technology
-            incrementally
+            Our experts can help you cut business costs & speed up the
+            development process by introducing modern Web technology and
+            processes incrementally.
           </HeaderSupportingText>
 
-          <LinkButton className="header-button" to="#sprints">
-            How it works
+          <LinkButton className="header-button" to="/case-studies">
+            Case studies
           </LinkButton>
-        </Col>
+        </Box>
       }
     />
-    <Link to="#sprints" name="sprints" />
+    <Link to="#sprints" id="sprints" />
     <Section>
       <Grid>
         <Row>
@@ -78,27 +78,29 @@ const IndexPage = () => (
         <Row>
           <Col md={7}>
             <SupportingText>
-              The LeanJS <strong>Full Stack Sprint</strong> series helps you
-              improve project tech & processes in the Leanest way possible.
+              We can help you improve project tech & processes in the Leanest
+              way possible. Our cross-functional team knows how problematic
+              digital projects can be. We evangelise communication across
+              specialities through our expertise and experience.
             </SupportingText>
             <SupportingText>
-              We base our Sprints around a real problem you're experiencing.
-              From increasing product development speed to tech stack
-              optimization, we offer our experts to help you solve it.
+              We base our work around a real problem you're experiencing. From
+              increasing product development speed to tech stack optimization,
+              we offer our expertise only if we can make a difference.
             </SupportingText>
             <SupportingText>
-              Optimize your JavaScript stack to:
+              Optimize your team and stack to:
               <Ul sx={{ mt: 2 }}>
-                <Li>Build more features in less time with a smaller team</Li>
+                <Li>Build more features in less time</Li>
                 <Li>Increase performance and deliver great user experiences</Li>
                 <Li>Get new products to market faster and with quality</Li>
               </Ul>
             </SupportingText>
-            <H2 style={{ marginTop: '30px' }}> How it works</H2>
+            {/* <H2 style={{ marginTop: '30px' }}> How it works</H2>
             <SupportingText>
               Start incrementally. Stop at any step. Optimize tech and processes
               and increase competitive advantage in 3 low-risk steps:
-            </SupportingText>
+            </SupportingText> */}
           </Col>
           <Col md={1} />
           <Col md={4}>
@@ -106,7 +108,7 @@ const IndexPage = () => (
           </Col>
         </Row>
 
-        <Row>
+        {/* <Row>
           <Col md={4}>
             <SprintCard>
               <H3a>Step 1. Value Proposition</H3a>
@@ -152,7 +154,7 @@ const IndexPage = () => (
         </Row>
         <Box sx={{ textAlign: 'center', mt: [0, '-100px'] }}>
           <Arrow />
-        </Box>
+        </Box> */}
         <Box sx={{ textAlign: 'center' }}>
           <LinkButton className="sprint-contact-1" to="#contact" hasArrows dark>
             Contact us
@@ -160,21 +162,26 @@ const IndexPage = () => (
         </Box>
       </Grid>
     </Section>
-    <Link to="#about-us" name="about-us" />
+    <Link to="#about-us" id="about-us" />
     <Section dark>
       <Grid>
         <Row>
           <Col md={8}>
             <H2>About us</H2>
-            <SupportingText>
+            {/* <SupportingText>
               Our Sprints are all about working{' '}
               <strong>with you and your team</strong>
+            </SupportingText> */}
+            <SupportingText>
+              We are a team of experts passionate about improving teams and
+              digital products. Our work is all about working{' '}
+              <strong>with you and your team</strong>.
             </SupportingText>
-            <P>
+            {/* <P>
               In 1-week/ 2-week bursts we help your team create positive,
               future-facing solutions that are formulated to be on-time and
               on-budget.
-            </P>
+            </P> */}
           </Col>
         </Row>
 
@@ -206,7 +213,7 @@ const IndexPage = () => (
         </Row>
       </Grid>
     </Section>
-    <Link to="#academy" name="academy" />
+    <Link to="#academy" id="academy" />
     <Section>
       <Grid>
         <Row>

@@ -1,6 +1,5 @@
 import React from 'react';
 
-// import { fontColor } from '../text';
 import { getVariantProps } from './utils';
 import { Box, BoxProps, As } from './Box';
 
@@ -11,54 +10,40 @@ const defaultPadding = {
   pb: [1, 4],
 };
 
-const cardVariants = ({
-  borderColor = 'react',
-  borderStyle = 'solid',
-} = {}) => ({
+const cardVariants = {
   primary: {
-    border: `3px ${borderStyle}`,
-    borderColor: borderColor,
+    borderWidth: `3px`,
+    borderStyle: 'solid',
+    borderColor: 'primary',
     ...defaultPadding,
   },
   secondary: {
-    borderLeft: `3px ${borderStyle}`,
-    borderLeftColor: borderColor,
+    borderWidthLeft: `3px`,
+    borderLeftStyle: 'solid',
+    borderLeftColor: 'secondary',
     pl: [2, 4],
+  },
+  tertiary: {
+    borderWidth: `3px`,
+    borderStyle: 'solid',
+    borderColor: 'tertiary',
+    ...defaultPadding,
   },
   default: {
     boxShadow: 'box',
     backgroundColor: 'background',
     ...defaultPadding,
   },
-});
-
-// const StyledCard = styled(Box)`
-//   ${({ theme = {} }) =>
-//     fontColor(theme.colors ? theme.colors.text : undefined, true)}
-// `;
+};
 
 export function Card<T extends As = 'div'>(props: BoxProps<T>) {
-  // function Card <T extends As = 'div'> ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
-  //   let smallSxProps = {};
-  //   if (rest.small) {
-  //     smallSxProps.pt = [1, 3];
-  //     smallSxProps.pb = [1, 3];
-  //     smallSxProps.pl = [1, 3];
-  //     smallSxProps.pr = [1, 3];
-  //   }
-  // const { borderColor, borderxStyle, sx = {}, ...rest } = props;
-
   return (
     <Box
       {...props}
-      // {...rest} // replace {...props} with {...rest} when TS is fixed
-      sx={{
+      __themeKey="cards"
+      __sx={{
         position: 'relative',
-        ...getVariantProps(
-          props.variant || 'default',
-          // cardVariants({ borderColor, borderStyle })
-          cardVariants()
-        ),
+        ...getVariantProps(props.variant, cardVariants),
         ...(props.sx || {}),
       }}
     />
