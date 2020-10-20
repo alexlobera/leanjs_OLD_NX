@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import { Header } from '../components/layout/Header';
 import { PageSection } from '../components/layout/Section';
 import { BLUE, YELLOW, GREEN } from '../config/theme';
+import ContactSection from '../components/layout/ContactSection';
 
 function Index(props) {
   const imageDemo = props.data.coverImage.childImageSharp.fixed;
@@ -18,13 +19,11 @@ function Index(props) {
         bgGradientOpacity={1}
       />
 
-      <PageSection
-        title={'Esto es una seccion sin imagen'}
-        text="AAAAAAAA ipsum sdfadf asd fasfs orem ipsum sdfadf asd fasfs orem
-        ipsum sdfadf asd fasfs orem ipsum sdfadf asd fasfs orem ipsum
-        sdfadf asd fasfs orem ipsum sdfadf asd fasfs orem ipsum sdfadf
-        asd fasfs orem ipsum sdfadf asd fasfs orem ipsum sdfadf asd
-        fasfs orem ipsum sdfadf asd fasfs orem ipsum sdfadf asd fasfs"
+      <ContactSection
+        buttonVariant="primary"
+        title={'Tipos de cursos'}
+        text="Nuestros cursos para empresa estan basados para empresa estan basados para empresa estan basados para empresa estan basados "
+        buttonText="Ver catalogo de curso"
       />
 
       <PageSection

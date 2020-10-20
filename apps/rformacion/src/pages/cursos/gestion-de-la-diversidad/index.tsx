@@ -57,21 +57,21 @@ function CourseDetail(props) {
         </Box>
         <Box sx={{ gridColumn: ['1 / -1', '7/ -1'] }}>
           <H3>Próxima convocatoria e inscripcion</H3>
-          <Ul>
+          {/* <Ul>
             <Li>Dirección: online</Li>
             <Li>Fecha: 25 Enero 2021</Li>
+            <Li>Horario: Viernes de 17h a 19h y sabado de 9h a 12h</Li>
             <Li>Precio: EUR 90</Li>
-            <Li>Modo de pago: Transferencia bancario o efectivo</Li>
           </Ul>
           <P>
             Rellena el siguiente formulario con tus datos y te enviaremos los
             datos del curso y la informacion para hacer el pago.
-          </P>
-          {/*
+          </P> */}
+
           <P>
             Este curso no tiene fecha programada aun. Deja tu nombre y correo
             electronico y te contactaremos cuando se programen nuevas fechas.
-          </P> */}
+          </P>
           <Form
             onSubmit={async ({ email }: any) => {
               // await triggerSubscribe({ email, form: 'footer' });
@@ -108,10 +108,7 @@ function CourseDetail(props) {
             }
           </Form>
           <H3>Empresas</H3>
-          <P>
-            ¿Estás interesado en una formacion a medida para tu empresa? Visita
-            nuestra seccion para empesas:
-          </P>
+          <P>¿Estás interesado en una formacion a medida para tu empresa?</P>
           <LinkButton to="/empresas">Ver seccion empresas</LinkButton>
         </Box>
       </SheetSection>
@@ -136,7 +133,7 @@ function CourseDetail(props) {
       />
 
       <CourseSection
-        title="Cursos relacionados"
+        title="Otros cursos"
         courses={[1, 2, 3].map(() => ({
           imageSrc: imageDemo.src,
           title: 'course title',

@@ -8,16 +8,24 @@ interface Props {
   title: string;
   text: string;
   buttonText: string;
+  buttonVariant?: string;
 }
 
-function ContactSection({ title, text, buttonText = 'Contáctanos' }: Props) {
+function ContactSection({
+  title,
+  text,
+  buttonText = 'Contáctanos',
+  buttonVariant,
+}: Props) {
   return (
     <Section>
       <Container>
         <H2>{title}</H2>
         <P>{text}</P>
         <P sx={{ textAlign: 'center' }}>
-          <LinkButton to="#contact-form">{buttonText}</LinkButton>
+          <LinkButton variant={buttonVariant} to="#contact-form">
+            {buttonText}
+          </LinkButton>
         </P>
       </Container>
     </Section>
