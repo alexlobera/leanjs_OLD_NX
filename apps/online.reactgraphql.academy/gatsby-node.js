@@ -2,7 +2,7 @@
 
 const path = require('path');
 const fs = require('fs');
-
+//
 exports.onPostBuild = () => {
   const dir = path.join(__dirname, '../../dist/online.reactgraphql.academy');
 
