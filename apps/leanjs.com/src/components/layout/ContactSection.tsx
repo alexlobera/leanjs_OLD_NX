@@ -41,12 +41,12 @@ const ContactSection = () => (
         <Col md={5}>
           <P>Let's start a conversation right now! Here's how:</P>
           <LinkList>
-            <Li>
+            {/* <Li>
               <a href="tel:+44 20 8123 8184">
                 <ContactUsBullet image="phone" />
                 Phone +44 20 8123 8184
               </a>
-            </Li>
+            </Li> */}
             <Li>
               <MailtoLink to="hello@leanjs.com">
                 <ContactUsBullet image="email" />

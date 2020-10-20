@@ -5,7 +5,7 @@ export const BLUE_04 = `rgba(97, 218, 251, 0.4)`;
 export const DARK_BLUE = `rgba(0,41,56, 1)`;
 export const DARK_BLUE_075 = `rgba(0,41,56, 0.75)`;
 export const LIGHT_BLUE = `rgba(87,178,212,0.9)`;
-export const YELLOW = '#D6D100';
+export const YELLOW = '#FDEB33';
 export const BROWN = '#979797';
 export const GREY = '#c4c4c4';
 export const DARK_GREY = '#4a4a4a';
@@ -35,7 +35,7 @@ export const theme = {
     lightText: WHITE,
     background: WHITE,
     darkBackground: DARK_BLUE,
-    primary: RED,
+    primary: YELLOW,
     secondary: DARK_BLUE,
     danger: PINK,
     react: BLUE,
