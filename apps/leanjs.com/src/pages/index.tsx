@@ -65,7 +65,7 @@ const IndexPage = () => (
         </Box>
       }
     />
-    <Link to="#sprints" name="sprints" />
+    <Link to="#sprints" id="sprints" />
     <Section>
       <Grid>
         <Row>
@@ -162,7 +162,7 @@ const IndexPage = () => (
         </Box>
       </Grid>
     </Section>
-    <Link to="#about-us" name="about-us" />
+    <Link to="#about-us" id="about-us" />
     <Section dark>
       <Grid>
         <Row>
@@ -213,7 +213,7 @@ const IndexPage = () => (
         </Row>
       </Grid>
     </Section>
-    <Link to="#academy" name="academy" />
+    <Link to="#academy" id="academy" />
     <Section>
       <Grid>
         <Row>

@@ -215,7 +215,7 @@ const CaseStudyInner = (props) => (
                   "{props.quote.text}"
                 </P>
                 <strong>
-                  {name}
+                  {props.quote.author.name}
                   <br /> {props.quote.author.jobTitle},{' '}
                   {props.quote.author.company}
                 </strong>

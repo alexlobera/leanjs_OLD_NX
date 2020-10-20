@@ -33,7 +33,7 @@ const ContactSection = () => (
     <Grid>
       <Row>
         <H2>
-          <Link name="contact" />
+          <Link id="contact" />
           We'd love to chat
         </H2>
       </Row>
