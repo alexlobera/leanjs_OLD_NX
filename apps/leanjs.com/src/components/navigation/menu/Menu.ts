@@ -7,7 +7,7 @@ export default [
   //     onlyOn: null,
   //   },
   {
-    to: '/case-studies',
+    to: '/case_studies',
     text: 'Case Studies',
     onlyOn: null,
   },

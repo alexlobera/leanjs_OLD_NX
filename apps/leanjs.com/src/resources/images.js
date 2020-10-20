@@ -59,7 +59,7 @@ export const LUIS =
 export const PAUL =
   'https://firebasestorage.googleapis.com/v0/b/leanjscom-web.appspot.com/o/team%2Fpaul.jpg?alt=media';
 
-//case-studies
+//case_studies
 
 export const MUGSHOT_ABINBEV =
   'https://firebasestorage.googleapis.com/v0/b/leanjscom-web.appspot.com/o/casestudies%2Fab%26bev.jpg?alt=media';

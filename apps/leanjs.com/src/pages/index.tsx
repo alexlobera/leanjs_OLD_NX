@@ -59,7 +59,7 @@ const IndexPage = () => (
             processes incrementally.
           </HeaderSupportingText>
 
-          <LinkButton className="header-button" to="/case-studies">
+          <LinkButton className="header-button" to="/case_studies">
             Case studies
           </LinkButton>
         </Box>
