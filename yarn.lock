@@ -4324,13 +4324,14 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@testing-library/cypress@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@testing-library/cypress/-/cypress-7.0.1.tgz#2843033acaefe96cb4cf789f16e98d957383e59d"
-  integrity sha512-LtggqG/7Hdc1EiKdmqXQwxWOO3ET1dkZtq0S8mIe8o+xaOtaVLrdCn0dE8Bi4Aj7z3w51w6wN9STdYymnUPlnQ==
+"@testing-library/cypress@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/cypress/-/cypress-6.0.1.tgz#c924a69617db6a403c498abcb63759b79318fc76"
+  integrity sha512-hcPu2OnVuSTX1yDubEe7TBRD6mP2VgyopP1WTBIrJP79INPZdgOAX+TMNH68uZ/r5b4C7100IB4hjPIEQ+/Xog==
   dependencies:
     "@babel/runtime" "^7.11.2"
     "@testing-library/dom" "^7.22.2"
+    "@types/testing-library__cypress" "^5.0.6"
 
 "@testing-library/dom@^7.11.0", "@testing-library/dom@^7.24.2", "@testing-library/dom@^7.9.0":
   version "7.24.2"
@@ -4946,6 +4947,14 @@
     "@types/react" "*"
     "@types/react-native" "*"
     csstype "^3.0.2"
+
+"@types/testing-library__cypress@^5.0.6":
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/@types/testing-library__cypress/-/testing-library__cypress-5.0.8.tgz#6a8effce8218c5be42c1775b26dcbdcc273fda62"
+  integrity sha512-1dTaoaCR6PWVRKXZAHcWvnAzHpTDKUKWw1pq4yzyoyI/RQ4KRySA9EFLwS0uEugTIPPgBaPUnXK5OwTaQoQp7g==
+  dependencies:
+    "@testing-library/dom" "^7.11.0"
+    cypress "*"
 
 "@types/testing-library__cypress@~5.0.6":
   version "5.0.6"
@@ -8283,7 +8292,7 @@ cli-spinners@^2.4.0:
   resolved "https://registry.yarnpkg.com/cli-spinners/-/cli-spinners-2.5.0.tgz#12763e47251bf951cb75c201dfa58ff1bcb2d047"
   integrity sha512-PC+AmIuK04E6aeSs/pUccSujsTzBhu4HzC2dL+CfJB/Jcc2qTRbEwZQDfIUpt2Xl8BodYBEq8w4fc0kU2I9DjQ==
 
-cli-table3@^0.5.1:
+cli-table3@^0.5.1, cli-table3@~0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/cli-table3/-/cli-table3-0.5.1.tgz#0252372d94dfc40dbd8df06005f48f31f656f202"
   integrity sha512-7Qg2Jrep1S/+Q3EceiZtQcDPWxhAvBw+ERf1162v4sikJrvojMHFqXt8QIVha8UlH9rgU0BeWPytZ9/TzYqlUw==
@@ -9654,6 +9663,49 @@ cypress@*:
     request-progress "^3.0.0"
     supports-color "^7.1.0"
     tmp "~0.2.1"
+    untildify "^4.0.0"
+    url "^0.11.0"
+    yauzl "^2.10.0"
+
+cypress@^4.1.0:
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-4.12.1.tgz#0ead1b9f4c0917d69d8b57f996b6e01fe693b6ec"
+  integrity sha512-9SGIPEmqU8vuRA6xst2CMTYd9sCFCxKSzrHt0wr+w2iAQMCIIsXsQ5Gplns1sT6LDbZcmLv6uehabAOl3fhc9Q==
+  dependencies:
+    "@cypress/listr-verbose-renderer" "^0.4.1"
+    "@cypress/request" "^2.88.5"
+    "@cypress/xvfb" "^1.2.4"
+    "@types/sinonjs__fake-timers" "^6.0.1"
+    "@types/sizzle" "^2.3.2"
+    arch "^2.1.2"
+    bluebird "^3.7.2"
+    cachedir "^2.3.0"
+    chalk "^2.4.2"
+    check-more-types "^2.24.0"
+    cli-table3 "~0.5.1"
+    commander "^4.1.1"
+    common-tags "^1.8.0"
+    debug "^4.1.1"
+    eventemitter2 "^6.4.2"
+    execa "^1.0.0"
+    executable "^4.1.1"
+    extract-zip "^1.7.0"
+    fs-extra "^8.1.0"
+    getos "^3.2.1"
+    is-ci "^2.0.0"
+    is-installed-globally "^0.3.2"
+    lazy-ass "^1.6.0"
+    listr "^0.14.3"
+    lodash "^4.17.19"
+    log-symbols "^3.0.0"
+    minimist "^1.2.5"
+    moment "^2.27.0"
+    ospath "^1.2.2"
+    pretty-bytes "^5.3.0"
+    ramda "~0.26.1"
+    request-progress "^3.0.0"
+    supports-color "^7.1.0"
+    tmp "~0.1.0"
     untildify "^4.0.0"
     url "^0.11.0"
     yauzl "^2.10.0"
@@ -26407,6 +26459,13 @@ tmp@^0.2.1, tmp@~0.2.1:
   integrity sha512-76SUhtfqR2Ijn+xllcI5P1oyannHNHByD80W1q447gU3mp9G9PSpGdWmjUOHRDPiHYacIk66W7ubDTuPF3BEtQ==
   dependencies:
     rimraf "^3.0.0"
+
+tmp@~0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.1.0.tgz#ee434a4e22543082e294ba6201dcc6eafefa2877"
+  integrity sha512-J7Z2K08jbGcdA1kkQpJSqLF6T0tdQqpR2pnSUXsIchbPdTI9v3e85cLW0d6WDhwuAleOV71j2xWs8qMPfK7nKw==
+  dependencies:
+    rimraf "^2.6.3"
 
 tmpl@1.0.x:
   version "1.0.4"
