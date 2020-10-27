@@ -10,12 +10,16 @@ const cardVariants = {
     border: `2px solid`,
     borderColor: 'secondary',
   },
+  default: {
+    boxShadow: 'thin',
+    p: [1, 5],
+  },
 };
 
 export function Card<T extends As = 'div'>({
   children,
   sx,
-  variant,
+  variant = 'default',
   ...rest
 }: BoxProps<T>) {
   return (

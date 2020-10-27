@@ -22,7 +22,6 @@ const Navbar = function <T extends As = 'button'>({
           bg: 'background',
           ...sx,
         }}
-
       >
         <Container
           sx={{

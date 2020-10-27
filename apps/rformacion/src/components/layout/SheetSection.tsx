@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Box } from '.';
+import { Container, Grid } from '.';
 import { Section } from './Section';
 import Sheet from './Sheet';
 

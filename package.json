@@ -135,7 +135,7 @@
     "@nrwl/express": "~10.2.0",
     "@nrwl/gatsby": "~0.10.0",
     "@nrwl/jest": "~10.2.0",
-    "@nrwl/node": "~10.2.0",
+    "@nrwl/node": "10.3.1",
     "@nrwl/nx-plugin": "~10.2.0",
     "@nrwl/react": "~10.2.0",
     "@nrwl/web": "10.2.0",

@@ -3,4 +3,4 @@ export * from './training/TrainingItem';
 export * from './utils';
 export * from './utils/sanity';
 export * from './OkaidiaRGA';
-export * from './layout/Header'
+export * from './layout/Header';

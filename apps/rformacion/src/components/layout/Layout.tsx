@@ -3,10 +3,11 @@ import React, { FunctionComponent } from 'react';
 import Footer from './Footer';
 import Navbar from '../navigation/Navbar';
 // import Link, { LinkButton } from '../navigation/Link';
-import Link from '../navigation/Link';
-import { Ul, Li } from '.';
+// import Link from '../navigation/Link';
+// import { Ul, Li } from '.';
 
 import Breadcrumb, { BreadcrumbPath } from '../navigation/Breadcrumb';
+import Menu from '../navigation/menu';
 interface LayoutProps {
   breadcrumbPaths?: BreadcrumbPath[];
   variant?: string;
@@ -40,39 +41,40 @@ const Layout: FunctionComponent<LayoutProps> = ({
       <Navbar
         sx={{ ...(variantLayoutProps[variant] || {}) }}
         menu={
-          <Ul
-            variant="inline"
-            sx={{
-              ml: 'auto',
-              display: 'flex',
-              li: { alignItems: 'center', display: 'flex' },
-            }}
-          >
-            {/* <Li>
-              <Link to="/">Inicio</Link>
-            </Li> */}
-            {/* <Li>
-              <Link to="/cursos">Proximas fechas</Link>
-            </Li> */}
-            <Li>
-              <Link to="/cursos">Catalogo de cursos</Link>
-            </Li>
-            <Li>
-              <Link to="/empresas">Empresas</Link>
-            </Li>
-            <Li>
-              <Link to="/nosotros">Nosotros</Link>
-            </Li>
-            <Li>
-              <Link to="/testimonios">Testimonios</Link>
-            </Li>
-            <Li>
-              <Link to="/blog">Blog</Link>
-            </Li>
-            <Li>
-              <Link to="#contact-form">Contacto</Link>
-            </Li>
-          </Ul>
+            <Menu />
+        //   <Ul
+        //     variant="inline"
+        //     sx={{
+        //       ml: 'auto',
+        //       display: 'flex',
+        //       li: { alignItems: 'center', display: 'flex' },
+        //     }}
+        //   >
+        //     {/* <Li>
+        //       <Link to="/">Inicio</Link>
+        //     </Li> */}
+        //     {/* <Li>
+        //       <Link to="/cursos">Proximas fechas</Link>
+        //     </Li> */}
+        //     <Li>
+        //       <Link to="/cursos">Catalogo de cursos</Link>
+        //     </Li>
+        //     <Li>
+        //       <Link to="/empresas">Empresas</Link>
+        //     </Li>
+        //     <Li>
+        //       <Link to="/nosotros">Nosotros</Link>
+        //     </Li>
+        //     <Li>
+        //       <Link to="/testimonios">Testimonios</Link>
+        //     </Li>
+        //     <Li>
+        //       <Link to="/blog">Blog</Link>
+        //     </Li>
+        //     <Li>
+        //       <Link to="#contact-form">Contacto</Link>
+        //     </Li>
+        //   </Ul>
         }
       >
         {breadcrumbPaths && (

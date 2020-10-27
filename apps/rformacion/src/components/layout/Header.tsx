@@ -1,2 +1,1 @@
-export { Header } from '@leanjs/ui-academy'
-
+export { Header } from '@leanjs/ui-academy';

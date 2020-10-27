@@ -17,12 +17,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -44,15 +39,11 @@
     },
     "leanjs.com-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "leanjs.com"
-      ]
+      "implicitDependencies": ["leanjs.com"]
     },
     "reactgraphql.academy-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "reactgraphql.academy"
-      ]
+      "implicitDependencies": ["reactgraphql.academy"]
     },
     "rga.studio": {
       "tags": []
@@ -65,9 +56,7 @@
     },
     "online.reactgraphql.academy-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "online.reactgraphql.academy"
-      ]
+      "implicitDependencies": ["online.reactgraphql.academy"]
     },
     "ui-hls": {
       "tags": []
@@ -101,9 +90,7 @@
     },
     "upmentoring-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "upmentoring"
-      ]
+      "implicitDependencies": ["upmentoring"]
     },
     "rformacion": {
       "tags": []

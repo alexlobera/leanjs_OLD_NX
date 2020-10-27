@@ -86,6 +86,7 @@ function Index(props) {
       <PostSection
         title="Ultimos Articulos"
         posts={[1, 2, 3].map(() => ({
+          to: '/blog/article-1',
           imageSrc: imageDemo.src,
           title: 'Post super cool',
           excerpt: 'post posrt relk afjasfj alkslkfaf laskjdfa',

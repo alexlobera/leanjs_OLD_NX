@@ -113,6 +113,7 @@ interface HeaderProps {
   textBgColor?: string;
   info?: JSX.Element;
   callToAction?: JSX.Element;
+  children?: JSX.Element | null;
 }
 
 export const Header: FunctionComponent<HeaderProps> = ({
@@ -129,6 +130,7 @@ export const Header: FunctionComponent<HeaderProps> = ({
   links,
   info,
   callToAction = null,
+  children = null,
 }) => {
   const [bgImageUrl, setBgImageUrl] = React.useState(
     bgFixedImage?.base64 || bgImage
@@ -231,6 +233,7 @@ export const Header: FunctionComponent<HeaderProps> = ({
                 {callToAction}
               </Box>
             )}
+            {children}
           </Box>
 
           {info && (

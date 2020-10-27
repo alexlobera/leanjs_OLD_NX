@@ -1,11 +1,11 @@
-import React from 'React'
-import { Header as HeaderAcademy } from '@leanjs/ui-academy'
+import React from 'React';
+import { Header as HeaderAcademy } from '@leanjs/ui-academy';
 
 export function Header(props) {
-  return <HeaderAcademy {...props} textBgColor='rgba(0, 41, 56, 0.75)' />
+  return <HeaderAcademy {...props} textBgColor="rgba(0, 41, 56, 0.75)" />;
 }
 
-export default Header
+export default Header;
 
 // import React, { FunctionComponent } from 'react';
 // import styled from 'styled-components';
@@ -80,8 +80,8 @@ export default Header
 //         ${
 //           bgImage
 //             ? `
-//           background-image: url(${bgImage}); 
-//           background-repeat: ${bgRepeat}; 
+//           background-image: url(${bgImage});
+//           background-repeat: ${bgRepeat};
 //           background-size: ${bgSize};
 //           background-position: center;
 //           opacity: ${bgImageOpacity};
