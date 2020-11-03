@@ -12,7 +12,7 @@ interface Props {
   subtitle?: string;
   text: JSX.Element;
 }
-
+ 
 function ConvinceSection({
   testimonialImageSrc,
   testimonialQuote,

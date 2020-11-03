@@ -6,7 +6,8 @@ import {
 } from '@leanjs/ui-core';
 import { BoxProps, As } from '.';
 import { Container, Grid, Box } from './';
-import { H2, H3, P, Image } from '../display';
+import { H2, H3, P } from '../display';
+import Image from '../display/Image';
 import { Card } from './Card';
 
 interface Props {
@@ -43,6 +44,7 @@ export function Section<T extends As = 'section'>({
 
 export function PageSection({
   imageSrc = null,
+  fluidImage = null,
   imageLeft = true,
   title,
   subtitle = '',
@@ -50,7 +52,7 @@ export function PageSection({
   variant = null,
 }) {
   let imageCol;
-  if (imageSrc) {
+  if (fluidImage) {
     imageCol = (
       <Box
         sx={{
@@ -58,7 +60,7 @@ export function PageSection({
         }}
       >
         <Card>
-          <Image src={imageSrc} />
+          <Image fluid={fluidImage} />
         </Card>
       </Box>
     );

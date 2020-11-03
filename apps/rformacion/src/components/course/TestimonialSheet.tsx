@@ -38,9 +38,10 @@ interface Props {
   top?: boolean;
   date: string;
   fullname: string;
+  text: JSX.Element;
   courseTitle: string;
   imageSrc?: string;
-  youtubeId?: string;
+  youtubeId?: string; 
 }
 
 function TestimonialSheet({
@@ -50,6 +51,7 @@ function TestimonialSheet({
   courseTitle,
   imageSrc,
   youtubeId,
+  text
 }: Props) {
   return (
     <SheetSection top={top}>
@@ -69,10 +71,7 @@ function TestimonialSheet({
           imageSrc
         )}
 
-        <P>
-          a ljaks lfaj lfjas a ljaks lfaj lfjas a ljaks lfaj lfjas a ljaks lfaj
-          lfjas a ljaks lfaj lfjas a ljaks lfaj lfjas a ljaks lfaj lfjas
-        </P>
+        {text}
       </Box>
       <Box
         sx={{

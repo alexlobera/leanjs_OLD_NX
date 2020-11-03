@@ -39,5 +39,26 @@ module.exports = {
         icon: `src/images/logo.png`,
       },
     },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: 'qzhokp1g',
+        dataset: process.env.GATSBY_SANITY_DATASET || 'production',
+        // token: process.env.SANITY_TOKEN,
+      },
+    },
+    'gatsby-source-sanity-transform-images',
+    {
+      resolve: `gatsby-transform-portable-text`,
+      options: {
+        extendTypes: [{ typeName: `SanityPost`, contentFieldName: 'body' }],
+      },
+    },
+    {
+      resolve: `gatsby-transform-portable-text`,
+      options: {
+        extendTypes: [{ typeName: `SanityPost`, contentFieldName: 'body' }],
+      },
+    },
   ],
 };

@@ -25,17 +25,20 @@ function Index(props) {
         date="Sept 23, 2020"
         fullname="Mery Popins"
         courseTitle="Titulo del curso"
+        text={<p>afasdfa</p>}
       />
       <TestimonialSheet
         imageSrc={imageDemo.src}
         date="Sept 23, 2020"
         fullname="Mery Popins"
         courseTitle="Titulo del curso"
+        text={<p>afasdfa</p>}
       />
       <TestimonialSheet
         date="Sept 23, 2020"
         fullname="Mery Popins"
         courseTitle="Titulo del curso"
+        text={<p>afasdfa</p>}
       />
 
       <CourseSection
