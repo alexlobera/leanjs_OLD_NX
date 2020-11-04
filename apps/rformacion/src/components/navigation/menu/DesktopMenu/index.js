@@ -3,7 +3,7 @@ import React from 'react';
 
 import Link from '../../../navigation/Link';
 import { Li, Ul } from '../../../layout';
-import MenuData from '../Menu.json';
+// import MenuData from '../Menu.json';
 // import { WHITE } from '../../../../config/styles';
 // import ItemSubmenu from './ItemSubmenu';
 
@@ -40,7 +40,7 @@ const Item = ({
           {...rest}
         />
       ) : ( */}
-        <Component {...rest}>{text}</Component>
+      <Component {...rest}>{text}</Component>
       {/* )} */}
     </Li>
   );
@@ -53,12 +53,14 @@ export const DesktopMenuItem = styled(Item).attrs((props) => ({
 `;
 DesktopMenuItem.displayName = 'DesktopMenuItem';
 
-const DesktopMenu = () => (
-     <Ul variant="inline" sx={{display: ['none', 'inherit'], ml: 'auto'}}>
-      {MenuData.map(({ to, children, ...rest }) => (
-        <DesktopMenuItem key={to} to={to} submenuItems={children} {...rest} />
-      ))}
-    </Ul>
+const DesktopMenu = ({ items }) => (
+  <Ul variant="inline" sx={{ display: ['none', 'inherit'], ml: 'auto' }}>
+    {items.map(({ title, landingPage, link }) => {
+      const to = landingPage ? `/${landingPage.slug.current}` : link;
+
+      return <DesktopMenuItem key={to} to={to} text={title} />;
+    })}
+  </Ul>
 );
 
 export default DesktopMenu;
