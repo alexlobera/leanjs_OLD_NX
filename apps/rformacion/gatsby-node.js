@@ -36,3 +36,29 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   await createLandingPages('/', graphql, actions, reporter);
   // await createBlogPostPages("/blog", graphql, actions, reporter);
 };
+
+exports.createResolvers = ({ createResolvers }) => {
+  const resolvers = {
+    SanityTestimonialSection: {
+      testimonials: {
+        type: ['SanityTestimonial'],
+        resolve(source, args, context) {
+          return context.nodeModel.getAllNodes({ type: `SanityTestimonial` });
+        },
+      },
+    },
+    SanityPartnerSection: {
+      partners: {
+        type: ['SanityPartner'],
+        resolve(source, _, context) {
+          const nodes = context.nodeModel.getAllNodes({
+            type: `SanityPartner`,
+          });
+
+          return source.limit > 0 ? nodes.slice(0, source.limit) : nodes;
+        },
+      },
+    },
+  };
+  createResolvers(resolvers);
+};

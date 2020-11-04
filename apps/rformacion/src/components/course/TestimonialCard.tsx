@@ -1,19 +1,25 @@
 import React from 'react';
 import { LinkButton } from '../navigation/Link';
 import Image from '../display/Image';
-import { P, Blockquote } from '../display';
+import { P } from '../display';
+import YouTube from '../display/YouTube';
 import Card from '../layout/Card';
 
 interface Props {
-  src: string;
+  fuildImage?: any;
+  youtubeId?: string;
   quote: string;
   fullname: string;
 }
 
-function TestimonialCard({ src, quote, fullname }: Props) {
+function TestimonialCard({ fuildImage, youtubeId, quote, fullname }: Props) {
   return (
     <Card variant="secondary">
-      <Image src={src} />
+      {youtubeId ? (
+        <YouTube youtubeId={youtubeId} />
+      ) : (
+        <Image fluid={fuildImage} />
+      )}
       <P sx={{ mb: 0 }}>
         <em>"{quote}"</em>
       </P>

@@ -1,15 +1,16 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import BlockContent from '@sanity/block-content-to-react';
 
+import { Header } from '../components/layout/Header';
 import ConvinceSection from '../components/layout/ConvinceSection';
 import CourseSection from '../components/course/CourseSection';
 import PostSection from '../components/blog/PostSection';
+import PartnerSection from '../components/partner/PartnerSection';
 import { PageSection } from '../components/layout/Section';
 import ContactSection from '../components/layout/ContactSection';
-import TestimonialSheet from '../components/course/TestimonialSheet';
-import { H2, H3, H4, H5, P, Span } from '../components/display';
-import { Ul, Li } from '../components/layout';
+import TestimonialSection from '../components/course/TestimonialSection';
+import { getBlockContent } from '../utils';
+import { BLUE, YELLOW, GREEN } from '../config/theme';
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -19,17 +20,63 @@ export const query = graphql`
         current
       }
       title
-      subTitle
-      topImage {
+      subtitle
+      headerImage {
         asset {
-          url
+          localFile(width: 750) {
+            childImageSharp {
+              fixed {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
         }
       }
       content {
+        ... on SanityPartnerSection {
+          title
+          partners {
+            name
+            logo {
+              asset {
+                localFile(width: 750) {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        ... on SanityTestimonialSection {
+          testimonials {
+            fullname
+            youtubeId
+            date
+            _rawText
+            course {
+              title
+            }
+            image {
+              asset {
+                localFile(width: 750) {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
         ... on SanityConvinceSection {
           title
           subtitle
           _rawText
+          quote
           testimonial {
             fullname
             youtubeId
@@ -116,79 +163,6 @@ export const query = graphql`
   }
 `;
 
-function removeCarriageReturn(text) {
-  if (text && typeof text === 'string') {
-    return text.replace(/[\n\r]+/g, '');
-  } else {
-    return text;
-  }
-}
-
-const serializers = {
-  marks: {
-    // link: ({ mark: { href }, children }) => (
-    //   <BlogPostLink to={href} children={children} />
-    // ),
-    // internalLink: ({ mark = {}, children }) => {
-    //   return (
-    //     <BlogPostLink to={internalLinkTo({ mark })}>{children}</BlogPostLink>
-    //   );
-    // },
-  },
-  list: ({ children }) => <Ul children={children} />,
-  listItem: ({ children = {} }) => <Li children={children} />,
-  hardBreak: null,
-  types: {
-    block: ({ children, node }) => {
-      const style = node.style || 'normal';
-      let formatedChildren;
-      switch (style) {
-        case 'h2':
-          return <H2 children={children} />;
-        case 'h3':
-          return <H3 children={children} />;
-        case 'h4':
-          return <H4 children={children} />;
-        case 'h5':
-          return <H5 children={children} />;
-        // case 'blockquote':
-        //   return <Blockquote children={children} />;
-        default:
-          formatedChildren =
-            children &&
-            children.reduce &&
-            children.reduce((acc, curr) => {
-              const element = removeCarriageReturn(curr);
-              if (element) {
-                acc.push(element);
-              }
-
-              return acc;
-            }, []);
-
-          return formatedChildren && formatedChildren.length ? (
-            <P children={formatedChildren} />
-          ) : null;
-      }
-    },
-
-    // youtube: ({ node }) => (
-    //   <Video
-    //     sx={{ mb: 3, mt: 3 }}
-    //     time={node.startSecond}
-    //     youtubeId={node.videoId}
-    //   />
-    // ),
-    span: ({ node }) => <Span children={node.children} />,
-
-    //image: (props) => <Img src={bodyImagePublicURLs[props.node.asset.id]} />,
-  },
-};
-
-function getBlockContent(blocks) {
-  return <BlockContent blocks={blocks} serializers={serializers} />;
-}
-
 const Page = (props) => {
   const { data, errors } = props;
 
@@ -204,11 +178,11 @@ const Page = (props) => {
   //     );
   //   }
 
-  const page = data?.page;
+  const { headerImage, content, subtitle, title } = data?.page || {};
 
-  const content = (page.content || []).map(({ __typename, ...c }) => {
+  const elementContent = (content || []).map(({ __typename, ...c }) => {
     let el = null;
-    console.log('aaaa', c);
+    console.log('aaaa2222', headerImage?.asset?.localFile?.publicURL);
     switch (__typename) {
       case 'SanityContactSection':
         el = (
@@ -220,8 +194,20 @@ const Page = (props) => {
           />
         );
         break;
-      case 'convinceSection':
-        el = <ConvinceSection />;
+      case 'SanityConvinceSection':
+        el = (
+          <ConvinceSection
+            title={c.title}
+            subtitle={c.subtitle}
+            testimonialFullname={c.testimonial?.fullname}
+            testimonialQuote={c.quote}
+            testimonialFluidImage={
+              c.testimonial?.image?.asset?.localFile?.childImageSharp?.fluid
+            }
+            testimonialYoutubeId={c.testimonial?.youtubeId}
+            text={getBlockContent(c._rawText)}
+          />
+        );
         break;
       case 'SanityCourseSection':
         el = <CourseSection courses={c.courses} title={c.title} />;
@@ -238,15 +224,14 @@ const Page = (props) => {
           />
         );
         break;
-      case 'partnerSection':
-        // TODO
-        //   el = <CTAColumns key={_key} {...c} />;
+      case 'SanityPartnerSection':
+        el = <PartnerSection partners={c.partners} title={c.title} />;
         break;
       case 'postSection':
         // el = <PostSection key={_key} {...c} />;
         break;
-      case 'testimonialSection':
-        // el = <TestimonialSheet key={_key} {...c} />;
+      case 'SanityTestimonialSection':
+        el = <TestimonialSection testimonials={c.testimonials} />;
         break;
       default:
         el = null;
@@ -266,9 +251,20 @@ const Page = (props) => {
     <>
       {/*
       add Helment
-      add Header
       */}
-      {content}
+      <Header
+        bgFixedImage={headerImage?.asset?.localFile?.childImageSharp?.fixed}
+        title={title}
+        subtitle={subtitle}
+        bgColors={['#031430', BLUE, BLUE, GREEN, YELLOW]}
+        bgGradientOpacity={1}
+        // callToAction={
+        //   <LinkButton variant="primary" to="/cursos">
+        //     Ver cursos
+        //   </LinkButton>
+        // }
+      />
+      {elementContent}
     </>
   );
 };

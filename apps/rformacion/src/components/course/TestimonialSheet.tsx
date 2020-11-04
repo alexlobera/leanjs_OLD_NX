@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { formatUTC } from '../../utils';
 import SheetSection from '../layout/SheetSection';
 import { H3, H4, P } from '../display';
 import Image from '../display/Image';
@@ -34,14 +35,17 @@ const Rating = () => (
   </StyledStars>
 );
 
-interface Props {
+interface Props extends Testimonial {
   top?: boolean;
-  date: string;
+}
+
+export interface Testimonial {
+  date: Date;
   fullname: string;
   text: JSX.Element;
   courseTitle: string;
-  imageSrc?: string;
-  youtubeId?: string; 
+  fluidImage?: any;
+  youtubeId?: string;
 }
 
 function TestimonialSheet({
@@ -49,9 +53,9 @@ function TestimonialSheet({
   date,
   fullname,
   courseTitle,
-  imageSrc,
+  fluidImage,
   youtubeId,
-  text
+  text,
 }: Props) {
   return (
     <SheetSection top={top}>
@@ -65,11 +69,9 @@ function TestimonialSheet({
 
         {youtubeId ? (
           <YouTube youtubeId={youtubeId} />
-        ) : imageSrc ? (
-          <Image src={imageSrc} />
-        ) : (
-          imageSrc
-        )}
+        ) : fluidImage ? (
+          <Image fluid={fluidImage} />
+        ) : null}
 
         {text}
       </Box>
@@ -80,7 +82,7 @@ function TestimonialSheet({
         }}
       >
         <Rating /> <br />
-        <strong>{date}</strong>
+        <strong>{formatUTC(date, 0, 'D/MM/YYYY')}</strong>
       </Box>
     </SheetSection>
   );

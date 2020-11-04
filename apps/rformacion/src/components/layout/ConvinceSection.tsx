@@ -5,16 +5,18 @@ import { H2, H3 } from '../display';
 import TestimonialCard from '../course/TestimonialCard';
 
 interface Props {
-  testimonialImageSrc: string;
   testimonialQuote: string;
   testimonialFullname: string;
+  testimonialYoutubeId?: string;
+  testimonialFluidImage?: string;
   title: string;
   subtitle?: string;
   text: JSX.Element;
 }
- 
+
 function ConvinceSection({
-  testimonialImageSrc,
+  testimonialFluidImage,
+  testimonialYoutubeId,
   testimonialQuote,
   testimonialFullname,
   title,
@@ -31,7 +33,8 @@ function ConvinceSection({
             }}
           >
             <TestimonialCard
-              src={testimonialImageSrc}
+              fuildImage={testimonialFluidImage}
+              youtubeId={testimonialYoutubeId}
               quote={testimonialQuote}
               fullname={testimonialFullname}
             />

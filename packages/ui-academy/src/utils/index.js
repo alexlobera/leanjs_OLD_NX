@@ -51,6 +51,7 @@ function formatDate(date, format) {
     ],
     D = date.getDate() || '',
     MMM = months[date.getMonth()] || '',
+    MM = date.getMonth() + 1,
     YYYY = date.getFullYear() || '',
     HH = twoDigits(date.getHours()) || '',
     mm = twoDigits(date.getMinutes()) || '';
@@ -63,6 +64,8 @@ function formatDate(date, format) {
       return `${HH}:${mm}`;
     case "D MMM 'YYYY":
       return `${D} ${MMM} ${YYYY}`;
+    case 'D/MM/YYYY':
+      return `${D}/${MM}/${YYYY}`;
     default:
       return '';
   }
