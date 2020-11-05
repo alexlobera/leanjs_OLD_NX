@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import GatsbyLink from 'gatsby-link';
 import styled from 'styled-components';
 import { Link as LinkScroll, scroller } from 'react-scroll';
-import { Box, LeanProps, As } from '../layout/Box';
+import { Box, BoxProps, As } from '../layout/Box';
 
 import {
   FONT_FAMILY,
@@ -56,7 +56,7 @@ interface LinkProps {
   name?: string;
 }
 
-function Link<T extends As = 'a'>(props: LeanProps<T, LinkProps>) {
+function Link<T extends As = 'a'>(props: BoxProps<T, LinkProps>) {
   const { to = '', children = '' } = props;
 
   React.useEffect(() => {
@@ -116,7 +116,12 @@ export const MailtoLink = (props) => (
 );
 
 export const ScrollingLink = styled((props) => {
-  return <Box as={LinkScroll} {...{ smooth: true, duration: 500, ...props }} />;
+  return (
+    <Box
+      as={LinkScroll}
+      {...{ smooth: true, offset: -125, duration: 500, ...props }}
+    />
+  );
 })`
   ${ANCHOR_STYLE};
 `;

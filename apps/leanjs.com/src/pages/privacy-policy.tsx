@@ -215,7 +215,7 @@ const PrivacyPolicyPage = () => (
     <Section padded>
       <H2a>What's on this page:</H2a>
 
-      <Ul unstyled>
+      <Ul variant="unstyled">
         {pageContentSections.map((section, i) => (
           <Li key={`privacy-policy-index-${i}`}>
             <ScrollingLink to={`#${section.name}`}>
@@ -228,7 +228,7 @@ const PrivacyPolicyPage = () => (
       <PrivacyPolicyContents>
         {pageContentSections.map((section, i) => (
           <React.Fragment key={`privacy-policy-content-${i}`}>
-            <Link name={`#${section.name}`} />
+            <Link id={`#${section.name}`} />
             <H3>{section.heading}</H3>
             {section.content}
           </React.Fragment>

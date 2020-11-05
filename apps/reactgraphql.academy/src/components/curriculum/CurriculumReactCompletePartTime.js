@@ -7,10 +7,7 @@ import {
 } from '../../config/data';
 import Curriculum from './Curriculum';
 import renderPartTimeSection from './renderPartTimeSession';
-import {
-  defaultSessionsFirstHalf as advDefaultSessionsFirstHalf,
-  defaultSessionsSecondHalf as advDefaultSessionsSecondHalf,
-} from './CurriculumAdvancedReactPartTime';
+import { defaultSessionsFirstHalf as advDefaultSessionsFirstHalf } from './CurriculumAdvancedReactPartTime';
 import {
   defaultSessionsFirstHalf as fundamentalsDefaultSessionsFirstHalf,
   defaultSessionsSecondHalf as fundamentalsDefaultSessionsSecondHalf,
@@ -18,11 +15,6 @@ import {
 export const defaultSessionsFirstHalf = [
   ...fundamentalsDefaultSessionsFirstHalf,
   ...fundamentalsDefaultSessionsSecondHalf,
-];
-
-export const defaultSessionsSecondHalf = [
-  ...advDefaultSessionsFirstHalf,
-  ...advDefaultSessionsSecondHalf,
 ];
 
 const trainingInstanceTypeName = PART_TIME;
@@ -35,7 +27,7 @@ const CurriculumReactCompletePartTime = ({
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
-  sessionsSecondHalf = defaultSessionsSecondHalf,
+  sessionsSecondHalf = advDefaultSessionsFirstHalf,
   ...rest
 }) => {
   const initialIndex = 0;
@@ -53,6 +45,12 @@ const CurriculumReactCompletePartTime = ({
     training,
   });
 
+  const renderAdvSectionWithProps = renderPartTimeSection({
+    sectionProps,
+    training,
+    hours: 4,
+  });
+
   return (
     <Curriculum
       title="React Part-time Training Bundle Outline"
@@ -64,7 +62,7 @@ const CurriculumReactCompletePartTime = ({
       {...rest}
       firstHalf={sessionsFirstHalf.map(renderSectionWithProps(initialIndex))}
       secondHalf={sessionsSecondHalf.map(
-        renderSectionWithProps(sessionsFirstHalf.length + initialIndex)
+        renderAdvSectionWithProps(sessionsFirstHalf.length + initialIndex)
       )}
     />
   );

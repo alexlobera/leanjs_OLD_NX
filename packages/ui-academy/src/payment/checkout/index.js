@@ -33,7 +33,9 @@ export const CheckoutProvider = ({ children }) => {
 
   return (
     <CheckoutContext.Provider value={{ isOpen, expandCheckout, setIsOpen }}>
-      {children}
+      {typeof children === 'function'
+        ? children({ isOpen, expandCheckout, setIsOpen })
+        : children}
     </CheckoutContext.Provider>
   );
 };

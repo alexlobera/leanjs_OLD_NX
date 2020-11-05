@@ -125,6 +125,7 @@ const Meetup = ({
         ]}
       />
       <Header
+        fullHeight={false}
         titleLines={[title || '...loading']}
         links={[
           { text: 'Speakers', to: '#speakers' },

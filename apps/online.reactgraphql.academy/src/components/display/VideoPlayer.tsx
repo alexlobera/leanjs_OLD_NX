@@ -1,19 +1,25 @@
 import React from 'react';
 import { VideoPlayer } from '@leanjs/ui-hls';
+import { ThemeProvider } from '@leanjs/ui-core';
 
 import Img from './Image';
-import { Box } from '../layout';
+import { Box, Flex } from '../layout';
+import { H3, H4 } from '../display';
 
 export { VideoPlayer };
 
 export function GatsbyVideoPlayer({
   fluidPoster,
+  className = null,
   url,
   autoload = false,
   overlay = null,
+  sx = {},
+  otherVideoElements = [],
   ...rest
 }) {
   const [imageLoaded, setImageLoaded] = React.useState(false);
+  const [end, setEnd] = React.useState(false);
   const [derivedAutoload, setDerivedAutoload] = React.useState(autoload);
   let poster: HTMLImageElement;
   if (typeof Image !== 'undefined') {
@@ -26,8 +32,9 @@ export function GatsbyVideoPlayer({
 
   return (
     <Box
+      className={className}
       onMouseOver={() => setDerivedAutoload(true)}
-      sx={{ position: 'relative' }}
+      sx={{ position: 'relative', ...sx }}
     >
       <Box
         sx={{
@@ -40,12 +47,55 @@ export function GatsbyVideoPlayer({
         }}
       >
         {imageLoaded && (
-          <VideoPlayer
-            posterUrl={poster?.src}
-            url={url}
-            autoload={derivedAutoload}
-            {...rest}
-          />
+          <>
+            <VideoPlayer
+              posterUrl={poster?.src}
+              url={url}
+              autoload={derivedAutoload}
+              {...rest}
+              onPlay={() => {
+                setEnd(false);
+              }}
+              onEnded={(e) => {
+                if (rest.onEnded) rest.onEnded(e);
+                setEnd(true);
+              }}
+            />
+            {end && otherVideoElements?.length && (
+              <ThemeProvider
+                theme={{
+                  colors: {
+                    text: '#fff',
+                  },
+                }}
+              >
+                <Flex
+                  sx={{
+                    display: ['none', 'none', 'inherit'],
+                    width: '100%',
+                    position: 'absolute',
+                    alignItems: 'stretch',
+                    top: '60%',
+                    left: 0,
+                    backgroundColor: 'inverseBackground',
+                  }}
+                >
+                  {otherVideoElements.map((videoElement) => (
+                    <Box
+                      sx={{
+                        flex: 1,
+                        p: 4,
+                        cursor: 'pointer',
+                        // '&:hover': { backgroundColor: 'inverseBackground' },
+                      }}
+                    >
+                      {videoElement}
+                    </Box>
+                  ))}
+                </Flex>
+              </ThemeProvider>
+            )}
+          </>
         )}
       </Box>
       <Img fluid={fluidPoster} />

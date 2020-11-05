@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-///
+
 const path = require('path');
 const fs = require('fs');
-
+//
 exports.onPostBuild = () => {
   const dir = path.join(__dirname, '../../dist/online.reactgraphql.academy');
 
@@ -38,6 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
                         transcript
                       }
                       asset {
+                        isPrivate
                         playback {
                           policy
                         }
@@ -86,10 +87,10 @@ exports.createPages = async ({ graphql, actions }) => {
             : transcriptBlock.length === 1
             ? transcriptBlock[0].slice(0, 200)
             : '';
-        const isPublicVideo =
-          video.asset &&
-          video.asset.playback &&
-          video.asset.playback.policy === 'public';
+        const isPublicVideo = !video.asset.isPrivate;
+        //   video.asset &&
+        //   video.asset.playback &&
+        //   video.asset.playback.policy === 'public';
 
         createPage({
           path: lessonPath,

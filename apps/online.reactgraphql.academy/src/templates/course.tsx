@@ -8,6 +8,7 @@ import {
   formatTraining,
   TrainingItem,
   getTrainingTimings,
+  useExpandCheckout,
 } from '@leanjs/ui-academy';
 import { PlayMedia } from '@leanjs/ui-icons';
 import { useQuery } from '@leanjs/graphql-client';
@@ -17,9 +18,9 @@ import Tick from '../components/icons/Tick';
 import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
 import Sheet from '../components/layout/Sheet';
-import Link from '../components/navigation/Link';
+import Link, { LinkButton } from '../components/navigation/Link';
 import Header from '../components/layout/Header';
-import { P, H2, H3, H4 } from '../components/display';
+import { P, H2, H3, Tag } from '../components/display';
 import {
   Card,
   Container,
@@ -63,8 +64,6 @@ const COURSE_QUERY = `
   }
 `;
 
-const PlayIcon = () => <PlayMedia sx={{ mb: '-7px', mr: 2 }} fill="#d8d8d8" />;
-
 function CoursePage({ data, pageContext: { trainingId } }) {
   const { loading: loggingInUser } = useMagic();
   const training = data.upmentoring.trainingById;
@@ -80,14 +79,17 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           .slice(0, 3)
       : [];
 
+  const expandCheckout = useExpandCheckout();
+
   const { data: runTimeData, loading } = useQuery(COURSE_QUERY, {
     variables: { trainingId },
     skip: loggingInUser,
   });
 
   const loadingData = loggingInUser || loading;
-  const purchased = runTimeData?.viewer?.purchasedTraining?.id === trainingId;
-  const coverImageNode = data.courseThumbnailImages.nodes[0];
+  const viewerPurchasedTraining =
+    runTimeData?.viewer?.purchasedTraining?.id === trainingId;
+  const coverImageNode = data.courseThumbnailImage;
   const coverImage =
     coverImageNode.extension === 'svg'
       ? coverImageNode.publicURL
@@ -123,7 +125,6 @@ function CoursePage({ data, pageContext: { trainingId } }) {
         <Header
           title={title}
           subtitle={training.published.subtitle}
-          minHeight="650px"
           bgColors={['#44B0C5']}
           bgImageOpacity={1}
           bgImage={coverImage}
@@ -143,20 +144,30 @@ function CoursePage({ data, pageContext: { trainingId } }) {
               to: '#faqs',
             },
             {
-              text: purchased ? 'Thanks' : 'Price',
+              text: viewerPurchasedTraining ? 'Thanks' : 'Price',
               to: '#pricing',
             },
           ]}
           info={
             training.published.previewVideo && (
-              <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
+              <Box sx={{ mb: 5 }}>
                 <GatsbyVideoPlayer
+                  className="top-preview-video"
                   fluidPoster={
                     training.published.previewVideo.asset?.posterImageFile
                       ?.childImageSharp?.fluid
                   }
                   url={training.published.previewVideo.asset?.url}
                 />
+                <P sx={{ textAlign: 'center' }}>
+                  {viewerPurchasedTraining ? (
+                    <strong>Thank's for buying</strong>
+                  ) : (
+                    <LinkButton onClick={expandCheckout} to="#pricing">
+                      Buy
+                    </LinkButton>
+                  )}
+                </P>
               </Box>
             )
           }
@@ -176,6 +187,10 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                 if (published) {
                   const lessonsCount =
                     (published.videos && published.videos.length) || 0;
+
+                  const containsFreeVideos = !published.videos?.find(
+                    ({ asset }) => asset.isPrivate
+                  );
                   const { previewVideo } = published;
                   acc.push(
                     <>
@@ -187,6 +202,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                       >
                         {previewVideo && (
                           <GatsbyVideoPlayer
+                            className="module-preview-video"
                             fluidPoster={
                               previewVideo.asset?.posterImageFile
                                 ?.childImageSharp?.fluid
@@ -194,6 +210,12 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                             url={previewVideo.asset?.url}
                           />
                         )}
+                        <Box
+                          as="small"
+                          sx={{ textAlign: 'center', display: 'block', pt: 3 }}
+                        >
+                          Preview video
+                        </Box>
                       </Box>
                       <Box
                         sx={{
@@ -203,14 +225,21 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                       >
                         <H3 sx={{ mt: 0 }}>{published.title}</H3>
                         {lessonsCount > 0 && (
-                          <P sx={{ mb: 6 }}>
-                            <Link
-                              to={`${trainingPath}/${published.videos[0].published.slug}`}
-                            >
-                              <PlayIcon />
-                              Start watching
-                            </Link>
-                          </P>
+                          <Ul variant="inline" sx={{ mb: 6 }}>
+                            <Li>
+                              <LinkButton
+                                to={`${trainingPath}/${published.videos[0].published.slug}`}
+                              >
+                                <PlayMedia sx={{ mr: 2 }} fill="#d8d8d8" />{' '}
+                                Watch
+                              </LinkButton>
+                            </Li>
+                            {containsFreeVideos && !viewerPurchasedTraining && (
+                              <Li>
+                                <Tag sx={{ ml: 3 }}>Contains free videos</Tag>
+                              </Li>
+                            )}
+                          </Ul>
                         )}
                         <Markdown>{published.description}</Markdown>
                         <Tabs defaultValue="learning" sx={{ mt: 6 }}>
@@ -277,7 +306,10 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                                             display: 'inline-block',
                                           }}
                                         >
-                                          <PlayIcon />
+                                          <PlayMedia
+                                            sx={{ mb: '-7px', mr: 2 }}
+                                            fill="#d8d8d8"
+                                          />
                                         </Box>
                                         <Box>
                                           <Link to={path}>{title}</Link>
@@ -297,7 +329,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                 }
               }, [])}
             </Grid>
-            <H2>{training.title} Curriculum</H2>
+            <H2>What you'll learn</H2>
             <Card variant="secondary">
               <Markdown>{training?.published?.description?.syllabus}</Markdown>
             </Card>
@@ -315,7 +347,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           <Sheet variant="transparent">
             <Grid columns={10}>
               <Box sx={{ gridColumn: ['1/ -1', '1/ 6'] }}>
-                {!purchased ? (
+                {!viewerPurchasedTraining ? (
                   <PaymentSection
                     standardPrice={standardPrice}
                     currency={currency}
@@ -352,7 +384,9 @@ function CoursePage({ data, pageContext: { trainingId } }) {
             </P>
             <Grid columns={{ minWidth: '300px' }} sx={{ mt: 7 }}>
               {trainingInstances.map((training) => {
-                const { dayMonth, duration } = getTrainingTimings({ training });
+                const { dayMonth, duration } = getTrainingTimings({
+                  training,
+                });
                 return (
                   <TrainingItem
                     key={training.id}
@@ -383,20 +417,16 @@ export const query = graphql`
     $path: String!
     $coverImageRegex: String!
   ) {
-    courseThumbnailImages: allFile(
-      filter: {
-        absolutePath: { regex: $coverImageRegex }
-        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)|(svg)/" }
-      }
+    courseThumbnailImage: file(
+      absolutePath: { regex: $coverImageRegex }
+      extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)|(svg)/" }
     ) {
-      nodes {
-        publicURL
-        extension
-        name
-        childImageSharp {
-          fluid(maxWidth: 1200) {
-            ...GatsbyImageSharpFluid
-          }
+      publicURL
+      extension
+      name
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -452,6 +482,9 @@ export const query = graphql`
               published {
                 title
                 slug
+              }
+              asset {
+                isPrivate
               }
             }
           }

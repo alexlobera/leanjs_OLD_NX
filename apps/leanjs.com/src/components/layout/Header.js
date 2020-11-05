@@ -54,11 +54,11 @@ const H2Header = styled(BaseH2)`
   margin-bottom: 0;
 `;
 
-const TITLE_BACKGROUND = `
-  padding-left: ${SPACING_STANDARD};
-  padding-right: ${SPACING_STANDARD};
-  display: inline-block;
-`;
+// const TITLE_BACKGROUND = `
+//   padding-left: ${SPACING_STANDARD};
+//   padding-right: ${SPACING_STANDARD};
+//   display: inline-block;
+// `;
 const TitleBackground = styled.span`
   &:last-child {
     padding-bottom: ${SPACING_STANDARD};
@@ -66,7 +66,6 @@ const TitleBackground = styled.span`
   &:first-child {
     padding-top: ${SPACING_STANDARD};
   }
-  ${TITLE_BACKGROUND};
 `;
 
 const WHITE_TEXT = `
@@ -80,7 +79,6 @@ const WHITE_TEXT = `
 `;
 
 const SubTitleBackground = styled.div`
-  ${TITLE_BACKGROUND};
   ${WHITE_TEXT};
 
   ul {
@@ -93,34 +91,25 @@ const Subtitle = styled(H2Header)`
 `;
 
 const Links = styled.div`
-  ${TITLE_BACKGROUND};
   ${WHITE_TEXT};
-  padding: ${SPACING_STANDARD};
-`;
-const LinksDescription = styled.span`
-  padding-right: ${SPACING_STANDARD};
+  padding-top: 20px;
 `;
 
-const SupportingText = styled.div`
-  font-size: 22px;
-  line-height: ${LINE_HEIGHT_LARGE};
-`;
+// const BulletPoint = (props) => {
+//   return (
+//     <Col md={7}>
+//       {props.includeSentence ? (
+//         <SupportingText>{props.sentence}</SupportingText>
+//       ) : null}
 
-const BulletPoint = (props) => {
-  return (
-    <Col md={7}>
-      {props.includeSentence ? (
-        <SupportingText>{props.sentence}</SupportingText>
-      ) : null}
-
-      {props.includeButton && props.button ? (
-        <LinkButton className="header-button" to={props.button.to} hasArrows>
-          {props.button.text}
-        </LinkButton>
-      ) : null}
-    </Col>
-  );
-};
+//       {props.includeButton && props.button ? (
+//         <LinkButton className="header-button" to={props.button.to} hasArrows>
+//           {props.button.text}
+//         </LinkButton>
+//       ) : null}
+//     </Col>
+//   );
+// };
 
 const BackgroundCircles = styled.div`
   position: absolute;
@@ -168,7 +157,6 @@ const Header = ({
   links = [],
   supportingText = null,
   imageName = 'blue',
-  ...props
 }) => {
   return (
     <React.Fragment>
@@ -179,44 +167,45 @@ const Header = ({
             <BackgroundZigZag imageName={imageName} />
           </BackgroundCircles>
           <Grid>
-            <H1 style={{ marginTop: '25px' }}>
-              {titleLines.map((line, i) => (
-                <TitleBackground key={i} children={line} />
-              ))}
-            </H1>
+            <Row>
+              <Col>
+                <H1 style={{ marginTop: '0px' }}>
+                  {titleLines.map((line, i) => (
+                    <TitleBackground key={i} children={line} />
+                  ))}
+                </H1>
 
-            {subtitle ? (
-              <SubTitleBackground>
-                <Subtitle>{subtitle}</Subtitle>
-              </SubTitleBackground>
-            ) : (
-              ''
-            )}
+                {subtitle ? (
+                  <SubTitleBackground>
+                    <Subtitle>{subtitle}</Subtitle>
+                  </SubTitleBackground>
+                ) : (
+                  ''
+                )}
+                {links && links.length ? (
+                  <Links>
+                    <Ul variant="inline">
+                      <Li sx={{ pl: 0 }}>On this page:</Li>
+                      {links.map((link, i) => (
+                        <Li key={i}>
+                          <ScrollingLink to={link.to}>
+                            {link.text}
+                          </ScrollingLink>
+                        </Li>
+                      ))}
+                    </Ul>
+                  </Links>
+                ) : (
+                  ''
+                )}
+
+                {supportingText}
+              </Col>
+            </Row>
           </Grid>
         </HeaderTop>
         <Grid>
-          <Row>
-            <Col>
-              {links && links.length ? (
-                <Links>
-                  <LinksDescription>On this page:</LinksDescription>
-                  <Ul inline flushLeft>
-                    {links.map((link, i) => (
-                      <Li key={i}>
-                        <ScrollingLink to={link.to}>{link.text}</ScrollingLink>
-                      </Li>
-                    ))}
-                  </Ul>
-                </Links>
-              ) : (
-                ''
-              )}
-
-              {supportingText}
-
-              <Dots />
-            </Col>
-          </Row>
+          <Dots />
         </Grid>
       </HeaderSection>
       <CookiesNotification />

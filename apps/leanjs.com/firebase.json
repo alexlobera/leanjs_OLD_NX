@@ -8,11 +8,6 @@
         "type": 301
       },
       {
-        "source": "/case-studies{,/}",
-        "destination": "/",
-        "type": 301
-      },
-      {
         "source": "/team{,/}",
         "destination": "/",
         "type": 301

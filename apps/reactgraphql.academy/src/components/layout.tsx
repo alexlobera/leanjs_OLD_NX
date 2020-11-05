@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import raven from 'raven-js';
 import { useStaticQuery, graphql } from 'gatsby';
+import { AcceptCookiesBanner } from '@leanjs/ui-academy';
 
 import { createTrainingPath, formatMeetup } from './training/dataUtils';
 
@@ -13,7 +14,7 @@ import { SENTRY_DSN } from '../config/apps';
 import { TRAINING_TYPE_FIELD_ID, TRAINING_TECH_FIELD_ID } from '../config/data';
 import Menu from '../components/navigation/menu';
 import Footer from '../components/layout/Footer';
-import AcceptCookies from '../components/layout/AcceptCookies';
+// import AcceptCookies from '../components/layout/AcceptCookies';
 import favicon from './favicon.ico';
 import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-400.woff2';
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2';
@@ -158,6 +159,10 @@ const Layout = ({ children }) => {
     const { published: publishedTraining, ...restTraining } = training || {};
     const trainingId = restTraining.id;
 
+    if (!publishedTraining) {
+      return;
+    }
+
     const { slug } = publishedTraining;
     const remoteOrCity = isOnline ? 'remote' : city;
 
@@ -208,7 +213,10 @@ const Layout = ({ children }) => {
   const data = useStaticQuery(layoutQuery);
 
   const trainings = useMemo(
-    () => data.upmentoring.trainingInstances.edges.map(formatTraining),
+    () =>
+      data.upmentoring.trainingInstances.edges
+        .map(formatTraining)
+        .filter((f) => f),
     [data]
   );
   const meetups = data.upmentoring.events.edges.map(formatMeetup);
@@ -247,7 +255,7 @@ const Layout = ({ children }) => {
         })
       )}
       <Footer />
-      <AcceptCookies />
+      <AcceptCookiesBanner />
     </React.Fragment>
   );
 };

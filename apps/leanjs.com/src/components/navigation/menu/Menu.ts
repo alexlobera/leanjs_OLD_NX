@@ -1,9 +1,14 @@
 import { MUSTARD } from '../../../config/styles';
 
 export default [
+  //   {
+  //     to: '/#sprints',
+  //     text: 'Sprints',
+  //     onlyOn: null,
+  //   },
   {
-    to: '/#sprints',
-    text: 'Sprints',
+    to: '/case_studies',
+    text: 'Case Studies',
     onlyOn: null,
   },
   {

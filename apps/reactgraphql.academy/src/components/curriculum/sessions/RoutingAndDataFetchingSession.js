@@ -14,7 +14,7 @@ const RoutingAndDataFetchingSession = ({ title = titleSession }) => (
           <Li>Implementing a master-detail page</Li>
         </Ul>
       </Li>
-      <Li>Component lifecycle using effects</Li>
+      <Li>Component lifecycle using useEffect</Li>
       <Li>Data fetching</Li>
     </Ul>
   </Session>

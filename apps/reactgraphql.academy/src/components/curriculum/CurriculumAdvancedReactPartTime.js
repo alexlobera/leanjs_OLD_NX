@@ -5,31 +5,42 @@ import {
   TECH_REACT,
   TRAINING_TYPE_HALF_CURRICULUM,
 } from '../../config/data';
-import Curriculum, { renderSection } from './Curriculum';
-// import renderPartTimeSection from './renderPartTimeSession'
-import { sessionsSecondHalf as sessionsSecondHalfBootcamp } from './CurriculumReactBootcamp/sessions';
+import Curriculum from './Curriculum';
+import renderPartTimeSection from './renderPartTimeSession';
 
-// import AdvancedReactPatternsSession from './sessions/AdvancedReactPatternsSession'
-// import AdvancedHooksAndPerfSession from './sessions/AdvancedHooksAndPerfSession'
-// import ReactGraphQLIntroSession from './sessions/ReactGraphQLIntroSession'
-// import TestingIntroSession from './sessions/TestingIntroSession'
-// import TestingInReactSession2 from './sessions/TestingInReactSession2'
-// import DesignSystemSession from './sessions/DesignSystemSession'
-// import StylingInReactSession from './sessions/StylingInReactSession'
+import StylingInReactSession from './sessions/StylingInReactSession';
+import TestingIntroSession from './sessions/TestingIntroSession';
+import TestingInReactSession2 from './sessions/TestingInReactSession2';
+import AdvancedReactPatternsSession from './sessions/AdvancedReactPatternsSession';
+import AdvancedHooksAndPerfSession from './sessions/AdvancedHooksAndPerfSession';
+import DesignSystemSession from './sessions/DesignSystemSession';
 
-export const defaultSessionsFirstHalf = sessionsSecondHalfBootcamp;
-// export const defaultSessionsFirstHalf = [
-//   { Comp: AdvancedReactPatternsSession, group: 1 },
-//   { Comp: AdvancedHooksAndPerfSession, group: 1 },
-//   { Comp: TestingIntroSession, group: 2 },
-//   { Comp: ReactGraphQLIntroSession, group: 2 },
-// ]
-export const defaultSessionsSecondHalf = [];
-// export const defaultSessionsSecondHalf = [
-//   { Comp: TestingInReactSession2, group: 2 },
-//   { Comp: StylingInReactSession, group: 3 },
-//   { Comp: DesignSystemSession, group: 3 },
-// ]
+export const defaultSessionsFirstHalf = [
+  {
+    title: 'Functional Programming and advanced patterns',
+    Comp: AdvancedReactPatternsSession,
+  },
+  {
+    title: 'Advanced Hooks and peformance',
+    Comp: AdvancedHooksAndPerfSession,
+  },
+  {
+    title: 'Testing in JavaScript',
+    Comp: TestingIntroSession,
+  },
+  {
+    title: 'Real-World Testing in React',
+    Comp: TestingInReactSession2,
+  },
+  {
+    title: 'CSS-in-JS and theming',
+    Comp: StylingInReactSession,
+  },
+  {
+    title: 'Design Systems in React',
+    Comp: DesignSystemSession,
+  },
+];
 
 const trainingInstanceTypeName = PART_TIME;
 const tech = TECH_REACT;
@@ -40,12 +51,9 @@ const CurriculumAdvancedReactPartTime = ({
   toggleNavigateTo = `/react/curriculum?tab=${trainingId}${trainingInstanceTypeName}`,
   training,
   section = {},
-  //   sessionsFirstHalf = defaultSessionsFirstHalf,
-  //   sessionsSecondHalf = defaultSessionsSecondHalf,
+  sessionsFirstHalf = defaultSessionsFirstHalf,
   ...rest
 }) => {
-  // const initialIndex = 0
-
   const sectionProps = {
     ...section,
     toggleNavigateTo,
@@ -54,15 +62,12 @@ const CurriculumAdvancedReactPartTime = ({
     trainingType,
     trainingId,
   };
-  //   const renderSectionWithProps = renderPartTimeSection({
-  //     sectionProps,
-  //     training,
-  //   })
-  const renderSectionArgs = {
-    training,
+
+  const renderSectionWithProps = renderPartTimeSection({
     sectionProps,
-    titlePrefix: 'Advanced React Day',
-  };
+    training,
+    hours: 4,
+  });
 
   return (
     <Curriculum
@@ -73,9 +78,7 @@ const CurriculumAdvancedReactPartTime = ({
       trainingId={trainingId}
       curriculumTo={toggleNavigateTo}
       {...rest}
-      firstHalf={sessionsSecondHalfBootcamp.map(
-        renderSection(renderSectionArgs)
-      )}
+      firstHalf={sessionsFirstHalf.map(renderSectionWithProps(0))}
     />
   );
 };

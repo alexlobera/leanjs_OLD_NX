@@ -45,7 +45,7 @@ function LoginPage({ navigate, location }) {
 
         <Card sx={{ maxWidth: '500px', mt: 7 }}>
           <H1 sx={{ textAlign: 'center' }}>Login</H1>
-          <H2 sx={{ textAlign: 'center' }}>No sign up requied!</H2>
+          <H2 sx={{ textAlign: 'center' }}>No sign up required!</H2>
           <Form
             onSubmit={async ({ email, signUpNewsletter }: any) => {
               const [islreadyContact, hasNotBoughtCourse] = await Promise.all([

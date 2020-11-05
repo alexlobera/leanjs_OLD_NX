@@ -173,7 +173,6 @@ class PaymentSection extends React.Component {
         ticketsLeft !== null &&
         parseInt(ticketsLeft) <= 0
       );
-      price = item.standardPrice;
 
       const dataItem =
         data && data.trainingInstance
@@ -181,6 +180,8 @@ class PaymentSection extends React.Component {
           : data && data.event
           ? data.event
           : {};
+
+      price = dataItem?.published?.standardPrice;
 
       const { discountPrice } = dataItem;
       currency = item.currency || 'gbp';
@@ -219,34 +220,6 @@ class PaymentSection extends React.Component {
             Prices
             <a to="#pricing" name="pricing" />
           </H2>
-          {/* <H2>
-            {isNominalFee ? 'Nominal Fee' : 'Prices'}{' '}
-            <a to="#pricing" name="pricing" />
-          </H2>
-          {isNominalFee && (
-            <React.Fragment>
-              <P>
-                <strong>Why do we charge a nominal fee?</strong>
-              </P>
-              <P>
-                We charge a nominal fee for community events in order to confirm
-                attendance to ensure we have an accurate RSVP list. Our meetups
-                are always over-subscribed so when people don't show it stops
-                somone else attending.
-              </P>
-              <P>
-                <strong>What do we do with the fee?</strong>
-              </P>
-              <P>
-                By paying for the nominal fee you're supporting minorities in
-                tech. You can read more about it in this{' '}
-                <Link to="/blog/join-our-meetups-and-support-minorities-in-tech#why_we_charge_a_nominal_fee">
-                  link
-                </Link>
-                .
-              </P>
-              <P>The payment confirmation email is your ticket.</P>
-            </React.Fragment> */}
           <Card variant="secondary">
             <H3>
               <strong>{notSoldOut ? title : 'Sold out!'}</strong>
@@ -326,6 +299,9 @@ PaymentSection.defaultProps = {
 export const QUERY_UPCOMING_TRAINING_VOUCHERS = `
 query instanceDiscountPrice($trainingInstanceId: ID!) {
     trainingInstance(id: $trainingInstanceId) {
+        published {
+            standardPrice
+        }
         discountPrice {
             currentPrice
             endsOn

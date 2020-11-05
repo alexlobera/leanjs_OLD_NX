@@ -1,16 +1,13 @@
 import React from 'react';
 import Section from './CurriculumSection';
 import { trainingDateTime, convertMinutesToHoursAndMinutes } from '../utils';
-import Tag from 'src/components/elements/Tag';
 
 const renderPartTimeSection = ({
   sectionProps = {},
   training,
   trainingId,
-} = {}) => (initialIndex) => (
-  { title, subTitle, Comp, comps, group },
-  index
-) => {
+  hours = 3,
+} = {}) => (initialIndex) => ({ title, subTitle, Comp, group }, index) => {
   let dayOffset = index + initialIndex;
   const sectionNum = index + initialIndex + 1;
 
@@ -46,13 +43,7 @@ const renderPartTimeSection = ({
         training ? (
           <React.Fragment>
             <br />
-            {comps && comps.length > 1 ? (
-              <React.Fragment>
-                <Tag>Full-day</Tag>
-              </React.Fragment>
-            ) : (
-              trainingDateTime({ dayOffset, training })
-            )}
+            {trainingDateTime({ dayOffset, training, endAfterXHours: hours })}
             {gmt && (
               <small>
                 {` `}
@@ -64,27 +55,13 @@ const renderPartTimeSection = ({
         ) : (
           <React.Fragment>
             <br />
-            {comps && comps.length > 1 ? (
-              <React.Fragment>
-                {' '}
-                <Tag>Full-day</Tag>
-                {` `}8-hour training
-              </React.Fragment>
-            ) : (
-              '3-hour training'
-            )}
+            {hours}-hour training
           </React.Fragment>
         )
       }
       {...sectionProps}
     >
-      {Comp ? (
-        <Comp title="" />
-      ) : (
-        comps &&
-        comps.length &&
-        comps.map((Comp, i) => <Comp key={`${title || subTitle}${i}`} />)
-      )}
+      <Comp title="" />
     </Section>
   );
 };

@@ -33,7 +33,7 @@ export const defaultSessionsFirstHalf = [
 
 export const defaultSessionsSecondHalf = [
   { title: 'Forms & Auth', Comp: FormsAndAuthSession, group: 3 },
-  { title: 'React Hooks', Comp: HooksSession, group: 3 },
+  { title: 'Hooks beyond the basics', Comp: HooksSession, group: 3 },
   { title: 'Redux', Comp: IntroReduxSession, group: 4 },
   {
     title: 'Fundamentals project and deployment to production',

@@ -180,13 +180,13 @@ workflows:
                 - master
           requires:
             - install
-      - e2e:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - install
+     # - e2e:
+     #     filters:
+     #       branches:
+     #        only:
+     #           - master
+     #     requires:
+     #       - install
       - deploy:
           filters:
             branches:
@@ -197,4 +197,4 @@ workflows:
             - lint
             - test
             - build
-            - e2e
+           # - e2e

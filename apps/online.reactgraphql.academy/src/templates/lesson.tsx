@@ -1,12 +1,15 @@
 import React, { FunctionComponent } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import StickyBox from 'react-sticky-box';
 import { PlayMedia } from '@leanjs/ui-icons';
 import { ThemeProvider } from '@leanjs/ui-core';
 import { useMagic } from '@leanjs/magic-link';
 import { useQuery, useClient } from '@leanjs/graphql-client';
 // import { OkaidiaRGA } from '@leanjs/ui-academy';
+import { useExpandCheckout } from '@leanjs/ui-academy';
 
+import { DARK_GREY } from '../config/theme';
+import ProgressBar from '../components/display/ProgressBar';
 import Tick from '../components/icons/Tick';
 import Markdown from '../components/display/Markdown';
 import Layout from '../components/layout/Layout';
@@ -36,7 +39,12 @@ function removeTrailingSlashes(url) {
 }
 
 const LESSON_QUERY = `
-  query videoLesson($videoId: ID!, $unitId: ID!) {
+  query videoLesson($videoId: ID!, $unitId: ID!, $trainingId: ID!) {
+    viewer {
+        purchasedTraining(trainingId: $trainingId) {
+          id
+        }
+    }
     video(id: $videoId) {
       published {
         transcript
@@ -45,14 +53,28 @@ const LESSON_QUERY = `
         url
       }
     }
-    trainingUnit(id: $unitId) {
-      published {
-        videos {
+    trainingById(id: $trainingId) {
+        units {
           id
-          viewer {
-            completedAt
+          published {
+            videos {
+              id
+              viewer {
+                completedAt
+              }
+            }
           }
         }
+    }
+
+    trainingUnit(id: $unitId) {
+      published {
+        #videos {
+        #  id
+        #  viewer {
+        #    completedAt
+        #  }
+        #}
         customFieldsValues {
           values
           fieldId
@@ -101,6 +123,38 @@ function getNextPrevious(list, id) {
   );
 }
 
+function getCourseProgress(completedVideosInThisCourse) {
+  return (
+    completedVideosInThisCourse &&
+    Object.keys(completedVideosInThisCourse).reduce(
+      (acc, key) => {
+        acc.total = acc.total + completedVideosInThisCourse[key].total;
+        acc.completed =
+          acc.completed + completedVideosInThisCourse[key].completed.size;
+
+        return acc;
+      },
+      { total: 0, completed: 0 }
+    )
+  );
+}
+
+function getCompletedVideosInThisCourse(units) {
+  return units?.reduce((set, { published, id }) => {
+    set[id] = { completed: new Set(), total: 0 };
+    published?.videos?.reduce((innerSet, { viewer, id: videoId }) => {
+      if (viewer?.completedAt) {
+        innerSet.completed.add(videoId);
+      }
+      innerSet.total++;
+
+      return innerSet;
+    }, set[id]);
+
+    return set;
+  }, {});
+}
+
 const LessonPage: FunctionComponent<LessonPageProps> = ({
   data,
   pageContext,
@@ -109,31 +163,35 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
   const { trainingById: training, video, trainingUnit } = data.upmentoring;
   const trainingPath = `/${training.published.slug}-course/`;
   const fluidPoster = video?.asset?.posterImageFile?.childImageSharp?.fluid;
-  const { unitId, videoId } = pageContext;
+  const { unitId, videoId, trainingId } = pageContext;
   const { loggedIn, loading: loggingInUser } = useMagic();
   const skip = !loggedIn;
   const client = useClient();
 
-  const { loading, data: privateData, errors } = useQuery(LESSON_QUERY, {
-    variables: { videoId, unitId },
+  const { loading, data: clientRuntimeData, errors } = useQuery(LESSON_QUERY, {
+    variables: { videoId, unitId, trainingId },
     skip,
   });
+  const expandCheckout = useExpandCheckout();
 
-  const published = privateData?.trainingUnit?.published;
+  const published = clientRuntimeData?.trainingUnit?.published;
   const relatedResources = published?.customFieldsValues?.find(
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   )?.values[0];
   const zIndexVideoPlayer = 9998;
 
-  const completedVideoSet = React.useMemo(
-    () =>
-      published?.videos?.reduce((set, { viewer, id }) => {
-        if (viewer?.completedAt) set.add(id);
+  const viewerPurchasedTraining = !!clientRuntimeData?.viewer?.purchasedTraining
+    ?.id;
 
-        return set;
-      }, new Set()),
-    [published]
-  );
+  //   const completedVideoSet = React.useMemo(
+  //     () =>
+  //       published?.videos?.reduce((set, { viewer, id }) => {
+  //         if (viewer?.completedAt) set.add(id);
+
+  //         return set;
+  //       }, new Set()),
+  //     [published]
+  //   );
 
   async function completeVideo() {
     const { data: completedVideoData } = await client.mutate({
@@ -147,27 +205,49 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     if (completedAt) {
       const queryOptions = {
         query: LESSON_QUERY,
-        variables: { videoId, unitId },
+        variables: { videoId, unitId, trainingId },
       };
 
       const data = client.readQuery(queryOptions);
 
-      client.writeQuery({
+      const newData = {
         ...queryOptions,
         data: {
           ...data,
-          trainingUnit: {
-            ...data.trainingUnit,
-            published: {
-              ...data?.trainingUnit?.published,
-              videos: [
-                ...(data?.trainingUnit?.published?.videos || []),
-                { id: videoId, viewer: { completedAt } },
-              ],
-            },
+          trainingById: {
+            ...data?.trainingById,
+            units: (data?.trainingById?.units || []).reduce(
+              (accUnits, { ...unit }) => {
+                if (unit.id === unitId) {
+                  unit.published = {
+                    ...unit.published,
+                    videos: (unit?.published?.videos || []).reduce(
+                      (accVideos, { ...reducedVideo }) => {
+                        if (video.id === reducedVideo.id) {
+                          reducedVideo.viewer = {
+                            ...reducedVideo.viewer,
+                            completedAt,
+                          };
+                        }
+                        accVideos.push(reducedVideo);
+
+                        return accVideos;
+                      },
+                      []
+                    ),
+                  };
+                }
+
+                accUnits.push(unit);
+                return accUnits;
+              },
+              []
+            ),
           },
         },
-      });
+      };
+
+      client.writeQuery(newData);
     }
   }
 
@@ -180,6 +260,24 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     training.units,
     unitId
   );
+
+  const completedVideosInThisCourse = React.useMemo(
+    () =>
+      getCompletedVideosInThisCourse(clientRuntimeData?.trainingById?.units),
+    [clientRuntimeData?.trainingById?.units]
+  );
+
+  const courseProgress = React.useMemo(
+    () => getCourseProgress(completedVideosInThisCourse),
+    [completedVideosInThisCourse]
+  );
+
+  const completedVideosInThisModule = completedVideosInThisCourse
+    ? completedVideosInThisCourse[unitId]
+    : {};
+
+  const totalCompletedVideosInThisModule =
+    completedVideosInThisModule?.completed?.size || 0;
 
   return (
     <Layout
@@ -201,9 +299,42 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
         <GatsbyVideoPlayer
           fluidPoster={fluidPoster}
           onEnded={completeVideo}
-          url={privateData?.video?.asset?.url}
+          url={clientRuntimeData?.video?.asset?.url}
+          sx={{ boxShadow: 'box' }}
+          otherVideoElements={[
+            { otherVideo: nextVideo, caption: 'Next lesson:' },
+            // { otherVideo: prevVideo, caption: 'Previous lesson:' },
+          ]
+            .filter((v) => v.otherVideo)
+            .map(({ otherVideo, caption }) => (
+              <Flex
+                onClick={() => {
+                  navigate(
+                    getVideoPath({
+                      slug: otherVideo.published.slug,
+                      trainingPath,
+                    })
+                  );
+                }}
+                sx={{
+                  alignItems: 'stretch',
+                }}
+              >
+                <Box sx={{ flex: 2 }}>
+                  <H4>{caption}</H4>
+                  <H3>{otherVideo.published.title}</H3>
+                </Box>
+                <Box
+                  sx={{
+                    flex: 1,
+                    backgroundPosition: 'center',
+                    backgroundImage: `url(${otherVideo.asset?.posterImageFile?.childImageSharp?.fixed?.src})`,
+                  }}
+                />
+              </Flex>
+            ))}
           overlay={
-            !privateData?.video?.asset?.url ? (
+            !clientRuntimeData?.video?.asset?.url ? (
               <Box
                 sx={{
                   position: 'absolute',
@@ -232,50 +363,71 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                       </>
                     ) : (
                       <>
-                        <H3
+                        <Box
                           sx={{
-                            ...textBackgroundProps,
-                            padding: 2,
-                            lineHeight: 1.85,
+                            color: 'white',
+                            bg: 'inverseBackground',
+                            display: 'block',
+                            fontSize: 4,
+                            lineHeight: 1.4,
+                            p: 4,
+                            textAlign: 'center',
                           }}
                         >
                           {pageContext.isPublicVideo && !loggedIn ? (
                             <>
-                              <Link
-                                to="/login"
-                                state={{ referrer: location.pathname }}
-                              >
-                                Log in
-                              </Link>{' '}
+                              This video is FREE. You need to log in to watch
+                              the video
+                              <P>
+                                <LinkButton
+                                  to="/login"
+                                  className="login-to-watch"
+                                  state={{ referrer: location.pathname }}
+                                  sx={{ color: `${DARK_GREY} !important` }}
+                                >
+                                  Watch video
+                                </LinkButton>
+                              </P>
+                            </>
+                          ) : !pageContext.isPublicVideo && !loggedIn ? (
+                            <>
+                              This lesson is not free. Buy this course or log in
                               to watch this video
+                              <P>
+                                <LinkButton
+                                  to="/login"
+                                  state={{ referrer: location.pathname }}
+                                  sx={{ color: `${DARK_GREY} !important` }}
+                                >
+                                  Log in
+                                </LinkButton>
+
+                                <LinkButton
+                                  sx={{ ml: 4 }}
+                                  to={`${trainingPath}#pricing`}
+                                  onClick={expandCheckout}
+                                  variant="primary"
+                                >
+                                  Buy course
+                                </LinkButton>
+                              </P>
                             </>
                           ) : (
                             <>
-                              <Link to={`${trainingPath}#pricing`}>
-                                Buy this course
-                              </Link>{' '}
-                              to watch this video
+                              This lesson is not free. You need to buy this
+                              course to watch this video.
+                              <P>
+                                <LinkButton
+                                  to={`${trainingPath}#pricing`}
+                                  onClick={expandCheckout}
+                                  variant="primary"
+                                >
+                                  Buy course
+                                </LinkButton>
+                              </P>
                             </>
                           )}
-                        </H3>
-                        <P sx={{ textAlign: 'center', mt: 6 }}>
-                          {pageContext.isPublicVideo && !loggedIn ? (
-                            <LinkButton
-                              variant="primary"
-                              to="/login"
-                              state={{ referrer: location.pathname }}
-                            >
-                              Watch now
-                            </LinkButton>
-                          ) : (
-                            <LinkButton
-                              variant="primary"
-                              to={`${trainingPath}#pricing`}
-                            >
-                              Buy course
-                            </LinkButton>
-                          )}
-                        </P>
+                        </Box>
                       </>
                     )}
                   </Box>
@@ -287,26 +439,26 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
         <Flex sx={{ pt: 2 }}>
           <Box sx={{ flex: 1 }}>
             {prevVideo && (
-              <Link
+              <LinkButton
                 to={getVideoPath({
                   slug: prevVideo.published.slug,
                   trainingPath,
                 })}
               >
                 Previous lesson
-              </Link>
+              </LinkButton>
             )}
           </Box>
           <div>
             {nextVideo && (
-              <Link
+              <LinkButton
                 to={getVideoPath({
                   slug: nextVideo.published.slug,
                   trainingPath,
                 })}
               >
                 Next lesson
-              </Link>
+              </LinkButton>
             )}
           </div>
         </Flex>
@@ -320,16 +472,35 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               <Markdown>{relatedResources}</Markdown>
             ) : loading || loggingInUser ? (
               <P>Loading data...</P>
-            ) : !relatedResources && !loggedIn ? (
+            ) : !loggedIn ? (
               <>
                 <P>
-                  <Link to={`${trainingPath}#pricing`}>
-                    Purchase this course
+                  Related resources are only available for ticket holders. Buy
+                  this course or{' '}
+                  <Link to="/login" state={{ referrer: location.pathname }}>
+                    log in
                   </Link>{' '}
-                  to access its related resources.
+                  if you already did.
                 </P>
                 <P sx={{ textAlign: 'center' }}>
-                  <LinkButton to={`${trainingPath}#pricing`} variant="primary">
+                  <LinkButton
+                    onClick={expandCheckout}
+                    to={`${trainingPath}#pricing`}
+                    variant="primary"
+                  >
+                    Buy course
+                  </LinkButton>
+                </P>
+              </>
+            ) : !relatedResources && loggedIn && !viewerPurchasedTraining ? (
+              <>
+                <P>Related resources are only available for ticket holders.</P>
+                <P sx={{ textAlign: 'center' }}>
+                  <LinkButton
+                    onClick={expandCheckout}
+                    to={`${trainingPath}#pricing`}
+                    variant="primary"
+                  >
                     Buy course
                   </LinkButton>
                 </P>
@@ -338,8 +509,10 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               <P>There are no related resources</P>
             )}
             <H3>Transcript</H3>
-            {privateData?.video?.published?.transcript ? (
-              <Markdown>{privateData.video.published.transcript}</Markdown>
+            {clientRuntimeData?.video?.published?.transcript ? (
+              <Markdown>
+                {clientRuntimeData.video.published.transcript}
+              </Markdown>
             ) : (
               <Box sx={{ position: 'relative' }}>
                 <Markdown>{pageContext.transcript}</Markdown>
@@ -363,9 +536,17 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
               <H3 sx={{ mt: 2 }}>Module: {trainingUnit.published.title}</H3>
               <H4>Lessons in this module</H4>
               <P>
-                Completed {completedVideoSet?.size || 0} out of{' '}
-                {trainingUnit.published.videos.length} lessons
+                Completed {totalCompletedVideosInThisModule} out of{' '}
+                {trainingUnit?.published?.videos?.length} lessons in this module
               </P>
+
+              <ProgressBar
+                progress={
+                  (100 * totalCompletedVideosInThisModule) /
+                  trainingUnit?.published?.videos?.length
+                }
+              />
+
               <Ul variant="unstyled" sx={{ pl: 0 }}>
                 {trainingUnit.published.videos.map(
                   ({ published: { title, slug }, id }) => {
@@ -381,7 +562,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                         }}
                       >
                         <Box sx={{ minWidth: '35px', display: 'inline-block' }}>
-                          {completedVideoSet?.has(id) ? (
+                          {completedVideosInThisModule.completed?.has(id) ? (
                             <Tick width={25} sx={{ mb: '-5px' }} />
                           ) : (
                             <Icon comp={PlayMedia} color="#d8d8d8" />
@@ -402,7 +583,20 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                 )}
               </Ul>
               <Box as="hr" sx={{ my: 5 }} />
-              <Flex sx={{ pt: 2 }}>
+              {courseProgress && (
+                <>
+                  <P>
+                    Completed {courseProgress.completed} out of{' '}
+                    {courseProgress.total} lessons in this course
+                  </P>
+                  <ProgressBar
+                    progress={
+                      (100 * courseProgress.completed) / courseProgress.total
+                    }
+                  />
+                </>
+              )}
+              <Flex sx={{ pt: 6 }}>
                 <Box sx={{ flex: 1 }}>
                   {prevUnit?.published?.videos?.length ? (
                     <Link
@@ -464,6 +658,16 @@ export const query = graphql`
             published {
               title
               slug
+            }
+            asset {
+              posterImageUrl
+              posterImageFile {
+                childImageSharp {
+                  fixed(width: 400) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
             }
           }
         }

@@ -560,7 +560,7 @@ const Header = ({
                                 : dayToPlural(daysOfTheWeek[0])}
                             </Li>
                           ) : null}
-                          {trainingDays && trainingDays < 32 ? (
+                          {/* {trainingDays && trainingDays < 32 ? (
                             <Li>
                               <strong>Timings</strong>:{' '}
                               {`${
@@ -583,7 +583,7 @@ const Header = ({
                               {training.isOnline &&
                                 ` GMT${utcHours}:${utcMinutes}`}
                             </Li>
-                          ) : null}
+                          ) : null} */}
                           {training.isOnline ? (
                             <>
                               <Li>

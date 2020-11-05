@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { AcceptCookiesBanner } from '@leanjs/ui-academy';
 
 import Footer from './Footer';
 import Navbar from '../navigation/Navbar';
@@ -64,14 +65,13 @@ const Layout: FunctionComponent<LayoutProps> = ({
         }
       >
         {breadcrumbPaths && (
-          <Breadcrumb sx={{ px: 4, py: 1 }} paths={breadcrumbPaths} />
+          <Breadcrumb sx={{ px: 4, py: 0 }} paths={breadcrumbPaths} />
         )}
       </Navbar>
       {children}
       <Footer />
 
-      {/*
-      <AcceptCookies /> */}
+      <AcceptCookiesBanner />
     </React.Fragment>
   );
 };
