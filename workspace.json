@@ -892,6 +892,55 @@
           }
         }
       }
+    },
+    "rformacion": {
+      "root": "apps/rformacion",
+      "sourceRoot": "apps/rformacion/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/gatsby:build",
+          "options": {
+            "outputPath": "apps/rformacion/public",
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/gatsby:server",
+          "options": {
+            "buildTarget": "rformacion:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "rformacion:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/rformacion/tsconfig.json",
+              "apps/rformacion/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/rformacion/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/rformacion/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

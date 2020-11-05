@@ -74,9 +74,13 @@ export const StyledBox = styled(
   }
 );
 
-export const Box = React.forwardRef(function <T extends As = 'div'>(
-  { box, as, ...rest }: BoxProps<T>,
-  ref
-) {
+// export const Box = React.forwardRef(function <T extends As = 'div'>(
+//   { box, as, ...rest }: BoxProps<T>,
+//   ref
+// ) {
+//   return <StyledBox ref={ref} {...rest} box={box || as} />;
+// }) as <T extends As = 'div'>(props: BoxProps<T>) => JSX.Element;
+
+export const Box = React.forwardRef(function ({ box, as, ...rest }, ref) {
   return <StyledBox ref={ref} {...rest} box={box || as} />;
 }) as <T extends As = 'div'>(props: BoxProps<T>) => JSX.Element;

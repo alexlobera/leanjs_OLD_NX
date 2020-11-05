@@ -193,8 +193,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx nx format --base HEAD",
-      "pre-push": "npx nx affected:test &  npx nx affected:lint"
+      "pre-commit": "npx nx format --base HEAD"
     }
   }
 }

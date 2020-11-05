@@ -27,7 +27,6 @@ const HeaderSection = styled('header')<SectionProps>`
   ${({ bgColors, bgColor }: any) => {
     const bgc =
       bgColors && bgColors.length ? bgColors : bgColor ? [bgColor] : [];
-
     return bgc.length
       ? `
     &:before {

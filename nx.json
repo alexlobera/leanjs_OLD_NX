@@ -91,6 +91,9 @@
     "upmentoring-e2e": {
       "tags": [],
       "implicitDependencies": ["upmentoring"]
+    },
+    "rformacion": {
+      "tags": []
     }
   }
 }

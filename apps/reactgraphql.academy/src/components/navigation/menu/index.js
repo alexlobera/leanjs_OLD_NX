@@ -10,7 +10,7 @@ import {
   DARK_BLUE_075,
   Z_INDEX_SMALL,
   Z_INDEX_TOP,
-} from '../../../config/styles';
+} from '../../../config/styles'; 
 
 export { DesktopMenu, PhoneMenu };
 
