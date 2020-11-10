@@ -61,10 +61,55 @@ async function createCoursePages(pathPrefix = '/', graphql, actions, reporter) {
   });
 }
 
+async function createBlogPostPages(
+  pathPrefix = '/',
+  graphql,
+  actions,
+  reporter
+) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    query {
+      allSanityPost {
+        nodes {
+          _rawBody(resolveReferences: { maxDepth: 5 })
+          slug {
+            current
+          }
+          id
+        }
+      }
+    }
+  `);
+
+  if (result.errors) throw result.errors;
+
+  const pageEdges = (result.data.allSanityPost || {}).nodes || [];
+  pageEdges.forEach(({ id, slug = {}, _rawBody }) => {
+    const path = [pathPrefix, slug.current, '/'].join('');
+    reporter.info(`Creating post page: ${path}`);
+    const sanityImageAssetIds = _rawBody.reduce(
+      (images, { _type, asset = {} }) => {
+        if (_type === 'image' && asset._id) {
+          return [...images, asset._id];
+        }
+        return images;
+      },
+      []
+    );
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/post.tsx'),
+      context: { id, sanityImageAssetIds },
+    });
+  });
+}
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createLandingPages('/', graphql, actions, reporter);
   await createCoursePages('/cursos/', graphql, actions, reporter);
-  // await createBlogPostPages("/blog", graphql, actions, reporter);
+  await createBlogPostPages('/blog/', graphql, actions, reporter);
 };
 
 exports.createResolvers = ({ createResolvers }) => {
@@ -111,6 +156,18 @@ exports.createResolvers = ({ createResolvers }) => {
 
           // TODO RANDOMIZE THIS AND THEN GET 3
           return nodes.slice(0, 3);
+        },
+      },
+    },
+    SanityPostSection: {
+      posts: {
+        type: ['SanityPost'],
+        resolve(source, _, context) {
+          const nodes = context.nodeModel.getAllNodes({
+            type: `SanityPost`,
+          });
+
+          return source.limit > 0 ? nodes.slice(0, source.limit) : nodes;
         },
       },
     },

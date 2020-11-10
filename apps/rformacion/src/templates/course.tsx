@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-// import { Grid, Container, Section, Flex } from '../components/layout';
 import {
   Form,
   Field,

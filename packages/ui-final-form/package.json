@@ -1,0 +1,16 @@
+{
+  "name": "@leanjs/ui-final-form",
+  "version": "0.0.1-alfa.0",
+  "author": "LeanJS <hello@leanjs.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leanjs/leanjs/tree/master/packages/ui-final-form"
+  },
+  "peerDependencies": {
+    "react": "^16.8",
+    "react-final-form": "^6.5.1",
+    "final-form": "^4.20.1",
+    "@leanjs/ui-core": "*"
+  }
+}

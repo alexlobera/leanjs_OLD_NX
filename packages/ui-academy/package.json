@@ -1,0 +1,15 @@
+{
+  "name": "@leanjs/ui-academy",
+  "version": "0.0.1-alfa.0",
+  "author": "LeanJS <hello@leanjs.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leanjs/leanjs/tree/master/packages/ui-academy"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "styled-components": "*"
+  }
+}

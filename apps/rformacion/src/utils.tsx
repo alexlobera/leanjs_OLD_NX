@@ -9,7 +9,7 @@ export function getBlockContent(blocks) {
   return <BlockContent blocks={blocks} serializers={serializers} />;
 }
 
-const serializers = {
+export const serializers = {
   marks: {
     // link: ({ mark: { href }, children }) => (
     //   <BlogPostLink to={href} children={children} />
@@ -56,17 +56,7 @@ const serializers = {
           ) : null;
       }
     },
-
-    // youtube: ({ node }) => (
-    //   <Video
-    //     sx={{ mb: 3, mt: 3 }}
-    //     time={node.startSecond}
-    //     youtubeId={node.videoId}
-    //   />
-    // ),
     span: ({ node }) => <Span children={node.children} />,
-
-    //image: (props) => <Img src={bodyImagePublicURLs[props.node.asset.id]} />,
   },
 };
 

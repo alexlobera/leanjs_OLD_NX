@@ -1,11 +1,15 @@
 {
   "name": "@leanjs/ui-core",
-  "version": "0.0.1-alfa.0",
+  "version": "0.0.1-alfa.3",
   "author": "LeanJS <hello@leanjs.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/leanjsorg/leanjs"
+    "url": "https://github.com/leanjs/leanjs/tree/master/packages/ui-core"
+  },
+  "dependencies": {
+    "@theme-ui/css": "~0.3.1",
+    "deepmerge": "~4.2.2"
   },
   "peerDependencies": {
     "react": "*",

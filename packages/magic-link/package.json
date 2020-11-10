@@ -1,0 +1,16 @@
+{
+  "name": "@leanjs/magic-link",
+  "version": "0.0.1-alfa.0",
+  "author": "LeanJS <hello@leanjs.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leanjs/leanjs/tree/master/packages/magic-link"
+  },
+  "dependencies": {
+    "async-sema": "^3.1.0"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}

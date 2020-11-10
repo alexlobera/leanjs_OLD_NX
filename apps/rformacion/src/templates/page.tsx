@@ -23,9 +23,9 @@ export const query = graphql`
       subtitle
       headerImage {
         asset {
-          localFile(width: 750) {
+          localFile(width: 1200) {
             childImageSharp {
-              fixed {
+              fixed(width: 1200) {
                 ...GatsbyImageSharpFixed
               }
             }
@@ -33,6 +33,27 @@ export const query = graphql`
         }
       }
       content {
+        ... on SanityPostSection {
+          title
+          posts {
+            title
+            slug {
+              current
+            }
+            excerpt
+            mainImage {
+              asset {
+                localFile(width: 750) {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
         ... on SanityPartnerSection {
           title
           partners {
@@ -182,7 +203,7 @@ const Page = (props) => {
 
   const elementContent = (content || []).map(({ __typename, ...c }) => {
     let el = null;
-    console.log('aaaa2222', headerImage?.asset?.localFile?.publicURL);
+    console.log('aaaa2222', headerImage?.asset?.localFile);
     switch (__typename) {
       case 'SanityContactSection':
         el = (
@@ -227,8 +248,8 @@ const Page = (props) => {
       case 'SanityPartnerSection':
         el = <PartnerSection partners={c.partners} title={c.title} />;
         break;
-      case 'postSection':
-        // el = <PostSection key={_key} {...c} />;
+      case 'SanityPostSection':
+        el = <PostSection posts={c.posts} title={c.title} />;
         break;
       case 'SanityTestimonialSection':
         el = <TestimonialSection testimonials={c.testimonials} />;

@@ -16,7 +16,7 @@ interface Props {
 
 function CourseCard({ sx, image, description, title, slug, available }: Props) {
   return (
-    <Card variant="primary" sx={{ pb: 2, ...sx }}>
+    <Card variant="primary" sx={{ pb: 2, mb: 7, ...sx }}>
       <Link to={slug}>
         <Image
           fluid={image?.asset?.localFile?.childImageSharp?.fluid}

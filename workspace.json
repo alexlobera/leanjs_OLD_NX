@@ -144,6 +144,25 @@
       "projectType": "library",
       "schematics": {},
       "architect": {
+        "build": {
+          "builder": "@nrwl/web:package",
+          "options": {
+            "outputPath": "dist/packages/ui-final-form",
+            "tsConfig": "packages/ui-final-form/tsconfig.lib.json",
+            "project": "packages/ui-final-form/package.json",
+            "entryFile": "packages/ui-final-form/src/index.ts",
+            "external": ["react", "react-dom", "react-is", "styled-components"],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:lint",
           "options": {
@@ -624,6 +643,25 @@
       "projectType": "library",
       "schematics": {},
       "architect": {
+        "build": {
+          "builder": "@nrwl/web:package",
+          "options": {
+            "outputPath": "dist/packages/ui-icons",
+            "tsConfig": "packages/ui-icons/tsconfig.lib.json",
+            "project": "packages/ui-icons/package.json",
+            "entryFile": "packages/ui-icons/src/index.ts",
+            "external": ["react", "react-dom", "react-is", "styled-components"],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:lint",
           "options": {
@@ -651,6 +689,25 @@
       "projectType": "library",
       "schematics": {},
       "architect": {
+        "build": {
+          "builder": "@nrwl/web:package",
+          "options": {
+            "outputPath": "dist/packages/ui-link",
+            "tsConfig": "packages/ui-link/tsconfig.lib.json",
+            "project": "packages/ui-link/package.json",
+            "entryFile": "packages/ui-link/src/index.ts",
+            "external": ["react", "react-dom", "react-is", "styled-components"],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:lint",
           "options": {
@@ -678,6 +735,25 @@
       "projectType": "library",
       "schematics": {},
       "architect": {
+        "build": {
+          "builder": "@nrwl/web:package",
+          "options": {
+            "outputPath": "dist/packages/ui-academy",
+            "tsConfig": "packages/ui-academy/tsconfig.lib.json",
+            "project": "packages/ui-academy/package.json",
+            "entryFile": "packages/ui-academy/src/index.ts",
+            "external": ["react", "react-dom", "react-is", "styled-components"],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:lint",
           "options": {
@@ -705,6 +781,25 @@
       "projectType": "library",
       "schematics": {},
       "architect": {
+        "build": {
+          "builder": "@nrwl/web:package",
+          "options": {
+            "outputPath": "dist/packages/magic-link",
+            "tsConfig": "packages/magic-link/tsconfig.lib.json",
+            "project": "packages/magic-link/package.json",
+            "entryFile": "packages/magic-link/src/index.ts",
+            "external": ["react", "react-dom", "react-is", "styled-components"],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:lint",
           "options": {
